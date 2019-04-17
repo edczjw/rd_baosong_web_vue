@@ -7,7 +7,9 @@
         <me-nu></me-nu>
         <div class="main-ten" :class="{'container-width':this.$store.state.isLeftHiden}">
         <!-- 路由页面 -->
+        <div v-if="userName=='admin'? true:false">
         <router-view></router-view>
+        </div>
       </div>
   </div>
 </template>
@@ -29,23 +31,21 @@ export default {
   },
   methods: {
     openCenter() {
-      if(this.userName!=null){
-        this.$message({
-          dangerouslyUseHTMLString: true,//表示提示的是html片段
-          message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-jiqiren"></use> </svg> '+'欢迎  '
-          +this.userName+ '  登陆民盛报送系统！',
-          type: 'success',
-          center: true
-        });
-      }
-      else{
-        this.$message({
-          dangerouslyUseHTMLString: true,
-          message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> '+'请先登录！',
-          type: 'warning',
-          center: true
-        });
-      }
+          if(this.userName=="admin"){  
+            this.$message({
+              dangerouslyUseHTMLString: true,//表示提示的是html片段
+              message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-jiqiren"></use> </svg> '+'欢迎登陆您民盛报送系统！',
+              type: 'success',
+              center: true
+            });
+          }else{
+              this.$message({
+                  dangerouslyUseHTMLString: true,
+                  message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> '+'请先登录！',
+                  type: 'warning',
+                  center: true
+                });
+          }
   },
 
     //获取用户名，vue 本地存储数据 sessionStorage

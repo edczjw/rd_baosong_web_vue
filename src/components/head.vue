@@ -98,7 +98,8 @@ export default {
       this.$confirm('确认退出吗?', '提示', {
         //type: 'warning'
       }).then(() => {
-        sessionStorage.removeItem('user');
+        // sessionStorage.removeItem('user');
+        sessionStorage.setItem("name", 'str');//本地存储用户名
         this.$router.push('/login');
       }).catch(() => {
 

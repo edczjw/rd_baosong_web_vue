@@ -198,6 +198,7 @@ export default {
       }
     },
     mounted() {
+
         this.getlist();//获取用户列表
 
         this.getchannellist();//获取搜索框渠道接口列表
@@ -205,6 +206,7 @@ export default {
         this.getregionlist();//获取状态列表
     },
     methods: {
+
       // 点击用户名跳转至详情页
       gouserdetail(contractNumber,channelCode) {
         //判断跳转
