@@ -1,28 +1,27 @@
 <template>
-<div>
-  <div class='poster'></div>
-<div class='central badge' id='logmodule'>
-  <div class='start'>
-    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/138405/buffalo.png' width='100'>
-    <div class='back' style="color:red;"  onclick='document.getElementById("logmodule").className = "central badge"'>返回登录界面</div>
+<div class="wapper">
+  <form>
+  <h1>民盛报送平台</h1>
+  <div class="inset">
+  <p>
+    <label for="email">账号</label>
+    <input type="text" name="email" id="email" v-model.trim="form.account" >
+  </p>
+  <p>
+    <label for="password">密码</label>
+    <input type="password" name="password" id="password" v-model.trim="form.pwd">
+  </p>
+  <p>
+    <!-- <input type="checkbox" name="remember" id="remember"> -->
+    <!-- <label for="remember">Remember me for 14 days</label> -->
+  </p>
   </div>
-  <div class='ribbon' style="color:red;"  onclick='document.getElementById("logmodule").className = "central badge signup"'>修改密码? 点这里.</div>
-  <h1>WELCOME</h1>
-  <h2>
-    民盛 报送 平台
-    <input id='regname' placeholder='账号' type='text' v-model.trim="setform.account">
-    <input id='regpass' placeholder='原密码' type='password' v-model.trim="setform.oldPwd">
-    <input id='regpass2' placeholder='新密码' type='password' v-model.trim="setform.newPwd">
-    <input id='regemail' placeholder='确认密码' type='password' v-model.trim="setform.checkPwd">
-    <!-- <a href=''>Terms and Conditions</a> -->
-  </h2>
-  <div class='end'>
-    <input id='username' placeholder='账号' type='text' v-model.trim="form.account" >
-    <input id='password' placeholder='密码' type='password' v-model.trim="form.pwd">
-    <div class='roundel login' style="cursor: pointer;" @click="login()">登录</div>
-    <div class='roundel register' style="cursor: pointer;" @click="changepwd()">确认</div>
-  </div>
-</div>
+  <p class="p-container">
+    <span>Forgot password ?</span>
+    <input type="submit" name="go" id="go" value="登录" @click="login()">
+  </p>
+</form>
+
 </div>
 </template>
 <script>
@@ -30,13 +29,6 @@ import Router from "vue-router";
 export default {
   data() {
     return {
-      //修改密码
-      setform:{
-        account:"",//账号
-        oldPwd:"",//旧密码
-        newPwd:"",//新密码
-        checkPwd:"",//确认密码
-      },
 
     //登录
       form: {
@@ -129,179 +121,149 @@ export default {
 </script>
 
 <style scoped>
-input{
-  height: 26px;
+* {
+  box-sizing: border-box;
 }
 
-body {
+.wapper {
+  height: 100%;
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  color: white;
+  font-size: 12px;
+  background: #333;
   overflow: hidden;
 }
 
-.poster {
-  background: url("https://source.unsplash.com/mWRR1xj95hg/1600x900");
-  display: block;
-  width: 100vw;
-  height: 100vh;
-  background-position: center center;
-  background-size: cover;
-  box-shadow: inset 0 0 20vw #000;
-  -webkit-filter: sepia(0.4) brightness(0.7);
+form {
+  background: #111;
+  width: 300px;
+  margin: 30px auto;
+  border-radius: 0.4em;
+  border: 1px solid #191919;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
-.central {
+form:after {
+  content: "";
   display: block;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms;
-}
-
-.badge {
-  width: 500px;
-  max-width: 100vw;
-  text-align: center;
-  font-family: cabin;
-  color: white;
-}
-.badge .start {
-  display: inline-block;
-  width: 500px;
-  height: 150px;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/138405/diamondline.png");
-  background-position: top center;
-  margin-bottom: -6px;
-  text-align: center;
-  transition: height 300ms;
-}
-.badge .start img {
-  display: inline-block;
-  margin-top: 50px;
+  height: 1px;
   width: 100px;
-  transition: width 300ms, margin-top 300ms;
-}
-.badge .start .back {
-  display: none;
-}
-.badge .end {
-  display: inline-block;
-  width: 500px;
-  height: 150px;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/138405/diamondline.png");
-  background-position: bottom center;
-  margin-top: -3px;
-  text-align: center;
-  transition: height 300ms;
-}
-.badge h1 {
-  display: inine-block;
-  width: 520px;
-  box-sizing: border-box;
-  color: white;
-  height: 2em;
-  line-height: 1.8em;
-  padding: 0;
-  margin: 0;
-  border-radius: 10%;
-  margin-left: -10px;
-  border: 3px solid white;
-  font-family: montserrat;
-}
-.badge h2 {
-  font-weight: 500;
-  font-size: 2em;
-  padding: 0;
-  margin: 0;
-  width: 494px;
-  margin-top: -2px;
-  border-left: 3px solid white;
-  border-right: 3px solid white;
-  max-height: 40px;
-  overflow: hidden;
-  transition: max-height 400ms;
-}
-.badge h2 input {
-  font-size: 17px;
-  margin: 0;
-}
-.badge h2 a {
-  display: inline-block;
-  width: 300px;
-  font-size: 16px;
-  height: 30px;
-  line-height: 30px;
-  color: white;
-  text-decoration: none;
-}
-.badge input {
-  text-align: center;
-  display: inline-block;
-  width: 300px;
-  margin: 6px;
-  color: black;
-  border: none;
-}
-.badge .roundel {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  line-height: 47px;
-  border: 3px solid white;
-  font-size: 13px;
-  background: linear-gradient(white 20%, transparent 20%, transparent 80%, white 80%);
-  margin: 8px 100px 0 100px;
-}
-.roundel:hover{
-  border: 3px solid rgb(143, 180, 143);
-}
-.badge .ribbon {
-  display: inline-block;
-  font-size: 16px;
-  height: 2em;
-  line-height: 2em;
-  width: 494px;
-  margin-bottom: -6px;
-  border-left: 3px solid white;
-  border-right: 3px solid white;
-  overflow: hidden;
-  cursor: pointer;
-}
-.badge:not(.signup) .roundel.register {
-  display: none;
+  left: 20%;
+  background: linear-gradient(to right, #111111, #444444, #b6b6b8, #444444, #111111);
+  top: 0;
 }
 
-.signup .start {
-  height: 70px;
-}
-.signup .start img {
-  width: 50px;
-  margin-top: 10px;
-}
-.signup .start .back {
+form:before {
+  content: "";
   display: block;
+  position: absolute;
+  width: 8px;
+  height: 5px;
+  border-radius: 50%;
+  left: 34%;
+  top: -7px;
+  box-shadow: 0 0 6px 4px #fff;
+}
+
+.inset {
+  padding: 20px;
+  border-top: 1px solid #19191a;
+}
+
+form h1 {
+  font-size: 18px;
+  text-shadow: 0 1px 0 black;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+form h1:after {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  pointer-events: none;
+  transform: rotate(70deg);
+  background: linear-gradient(50deg, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0));
+}
+
+label {
+  color: #666;
+  display: block;
+  padding-bottom: 9px;
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 8px 5px;
+  background: linear-gradient(#1f2124, #27292c);
+  border: 1px solid #222;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 0.3em;
+  margin-bottom: 20px;
+}
+
+label[for=remember] {
+  color: white;
+  display: inline-block;
+  padding-bottom: 0;
+  padding-top: 5px;
+}
+
+input[type=checkbox] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.p-container {
+  padding: 0 20px 20px 20px;
+}
+
+.p-container:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+
+.p-container span {
+  display: block;
+  float: left;
+  color: #0d93ff;
+  padding-top: 8px;
+}
+
+input[type=submit] {
+  padding: 5px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 10px 10px rgba(255, 255, 255, 0.1);
+  border-radius: 0.3em;
+  background: #0184ff;
+  color: white;
+  float: right;
+  font-weight: bold;
   cursor: pointer;
+  font-size: 13px;
 }
-.signup .ribbon {
-  display: none;
+
+input[type=submit]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -10px 10px rgba(255, 255, 255, 0.1);
 }
-.signup .end {
-  height: 70px;
-  margin-top: 0px;
-}
-.signup .end input {
-  height: 0;
-  margin: 0;
-  padding: 0;
-  display: none;
-}
-.signup h2 {
-  border-bottom: 2px solid white;
-  padding-bottom: 5px;
-  max-height: 100vh;
-}
-.signup .roundel.login {
-  display: none;
+
+input[type=text]:hover,
+input[type=password]:hover,
+label:hover ~ input[type=text],
+label:hover ~ input[type=password] {
+  background: #27292c;
 }
 
 </style>

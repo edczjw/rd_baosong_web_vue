@@ -98,7 +98,16 @@ export default new Router({
                 meta: {
                   auth: true
                 }
-              }
+              },
+              {
+                // 密码修改
+                  path: '/users/mimaxiugai',
+                  name: '密码修改',
+                  component: require('../views/users/mimaxiugai.vue').default,
+                  meta: {
+                    auth: true
+                  }
+                }
         ]
     }
   ]

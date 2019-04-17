@@ -28,6 +28,14 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fanhui2"></use>
       </svg>返回上一页</p>
+    
+    <!-- <p class='right' title="密码修改">
+      <router-link to="/users/mimaxiugai" class="roulink">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-mimazhongzhi"></use>
+      </svg>密码修改
+      </router-link>
+      </p> -->
       
   </div>
 </template>
@@ -124,7 +132,13 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+.roulink{
+  font-size: 12px;
+  color: #fff;
+}
+.roulink:hover{
+  color: rgba(223, 186, 20, .842);
+}
 .topBanner {
   line-height: 50px;
 
