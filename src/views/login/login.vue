@@ -1,7 +1,15 @@
 <template>
 <div class="wapper">
+  <p class="pl">
+    Welcome To
+    <span class="pspan">
+      民盛报送平台
+    </span>
+    &mdash; ** &mdash;
+  </p>
+
   <form>
-  <h1>民盛报送平台</h1>
+  <h1></h1>
   <div class="inset">
   <p>
     <label for="email">账号</label>
@@ -125,19 +133,70 @@ export default {
   box-sizing: border-box;
 }
 
+.pl {
+  text-transform: uppercase;
+  letter-spacing: .5em;
+  display: inline-block;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+.pl .pspan {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: .25em 0 .325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 .wapper {
+  text-align: center;
+  margin: 0;
+  font: 400 1em/1.5 "Neuton";
   height: 100%;
-  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-  color: white;
+  
+  color: rgba(255, 255, 255, 0.25);
   font-size: 12px;
-  background: #333;
+  background: #090d00;
   overflow: hidden;
 }
 
 form {
   background: #111;
-  width: 300px;
-  margin: 30px auto;
+  width: 400px;
+  margin: 220px auto;
   border-radius: 0.4em;
   border: 1px solid #191919;
   overflow: hidden;
@@ -149,8 +208,8 @@ form:after {
   content: "";
   display: block;
   position: absolute;
-  height: 1px;
-  width: 100px;
+  height: 3px;
+  width: 200px;
   left: 20%;
   background: linear-gradient(to right, #111111, #444444, #b6b6b8, #444444, #111111);
   top: 0;
@@ -160,8 +219,8 @@ form:before {
   content: "";
   display: block;
   position: absolute;
-  width: 8px;
-  height: 5px;
+  width: 12px;
+  height: 6px;
   border-radius: 50%;
   left: 34%;
   top: -7px;
@@ -169,7 +228,7 @@ form:before {
 }
 
 .inset {
-  padding: 20px;
+  padding: 40px;
   border-top: 1px solid #19191a;
 }
 

@@ -51,8 +51,8 @@ body {
 .box{
 height: 100%;
 margin-top: 2px;
-padding: 20px;
-background-color: rgba(134, 201, 245, 0.603);
+padding: 13px;
+background-color: rgba(62, 74, 100, 0.459);
 }
 .bigbox{
   height: 100%;

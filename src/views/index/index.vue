@@ -71,13 +71,13 @@ export default {
 //右边部分整个大页面
 .main-ten {
   margin-left: 200px;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 // 右半部分扩张
 .container-width {
   margin-left: 60px;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 
 // 整个页面

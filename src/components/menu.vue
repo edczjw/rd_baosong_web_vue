@@ -3,7 +3,7 @@
 <div class="side" :class="{'side-menu' : this.$store.state.isLeftHiden}">
    <el-row>
       <el-col>
-        <el-menu default-active="1" class="el-menu-vertical-demo" background-color="#313335" text-color="#fff" 
+        <el-menu default-active="1" class="el-menu-vertical-demo" background-color="#090d00" text-color="#fff" 
         :collapse="this.$store.state.isLeftHiden"
         active-text-color="#ffa04b">
           <el-submenu index="1">
@@ -86,13 +86,13 @@
   background-repeat: no-repeat;
   background-position: center; */
 
-  background-color: #313335;
+  background-color: #090d00;
 }
 
 .side-menu {
   width: 62px;
 
-  background-color: #313335;
+  background-color: #090d00;  
 }
 
 /* 修边 */
