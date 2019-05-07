@@ -10,7 +10,7 @@
     <p class='right'>
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-character"></use>
-      </svg>游客</p>
+      </svg>admin</p>
     <p class='right' @click="screenfull">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-quanping4"></use>

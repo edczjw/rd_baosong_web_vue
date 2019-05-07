@@ -138,9 +138,8 @@ export default {
           //成功
           response => {
             if (response.data.code == 0) {
-              _this.$alert(response.data.detail.result, "密码修改", {
+              _this.$alert(response.data.msg, "密码修改", {
                 confirmButtonText: "确定并返回主页",
-                message: response.data.msg,
                 type: "success",
                 callback: action => {
                   //确定后直接跳转到home
