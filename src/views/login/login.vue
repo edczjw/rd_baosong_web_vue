@@ -137,7 +137,7 @@ export default {
 
 /* Clip Background Image */
 
-  background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+  background: url('http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png') repeat-y;
   -webkit-background-clip: text;
           background-clip: text;
   text-shadow: 0 0 80px rgba(255, 255, 255, .5);
@@ -181,8 +181,7 @@ export default {
   text-align: center;
 
   color: rgba(255, 255, 255, .25);
-  background-image: url('../../assets/ff.jpg');
-  background-repeat: no-repeat;
+  background-color: black;
 }
 
 form {
