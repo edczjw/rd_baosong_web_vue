@@ -1,16 +1,17 @@
 <template>
-<!-- 样式在app.vue中 -->
+  <!-- 样式在app.vue中 -->
   <div class="wrapper-inner" id="app">
     <div class="top">
-        <head-banner></head-banner>
+      <head-banner></head-banner>
     </div>
-        <me-nu></me-nu>
-        <div class="main-ten" :class="{'container-width':this.$store.state.isLeftHiden}">
-        <!-- 路由页面 -->
-        <div v-if="userName=='admin'? true:false">
+    <me-nu></me-nu>
+    <div class="main-ten" :class="{'container-width':this.$store.state.isLeftHiden}">
+      <!-- 路由页面 -->
+      <!-- <div v-if="userName=='admin'? true:false">
         <router-view></router-view>
-        </div>
-      </div>
+      </div>-->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -21,38 +22,42 @@ import headBanner from "../../components/head.vue";
 export default {
   data() {
     return {
-      userName: "",
+      userName: ""
     };
   },
   mounted() {
-    this.getName();
+    // this.getName();
     //登陆成功提示
-    this.openCenter();
+    // this.openCenter();
   },
   methods: {
     openCenter() {
-          if(this.userName=="admin"){  
-            this.$message({
-              dangerouslyUseHTMLString: true,//表示提示的是html片段
-              message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-jiqiren"></use> </svg> '+'欢迎登陆您民盛报送系统！',
-              type: 'success',
-              center: true
-            });
-          }else{
-              this.$message({
-                  dangerouslyUseHTMLString: true,
-                  message: '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> '+'请先登录！',
-                  type: 'warning',
-                  center: true
-                });
-          }
-  },
+      if (this.userName == "admin") {
+        this.$message({
+          dangerouslyUseHTMLString: true, //表示提示的是html片段
+          message:
+            '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-jiqiren"></use> </svg> ' +
+            "欢迎登陆您民盛报送系统！",
+          type: "success",
+          center: true
+        });
+      } else {
+        this.$message({
+          dangerouslyUseHTMLString: true,
+          message:
+            '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+            "请先登录！",
+          type: "warning",
+          center: true
+        });
+      }
+    },
 
     //获取用户名，vue 本地存储数据 sessionStorage
     getName() {
       let userName = sessionStorage.getItem("name");
       this.userName = userName;
-    },
+    }
   },
   watch: {},
   components: {
@@ -87,14 +92,4 @@ export default {
 
   background: #fff;
 }
-
-
-
-
-
-
-
-
-
-
 </style>
