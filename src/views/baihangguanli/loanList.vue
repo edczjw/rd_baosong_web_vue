@@ -230,6 +230,7 @@ export default {
     },
     //初始化数据
     load(data) {
+      this.tableData = [];
       this.$axios({
         method: "post",
         url: this.$store.state.domain + "/loanRepay/findByPage",
@@ -239,10 +240,10 @@ export default {
           var res = response.data;
           if (res.code == 200) {
             res.data.list.forEach(data => {
-              data.ctime = this.formatDate(data.ctime);
+              data.realRepaymentDate = this.formatDate(data.realRepaymentDate);
               this.tableData.push(data);
             });
-            this.count = res.detail.total;
+            this.count = res.data.total;
             this.searchform.pageNum = res.data.pageNum;
             this.searchform.pageSize = res.data.pageSize;
           } else {
@@ -281,6 +282,7 @@ export default {
   }
 }
 .page-human {
+  padding: 25px 50px;
   .human-table {
     margin-top: 40px;
   }

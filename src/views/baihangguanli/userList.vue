@@ -43,8 +43,6 @@
               ></el-date-picker>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
           <el-col :span="8">
             <el-form-item label="至" prop="endTime">
               <el-date-picker
@@ -56,6 +54,8 @@
               ></el-date-picker>
             </el-form-item>
           </el-col>
+        </el-row>
+        <el-row>
           <el-col :span="8">
             <el-form-item>
               <el-button size="mini" type="primary" @click="submitForm()">搜索</el-button>
@@ -80,11 +80,7 @@
         <el-table-column prop="loanId" label="贷款编号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              @click="godetail(scope.row.id)"
-            >{{scope.row.name}}</el-button>
+            <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="pid" label="身份证号码" align="center"></el-table-column>
@@ -228,19 +224,20 @@ export default {
     },
     //初始化数据
     load(data) {
+      this.tableData = [];
       this.$axios({
         method: "post",
         url: this.$store.state.domain + "/loanAccount/findByPage",
         data: data
       }).then(
-          response => {
+        response => {
           var res = response.data;
           if (res.code == 200) {
             res.data.list.forEach(data => {
               data.issueDate = this.formatDate(data.issueDate);
               this.tableData.push(data);
             });
-            this.count = res.detail.total;
+            this.count = res.data.total;
             this.searchform.pageNum = res.data.pageNum;
             this.searchform.pageSize = res.data.pageSize;
           } else {
@@ -279,6 +276,7 @@ export default {
   }
 }
 .page-human {
+  padding: 25px 50px;
   .human-table {
     margin-top: 40px;
   }

@@ -80,11 +80,7 @@
         <el-table-column prop="product" label="贷款编号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">
-            <el-button
-              type="text"
-              size="small"
-              @click="godetail(scope.row.id)"
-            >{{scope.row.name}}</el-button>
+            <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="pid" label="身份证号码" align="center"></el-table-column>
@@ -214,7 +210,7 @@ export default {
               data.ctime = this.formatDate(data.ctime);
               this.tableData.push(data);
             });
-            this.count = res.detail.total;
+            this.count = res.data.total;
             this.searchform.pageNum = res.data.pageNum;
             this.searchform.pageSize = res.data.pageSize;
           } else {
@@ -253,6 +249,8 @@ export default {
   }
 }
 .page-human {
+  padding: 25px 50px;
+  // background: rgb(202, 201, 201);
   .human-table {
     margin-top: 40px;
   }

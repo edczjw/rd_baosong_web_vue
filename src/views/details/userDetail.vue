@@ -56,6 +56,11 @@
               <span v-if="data.loanPurpose==7">装修</span>
               <span v-if="data.loanPurpose==8">旅游</span>
               <span v-if="data.loanPurpose==9">农业生产</span>
+              <span v-if="data.loanPurpose==10">企业经营</span>
+              <span v-if="data.loanPurpose==11">综合用款</span>
+              <span v-if="data.loanPurpose==12">商场购物</span>
+              <span v-if="data.loanPurpose==13">日常消费</span>
+              <span v-if="data.loanPurpose==99">未知</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -162,8 +167,14 @@
           <el-col :span="4">
             <div class="left">报送响应信息</div>
           </el-col>
-          <el-col :span="4" style="border-right:1px solid #ccc;">
+          <el-col :span="4">
             <div class="right">{{data.msg}}</div>
+          </el-col>
+            <el-col :span="4">
+            <div class="left"></div>
+          </el-col>
+          <el-col :span="4" style="border-right:1px solid #ccc;">
+            <div class="right"></div>
           </el-col>
         </el-row>
       </el-card>
@@ -204,7 +215,7 @@ export default {
       this.$axios({
         method: "get",
         url: this.$store.state.domain + "/loanAccount/findDetailsById",
-        data: data
+        params: data
       }).then(
         response => {
           var res = response.data;

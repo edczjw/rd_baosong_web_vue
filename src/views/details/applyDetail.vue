@@ -27,7 +27,14 @@
             <div class="left">查询原因</div>
           </el-col>
           <el-col :span="4">
-            <div class="right">{{data.queryReason}}</div>
+            <div class="right">
+              <span v-if="data.queryReason==1">授信审批</span>
+              <span v-if="data.queryReason==2">贷中管理</span>
+              <span v-if="data.queryReason==3">贷后管理</span>
+              <span v-if="data.queryReason==4">个人查询</span>
+              <span v-if="data.queryReason==5">异议处理</span>
+              <span v-if="data.queryReason==6">担保查询</span>
+            </div>
           </el-col>
           <el-col :span="4">
             <div class="left">贷款担保类型</div>
@@ -56,6 +63,11 @@
               <span v-if="data.loanPurpose==7">装修</span>
               <span v-if="data.loanPurpose==8">旅游</span>
               <span v-if="data.loanPurpose==9">农业生产</span>
+              <span v-if="data.loanPurpose==10">企业经营</span>
+              <span v-if="data.loanPurpose==11">综合用款</span>
+              <span v-if="data.loanPurpose==12">商场购物</span>
+              <span v-if="data.loanPurpose==13">日常消费</span>
+              <span v-if="data.loanPurpose==99">未知</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -65,9 +77,9 @@
             <div class="right">
               <span v-if="data.customType==1">在校学生</span>
               <span v-if="data.customType==2">在职人员</span>
-              <span v-if="data.customType==1">自雇人员</span>
-              <span v-if="data.customType==1">其他人士</span>
-              <span v-if="data.customType==1">人群未知</span>
+              <span v-if="data.customType==2">自雇人员</span>
+              <span v-if="data.customType==3">其他人士</span>
+              <span v-if="data.customType==9">人群未知</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -119,7 +131,7 @@
           <el-col :span="4">
             <div class="left">更新时间</div>
           </el-col>
-          <el-col :span="4">
+          <el-col :span="4" style="border-right:1px solid #ccc;">
             <div class="right">{{data.utime | formatDate}}</div>
           </el-col>
         </el-row>
@@ -139,7 +151,7 @@ export default {
   },
   data() {
     return {
-      data: {},
+      data: {}
     };
   },
 
@@ -153,6 +165,7 @@ export default {
     var data = {
       id: this.$route.query.id
     };
+    console.log("data", data);
     this.load(data);
   },
 
@@ -161,7 +174,7 @@ export default {
       this.$axios({
         method: "get",
         url: this.$store.state.domain + "/loanApply/findDetailsById",
-        data: data
+        params: data
       }).then(
         response => {
           var res = response.data;

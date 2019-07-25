@@ -111,16 +111,34 @@
             </div>
           </el-col>
           <el-col :span="4">
-            <div class="left"></div>
+            <div class="left">备注</div>
           </el-col>
           <el-col :span="4">
-            <div class="right"></div>
+            <div class="right">{{data.remark}}</div>
           </el-col>
           <el-col :span="4">
-            <div class="left"></div>
+            <div class="left">记录生成时间</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="right">{{data.uploadTs | formatDate}}</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="left">更新时间</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="right">{{data.utime | formatDate}}</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="left">创建时间</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="right">{{data.ctime | formatDate}}</div>
+          </el-col>
+          <el-col :span="4">
+            <div class="left">报送响应信息</div>
           </el-col>
           <el-col :span="4" style="border-right:1px solid #ccc;">
-            <div class="right"></div>
+            <div class="right">{{data.msg}}</div>
           </el-col>
         </el-row>
       </el-card>
@@ -161,11 +179,11 @@ export default {
       this.$axios({
         method: "get",
         url: this.$store.state.domain + "/loanRepay/findDetailsById",
-        data: data
+        params: data
       }).then(
         response => {
           var res = response.data;
-          if (res.code == 0) {
+          if (res.code == 200) {
             this.data = res.data;
           } else {
             this.$message({
