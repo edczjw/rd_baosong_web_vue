@@ -183,9 +183,10 @@ p {
 }
 
 svg {
-  width: 30px;
-  height: 30px;
-  padding: 3px 8px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  padding: 5px 8px;
 }
 
 
