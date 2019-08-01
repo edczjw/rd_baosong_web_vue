@@ -261,14 +261,6 @@ export default {
   height: 100%;
 }
 
-* {
-  font-size: 12px;
-
-  box-sizing: border-box;
-
-  list-style: none;
-}
-
 table {
   border: none;
 }

@@ -33,7 +33,8 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  // font-size: 16px;
+  list-style: none;
   text-decoration: none;
   box-sizing: border-box;
 }
@@ -51,8 +52,8 @@ body {
 .box{
 height: 100%;
 margin-top: 2px;
-padding: 13px;
-background-color: rgba(62, 74, 100, 0.459);
+padding: 30px;
+background-color: rgba(153, 159, 160, 0.459);
 }
 .bigbox{
   height: 100%;
@@ -99,7 +100,4 @@ background-color: rgba(62, 74, 100, 0.459);
   margin: 15px 0;
   height: 5px;
 }
-// .lab-width{
-//   width: 220px !important;
-// }
 </style>

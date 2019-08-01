@@ -76,7 +76,7 @@
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
       >
-        <el-table-column type="index" label="序号" align="center" width="50"></el-table-column>
+        <el-table-column type="index" label="序号" align="center" width="80"></el-table-column>
         <el-table-column prop="loanId" label="贷款编号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">

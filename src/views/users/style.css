@@ -1,7 +1,7 @@
 /* 搜索栏样式 */
 .searcharea{
-  padding: 16px;
-  height: 120px;
+  padding: 26px;
+  height: 160px;
   color: black;
   /* border: 1px solid rgb(214, 211, 211); */
   background-color: rgb(239, 245, 244); 
@@ -10,13 +10,13 @@
 /* 标题 */
 .biaoti{
     font-family:'苹方';
-    font-size: 12px;
+    font-size: 14px;
     height: 20px;
     line-height: 20px;
     font-weight: bold;
     margin-top: -10px;
-    margin-bottom: 10px;
-    color: rgba(219, 139, 47, 0.87);
+    margin-bottom: 15px;
+    color: rgba(47, 59, 219, 0.87);
     cursor: pointer;
   }
   
@@ -75,9 +75,10 @@
 /* 计提表格 */
 .jititable{
   border-collapse:collapse;
-  width:100%;
+  width:80%;
+  margin: 0 auto;
   text-align:center;
-  border: 1px solid rgb(0, 34, 128);
+  border: 1px solid rgb(49, 50, 54);
   margin-top: 30px;
 }
 
@@ -86,7 +87,7 @@
 }
 
 .jititable td{
-  height: 50px;
+  height: 40px;
 }
 .first{
   background-color: rgb(145, 216, 175);

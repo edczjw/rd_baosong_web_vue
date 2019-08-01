@@ -1808,13 +1808,6 @@ export default {
 </script>
 
  <style lang='less' >
-* {
-  font-size: 12px;
-
-  box-sizing: border-box;
-
-  list-style: none;
-}
 
 table {
   border: none;

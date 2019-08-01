@@ -1,39 +1,39 @@
 <template>
   <div class="topBanner">
     <div class="side-tit">
-      <p class='left'>民盛报送系统</p>
+      <p class='left'>民盛中控系统</p>
     </div>
-    <p class='right' @click="goBack">
+    <p class='right' @click="goBack" title="安全退出">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-shouye"></use>
-      </svg>安全退出</p>
-    <p class='right'>
+      </svg></p>
+    <p class='right' title="用户名">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-character"></use>
       </svg>admin</p>
-    <p class='right' @click="screenfull">
+    <p class='right' @click="screenfull" title="全屏显示">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-quanping4"></use>
-      </svg>全屏显示</p>
-    <p class='right' @click="tabcontrol">
+      </svg></p>
+    <p class='right' @click="tabcontrol" title="折叠菜单">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-cebianlanshousuo"></use>
-      </svg>菜单折叠</p>
-    <p class='right' @click="returntop">
+      </svg></p>
+    <p class='right' @click="returntop" title="返回顶部">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fanhuidingbu"></use>
-      </svg>返回顶部</p>
+      </svg></p>
     
-    <p class='right' @click="lastpage">
+    <p class='right' @click="lastpage" title="返回上一页">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fanhui2"></use>
-      </svg>返回上一页</p>
+      </svg></p>
     
     <p class='right' title="密码修改">
       <router-link to="/users/mimaxiugai" class="roulink">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-mimazhongzhi"></use>
-      </svg>密码修改
+      </svg>
       </router-link>
       </p>
       
@@ -148,19 +148,18 @@ export default {
   width: 100%;
   height: 50px;
 
-  background-color: rgb(46, 44, 53);
-  background-image: url('http://cn.best-wallpaper.net/wallpaper/1600x900/1611/Superman-logo_1600x900.jpg');
+  background-color: rgb(28, 55, 95);
 }
 
 p {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .left {
   font-family: '黑体';
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
-
+  margin-left: 10px;
   float: left;
 
   color: rgb(229, 230, 223);
@@ -176,11 +175,11 @@ p {
 
   cursor: pointer;
 
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 .right:hover {
-  color: rgba(223, 186, 20, .842);
+  color: rgba(216, 122, 116, 0.842);
 }
 
 svg {

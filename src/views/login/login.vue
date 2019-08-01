@@ -3,7 +3,7 @@
   <p class="pl">
     Welcome To
     <span class="pspan">
-      民盛报送平台
+      民盛中控系统
     </span>
     &mdash; ** &mdash;
   </p>
@@ -13,11 +13,11 @@
   <div class="inset">
   <p>
     <label>账号</label>
-    <el-input type="text" v-model.trim="form.account" ></el-input>
+    <el-input type="text" placeholder="请输入账号" v-model.trim="form.account" size="small"></el-input>
   </p>
   <p>
     <label>密码</label>
-    <el-input type="password" v-model.trim="form.pwd"></el-input>
+    <el-input type="password" placeholder="请输入密码" v-model.trim="form.pwd" size="small"></el-input>
   </p>
   <p>
     <!-- <input type="checkbox" name="remember" id="remember"> -->
@@ -25,8 +25,7 @@
   </p>
   </div>
   <p class="p-container">
-    <span>ccp.msxiaodai.com</span>
-    <el-button type="primary"  @click="login()">登录</el-button>
+    <el-button type="primary" style="width:88%" @click="login()" size="mini">登录</el-button>
   </p>
 </form>
 
@@ -105,7 +104,7 @@ export default {
 
 .pl {
   position: absolute;
-  top: 3%;
+  top: 5%;
   left: 50%;
 
   display: inline-block;
@@ -190,7 +189,7 @@ form {
   overflow: hidden;
 
   width: 400px;
-  margin: 220px auto;
+  margin: 240px auto;
 
   border: 1px solid #191919;
   border-radius: .4em;

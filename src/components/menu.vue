@@ -6,15 +6,15 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="#090d00"
+          background-color="#292c22"
           text-color="#fff"
           :collapse="this.$store.state.isLeftHiden"
           active-text-color="#ffa04b"
         >
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-location"></i>
-              <span slot="title">监管报送</span>
+              <i class="el-icon-news"></i>
+              <span >监管报送</span>
             </template>
             <el-menu-item-group>
               <router-link to="/baosong/hetongbaosong">
@@ -51,7 +51,7 @@
               <!-- <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-yonghuguanli" />
               </svg>-->
-              <i class="el-icon-location"></i>
+              <i class="el-icon-document"></i>
               <span>百行管理</span>
             </template>
             <el-menu-item-group>
@@ -105,13 +105,13 @@ export default {
   background-repeat: no-repeat;
   background-position: center; */
 
-  background-color: #090d00;
+  background-color: #292c22;
 }
 
 .side-menu {
   width: 62px;
 
-  background-color: #090d00;
+  background-color: #292c22;
 }
 
 /* 修边 */

@@ -1,10 +1,10 @@
 <template>
 <!-- 样式在app.vue -->
-<div class="box1">
+<div class="box">
         <div class="searcharea">
           <div class="biaoti">监管报送/计提报送</div>
 
-          <el-select v-model="value" placeholder="请选择时间" @change="overchange($event)">
+          <el-select v-model="value" placeholder="请选择时间" size="small" @change="overchange($event)">
             <el-option
               v-for="item in options"
               :key="item"
@@ -120,8 +120,8 @@
       <td>
         {{ this.yuesum }}
       </td>
-      <td class="first">
-        —————
+      <td >
+        无
       </td>
       <td>
         {{ this.loansum }}
