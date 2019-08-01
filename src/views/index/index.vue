@@ -7,9 +7,10 @@
     <me-nu></me-nu>
     <div class="main-ten" :class="{'container-width':this.$store.state.isLeftHiden}">
       <!-- 路由页面 -->
-      <div v-if="userName=='admin'? true:false">
+      <!-- <div v-if="userName=='admin'? true:false">
         <router-view></router-view>
-      </div>
+      </div>-->
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -25,9 +26,9 @@ export default {
     };
   },
   mounted() {
-    // this.getName();
+    this.getName();
     //登陆成功提示
-    // this.openCenter();
+    this.openCenter();
   },
   methods: {
     openCenter() {

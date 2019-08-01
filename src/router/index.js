@@ -161,6 +161,7 @@ export default new Router({
             auth: true
           }
         },
+        
       ]
     }
   ]
