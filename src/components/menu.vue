@@ -85,20 +85,33 @@ export default {
 .side {
   position: fixed;
 
-  width: 199px;
+  width: 200px;
   height: 100%;
+  transition: all .5s;
   background-color: rgb(9, 10, 10);
 }
 
+.el-menu {
+    border-color: rgb(9, 10, 10);
+}
+  
 .side-menu {
-  width: 62px;
+  width: 64px;
+  transition: all .5s;
   background-color: rgb(9, 10, 10);
 }
 
 /* 修边 */
 .el-menu {
   /* important的意义在于优先于它内部定义的样式 */
-  margin: -0.9px !important;
+  margin: -0.4px !important;
+}
+
+.el-menu-item-group :hover {
+  background: black !important;
+}
+.el-submenu:hover {
+  background-color: black !important;
 }
 
 .el-menu-item-group {

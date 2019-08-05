@@ -180,7 +180,7 @@ export default {
   text-align: center;
 
   color: rgba(255, 255, 255, .25);
-  background-color: rgb(27, 2, 2);
+  background-color: rgba(34, 3, 3, 0.87);
 }
 
 form {
