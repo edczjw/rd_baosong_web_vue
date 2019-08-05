@@ -19,7 +19,7 @@
             </template>
             <el-menu-item-group>
               <!-- <router-link to="/baosong/hetongbaosong"> -->
-                <el-menu-item index="1-1">合同报送</el-menu-item>
+              <el-menu-item index="1-1">合同报送</el-menu-item>
               <!-- </router-link> -->
 
               <router-link to="/baosong/fangkuanbaosong">
@@ -47,7 +47,7 @@
               </router-link>
             </el-menu-item-group>
           </el-submenu>
-          
+
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-document"></i>
@@ -87,17 +87,17 @@ export default {
 
   width: 200px;
   height: 100%;
-  transition: all .5s;
+  transition: all 0.5s;
   background-color: rgb(9, 10, 10);
 }
 
 .el-menu {
-    border-color: rgb(9, 10, 10);
+  border-color: rgb(9, 10, 10);
 }
-  
+
 .side-menu {
   width: 64px;
-  transition: all .5s;
+  transition: all 0.5s;
   background-color: rgb(9, 10, 10);
 }
 
@@ -110,10 +110,12 @@ export default {
 .el-menu-item-group :hover {
   background: black !important;
 }
-.el-submenu:hover {
+.el-submenu :hover {
   background-color: black !important;
 }
-
+.el-submenu__title :hover {
+  background-color: black !important;
+}
 .el-menu-item-group {
   text-align: center;
 }

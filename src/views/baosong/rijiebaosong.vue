@@ -124,7 +124,7 @@ export default {
     },
 
     // ajax异步数据交互：Vue 实例提供了 this.$http 服务可用于发送 HTTP 请求
-    getlist() {
+    getlist() { 
         this.listLoading=true;
         this.$http
         .post(
