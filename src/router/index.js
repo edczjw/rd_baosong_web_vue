@@ -161,6 +161,43 @@ export default new Router({
             auth: true
           }
         },
+        {
+          // 征信管理->征信接口统计
+          path: '/zhengxinmanage/creditinterface',
+          name: '征信接口统计',
+          component: require('../views/zhengxinmanage/Creditinterface.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
+          // 征信管理->产品查询统计
+          path: '/zhengxinmanage/productsearch',
+          name: '产品查询统计',
+          component: require('../views/zhengxinmanage/ProductSearch.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
+          // 征信管理->征信查询明细
+          path: '/zhengxinmanage/creditdetail',
+          name: '征信查询明细',
+          component: require('../views/zhengxinmanage/CreditDetail.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+
+        {
+          // 征信结果->征信列表
+          path: '/zhengxinresult/creditlist',
+          name: '征信列表',
+          component: require('../views/zhengxinresult/CreditList.vue').default,
+          meta: {
+            auth: true
+          }
+        },
         
       ]
     }
