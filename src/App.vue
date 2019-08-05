@@ -48,6 +48,7 @@ body {
   height: 100%;
 }
 
+
 //大盒子样式
 .box{
 height: 100%;

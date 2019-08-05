@@ -137,7 +137,7 @@ export default {
   color: #fff;
 }
 .roulink:hover{
-  color: rgba(223, 186, 20, .842);
+  color: rgba(216, 122, 116, 0.842);
 }
 .topBanner {
   line-height: 50px;
@@ -148,7 +148,8 @@ export default {
   width: 100%;
   height: 50px;
 
-  background-color: rgb(28, 55, 95);
+  background-color: rgb(114, 63, 6);
+  box-shadow: 1px 1px 1px black;
 }
 
 p {

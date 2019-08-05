@@ -6,20 +6,21 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="#292c22"
-          text-color="#fff"
+          background-color="rgb(9, 10, 10)"
+          text-color="#eee"
           :collapse="this.$store.state.isLeftHiden"
           active-text-color="#ffa04b"
+          unique-opened
         >
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-news"></i>
-              <span >监管报送</span>
+              <span>监管报送</span>
             </template>
             <el-menu-item-group>
-              <router-link to="/baosong/hetongbaosong">
+              <!-- <router-link to="/baosong/hetongbaosong"> -->
                 <el-menu-item index="1-1">合同报送</el-menu-item>
-              </router-link>
+              <!-- </router-link> -->
 
               <router-link to="/baosong/fangkuanbaosong">
                 <el-menu-item index="1-2">放款报送</el-menu-item>
@@ -46,11 +47,9 @@
               </router-link>
             </el-menu-item-group>
           </el-submenu>
+          
           <el-submenu index="2">
             <template slot="title">
-              <!-- <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-yonghuguanli" />
-              </svg>-->
               <i class="el-icon-document"></i>
               <span>百行管理</span>
             </template>
@@ -66,18 +65,6 @@
               </router-link>
             </el-menu-item-group>
           </el-submenu>
-          <!-- <el-menu-item index="2" disabled>
-            <i class="el-icon-menu"></i>
-            <span slot="title">其他</span>
-          </el-menu-item>-->
-          <!-- <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">其他</span>
-          </el-menu-item>
-          <el-menu-item index="4" disabled>
-            <i class="el-icon-setting"></i>
-            <span slot="title">其他</span>
-          </el-menu-item>-->
         </el-menu>
       </el-col>
     </el-row>
@@ -100,18 +87,12 @@ export default {
 
   width: 199px;
   height: 100%;
-
-  /* background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551785745967&di=97a0ad10d328f665c40b9e8fb7a94fcb&imgtype=0&src=http%3A%2F%2Fs1.1zoom.me%2Fbig0%2F439%2FFerrari_2012-18_F12_berlinetta_Pininfarina_Black_541005_1280x854.jpg');
-  background-repeat: no-repeat;
-  background-position: center; */
-
-  background-color: #292c22;
+  background-color: rgb(9, 10, 10);
 }
 
 .side-menu {
   width: 62px;
-
-  background-color: #292c22;
+  background-color: rgb(9, 10, 10);
 }
 
 /* 修边 */

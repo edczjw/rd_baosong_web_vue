@@ -180,7 +180,7 @@ export default {
   text-align: center;
 
   color: rgba(255, 255, 255, .25);
-  background-color: black;
+  background-color: rgb(27, 2, 2);
 }
 
 form {
@@ -269,7 +269,7 @@ label {
 
   padding-bottom: 9px;
 
-  color: #666;
+  color: rgb(252, 248, 248);
 }
 
 input[type=text],
