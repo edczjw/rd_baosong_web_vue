@@ -12,56 +12,91 @@
           active-text-color="#ffa04b"
           unique-opened
         >
+
+        
           <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span>报送管理</span>
+            </template>
+            <el-menu-item-group>
+              <router-link to="/baihangguanli/applyList">
+                <el-menu-item index="1-1">申请列表</el-menu-item>
+              </router-link>
+              <router-link to="/baihangguanli/userList">
+                <el-menu-item index="1-2">账户列表</el-menu-item>
+              </router-link>
+              <router-link to="/baihangguanli/loanList">
+                <el-menu-item index="1-3">贷后列表</el-menu-item>
+              </router-link>
+            </el-menu-item-group>
+          </el-submenu>
+
+          
+
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-tickets"></i>
+              <span>征信管理</span>
+            </template>
+            <el-menu-item-group>
+              <router-link to="/zhengxinmanage/creditinterface">
+                <el-menu-item index="2-1">征信接口统计</el-menu-item>
+              </router-link>
+              <router-link to="/zhengxinmanage/productsearch">
+                <el-menu-item index="2-2">产品查询统计</el-menu-item>
+              </router-link>
+              <router-link to="/zhengxinmanage/creditdetail">
+                <el-menu-item index="2-3">征信查询明细</el-menu-item>
+              </router-link>
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-news"></i>
               <span>监管报送</span>
             </template>
             <el-menu-item-group>
-              <!-- <router-link to="/baosong/hetongbaosong"> -->
-                <el-menu-item index="1-1">合同报送</el-menu-item>
-              <!-- </router-link> -->
+              <router-link to="/baosong/hetongbaosong">
+                <el-menu-item index="3-1">合同报送</el-menu-item>
+              </router-link>
 
               <router-link to="/baosong/fangkuanbaosong">
-                <el-menu-item index="1-2">放款报送</el-menu-item>
+                <el-menu-item index="3-2">放款报送</el-menu-item>
               </router-link>
 
               <router-link to="/baosong/huankuanbaosong">
-                <el-menu-item index="1-3">还款报送</el-menu-item>
+                <el-menu-item index="3-3">还款报送</el-menu-item>
               </router-link>
 
               <router-link to="/baosong/huaizhangbaosong">
-                <el-menu-item index="1-4">坏账报送</el-menu-item>
+                <el-menu-item index="3-4">坏账报送</el-menu-item>
               </router-link>
 
               <router-link to="/baosong/rijiebaosong">
-                <el-menu-item index="1-5">日结报送</el-menu-item>
+                <el-menu-item index="3-5">日结报送</el-menu-item>
               </router-link>
 
               <router-link to="/baosong/jitibaosong">
-                <el-menu-item index="1-6">计提报送</el-menu-item>
+                <el-menu-item index="3-6">计提报送</el-menu-item>
               </router-link>
 
               <router-link to="/baosong/xianxiabaosong">
-                <el-menu-item index="1-7">线下报送</el-menu-item>
+                <el-menu-item index="3-7">线下报送</el-menu-item>
               </router-link>
             </el-menu-item-group>
           </el-submenu>
           
-          <el-submenu index="2">
+
+          <el-submenu index="4">
             <template slot="title">
-              <i class="el-icon-document"></i>
-              <span>百行管理</span>
+              <i class="el-icon-zoom-in"></i>
+              <span>征信结果</span>
             </template>
             <el-menu-item-group>
-              <router-link to="/baihangguanli/applyList">
-                <el-menu-item index="2-1">申请列表</el-menu-item>
-              </router-link>
-              <router-link to="/baihangguanli/userList">
-                <el-menu-item index="2-2">账户列表</el-menu-item>
-              </router-link>
-              <router-link to="/baihangguanli/loanList">
-                <el-menu-item index="2-3">贷后列表</el-menu-item>
+              <router-link to="/zhengxinresult/creditlist">
+                <el-menu-item index="4-1">征信列表</el-menu-item>
               </router-link>
             </el-menu-item-group>
           </el-submenu>

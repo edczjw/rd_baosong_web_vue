@@ -1,5 +1,8 @@
 <template>
   <div class="page-human">
+    <div class="li-title">
+      <b>报送管理 / 申请列表</b>
+    </div>
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row type="flex" class="human-form">
@@ -228,12 +231,12 @@ export default {
 };
 </script>
 <style lang='less' scoped>
+//  导入统一样式less样式
+@import '../users/style.css';
 /deep/ .el-card {
-  // background: rgba(255, 255, 255, 0.1);
   /deep/ .el-table tr,
   .el-table th {
     background: rgba(173, 173, 173, 0.3);
-    // background: rgb(248, 246, 246);
     color: rgb(118, 104, 104);
     font-family: "苹方";
   }
@@ -250,7 +253,6 @@ export default {
 }
 .page-human {
   padding: 25px 50px;
-  // background: rgb(202, 201, 201);
   .human-table {
     margin-top: 40px;
   }
