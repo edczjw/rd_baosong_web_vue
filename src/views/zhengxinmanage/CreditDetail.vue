@@ -5,35 +5,6 @@
     </div>
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="130px">
-        <el-row type="flex" class="human-form">
-          <el-col :span="8">
-            <el-form-item label="开始日期" prop="startTime">
-              <el-date-picker
-                size="mini"
-                v-model="searchform.startTime"
-                value-format="yyyy-MM-dd"
-                type="date"
-                placeholder="请选择开始日期"
-              ></el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
-            <el-form-item label="至" prop="endTime">
-              <el-date-picker
-                size="mini"
-                v-model="searchform.endTime"
-                value-format="yyyy-MM-dd"
-                type="date"
-                placeholder="请选择结束日期"
-              ></el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
-            <el-form-item label="业务流水号" prop="result">
-              <el-input size="mini"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-row>
         <el-row>
           <el-col :span="8">
             <el-form-item label="产品名称" prop="product">
@@ -61,7 +32,7 @@
           </el-col>
           <el-col :span="8">
             <el-form-item label="接口名称" prop="pid">
-             <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
+              <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
@@ -71,7 +42,56 @@
               </el-select>
             </el-form-item>
           </el-col>
-          
+        </el-row>
+        <el-row type="flex" class="human-form">
+          <el-col :span="8">
+            <el-form-item label="业务流水号" prop="result">
+              <el-input size="mini"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="姓名" prop="result">
+              <el-input size="mini"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="手机号" prop="result">
+              <el-input size="mini"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="8">
+            <el-form-item label="身份证号码" prop="result">
+              <el-input size="mini"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="开始时间" prop="startTime">
+              <el-date-picker
+                size="mini"
+                v-model="searchform.startTime"
+                :picker-options="pickerOptions1"
+                value-format="yyyy-MM-dd HH:mm:ss"
+                type="datetime"
+                @change="changeSTime"
+                placeholder="请选择开始时间"
+              ></el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="至" prop="endTime">
+              <el-date-picker
+                size="mini"
+                v-model="searchform.endTime"
+                value-format="yyyy-MM-dd HH:mm:ss"
+                :picker-options="pickerOptions1"
+                @change="changeTime"
+                type="datetime"
+                placeholder="请选择结束时间"
+              ></el-date-picker>
+            </el-form-item>
+          </el-col>
         </el-row>
         <el-row>
           <el-col :span="8">
@@ -95,20 +115,23 @@
         style="width: 100%; height:100%;"
       >
         <el-table-column type="index" label="序号" align="center" width="60"></el-table-column>
+        <el-table-column prop="mobile" label="业务流水号" align="center"></el-table-column>
+        <el-table-column prop="pid" label="产品名称" align="center"></el-table-column>
         <el-table-column prop="product" label="数据源名称" align="center"></el-table-column>
         <el-table-column prop="name" label="征信接口" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
-        <el-table-column prop="pid" label="产品名称" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="业务流水号" align="center"></el-table-column>
+        <el-table-column prop="mobile" label="姓名" align="center"></el-table-column>
+        <el-table-column prop="pid" label="手机号" align="center"></el-table-column>
+        <el-table-column prop="product" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="applyAmount" label="查询时间" align="center"></el-table-column>
         <el-table-column prop="result" label="返回时间" align="center"></el-table-column>
         <el-table-column prop="ctime" label="报文下载" align="center">
           <template slot-scope="scope">
-                <el-button type="text" size="small" @click="download(scope.row.ctime)">下载</el-button>
-            </template>
+            <el-button type="text" size="small" @click="download(scope.row.ctime)">下载</el-button>
+          </template>
         </el-table-column>
       </el-table>
       <!-- 分页 -->
@@ -151,6 +174,11 @@ export default {
           label: "待处理"
         }
       ],
+      pickerOptions1: {
+        disabledDate(time) {
+          return time.getTime() > Date.now();
+        }
+      },
       searchform: {
         product: "",
         name: "",
@@ -161,9 +189,11 @@ export default {
         pageNum: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      tableData: [{
-        result:"成功"
-      }]
+      tableData: [
+        {
+          result: "成功"
+        }
+      ]
     };
   },
 
@@ -178,12 +208,41 @@ export default {
   },
 
   methods: {
+    changeSTime(value) {
+      var thisTime = value;
+      thisTime = thisTime.replace(/-/g, "/");
+      var time = new Date(thisTime);
+      time = time.getTime();
+      var now = new Date().getTime();
+      if (time > now) {
+        this.$message({
+          message: "选择时间不能大于当前时间",
+          type: "warn"
+        });
+        this.searchform.startTime = "";
+      }
+    },
+    changeTime(value) {
+      var thisTime = value;
+      thisTime = thisTime.replace(/-/g, "/");
+      var time = new Date(thisTime);
+      time = time.getTime();
+      var now = new Date().getTime();
+      if (time > now) {
+        this.$message({
+          message: "选择时间不能大于当前时间",
+          type: "warn"
+        });
+        this.searchform.endTime = "";
+      }
+    },
     formatDate(time) {
       var date = new Date(time);
       return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     },
     submitForm() {
-      this.load(this.searchform);
+      console.log("searchform", this.searchform);
+      // this.load(this.searchform);
     },
     // 重置功能
     resetForm(formName) {
@@ -247,9 +306,12 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import '../users/style.css';
+@import "../users/style.css";
 /deep/ .el-card {
   // background: rgba(255, 255, 255, 0.1);
+  /deep/ .el-input {
+    width: 196px !important;
+  }
   /deep/ .el-table tr,
   .el-table th {
     background: rgba(173, 173, 173, 0.3);

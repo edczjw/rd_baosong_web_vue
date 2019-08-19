@@ -1,6 +1,6 @@
 <template>
   <div class="page-human">
-      <div class="li-title">
+    <div class="li-title">
       <b>征信管理 / 征信接口统计</b>
     </div>
     <el-card>
@@ -30,8 +30,8 @@
               </el-select>
             </el-form-item>
           </el-col>
-          </el-row>
-          <el-row>
+        </el-row>
+        <el-row>
           <el-col :span="10">
             <el-form-item label="征信平台调第三方开始日期" prop="startTime">
               <el-date-picker
@@ -40,6 +40,7 @@
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="开始日期"
+                :picker-options="pickerOptions1"
               ></el-date-picker>
             </el-form-item>
           </el-col>
@@ -50,7 +51,8 @@
                 v-model="searchform.endTime"
                 value-format="yyyy-MM-dd"
                 type="date"
-                placeholder="请选择结束日期"
+                placeholder="结束日期"
+                :picker-options="pickerOptions1"
               ></el-date-picker>
             </el-form-item>
           </el-col>
@@ -85,14 +87,14 @@
         <el-table-column prop="result" label="成功次数" align="center"></el-table-column>
         <el-table-column prop="ctime" label="成功率" align="center"></el-table-column>
         <el-table-column prop="result" label="调用规则" align="center">
-            <template slot-scope="scope">
-                <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
-            </template>
+          <template slot-scope="scope">
+            <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
+          </template>
         </el-table-column>
         <el-table-column prop="ctime" label="接口文档" align="center">
-            <template slot-scope="scope">
-                <el-button type="text" size="small" @click="download(scope.row.ctime)">下载</el-button>
-            </template>
+          <template slot-scope="scope">
+            <el-button type="text" size="small" @click="download(scope.row.ctime)">下载</el-button>
+          </template>
         </el-table-column>
       </el-table>
 
@@ -112,25 +114,22 @@
           <!--这是显示总共有多少数据-->
         </el-pagination>
 
-        <el-dialog title="调用规则" 
-        width="30%"
-        center
-        :visible.sync="dialogFormVisible">
-            <el-form :model="form" class="showform">
-                <el-form-item label="有效天数" :label-width="formLabelWidth">
-                <el-input style="width:90%" size="mini" v-model="form.name" auto-complete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="识别关联勾选">
-                    <el-radio-group v-model="form.resource">
-                    <el-radio border size="mini" label="身份证"></el-radio>
-                    <el-radio border size="mini" label="手机号"></el-radio>
-                    </el-radio-group>
-                </el-form-item>
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogFormVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-            </div>
+        <el-dialog title="调用规则" width="30%" center :visible.sync="dialogFormVisible">
+          <el-form :model="form" class="showform">
+            <el-form-item label="有效天数" :label-width="formLabelWidth">
+              <el-input style="width:90%" size="mini" v-model="form.name" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="识别关联勾选">
+              <el-radio-group v-model="form.resource">
+                <el-radio border size="mini" label="身份证"></el-radio>
+                <el-radio border size="mini" label="手机号"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-form>
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+          </div>
         </el-dialog>
       </div>
     </el-card>
@@ -144,7 +143,13 @@ export default {
     return {
       count: 0,
       dialogFormVisible: false,
-      formLabelWidth: '90px',
+      formLabelWidth: "90px",
+
+      pickerOptions1: {
+        disabledDate(time) {
+          return time.getTime() > Date.now() - 24 * 60 * 60 * 1000;
+        }
+      },
       options: [
         {
           value: "S",
@@ -169,14 +174,16 @@ export default {
         pageNum: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      form:{
-          name:"",
-          region:"",
-          type:""
+      form: {
+        name: "",
+        region: "",
+        type: ""
       },
-      tableData: [{
-          mobile:"111111111111",
-      }]
+      tableData: [
+        {
+          mobile: "111111111111"
+        }
+      ]
     };
   },
 
@@ -260,7 +267,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import '../users/style.css';
+@import "../users/style.css";
 /deep/ .el-card {
   /deep/ .el-table tr,
   .el-table th {
@@ -289,8 +296,8 @@ export default {
   }
 }
 
-.showform{
-    border: 1px dashed rgb(245, 197, 175);
-    padding: 15px;
+.showform {
+  border: 1px dashed rgb(245, 197, 175);
+  padding: 15px;
 }
 </style>

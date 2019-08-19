@@ -24,6 +24,11 @@
         </el-row>
         <el-row>
           <el-col :span="8">
+            <el-form-item label="身份证号" prop="product">
+              <el-input size="mini" v-model.trim="searchform.product"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
             <el-form-item label="开始日期" prop="startTime">
               <el-date-picker
                 size="mini"
@@ -75,8 +80,16 @@
         </el-table-column>
         <el-table-column prop="idcard" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="mobile" label="手机号码" align="center"></el-table-column>
+        <el-table-column prop="mobile" label="产品" align="center"></el-table-column>
         <el-table-column prop="applyAmount" label="授信额度" align="center"></el-table-column>
+        <el-table-column prop="mobile" label="欺诈评分" align="center"></el-table-column>
+        <el-table-column prop="mobile" label="信用评分" align="center"></el-table-column>
         <el-table-column prop="ctime" label="生成时间" align="center"></el-table-column>
+        <el-table-column label="操作" align="center">
+          <template slot-scope="scope">
+            <el-button type="primary" size="small" @click="godetail(scope.row.id)">查看详情</el-button>
+          </template>
+        </el-table-column>
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">
@@ -128,9 +141,11 @@ export default {
         pageNum: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      tableData: [{
-        name:"你好"
-      }]
+      tableData: [
+        {
+          name: "你好"
+        }
+      ]
     };
   },
 
@@ -214,7 +229,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import '../users/style.css';
+@import "../users/style.css";
 /deep/ .el-card {
   // background: rgba(255, 255, 255, 0.1);
   /deep/ .el-table tr,

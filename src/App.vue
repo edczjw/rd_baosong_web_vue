@@ -25,7 +25,7 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 <style lang='less'>
@@ -48,48 +48,48 @@ body {
   height: 100%;
 }
 
-
 //大盒子样式
-.box{
-height: 100%;
-margin-top: 2px;
-padding: 30px;
-background-color: rgba(153, 159, 160, 0.459);
+.box {
+  height: 100%;
+  margin-top: 2px;
+  padding: 30px;
+  background-color: rgba(153, 159, 160, 0.459);
 }
-.bigbox{
+.bigbox {
   height: 100%;
 
-//表格
-.page-content{
-  height: 100%;
-  margin-left: 2px;
-}
-.boo{
+  //表格
+  .page-content {
+    height: 100%;
+    margin-left: 2px;
+  }
+  .boo {
     height: 460px;
-}
+  }
 }
 
 //线下报送填写内容整个页面
-.page{
+.page {
   height: 100%;
   padding: 10px;
 }
 //标签
-.tag{
-  margin:40px;
+.tag {
+  margin: 40px;
 }
 //填写内容部分页面
-.contt{
+.contt {
   border-bottom: 1px dashed rgb(196, 163, 163);
 }
 //提交部分
-.butt{
+.butt {
   margin-top: 10px;
   padding: 20px;
   text-align: center;
 }
 /* 改变日期输入框默认宽度 */
-.el-date-editor.el-input, .el-date-editor.el-input__inner {
+.el-date-editor.el-input,
+.el-date-editor.el-input__inner {
   width: 234px !important;
 }
 /* Table */
@@ -97,13 +97,13 @@ background-color: rgba(153, 159, 160, 0.459);
   text-align: center;
 }
 //分页部分
-.block{
+.block {
   margin: 15px 0;
   height: 5px;
 }
 
-.li-title{
-  width:100%;
+.li-title {
+  width: 100%;
   font-size: 16px;
   border-radius: 10px;
   height: 40px;
@@ -112,5 +112,4 @@ background-color: rgba(153, 159, 160, 0.459);
   margin-bottom: 10px;
   background-color: rgb(147, 228, 201);
 }
-
 </style>

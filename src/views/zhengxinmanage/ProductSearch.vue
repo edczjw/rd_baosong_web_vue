@@ -5,32 +5,8 @@
     </div>
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="210px">
-        <el-row type="flex" class="human-form">
-          <el-col :span="10">
-            <el-form-item label="业务系统查询征信平台开始日期" prop="startTime">
-              <el-date-picker
-                size="mini"
-                v-model="searchform.startTime"
-                value-format="yyyy-MM-dd"
-                type="date"
-                placeholder="请选择开始时间"
-              ></el-date-picker>
-            </el-form-item>
-          </el-col>
-          <el-col :span="10">
-            <el-form-item label="至" prop="endTime">
-              <el-date-picker
-                size="mini"
-                v-model="searchform.endTime"
-                value-format="yyyy-MM-dd"
-                type="date"
-                placeholder="请选择结束日期"
-              ></el-date-picker>
-            </el-form-item>
-          </el-col>
-          </el-row>
-          <el-row>
-          <el-col :span="10">
+        <el-row>
+          <el-col :span="8">
             <el-form-item label="产品名称" prop="product">
               <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
                 <el-option
@@ -42,7 +18,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="10">
+          <el-col :span="8">
             <el-form-item label="数据源名称" prop="name">
               <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
                 <el-option
@@ -54,9 +30,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          </el-row>
-          <el-row>
-          <el-col :span="10">
+          <el-col :span="8">
             <el-form-item label="接口名称" prop="pid">
               <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
                 <el-option
@@ -66,6 +40,32 @@
                   :value="item.value"
                 ></el-option>
               </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row type="flex" class="human-form">
+          <el-col :span="8">
+            <el-form-item label="业务系统查询征信平台开始日期" prop="startTime">
+              <el-date-picker
+                size="mini"
+                v-model="searchform.startTime"
+                value-format="yyyy-MM-dd"
+                type="date"
+                placeholder="请选择开始日期"
+                :picker-options="pickerOptions1"
+              ></el-date-picker>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="至" prop="endTime">
+              <el-date-picker
+                size="mini"
+                v-model="searchform.endTime"
+                value-format="yyyy-MM-dd"
+                type="date"
+                placeholder="请选择结束日期"
+                :picker-options="pickerOptions1"
+              ></el-date-picker>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -89,16 +89,14 @@
         style="width: 100%; height:100%;"
       >
         <el-table-column type="index" label="序号" align="center" width="60"></el-table-column>
+        <el-table-column prop="pid" label="产品名称" align="center"></el-table-column>
         <el-table-column prop="product" label="数据源名称" align="center"></el-table-column>
         <el-table-column prop="name" label="征信接口" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
-        <el-table-column prop="pid" label="产品名称" align="center"></el-table-column>
         <el-table-column prop="mobile" label="查询次数" align="center"></el-table-column>
-        <el-table-column prop="applyAmount" label="调用次数" align="center"></el-table-column>
-        <el-table-column prop="result" label="成功率" align="center"></el-table-column>
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">
@@ -140,6 +138,11 @@ export default {
           label: "待处理"
         }
       ],
+      pickerOptions1: {
+        disabledDate(time) {
+          return time.getTime() > Date.now() - 24 * 60 * 60 * 1000;
+        }
+      },
       searchform: {
         product: "",
         name: "",
@@ -234,7 +237,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import '../users/style.css';
+@import "../users/style.css";
 /deep/ .el-card {
   // background: rgba(255, 255, 255, 0.1);
   /deep/ .el-table tr,
