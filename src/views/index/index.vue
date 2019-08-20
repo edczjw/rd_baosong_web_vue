@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     openCenter() {
-      if (this.userName == "admin") {
+      if (this.userName) {
         this.$message({
           dangerouslyUseHTMLString: true, //表示提示的是html片段
           message:

@@ -228,11 +228,8 @@ export default {
     //初始化数据
     load(data) {
       this.tableData = [];
-      this.$axios({
-        method: "post",
-        url: this.$store.state.domain + "/loanAccount/findByPage",
-        data: data
-      }).then(
+      this.$http.post(this.$store.state.domain + "/loanAccount/findByPage",data)
+      .then(
         response => {
           var res = response.data;
           if (res.code == 200) {
@@ -250,7 +247,15 @@ export default {
             });
           }
         },
-        error => {}
+        error => {
+          this.$message({
+            dangerouslyUseHTMLString: true, //表示提示的是html片段
+            message:
+              '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+              error.body.message,
+            type: "error"
+          });
+        }
       );
     }
   },
