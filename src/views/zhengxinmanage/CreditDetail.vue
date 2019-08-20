@@ -205,19 +205,6 @@ export default {
   methods: {
     //下载
     download(id, serialNumber) {
-      // var pom = document.createElement("a");
-      // pom.setAttribute(
-      //   "href",
-      //   "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-      // );
-      // pom.setAttribute("download", filename);
-      // if (document.createEvent) {
-      //   var event = document.createEvent("MouseEvents");
-      //   event.initEvent("click", true, true);
-      //   pom.dispatchEvent(event);
-      // } else {
-      //   pom.click();
-      // }
       let data = {
         id: id
       };
@@ -248,8 +235,6 @@ export default {
           console.warn(err);
         });
     },
-    // download("data.txt", "hello word!");
-
     //数据源获取
     originList() {
       this.$http({
@@ -357,13 +342,11 @@ export default {
       return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     },
     submitForm() {
-      console.log("searchform", this.searchform);
-      // this.load(this.searchform);
+      this.load(this.searchform);
     },
     // 重置功能
     resetForm(formName) {
       this.$refs[formName].resetFields();
-      // this.getlist();
     },
     handleSizeChange(psize) {
       // 改变每页显示的条数
