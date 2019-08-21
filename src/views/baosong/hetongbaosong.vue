@@ -222,6 +222,13 @@ export default {
           //打印
           response => {
             console.log(response);
+            this.$message({
+              dangerouslyUseHTMLString: true, //表示提示的是html片段
+              message:
+                '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+                response.body.message,
+              type: "error"
+            });
           }
         );
     },
@@ -249,7 +256,13 @@ export default {
           },
           //打印
           response => {
-            
+            this.$message({
+              dangerouslyUseHTMLString: true, //表示提示的是html片段
+              message:
+                '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+                response.body.message,
+              type: "error"
+            });
             // console.log(response);
           }
         );

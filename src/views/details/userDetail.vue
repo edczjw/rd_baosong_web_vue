@@ -170,7 +170,7 @@
           <el-col :span="4">
             <div class="right">{{data.msg}}</div>
           </el-col>
-            <el-col :span="4">
+          <el-col :span="4">
             <div class="left"></div>
           </el-col>
           <el-col :span="4" style="border-right:1px solid #ccc;">
@@ -228,7 +228,15 @@ export default {
             });
           }
         },
-        error => {}
+        error => {
+          this.$message({
+            dangerouslyUseHTMLString: true, //表示提示的是html片段
+            message:
+              '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+              response.body.message,
+            type: "error"
+          });
+        }
       );
     }
   },
