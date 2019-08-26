@@ -92,9 +92,9 @@
         <el-table-column prop="loanAmount" label="贷款金额" align="center"></el-table-column>
         <el-table-column prop="result" label="报送状态" align="center">
           <template slot-scope="scope">
-            <span v-if="scope.row.result == 1">成功</span>
-            <span v-if="scope.row.result == 2">失败</span>
-            <span v-if="scope.row.result == 3">待处理</span>
+            <span v-if="scope.row.result == 'S'">成功</span>
+            <span v-if="scope.row.result == 'F'">失败</span>
+            <span v-if="scope.row.result == 'N'">待处理</span>
           </template>
         </el-table-column>
         <el-table-column prop="issueDate" label="放款时间" align="center"></el-table-column>
@@ -127,16 +127,16 @@ export default {
       count: 0,
       options: [
         {
-          value: 1,
+          value: 'S',
           label: "成功"
         },
         {
-          value: 2,
+          value: 'F',
           label: "失败"
         },
 
         {
-          value: 3,
+          value: 'N',
           label: "待处理"
         }
       ],
