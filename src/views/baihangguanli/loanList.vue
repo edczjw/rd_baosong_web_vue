@@ -97,14 +97,10 @@
         <el-table-column prop="targetRepayment" label="本期剩余应还金额" align="center"></el-table-column>
         <el-table-column prop="loanStatus" label="贷款状态" align="center">
           <template slot-scope="scope">
-            <span v-if="scope.row.loanStatus == 1">已签约</span>
-            <span v-if="scope.row.loanStatus == 2">放款中</span>
-            <span v-if="scope.row.loanStatus == 3">放款失败</span>
-            <span v-if="scope.row.loanStatus == 4">还款中</span>
-            <span v-if="scope.row.loanStatus == 6">已逾期</span>
-            <span v-if="scope.row.loanStatus == 7">已结清</span>
-            <span v-if="scope.row.loanStatus == 8">放款异常</span>
-            <span v-if="scope.row.loanStatus == 9">财务审核拒绝</span>
+            <span v-if="scope.row.loanStatus == 1">正常</span>
+            <span v-if="scope.row.loanStatus == 2">逾期</span>
+            <span v-if="scope.row.loanStatus == 3">结清</span>
+            <span v-if="scope.row.loanStatus == 4">撤销</span>
           </template>
         </el-table-column>
         <el-table-column prop="realRepaymentDate" label="还款时间" align="center"></el-table-column>
@@ -138,36 +134,20 @@ export default {
       options: [
         {
           value: 1,
-          label: "已签约"
+          label: "正常"
         },
         {
           value: 2,
-          label: "放款中"
+          label: "逾期"
         },
 
         {
           value: 3,
-          label: "放款失败"
+          label: "结清"
         },
         {
           value: 4,
-          label: "还款中"
-        },
-        {
-          value: 6,
-          label: "已逾期"
-        },
-        {
-          value: 7,
-          label: "已结清"
-        },
-        {
-          value: 8,
-          label: "放款异常"
-        },
-        {
-          value: 9,
-          label: "财务审核拒绝"
+          label: "撤销"
         }
       ],
       searchform: {

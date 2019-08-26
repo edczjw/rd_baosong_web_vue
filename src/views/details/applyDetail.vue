@@ -3,7 +3,7 @@
     <!-- <h1>借款信息</h1> -->
     <div class="detail-table">
       <el-card>
-        <el-button type="primary" size="mini" style="margin-bottom:10px;">详细信息</el-button>
+        <el-button type="primary" size="mini" style="margin-bottom:10px;">申请列表详细信息</el-button>
         <el-row class="table-row">
           <el-col :span="4">
             <div class="left">姓名</div>
@@ -77,9 +77,9 @@
             <div class="right">
               <span v-if="data.customType==1">在校学生</span>
               <span v-if="data.customType==2">在职人员</span>
-              <span v-if="data.customType==2">自雇人员</span>
-              <span v-if="data.customType==3">其他人士</span>
-              <span v-if="data.customType==9">人群未知</span>
+              <span v-if="data.customType==3">自雇人员</span>
+              <span v-if="data.customType==4">其他人士</span>
+              <span v-if="data.customType==99">人群未知</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -88,12 +88,12 @@
           <el-col :span="4">
             <div class="right">{{data.applyAmount}}</div>
           </el-col>
-          <el-col :span="4">
+          <!-- <el-col :span="4">
             <div class="left">贷款编号</div>
-          </el-col>
-          <el-col :span="4">
+          </el-col> -->
+          <!-- <el-col :span="4">
             <div class="right">{{data.product}}</div>
-          </el-col>
+          </el-col> -->
           <el-col :span="4">
             <div class="left">申请状态</div>
           </el-col>
@@ -146,7 +146,7 @@ export default {
   filters: {
     formatDate(time) {
       var date = new Date(time);
-      return formatDate(date, "yyyy-MM-dd");
+      return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     }
   },
   data() {

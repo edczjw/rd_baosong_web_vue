@@ -6,11 +6,11 @@
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row type="flex" class="human-form">
-          <el-col :span="8">
+          <!-- <el-col :span="8">
             <el-form-item label="贷款编号" prop="product">
               <el-input size="mini" v-model.trim="searchform.product"></el-input>
             </el-form-item>
-          </el-col>
+          </el-col>-->
           <el-col :span="8">
             <el-form-item label="姓名" prop="name">
               <el-input size="mini" v-model.trim="searchform.name"></el-input>
@@ -21,10 +21,8 @@
               <el-input size="mini" v-model.trim="searchform.pid"></el-input>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
           <el-col :span="8">
-            <el-form-item label="申请状态" prop="result">
+            <el-form-item label="报送状态" prop="result">
               <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
                 <el-option
                   v-for="item in options"
@@ -35,8 +33,10 @@
               </el-select>
             </el-form-item>
           </el-col>
+        </el-row>
+        <el-row>
           <el-col :span="8">
-            <el-form-item label="申请开始日期" prop="startTime">
+            <el-form-item label="报送开始日期" prop="startTime">
               <el-date-picker
                 size="mini"
                 v-model="searchform.startTime"
@@ -80,7 +80,7 @@
         style="width: 100%; height:100%;"
       >
         <el-table-column type="index" label="序号" align="center" width="80"></el-table-column>
-        <el-table-column prop="product" label="贷款编号" align="center"></el-table-column>
+        <!-- <el-table-column prop="product" label="贷款编号" align="center"></el-table-column> -->
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
@@ -89,14 +89,14 @@
         <el-table-column prop="pid" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="mobile" label="手机号码" align="center"></el-table-column>
         <el-table-column prop="applyAmount" label="申请贷款金额" align="center"></el-table-column>
-        <el-table-column prop="result" label="申请状态" align="center">
+        <el-table-column prop="result" label="报送状态" align="center">
           <template slot-scope="scope">
             <span v-if="scope.row.result == 'S'">成功</span>
             <span v-if="scope.row.result == 'F'">失败</span>
             <span v-if="scope.row.result == 'N'">待处理</span>
           </template>
         </el-table-column>
-        <el-table-column prop="ctime" label="生成时间" align="center"></el-table-column>
+        <el-table-column prop="ctime" label="报送时间" align="center"></el-table-column>
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">
@@ -232,7 +232,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import '../users/style.css';
+@import "../users/style.css";
 /deep/ .el-card {
   /deep/ .el-table tr,
   .el-table th {

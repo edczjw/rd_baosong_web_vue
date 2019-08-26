@@ -24,8 +24,8 @@
         </el-row>
         <el-row>
           <el-col :span="8">
-            <el-form-item label="订单状态" prop="loanStatus">
-              <el-select size="mini" v-model="searchform.loanStatus" placeholder="请选择订单状态">
+            <el-form-item label="报送状态" prop="result">
+              <el-select size="mini" v-model="searchform.result" placeholder="请选择订单状态">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
@@ -89,17 +89,12 @@
         <el-table-column prop="pid" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="mobile" label="手机号码" align="center"></el-table-column>
         <el-table-column prop="totalTerm" label="还款总期数" align="center"></el-table-column>
-        <el-table-column prop="loanAmount" label="授信额度" align="center"></el-table-column>
-        <el-table-column prop="loanStatus" label="贷款状态" align="center">
+        <el-table-column prop="loanAmount" label="贷款金额" align="center"></el-table-column>
+        <el-table-column prop="result" label="报送状态" align="center">
           <template slot-scope="scope">
-            <span v-if="scope.row.loanStatus == 1">已签约</span>
-            <span v-if="scope.row.loanStatus == 2">放款中</span>
-            <span v-if="scope.row.loanStatus == 3">放款失败</span>
-            <span v-if="scope.row.loanStatus == 4">还款中</span>
-            <span v-if="scope.row.loanStatus == 6">已逾期</span>
-            <span v-if="scope.row.loanStatus == 7">已结清</span>
-            <span v-if="scope.row.loanStatus == 8">放款异常</span>
-            <span v-if="scope.row.loanStatus == 9">财务审核拒绝</span>
+            <span v-if="scope.row.result == 1">成功</span>
+            <span v-if="scope.row.result == 2">失败</span>
+            <span v-if="scope.row.result == 3">待处理</span>
           </template>
         </el-table-column>
         <el-table-column prop="issueDate" label="放款时间" align="center"></el-table-column>
@@ -133,36 +128,16 @@ export default {
       options: [
         {
           value: 1,
-          label: "已签约"
+          label: "成功"
         },
         {
           value: 2,
-          label: "放款中"
+          label: "失败"
         },
 
         {
           value: 3,
-          label: "放款失败"
-        },
-        {
-          value: 4,
-          label: "还款中"
-        },
-        {
-          value: 6,
-          label: "已逾期"
-        },
-        {
-          value: 7,
-          label: "已结清"
-        },
-        {
-          value: 8,
-          label: "放款异常"
-        },
-        {
-          value: 9,
-          label: "财务审核拒绝"
+          label: "待处理"
         }
       ],
       searchform: {
@@ -171,7 +146,7 @@ export default {
         pid: "",
         startTime: "", //申请开始时间
         endTime: "", //至
-        loanStatus: "",
+        result: "",
         pageNum: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },

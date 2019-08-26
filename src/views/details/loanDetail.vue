@@ -39,7 +39,10 @@
             <div class="left">本期还款状态</div>
           </el-col>
           <el-col :span="4">
-            <div class="right">{{data.termStatus}}</div>
+            <div class="right">
+              <span v-if="data.termStatus == 'normal'">正常</span>
+              <span v-if="data.termStatus == 'overdue'">逾期</span>
+            </div>
           </el-col>
           <el-col :span="4">
             <div class="left">本期应还款日</div>
@@ -100,14 +103,10 @@
           </el-col>
           <el-col :span="4">
             <div class="right">
-              <span v-if="data.loanStatus == 1">已签约</span>
-              <span v-if="data.loanStatus == 2">放款中</span>
-              <span v-if="data.loanStatus == 3">放款失败</span>
-              <span v-if="data.loanStatus == 4">还款中</span>
-              <span v-if="data.loanStatus == 6">已逾期</span>
-              <span v-if="data.loanStatus == 7">已结清</span>
-              <span v-if="data.loanStatus == 8">放款异常</span>
-              <span v-if="data.loanStatus == 9">财务审核拒绝</span>
+              <span v-if="data.loanStatus == 1">正常</span>
+              <span v-if="data.loanStatus == 2">逾期</span>
+              <span v-if="data.loanStatus == 3">结清</span>
+              <span v-if="data.loanStatus == 4">撤销</span>
             </div>
           </el-col>
           <el-col :span="4">
@@ -152,7 +151,7 @@ export default {
   filters: {
     formatDate(time) {
       var date = new Date(time);
-      return formatDate(date, "yyyy-MM-dd");
+      return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     }
   },
   data() {
