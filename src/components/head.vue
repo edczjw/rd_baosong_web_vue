@@ -11,7 +11,8 @@
     <p class="right" title="用户名">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-character" />
-      </svg>admin
+      </svg>
+      {{userName}}
     </p>
     <p class="right" @click="screenfull" title="全屏显示">
       <svg class="icon" aria-hidden="true">
@@ -43,10 +44,12 @@ import screenfull from "screenfull";
 export default {
   data() {
     return {
-      isFullscreen: false
+      isFullscreen: false,
+      userName:''
     };
   },
   mounted() {
+    this.getName();
     window.onresize = () => {
       // 全屏下监控是否按键了ESC
       if (!this.checkFull()) {
@@ -73,6 +76,10 @@ export default {
       }
       screenfull.toggle();
       this.isFullscreen = true;
+    },
+    getName() {
+      let userName = sessionStorage.getItem("name");
+      this.userName = userName;
     },
     /**
      * 是否全屏并按键ESC键的方法

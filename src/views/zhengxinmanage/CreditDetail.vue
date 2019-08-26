@@ -7,37 +7,42 @@
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row>
           <el-col :span="8">
-            <el-form-item label="产品名称" prop="product">
-              <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
+            <el-form-item label="产品名称" prop="productName">
+              <el-select size="mini" v-model="searchform.productName" placeholder="请选择产品名称">
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                  v-for="item in productData"
+                  :key="item.code"
+                  :label="item.name"
+                  :value="item.code"
                 ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="数据源名称" prop="name">
-              <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
+            <el-form-item label="数据源名称" prop="sourceName">
+              <el-select
+                size="mini"
+                v-model="searchform.sourceName"
+                placeholder="请选择数据源"
+                @change="originChage"
+              >
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                  v-for="item in originData"
+                  :key="item.code"
+                  :label="item.name"
+                  :value="item.code"
                 ></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="接口名称" prop="pid">
-              <el-select size="mini" v-model="searchform.result" placeholder="请选择状态">
+            <el-form-item label="接口名称" prop="interfaceName">
+              <el-select size="mini" v-model="searchform.interfaceName" placeholder="请选择接口名称">
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                  v-for="item in interfaceData"
+                  :key="item.code"
+                  :label="item.name"
+                  :value="item.code"
                 ></el-option>
               </el-select>
             </el-form-item>
@@ -45,25 +50,25 @@
         </el-row>
         <el-row type="flex" class="human-form">
           <el-col :span="8">
-            <el-form-item label="业务流水号" prop="result">
-              <el-input size="mini"></el-input>
+            <el-form-item label="业务流水号" prop="serialNumber">
+              <el-input size="mini" v-model="searchform.serialNumber"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="姓名" prop="result">
-              <el-input size="mini"></el-input>
+            <el-form-item label="姓名" prop="name">
+              <el-input size="mini" v-model="searchform.name"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="手机号" prop="result">
-              <el-input size="mini"></el-input>
+            <el-form-item label="手机号" prop="phone">
+              <el-input size="mini" v-model="searchform.phone"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="8">
-            <el-form-item label="身份证号码" prop="result">
-              <el-input size="mini"></el-input>
+            <el-form-item label="身份证号码" prop="idNumber">
+              <el-input size="mini" v-model="searchform.idNumber"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -115,22 +120,22 @@
         style="width: 100%; height:100%;"
       >
         <el-table-column type="index" label="序号" align="center" width="60"></el-table-column>
-        <el-table-column prop="mobile" label="业务流水号" align="center"></el-table-column>
-        <el-table-column prop="pid" label="产品名称" align="center"></el-table-column>
-        <el-table-column prop="product" label="数据源名称" align="center"></el-table-column>
-        <el-table-column prop="name" label="征信接口" align="center">
+        <el-table-column prop="serialNumber" label="业务流水号" align="center"></el-table-column>
+        <el-table-column prop="productName" label="产品名称" align="center"></el-table-column>
+        <el-table-column prop="sourceName" label="数据源名称" align="center"></el-table-column>
+        <el-table-column prop="interfaceName" label="征信接口" align="center"></el-table-column>
+        <el-table-column prop="name" label="姓名" align="center"></el-table-column>
+        <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
+        <el-table-column prop="idNumber" label="身份证号码" align="center"></el-table-column>
+        <el-table-column prop="queryTime" label="查询时间" align="center"></el-table-column>
+        <el-table-column prop="respTime" label="返回时间" align="center"></el-table-column>
+        <el-table-column label="报文下载" align="center">
           <template slot-scope="scope">
-            <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
-          </template>
-        </el-table-column>
-        <el-table-column prop="mobile" label="姓名" align="center"></el-table-column>
-        <el-table-column prop="pid" label="手机号" align="center"></el-table-column>
-        <el-table-column prop="product" label="身份证号码" align="center"></el-table-column>
-        <el-table-column prop="applyAmount" label="查询时间" align="center"></el-table-column>
-        <el-table-column prop="result" label="返回时间" align="center"></el-table-column>
-        <el-table-column prop="ctime" label="报文下载" align="center">
-          <template slot-scope="scope">
-            <el-button type="text" size="small" @click="download(scope.row.ctime)">下载</el-button>
+            <el-button
+              type="text"
+              size="small"
+              @click="download(scope.row.id,scope.row.serialNumber)"
+            >下载</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -141,7 +146,7 @@
           style="text-align:center"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="this.searchform.pageNum"
+          :current-page="this.searchform.pageIndex"
           :page-sizes="[20,50,100]"
           :page-size="this.searchform.pageSize"
           layout="total, sizes, prev, pager, next"
@@ -160,40 +165,28 @@ export default {
   data() {
     return {
       count: 0,
-      options: [
-        {
-          value: "S",
-          label: "成功"
-        },
-        {
-          value: "F",
-          label: "失败"
-        },
-        {
-          value: "N",
-          label: "待处理"
-        }
-      ],
+      productData: [],
+      originData: [],
+      interfaceData: [],
       pickerOptions1: {
         disabledDate(time) {
           return time.getTime() > Date.now();
         }
       },
       searchform: {
-        product: "",
-        name: "",
-        pid: "",
-        startTime: "", //申请开始时间
-        endTime: "", //至
-        result: "",
-        pageNum: 1, //初始页
+        sourceName: "", //数据源名称
+        name: "", //姓名
+        phone: "", //手机号
+        idNumber: "", //身份证
+        serialNumber: "", //业务流水号
+        interfaceName: "", //接口名称
+        productName: "", //产品名称
+        beginDate: "", //申请开始时间
+        endDate: "", //至
+        pageIndex: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      tableData: [
-        {
-          result: "成功"
-        }
-      ]
+      tableData: []
     };
   },
 
@@ -204,10 +197,118 @@ export default {
   beforeMount() {},
 
   mounted() {
-    // this.load(this.searchform);
+    this.originList();
+    this.interProduct({});
+    this.load(this.searchform);
   },
 
   methods: {
+    //下载
+    download(id, serialNumber) {
+      let data = {
+        id: id
+      };
+      const url = this.$store.state.domain + "/crcs/credit/messageDownload";
+      this.$http
+        .post(url, data, {
+          responseType: "blob",
+          emulateJSON: true
+        })
+        .then(res => {
+          console.log("res", res);
+          let blob = new Blob([res.body], {
+            type: "application/octet-stream"
+          });
+          if (window.navigator.msSaveOrOpenBlob) {
+            navigator.msSaveBlob(blob);
+          } else {
+            let elink = document.createElement("a");
+            elink.download = serialNumber + ".txt";
+            elink.style.display = "none";
+            elink.href = URL.createObjectURL(blob);
+            document.body.appendChild(elink);
+            elink.click();
+            document.body.removeChild(elink);
+          }
+        })
+        .catch(err => {
+          console.warn(err);
+        });
+    },
+    //数据源获取
+    originList() {
+      this.$http({
+        method: "post",
+        url: this.$store.state.domain + "/crcs/origin/list",
+        data: {}
+      }).then(
+        response => {
+          var res = response.data;
+          if (res.code == 0) {
+            this.originData = res.detail.result;
+          } else {
+            this.$message({
+              message: res.message,
+              type: "error"
+            });
+          }
+        },
+        error => {
+          this.$message({
+            dangerouslyUseHTMLString: true, //表示提示的是html片段
+            message:
+              '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+              error.body.message,
+            type: "error"
+          });
+        }
+      );
+    },
+    //数据名称值改变
+    originChage(value) {
+      var data = {
+        originCode: value
+      };
+      this.interfaceList(data);
+    },
+    //接口名称获取
+    interfaceList(data) {
+      this.$http
+        .post(this.$store.state.domain + "/crcs/interface/list", data)
+        .then(
+          response => {
+            var res = response.data;
+            if (res.code == 0) {
+              this.interfaceData = res.detail.result;
+            } else {
+              this.$message({
+                message: res.message,
+                type: "error"
+              });
+            }
+          },
+          error => {}
+        );
+    },
+    //产品名称获取
+    interProduct(data) {
+      this.$http
+        .post(this.$store.state.domain + "/crcs/product/list", data)
+        .then(
+          response => {
+            var res = response.data;
+            if (res.code == 0) {
+              this.productData = res.detail.result;
+            } else {
+              this.$message({
+                message: res.message,
+                type: "error"
+              });
+            }
+          },
+          error => {}
+        );
+    },
     changeSTime(value) {
       var thisTime = value;
       thisTime = thisTime.replace(/-/g, "/");
@@ -241,25 +342,23 @@ export default {
       return formatDate(date, "yyyy-MM-dd hh:mm:ss");
     },
     submitForm() {
-      console.log("searchform", this.searchform);
-      // this.load(this.searchform);
+      this.load(this.searchform);
     },
     // 重置功能
     resetForm(formName) {
       this.$refs[formName].resetFields();
-      // this.getlist();
     },
     handleSizeChange(psize) {
       // 改变每页显示的条数
       this.searchform.pageSize = psize;
       // 注意：在改变每页显示的条数时，要将页码显示到第一页
-      this.searchform.pageNum = 1;
+      this.searchform.pageIndex = 1;
       this.load(this.searchform);
     },
 
     // 初始页currentPage
     handleCurrentChange(pindex) {
-      this.searchform.pageNum = pindex;
+      this.searchform.pageIndex = pindex;
       this.load(this.searchform);
     },
     //表单操作
@@ -275,30 +374,33 @@ export default {
     //初始化数据
     load(data) {
       this.tableData = [];
-      this.$axios({
-        method: "post",
-        url: this.$store.state.domain + "/loanApply/findByPage",
-        data: data
-      }).then(
-        response => {
-          var res = response.data;
-          if (res.code == 200) {
-            res.data.list.forEach(data => {
-              data.ctime = this.formatDate(data.ctime);
-              this.tableData.push(data);
-            });
-            this.count = res.data.total;
-            this.searchform.pageNum = res.data.pageNum;
-            this.searchform.pageSize = res.data.pageSize;
-          } else {
+      this.$http
+        .post(this.$store.state.domain + "/crcs/credit/detailList", data)
+        .then(
+          response => {
+            var res = response.data;
+            if (res.code == 0) {
+              this.tableData = res.detail.result.pageList;
+              this.count = res.detail.result.count;
+              this.searchform.pageIndex = res.detail.result.pageIndex;
+              this.searchform.pageSize = res.detail.result.pageSize;
+            } else {
+              this.$message({
+                message: res.msg,
+                type: "error"
+              });
+            }
+          },
+          error => {
             this.$message({
-              message: res.message,
+              dangerouslyUseHTMLString: true, //表示提示的是html片段
+              message:
+                '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+                error.body.message,
               type: "error"
             });
           }
-        },
-        error => {}
-      );
+        );
     }
   },
   watch: {}

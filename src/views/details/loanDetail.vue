@@ -191,7 +191,15 @@ export default {
             });
           }
         },
-        error => {}
+        error => {
+          this.$message({
+            dangerouslyUseHTMLString: true, //表示提示的是html片段
+            message:
+              '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-shengqi"></use> </svg> ' +
+              response.body.message,
+            type: "error"
+          });
+        }
       );
     }
   },
