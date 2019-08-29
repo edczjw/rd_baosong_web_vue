@@ -7,8 +7,8 @@
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row type="flex" class="human-form">
           <el-col :span="8">
-            <el-form-item label="流水号" prop="product">
-              <el-input size="mini" v-model.trim="searchform.product"></el-input>
+            <el-form-item label="流水号" prop="index">
+              <el-input size="mini" v-model.trim="searchform.index"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -17,15 +17,15 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="手机号" prop="pid">
-              <el-input size="mini" v-model.trim="searchform.pid"></el-input>
+            <el-form-item label="手机号" prop="mobile">
+              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="8">
-            <el-form-item label="身份证号" prop="product">
-              <el-input size="mini" v-model.trim="searchform.product"></el-input>
+            <el-form-item label="身份证号" prop="idcard">
+              <el-input size="mini" v-model.trim="searchform.idcard"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -72,13 +72,13 @@
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
       >
-        <el-table-column type="index" label="流水号" align="center" width="60"></el-table-column>
+        <el-table-column type="index" label="流水号" align="center" width="70"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
-        <el-table-column prop="idcard" label="身份证号码" align="center"></el-table-column>
+        <el-table-column prop="reqId" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="mobile" label="手机号码" align="center"></el-table-column>
         <el-table-column prop="mobile" label="产品" align="center"></el-table-column>
         <el-table-column prop="applyAmount" label="授信额度" align="center"></el-table-column>
@@ -132,20 +132,17 @@ export default {
         }
       ],
       searchform: {
-        product: "",
+        index: "",
         name: "",
-        pid: "",
+        mobile: "",
+        idcard:"",
         startTime: "", //申请开始时间
         endTime: "", //至
         result: "",
         pageNum: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      tableData: [
-        {
-          name: "你好"
-        }
-      ]
+      tableData: []
     };
   },
 

@@ -87,7 +87,7 @@
             <div class="left">贷款到期日期</div>
           </el-col>
           <el-col :span="4">
-            <div class="right">{{data.dueDate}}</div>
+            <div class="right">{{data.dueDate  | formatDate}}</div>
           </el-col>
           <el-col :span="4">
             <div class="left">贷款金额</div>
