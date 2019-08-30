@@ -6,8 +6,8 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="rgb(9, 10, 10)"
-          text-color="#eee"
+          background-color="rgb(41, 73, 110)"
+          text-color="#fff"
           :collapse="this.$store.state.isLeftHiden"
           unique-opened
         >
@@ -60,6 +60,7 @@
               </el-menu-item-group>
             </el-submenu>
           </el-submenu>
+
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-tickets"></i>
@@ -77,14 +78,30 @@
               </router-link>
             </el-menu-item-group>
           </el-submenu>
+
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-zoom-in"></i>
               <span>风险评估报告</span>
             </template>
             <el-menu-item-group>
-              <router-link to="/zhengxinresult/creditlist">
-                <el-menu-item index="3-1">个人征信列表</el-menu-item>
+              <router-link to="/fengxianpinggubaogao/fengxianlist">
+                <el-menu-item index="3-1">个人</el-menu-item>
+              </router-link>
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-zoom-out"></i>
+              <span>黑名单管理</span>
+            </template>
+            <el-menu-item-group>
+              <router-link to="/blacklistmanage/blacklist">
+                <el-menu-item index="4-1">黑名单数据</el-menu-item>
+              </router-link>
+              <router-link to="/blacklistmanage/blackinput">
+                <el-menu-item index="4-2">黑名单批量导入</el-menu-item>
               </router-link>
             </el-menu-item-group>
           </el-submenu>
@@ -111,17 +128,18 @@ export default {
   width: 200px;
   height: 100%;
   transition: all 0.5s;
-  background-color: rgb(9, 10, 10);
+  font-weight: bold;
+  background-color: rgb(41, 73, 110);
 }
 
 .el-menu {
-  border-color: rgb(9, 10, 10);
+  border-color: rgb(41, 73, 110);
 }
 
 .side-menu {
   width: 64px;
   transition: all 0.5s;
-  background-color: rgb(9, 10, 10);
+  /* background-color: rgb(41, 85, 110); */
 }
 
 /* 修边 */
@@ -130,15 +148,15 @@ export default {
   margin: -0.4px !important;
 }
 
-.el-menu-item-group :hover {
-  background: black !important;
+/* .el-menu-item-group :hover {
+  background-color: black !important;
 }
 .el-submenu :hover {
   background-color: black !important;
 }
 .el-submenu__title :hover {
   background-color: black !important;
-}
+} */
 .el-menu-item-group {
   text-align: center;
 }

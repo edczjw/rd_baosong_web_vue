@@ -137,16 +137,16 @@ export default {
   color: rgba(116, 216, 194, 0.842);
 }
 .topBanner {
-  line-height: 50px;
+  line-height: 60px;
 
   position: fixed;
   z-index: 99;
 
   width: 100%;
-  height: 50px;
+  height: 55px;
 
-  background-color: rgba(34, 3, 3, 0.87);
-  box-shadow: 1px 1px 1px black;
+  background-color: rgb(10, 3, 3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.479);
 }
 
 p {
@@ -181,8 +181,8 @@ p {
 }
 
 svg {
-  width: 32px;
-  height: 32px;
+  width: 33px;
+  height: 33px;
   line-height: 32px;
   padding: 5px 8px;
 }

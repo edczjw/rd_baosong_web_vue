@@ -1,6 +1,8 @@
 <template>
   <!-- 样式在app.vue -->
-  <div class="box">
+  <div>
+    
+    <el-card>
     <div class="searcharea">
       <div class="biaoti">监管报送/日结报送</div>
       <el-form :model="searchform" size="mini" ref="searchform">
@@ -30,7 +32,9 @@
         </el-row>
       </el-form>
     </div>
+    </el-card>
 
+    <el-card>
     <el-table
       :data="tableData"
       v-loading="listLoading"
@@ -84,6 +88,7 @@
         :total="count"
       ></el-pagination>
     </div>
+    </el-card>
   </div>
 </template>
 

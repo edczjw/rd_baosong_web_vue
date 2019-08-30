@@ -1,6 +1,8 @@
 <template>
   <!-- 样式在app.vue -->
-  <div class="box">
+  <div>
+    
+    <el-card>
     <div class="searcharea">
       <div class="biaoti">监管报送/合同报送</div>
 
@@ -83,7 +85,10 @@
         </el-row>
       </el-form>
     </div>
+    </el-card>
 
+
+    <el-card>
     <!-- =============================== 展示表格数据框 =================================== -->
     <el-table
       :data="tableData"
@@ -147,6 +152,8 @@
         <!--这是显示总共有多少数据-->
       </el-pagination>
     </div>
+    </el-card>
+    
   </div>
 </template>
 

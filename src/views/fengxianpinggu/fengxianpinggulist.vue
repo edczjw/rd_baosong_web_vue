@@ -1,7 +1,7 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>征信结果 / 征信列表</b>
+      <b>风险评估报告 / 个人</b>
     </div>
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="130px">
@@ -17,25 +17,37 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="手机号" prop="mobile">
+            <el-form-item label="身份证号" prop="mobile">
               <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
+        
+        <el-row>
+            <el-col :span="8">
+            <el-form-item label="手机号" prop="mobile">
+              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            </el-form-item>
+            </el-col>
+          </el-col>
+
+           <el-col :span="8">
+            <el-form-item label="产品号" prop="mobile">
+              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            </el-form-item>
+            </el-col>
+          </el-col>
+        </el-row>
+            
         <el-row>
           <el-col :span="8">
-            <el-form-item label="身份证号" prop="idcard">
-              <el-input size="mini" v-model.trim="searchform.idcard"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
-            <el-form-item label="开始日期" prop="startTime">
+            <el-form-item label="开始时间" prop="startTime">
               <el-date-picker
                 size="mini"
                 v-model="searchform.startTime"
                 value-format="yyyy-MM-dd"
                 type="date"
-                placeholder="请选择开始日期"
+                placeholder="请选择开始时间"
               ></el-date-picker>
             </el-form-item>
           </el-col>
@@ -46,18 +58,17 @@
                 v-model="searchform.endTime"
                 value-format="yyyy-MM-dd"
                 type="date"
-                placeholder="请选择结束日期"
+                placeholder="请选择结束时间"
               ></el-date-picker>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row>
           <el-col :span="8">
             <el-form-item>
               <el-button size="mini" type="primary" @click="submitForm()">搜索</el-button>
               <el-button size="mini" @click="resetForm('searchform')">重置</el-button>
             </el-form-item>
           </el-col>
+          
         </el-row>
       </el-form>
     </el-card>
@@ -72,24 +83,17 @@
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
       >
-        <el-table-column type="index" label="流水号" align="center" width="70"></el-table-column>
+        <el-table-column prop="reqId" label="查询时间" align="center"></el-table-column>
+        <el-table-column prop="id" label="流水号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
-          <template slot-scope="scope">
+            <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
-        <el-table-column prop="reqId" label="身份证号码" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="手机号码" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="产品" align="center"></el-table-column>
-        <el-table-column prop="applyAmount" label="授信额度" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="欺诈评分" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="信用评分" align="center"></el-table-column>
-        <el-table-column prop="ctime" label="生成时间" align="center"></el-table-column>
-        <el-table-column label="操作" align="center">
-          <template slot-scope="scope">
-            <el-button type="primary" size="small" @click="godetail(scope.row.id)">查看详情</el-button>
-          </template>
-        </el-table-column>
+        <el-table-column prop="reqId" label="身份证号" align="center"></el-table-column>
+        <el-table-column prop="reqId" label="手机号" align="center"></el-table-column>
+        <el-table-column prop="reqId" label="产品号" align="center"></el-table-column>
+        
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">
@@ -117,20 +121,6 @@ export default {
   data() {
     return {
       count: 0,
-      options: [
-        {
-          value: "S",
-          label: "成功"
-        },
-        {
-          value: "F",
-          label: "失败"
-        },
-        {
-          value: "N",
-          label: "待处理"
-        }
-      ],
       searchform: {
         index: "",
         name: "",
@@ -143,7 +133,7 @@ export default {
         pageSize: 50 //显示当前行的条数
       },
       tableData: [{
-        name:'jj'
+          name:'jj'
       }]
     };
   },
@@ -188,7 +178,7 @@ export default {
     handleClick() {},
     godetail(id) {
       this.$router.push({
-        path: "/details/applyDetail",
+        path: "/fengxianpinggubaogao/fengxiandetail",
         query: {
           id: id
         }

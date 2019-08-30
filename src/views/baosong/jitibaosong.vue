@@ -1,6 +1,7 @@
 <template>
   <!-- 样式在app.vue -->
-  <div class="box">
+  <div >
+    <el-card>
     <div class="searcharea">
       <div class="biaoti">监管报送/计提报送</div>
 
@@ -8,7 +9,9 @@
         <el-option v-for="item in options" :key="item" :label="item" :value="item"></el-option>
       </el-select>
     </div>
+    </el-card>
 
+    <el-card>
     <table class="jititable" border>
       <tr>
         <td>类别项目</td>
@@ -61,6 +64,7 @@
         <td>{{ this.loansum }}</td>
       </tr>
     </table>
+    </el-card>
   </div>
 </template>
 

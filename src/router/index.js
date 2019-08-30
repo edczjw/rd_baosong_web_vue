@@ -198,6 +198,42 @@ export default new Router({
             auth: true
           }
         },
+        {
+          // 黑名单管理->黑名单数据
+          path: '/blacklistmanage/blacklist',
+          name: '黑名单数据',
+          component: require('../views/blacklistmanage/blacklist.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
+          // 黑名单管理->黑名单导入
+          path: '/blacklistmanage/blackinput',
+          name: '黑名单导入',
+          component: require('../views/blacklistmanage/blackinput.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
+          // 风险评估报告列表
+          path: '/fengxianpinggubaogao/fengxianlist',
+          name: '风险评估报告列表',
+          component: require('../views/fengxianpinggu/fengxianpinggulist.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
+          // 风险评估报告详情
+          path: '/fengxianpinggubaogao/fengxiandetail',
+          name: '风险评估报告详情',
+          component: require('../views/fengxianpinggu/fengxianpinggudetail.vue').default,
+          meta: {
+            auth: true
+          }
+        },
         
       ]
     }

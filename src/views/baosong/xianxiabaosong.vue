@@ -1,5 +1,6 @@
 <template>
     <div class="outpadding">
+    <el-card>
             <div class="biaoti" style="margin-top:8px;">监管报送/线下报送</div>
                 <el-tabs v-model="this.$store.state.tabname" tab-position="left" style="height:1100px;width:8%;float:left" @tab-click="changetab">
                     <!-- 有五大板块，分别来自不同的页面 -->
@@ -18,6 +19,7 @@
                 <!-- <rijie v-if="tabname=='rijie'"></rijie> -->
                 <jiti v-if="this.$store.state.tabname=='jiti'"></jiti>
             <!-- </div> -->
+    </el-card>
     </div>
 </template>
 <script>

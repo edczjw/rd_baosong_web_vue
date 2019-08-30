@@ -1,6 +1,8 @@
 <template>
   <!-- 样式在app.vue -->
-  <div class="box">
+  <div>
+    
+    <el-card>
     <div class="searcharea">
       <div class="biaoti">监管报送/坏账报送</div>
       <el-form :model="searchform" size="mini" ref="searchform">
@@ -84,6 +86,7 @@
         </el-row>
       </el-form>
     </div>
+    </el-card>
 
     <!-- <div class="page-cen">
 
@@ -120,6 +123,7 @@
             </el-dropdown>
     </div>-->
 
+    <el-card>
     <el-table
       :data="tableData"
       v-loading="listLoading"
@@ -176,6 +180,7 @@
         <!--这是显示总共有多少数据-->
       </el-pagination>
     </div>
+    </el-card>
   </div>
 </template>
 
