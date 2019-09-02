@@ -1,24 +1,24 @@
 <template>
   <div class="container">
     <div class="home-box animated zoomIn">
-      <h1 class="animated zoomIn">
+      <h2 class="animated zoomIn">
         欢
         迎
         使
         用
-      </h1>
-      <h2 class="animated zoomIn">
+      </h2>
+      <h3 class="animated zoomIn">
         民
         盛
         小
         贷
-      </h2>
-      <h3 class="animated zoomIn">
+      </h3>
+      <h1 class="animated zoomIn">
         中
         控
         系
         统
-      </h3>
+      </h1>
     </div>
 
     <div class="macbook" @click="go()">
@@ -29,7 +29,7 @@
         <div class="display">
           <div class="shade"></div>
         </div>
-        <span>中控系统</span>
+        <span>民盛中控系统</span>
       </div>
       <img src="http://www.clker.com/cliparts/i/s/H/f/4/T/apple-logo-white.svg" class="logo" />
     </div>
@@ -140,10 +140,16 @@ export default {
 </script>
 <style lang="less" scoped>
 .container {
+//   background-image: url('../../assets/fr.jpg');
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:100% 100%; 
+
+  background-attachment: fixed;
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 48%;
+  padding-bottom: 54%;
   font-family: "黝黑";
 }
 .home-box {
@@ -155,26 +161,29 @@ export default {
   margin-right:100px;
 }
 .home-box h1 {
-  color: rgb(228, 105, 83);
+    font-family: 'Times New Roman', Times, serif;
+  color: rgb(153, 34, 13);
+  margin-bottom: 20px;
+  font-size: 58px;
+}
+.home-box h2 {
+    font-family: 'Times New Roman', Times, serif;
+  color: rgba(247, 146, 14, 0.822);
   margin-bottom: 20px;
   font-size: 52px;
 }
-.home-box h2 {
-  color: rgba(221, 144, 44, 0.822);
-  margin-bottom: 20px;
-  font-size: 48px;
-}
 .home-box h3 {
-  color: rgba(24, 190, 240, 0.849);
+    font-family: 'Times New Roman', Times, serif;
+  color: rgba(9, 187, 241, 0.849);
   margin-bottom: 20px;
-  font-size: 36px;
+  font-size: 42px;
 }
 .macbook {
   width: 150px;
   height: 96px;
   position: absolute;
   left: 80%;
-  top: 90%;
+  top: 66%;
   margin: -75px 0 0 -48px;
   perspective: 500px;
   cursor: pointer;

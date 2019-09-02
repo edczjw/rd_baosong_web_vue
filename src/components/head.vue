@@ -26,6 +26,13 @@
         <use v-else xlink:href="#icon-cebianlanshousuo"/>
       </svg>
     </p>
+    <p class="i-left animated fadeIn" @click="gomshome" title="返回主页">
+      
+      <svg class="icon" aria-hidden="true"> 
+        <use xlink:href="#icon-dapingshouye"/>
+      </svg>
+    </p>
+
     <p class="right animated fadeIn" @click="lastpage" title="返回上一页">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fanhui2" />
@@ -61,6 +68,9 @@ export default {
     };
   },
   methods: {
+    gomshome(){
+          this.$router.push("/mshome");
+    },
     //返回上一页
     lastpage() {
       window.history.go(-1);
@@ -156,11 +166,11 @@ p {
 }
 
 .left {
-  font-family: "黑体";
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
   font-weight: bold;
-  margin-left: 10px;
   float: left;
+  line-height: 55px;
 
   color: rgb(229, 230, 223);
   text-shadow: 2px 2px 3px rgb(82, 80, 80);
@@ -173,30 +183,42 @@ p {
 
   margin-left: 22px;
   padding: 0 10px;
-
+  position: relative;
+  height: 33px;
+  line-height: 32px;
+  top:25%;
   cursor: pointer;
-  border-left: 2px solid rgba(238, 238, 238, 0.301);
-  border-right: 2px solid rgba(238, 238, 238, 0.301);
+  border-radius: 20%;
+  border: 2px solid rgba(238, 238, 238, 0.301);
   color: rgb(255, 255, 255);
 }
 .i-left:hover{
+  color: rgba(116, 216, 194, 0.842);
   background: rgba(238, 238, 238, 0.068)
 }
 
 .right {
   font-size: 12px;
 
+  position: relative;
   float: right;
+  height: 33px;
+  border-radius: 20%;
+  line-height: 32px;
 
   margin-right: 22px;
 
+  top:25%;
   cursor: pointer;
+  padding: 0 10px;
 
   color: rgb(255, 255, 255);
+  border: 2px solid rgba(238, 238, 238, 0.301);
 }
 
 .right:hover {
   color: rgba(116, 216, 194, 0.842);
+  background: rgba(238, 238, 238, 0.068)
 }
 
 svg {

@@ -1,17 +1,19 @@
 <template>
   <div class="content">
+    <el-card>
     <el-row>
       <el-col :span="24">
         <div class="changepw">
+          <el-card>
           <el-form
             :model="setform"
             status-icon
             :rules="rules2"
             ref="setform"
-            label-width="100px"
+            label-width="210px"
             class="demo-ruleForm"
           >
-            <el-form-item label="账号" prop="account">
+            <el-form-item label="账号:" prop="account">
               <el-input
                 show-password
                 v-model.trim="setform.account"
@@ -20,7 +22,7 @@
               ></el-input>
             </el-form-item>
 
-            <el-form-item label="旧密码" prop="oldPwd">
+            <el-form-item label="旧密码:" prop="oldPwd">
               <el-input
                 type="password"
                 show-password
@@ -30,7 +32,7 @@
               ></el-input>
             </el-form-item>
 
-            <el-form-item label="新密码" prop="newPwd">
+            <el-form-item label="新密码:" prop="newPwd">
               <el-input
                 type="password"
                 show-password
@@ -40,7 +42,7 @@
               ></el-input>
             </el-form-item>
 
-            <el-form-item label="确认密码" prop="checkPwd">
+            <el-form-item label="确认密码:" prop="checkPwd">
               <el-input
                 type="password"
                 show-password
@@ -54,9 +56,11 @@
               <el-button type="primary" plain @click="resetForm('setform')" size="small">重置</el-button>
             </el-form-item>
           </el-form>
+          </el-card>
         </div>
       </el-col>
     </el-row>
+    </el-card>
   </div>
 </template>
 <script>
@@ -175,12 +179,18 @@ export default {
 @import '../users/style.css';
 
 .changepw {
-  padding: 50px 200px 50px 500px;
+  padding: 50px 30% 50px 30%;
 
   background-color: rgba(238, 238, 238, .835);
 }
 
-
+.demo-ruleForm{
+  padding: 20px;
+  background-image: url('../../assets/tt.jpeg');
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
 
 
 

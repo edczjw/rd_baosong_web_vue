@@ -129,11 +129,11 @@ export default {
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
-  background-color: rgb(41, 73, 110);
+  background-color: rgb(18, 38, 61);
 }
 
 .el-menu {
-  border-color: rgb(41, 73, 110);
+  border-color: rgb(18, 38, 61);
 }
 
 .side-menu {
