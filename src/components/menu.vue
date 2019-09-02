@@ -86,12 +86,12 @@
             </template>
             <el-menu-item-group>
               <router-link to="/fengxianpinggubaogao/fengxianlist">
-                <el-menu-item index="3-1">个人</el-menu-item>
+                <el-menu-item index="3-1">个人列表</el-menu-item>
               </router-link>
             </el-menu-item-group>
           </el-submenu>
 
-          <el-submenu index="4">
+          <!-- <el-submenu index="4">
             <template slot="title">
               <i class="el-icon-zoom-out"></i>
               <span>黑名单管理</span>
@@ -104,7 +104,7 @@
                 <el-menu-item index="4-2">黑名单批量导入</el-menu-item>
               </router-link>
             </el-menu-item-group>
-          </el-submenu>
+          </el-submenu> -->
         </el-menu>
       </el-col>
     </el-row>

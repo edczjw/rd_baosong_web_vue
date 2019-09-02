@@ -1,36 +1,38 @@
 <template>
   <div class="topBanner">
     <div class="side-tit">
-      <p class="left">民盛中控系统</p>
+      <p class="left animated fadeIn">民盛中控系统</p>
     </div>
-    <p class="right" @click="goBack" title="安全退出">
+    <p class="right animated fadeIn" @click="goBack" title="安全退出">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-shouye" />
       </svg>
     </p>
-    <p class="right" title="用户名">
+    <p class="right animated fadeIn" title="用户名">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-character" />
       </svg>
       {{userName}}
     </p>
-    <p class="right" @click="screenfull" title="全屏显示">
+    <p class="right animated fadeIn" @click="screenfull" title="全屏显示">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-quanping4" />
       </svg>
     </p>
-    <p class="right" @click="tabcontrol" title="折叠菜单">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-cebianlanshousuo" />
+    <p class="i-left animated fadeIn" @click="tabcontrol" title="折叠菜单">
+      
+      <svg class="icon" aria-hidden="true"> 
+        <use v-if="this.$store.state.isLeftHiden"  xlink:href="#icon-cebianlandanchu"/>
+        <use v-else xlink:href="#icon-cebianlanshousuo"/>
       </svg>
     </p>
-    <p class="right" @click="lastpage" title="返回上一页">
+    <p class="right animated fadeIn" @click="lastpage" title="返回上一页">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-fanhui2" />
       </svg>
     </p>
 
-    <p class="right" title="密码修改">
+    <p class="right animated fadeIn" title="密码修改">
       <router-link to="/users/mimaxiugai" class="roulink">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-mimazhongzhi" />
@@ -115,7 +117,7 @@ export default {
     //折叠
     tabcontrol() {
       this.$store.state.isLeftHiden = !this.$store.state.isLeftHiden;
-      console.log(this.$store.state.isLeftHiden);
+      // console.log(this.$store.state.isLeftHiden);
     }
   }
 };
@@ -162,6 +164,23 @@ p {
 
   color: rgb(229, 230, 223);
   text-shadow: 2px 2px 3px rgb(82, 80, 80);
+}
+.i-left{
+  font-size: 12px;
+
+  float: left;
+  font-weight: bolder;
+
+  margin-left: 22px;
+  padding: 0 10px;
+
+  cursor: pointer;
+  border-left: 2px solid rgba(238, 238, 238, 0.301);
+  border-right: 2px solid rgba(238, 238, 238, 0.301);
+  color: rgb(255, 255, 255);
+}
+.i-left:hover{
+  background: rgba(238, 238, 238, 0.068)
 }
 
 .right {

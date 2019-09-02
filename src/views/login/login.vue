@@ -80,7 +80,7 @@ export default {
               }
               //前端控制权限
               sessionStorage.setItem("name", str); //本地存储用户名
-              _this.$router.push("/home"); //跳转
+              _this.$router.push("/mshome"); //跳转
               sessionStorage.setItem("userId", strid); //本地存储用户ID
             }
             //失败

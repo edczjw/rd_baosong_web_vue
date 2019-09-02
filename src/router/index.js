@@ -27,6 +27,14 @@ export default new Router({
       },
       // 含有文件夹的文件children
       children: [{
+        // 主页
+        path: '/mshome',
+        name: 'ms主页',
+        component: require('../views/index/home.vue').default,
+        meta: {
+          auth: true
+        },
+      },{
           // 合同报送
           path: '/baosong/hetongbaosong',
           name: '合同报送',

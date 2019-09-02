@@ -8,6 +8,7 @@ import {
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
+import animate from 'animate.css'
 import axios from 'axios'
 Vue.prototype.$axios = axios
 //需要引用vue-resource
@@ -17,6 +18,7 @@ import VueResource from 'vue-resource'
 import store from './store'
 
 Vue.use(VueResource)
+Vue.use(animate)
 Vue.http.options.headers = {
   'Content-Type': 'application/json;charset=UTF-8'
 };

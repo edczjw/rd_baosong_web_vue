@@ -1,14 +1,14 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>风险评估报告 / 个人</b>
+      <b>风险评估报告 / 个人列表</b>
     </div>
     <el-card>
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row type="flex" class="human-form">
           <el-col :span="8">
-            <el-form-item label="流水号" prop="index">
-              <el-input size="mini" v-model.trim="searchform.index"></el-input>
+            <el-form-item label="流水号" prop="usrNo">
+              <el-input size="mini" v-model.trim="searchform.usrNo"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
@@ -17,23 +17,23 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="身份证号" prop="mobile">
-              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            <el-form-item label="身份证号" prop="idCard">
+              <el-input size="mini" v-model.trim="searchform.idCard"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         
         <el-row>
             <el-col :span="8">
-            <el-form-item label="手机号" prop="mobile">
-              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            <el-form-item label="手机号" prop="phone">
+              <el-input size="mini" v-model.trim="searchform.phone"></el-input>
             </el-form-item>
             </el-col>
           </el-col>
 
            <el-col :span="8">
-            <el-form-item label="产品号" prop="mobile">
-              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            <el-form-item label="产品号" prop="productCode">
+              <el-input size="mini" v-model.trim="searchform.productCode"></el-input>
             </el-form-item>
             </el-col>
           </el-col>
@@ -41,10 +41,10 @@
             
         <el-row>
           <el-col :span="8">
-            <el-form-item label="开始时间" prop="startTime">
+            <el-form-item label="开始时间" prop="beginDate">
               <el-date-picker
                 size="mini"
-                v-model="searchform.startTime"
+                v-model="searchform.beginDate"
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="请选择开始时间"
@@ -52,10 +52,10 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="至" prop="endTime">
+            <el-form-item label="至" prop="endDate">
               <el-date-picker
                 size="mini"
-                v-model="searchform.endTime"
+                v-model="searchform.endDate"
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="请选择结束时间"
@@ -83,16 +83,16 @@
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
       >
-        <el-table-column prop="reqId" label="查询时间" align="center"></el-table-column>
-        <el-table-column prop="id" label="流水号" align="center"></el-table-column>
+        <el-table-column prop="createTime" label="查询时间" align="center"></el-table-column>
+        <el-table-column prop="usrNo" label="流水号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
             <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
-        <el-table-column prop="reqId" label="身份证号" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="手机号" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="产品号" align="center"></el-table-column>
+        <el-table-column prop="idCard" label="身份证号" align="center"></el-table-column>
+        <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
+        <el-table-column prop="productCode" label="产品号" align="center"></el-table-column>
         
       </el-table>
       <!-- 分页 -->
@@ -102,7 +102,7 @@
           style="text-align:center"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="this.searchform.pageNum"
+          :current-page="this.searchform.pageIndex"
           :page-sizes="[20,50,100]"
           :page-size="this.searchform.pageSize"
           layout="total, sizes, prev, pager, next"
@@ -122,19 +122,17 @@ export default {
     return {
       count: 0,
       searchform: {
-        index: "",
-        name: "",
-        mobile: "",
-        idcard:"",
-        startTime: "", //申请开始时间
-        endTime: "", //至
-        result: "",
-        pageNum: 1, //初始页
+        usrNo: null,
+        name: null,
+        idCard: null,
+        productCode: null,
+        phone: null,
+        beginDate: null,
+        endDate:null,
+        pageIndex: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
-      tableData: [{
-          name:'jj'
-      }]
+      tableData: []
     };
   },
 
@@ -145,7 +143,7 @@ export default {
   beforeMount() {},
 
   mounted() {
-    // this.load(this.searchform);
+    this.load(this.searchform);
   },
 
   methods: {
@@ -165,13 +163,13 @@ export default {
       // 改变每页显示的条数
       this.searchform.pageSize = psize;
       // 注意：在改变每页显示的条数时，要将页码显示到第一页
-      this.searchform.pageNum = 1;
+      this.searchform.pageIndex = 1;
       this.load(this.searchform);
     },
 
     // 初始页currentPage
     handleCurrentChange(pindex) {
-      this.searchform.pageNum = pindex;
+      this.searchform.pageIndex = pindex;
       this.load(this.searchform);
     },
     //表单操作
@@ -189,27 +187,37 @@ export default {
       this.tableData = [];
       this.$axios({
         method: "post",
-        url: this.$store.state.domain + "/loanApply/findByPage",
+        url: this.$store.state.domain + "/appsvr/riskAssessment",
         data: data
       }).then(
         response => {
           var res = response.data;
-          if (res.code == 200) {
-            res.data.list.forEach(data => {
-              data.ctime = this.formatDate(data.ctime);
-              this.tableData.push(data);
-            });
-            this.count = res.data.total;
-            this.searchform.pageNum = res.data.pageNum;
-            this.searchform.pageSize = res.data.pageSize;
-          } else {
+          if(res.code == 0){
+            if(res.detail.result.pageList == "" || res.detail.result.pageList == null || res.detail.result.pageList==[]){
+              this.$notify({
+                    message: '搜索失败，无此数据，请重新搜索。',
+                    type: 'warning',
+                    duration:"2000"//持续时间
+                  });
+            }else{
+              this.tableData = res.detail.result.pageList;
+              this.count = res.detail.result.count;
+              this.searchform.pageIndex = res.detail.result.pageIndex;
+              this.searchform.pageSize = res.detail.result.pageSize;
+            }
+          }else{
             this.$message({
-              message: res.message,
+              message: res.msg,
               type: "error"
             });
-          }
+          } 
         },
-        error => {}
+        error => {
+            this.$message({
+              message: response,
+              type: "error"
+            });
+        }
       );
     }
   },
