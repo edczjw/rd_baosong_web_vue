@@ -11,6 +11,9 @@
           :collapse="this.$store.state.isLeftHiden"
           unique-opened
         >
+          <div class="menu-img">
+            <img class="animated fadeIn" src="../assets/gt.png" alt="欢迎您" width="55px"> 
+          </div>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-document"></i>
@@ -159,5 +162,14 @@ export default {
 } */
 .el-menu-item-group {
   text-align: center;
+}
+
+.menu-img{
+  width:100%;
+  height: 56px;
+  line-height: 55px;
+  text-align: center;
+  margin: 24px 0;
+  cursor: pointer;
 }
 </style>

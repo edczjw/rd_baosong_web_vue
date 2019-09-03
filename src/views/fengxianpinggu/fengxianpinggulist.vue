@@ -32,7 +32,7 @@
           </el-col>
 
            <el-col :span="8">
-            <el-form-item label="产品号" prop="productCode">
+            <el-form-item label="产品名称" prop="productCode">
               <el-input size="mini" v-model.trim="searchform.productCode"></el-input>
             </el-form-item>
             </el-col>
@@ -92,7 +92,7 @@
         </el-table-column>
         <el-table-column prop="idCard" label="身份证号" align="center"></el-table-column>
         <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
-        <el-table-column prop="productCode" label="产品号" align="center"></el-table-column>
+        <el-table-column prop="productCode" label="产品名称" align="center"></el-table-column>
         
       </el-table>
       <!-- 分页 -->
