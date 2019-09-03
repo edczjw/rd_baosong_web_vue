@@ -5,7 +5,27 @@
     </div>
     <el-card>
         <div style="padding:0 300px;">
-            <img src="../../assets/rr.jpg" alt="" width="100%">
+            <img src="../../assets/1_01.jpg" alt="" width="100%">
+            <img src="../../assets/1_02.jpg" alt="" width="100%">
+            <img src="../../assets/1_03.jpg" alt="" width="100%">
+            <img src="../../assets/1_04.jpg" alt="" width="100%">
+            <img src="../../assets/1_05.jpg" alt="" width="100%">
+            <img src="../../assets/1_06.jpg" alt="" width="100%">
+            <img src="../../assets/1_07.jpg" alt="" width="100%">
+            <img src="../../assets/1_08.jpg" alt="" width="100%">
+            <img src="../../assets/1_09.jpg" alt="" width="100%">
+            <img src="../../assets/1_10.jpg" alt="" width="100%">
+            <img src="../../assets/1_11.jpg" alt="" width="100%">
+            <img src="../../assets/2_01.jpg" alt="" width="100%">
+            <img src="../../assets/2_02.jpg" alt="" width="100%">
+            <img src="../../assets/2_03.jpg" alt="" width="100%">
+            <img src="../../assets/2_04.jpg" alt="" width="100%">
+            <img src="../../assets/2_05.jpg" alt="" width="100%">
+            <img src="../../assets/2_06.jpg" alt="" width="100%">
+            <img src="../../assets/2_07.jpg" alt="" width="100%">
+            <img src="../../assets/2_08.jpg" alt="" width="100%">
+            <img src="../../assets/2_09.jpg" alt="" width="100%">
+            <img src="../../assets/2_10.jpg" alt="" width="100%">
         </div>
     </el-card>
   </div>

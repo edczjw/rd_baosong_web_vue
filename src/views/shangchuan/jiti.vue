@@ -52,15 +52,15 @@
                 <el-col :span="8">
                  <el-form-item label="计提月份：" prop="dateMonth" :rules="rules">
                     <el-date-picker v-model.trim="ruleForm.dateMonth" value-format="yyyyMM" 
-                    type="date" placeholder="计提月份" size="mini">
+                    type="date" placeholder="年月" size="mini">
                     </el-date-picker>
                 </el-form-item></el-col>
 
                 <el-col :span="8">
                 <el-form-item label="查询编号：" prop="reqNo"
                 :rules="rules">
-                    <el-date-picker v-model.trim="ruleForm.reqNo" value-format="yyyyMMdd" 
-                    type="date" placeholder="年月日" size="mini">
+                    <el-date-picker v-model.trim="ruleForm.reqNo" value-format="yyyyMM" 
+                    type="date" placeholder="年月" size="mini">
                     </el-date-picker>
                 </el-form-item>
                 </el-col>

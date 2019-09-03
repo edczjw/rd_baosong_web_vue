@@ -33,7 +33,12 @@
 
            <el-col :span="8">
             <el-form-item label="产品名称" prop="productCode">
-              <el-input size="mini" v-model.trim="searchform.productCode"></el-input>
+               <el-select size="mini" v-model="searchform.productCode" placeholder="请选择产品" clearable>
+                    <el-option v-for="item in prolist"
+                        :key="item.code"
+                        :label="item.financialProductsName"
+                        :value="item.code"></el-option>
+                  </el-select>
             </el-form-item>
             </el-col>
           </el-col>
@@ -92,7 +97,8 @@
         </el-table-column>
         <el-table-column prop="idCard" label="身份证号" align="center"></el-table-column>
         <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
-        <el-table-column prop="productCode" label="产品名称" align="center"></el-table-column>
+        <el-table-column prop="productName" label="产品名称" align="center">
+        </el-table-column>
         
       </el-table>
       <!-- 分页 -->
@@ -121,6 +127,7 @@ export default {
   data() {
     return {
       count: 0,
+      prolist:[],
       searchform: {
         usrNo: null,
         name: null,
@@ -140,13 +147,42 @@ export default {
 
   computed: {},
 
-  beforeMount() {},
+  beforeMount() {
+    this.getproduct();
+  },
 
   mounted() {
-    this.load(this.searchform);
+    // this.load(this.searchform);
   },
 
   methods: {
+    getproduct(){
+      this.$axios({
+        method: "post",
+        url: this.$store.state.domain + "/appsvr/getProductName",
+        data: {}
+      }).then(
+        response => {
+          var res = response.data;
+          if(res.code == 0){
+
+            this.prolist = res.detail.result;
+
+          }else{
+            this.$message({
+              message: res.msg,
+              type: "error"
+            });
+          } 
+        },
+        error => {
+            this.$message({
+              message: res.message,
+              type: "error"
+            });
+        }
+      );
+    },
     formatDate(time) {
       var date = new Date(time);
       return formatDate(date, "yyyy-MM-dd hh:mm:ss");

@@ -12,7 +12,7 @@
           unique-opened
         >
           <div class="menu-img">
-            <img class="animated fadeIn" src="../assets/gt.png" alt="欢迎您" width="55px"> 
+            <img class="animated fadeIn" src="../assets/gt.png" alt="欢迎您" width="1.1rem"> 
           </div>
           <el-submenu index="1">
             <template slot="title">
@@ -128,7 +128,7 @@ export default {
 .side {
   position: fixed;
 
-  width: 200px;
+  width: 4rem;
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
@@ -140,7 +140,7 @@ export default {
 }
 
 .side-menu {
-  width: 64px;
+  width: 1.28rem;
   transition: all 0.5s;
   /* background-color: rgb(41, 85, 110); */
 }
@@ -148,7 +148,7 @@ export default {
 /* 修边 */
 .el-menu {
   /* important的意义在于优先于它内部定义的样式 */
-  margin: -0.4px !important;
+  margin: -0.008rem !important;
 }
 
 /* .el-menu-item-group :hover {
@@ -166,10 +166,10 @@ export default {
 
 .menu-img{
   width:100%;
-  height: 56px;
-  line-height: 55px;
+  height: 1.12rem;
+  line-height: 1.1rem;
   text-align: center;
-  margin: 24px 0;
+  margin: .48rem 0;
   cursor: pointer;
 }
 </style>
