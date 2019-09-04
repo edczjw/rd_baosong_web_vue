@@ -4,7 +4,7 @@
       <b>风险评估报告 / 个人详情</b>
     </div>
     <el-card>
-        <div style="padding:0 300px;">
+        <div style="padding:0 60px;">
             <img src="../../assets/1_01.jpg" alt="" width="100%">
             <img src="../../assets/1_02.jpg" alt="" width="100%">
             <img src="../../assets/1_03.jpg" alt="" width="100%">

@@ -6,13 +6,13 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="rgb(41, 73, 110)"
+          background-color="rgb(18, 38, 61)"
           text-color="#fff"
           :collapse="this.$store.state.isLeftHiden"
           unique-opened
         >
           <div class="menu-img">
-            <img class="animated fadeIn" src="../assets/gt.png" alt="欢迎您" width="1.1rem"> 
+            <img style="border-radius:35px" class="animated fadeIn" src="../assets/user.png" alt="欢迎您" width="55px"> 
           </div>
           <el-submenu index="1">
             <template slot="title">
@@ -128,7 +128,7 @@ export default {
 .side {
   position: fixed;
 
-  width: 4rem;
+  width: 200px;
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
@@ -140,7 +140,7 @@ export default {
 }
 
 .side-menu {
-  width: 1.28rem;
+  width: 64px;
   transition: all 0.5s;
   /* background-color: rgb(41, 85, 110); */
 }
@@ -148,7 +148,7 @@ export default {
 /* 修边 */
 .el-menu {
   /* important的意义在于优先于它内部定义的样式 */
-  margin: -0.008rem !important;
+  margin: -0.4px !important;
 }
 
 /* .el-menu-item-group :hover {
@@ -166,10 +166,10 @@ export default {
 
 .menu-img{
   width:100%;
-  height: 1.12rem;
-  line-height: 1.1rem;
+  height: 56px;
+  line-height: 55px;
   text-align: center;
-  margin: .48rem 0;
+  margin: 24px 0;
   cursor: pointer;
 }
 </style>

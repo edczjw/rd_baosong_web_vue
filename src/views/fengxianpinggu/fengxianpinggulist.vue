@@ -152,7 +152,7 @@ export default {
   },
 
   mounted() {
-    // this.load(this.searchform);
+    this.load(this.searchform);
   },
 
   methods: {

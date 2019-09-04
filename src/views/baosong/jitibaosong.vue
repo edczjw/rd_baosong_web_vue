@@ -2,16 +2,16 @@
   <!-- 样式在app.vue -->
   <div >
     <el-card>
-    <div class="searcharea">
+    <!-- <div class="searcharea"> -->
       <div class="biaoti">监管报送/计提报送</div>
-
-      <el-select v-model="value" placeholder="请选择时间" size="small" @change="overchange($event)">
-        <el-option v-for="item in options" :key="item" :label="item" :value="item"></el-option>
-      </el-select>
-    </div>
+    <!-- </div> -->
     </el-card>
 
     <el-card>
+      选择时间：
+      <el-select v-model="value" placeholder="请选择时间" size="small" @change="overchange($event)">
+        <el-option v-for="item in options" :key="item" :label="item" :value="item"></el-option>
+      </el-select>
     <table class="jititable" border>
       <tr>
         <td>类别项目</td>

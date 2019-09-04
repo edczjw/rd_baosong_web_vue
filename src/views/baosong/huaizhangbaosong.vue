@@ -72,14 +72,9 @@
             </el-form-item>
           </el-col>
 
-          <el-col :span="2">
+          <el-col :span="6">
             <el-form-item>
               <el-button type="primary" @click="search">查询</el-button>
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="2">
-            <el-form-item>
               <el-button type="primary" @click="resetForm('searchform')">重置</el-button>
             </el-form-item>
           </el-col>
