@@ -5,23 +5,21 @@
     </div>
     <el-card>
         <div style="margin-right:100px;width:500px">
-            <input type="file" name="myfiles" @change="pickFile">
+          <form id="form-article-add" method="post" enctype="multipart/form-data">  
+            <input type="file" name="file" @change="pickFile" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
             <el-button size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+          </form>
         </div>
     </el-card>
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data() {
     return {
         canUpload:false,
-        form:{
-            fileType:"",
-            fileName:"",
-            base64:""
-        }
     };
   },
 
@@ -32,7 +30,7 @@ export default {
   beforeMount() {},
 
   mounted() {
-    // this.load(this.searchform);
+
   },
 
   methods: {
@@ -54,6 +52,7 @@ export default {
               this.fileType = type;
               this.canUpload = true;
               this.fileName = file.name.substring(0,pos);
+              this.file = file;
               var reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = function(e){
@@ -62,12 +61,39 @@ export default {
            }
       },
 
+//异步上传
       async submitUpload(){
           if(this.canUpload){
-              //axios调后台接口
-              console.log(this.fileType)
-              console.log(this.fileName)
-              console.log(this.base64)
+            
+			    var FormDatas=new FormData($("#form-article-add")[0]);
+              FormDatas.append("file",FormDatas);
+              this.$axios({
+                  method: "post",
+                  url: this.$store.state.domain + "/blacklist/batchAdd",
+                  data: FormDatas,
+                  headers:{'Content-Type':'multipart/form-data'}
+                }).then(
+                  response => {
+                    var res = response.data;
+                    if (res.code == 0) {
+                        this.$message({
+                          message: '导入成功',
+                          type: 'success'
+                        });
+                    } else {
+                      this.$message({
+                        message: res.message,
+                        type: "error"
+                      });
+                    }
+                  },
+                  error => {
+                    this.$message({
+                        message: error.message,
+                        type: "error"
+                      });
+                      }
+                );
           }
       }
   },

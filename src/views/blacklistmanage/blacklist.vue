@@ -7,34 +7,34 @@
       <el-form :model="searchform" ref="searchform" label-width="130px">
         <el-row type="flex" class="human-form">
           <el-col :span="8">
-            <el-form-item label="服务号" prop="index">
-              <el-input size="mini" v-model.trim="searchform.index"></el-input>
+            <el-form-item label="服务号" prop="serviceId">
+              <el-input size="mini" v-model.trim="searchform.serviceId"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="产品号" prop="name">
-              <el-input size="mini" v-model.trim="searchform.name"></el-input>
+            <el-form-item label="产品号" prop="productId">
+              <el-input size="mini" v-model.trim="searchform.productId"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="外部流水号" prop="mobile">
-              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            <el-form-item label="外部流水号" prop="outUniqueCode">
+              <el-input size="mini" v-model.trim="searchform.outUniqueCode"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         
         <el-row>
             <el-col :span="8">
-            <el-form-item label="黑名单类型" prop="mobile">
-              <el-input size="mini" v-model.trim="searchform.mobile"></el-input>
+            <el-form-item label="黑名单类型" prop="blacklistType">
+              <el-input size="mini" v-model.trim="searchform.blacklistType"></el-input>
             </el-form-item>
             </el-col>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="创建开始时间" prop="startTime">
+            <el-form-item label="创建开始时间" prop="beginDate">
               <el-date-picker
                 size="mini"
-                v-model="searchform.startTime"
+                v-model="searchform.beginDate"
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="请选择开始时间"
@@ -43,10 +43,10 @@
           </el-col>
             
           <el-col :span="8">
-            <el-form-item label="至" prop="endTime">
+            <el-form-item label="至" prop="endDate">
               <el-date-picker
                 size="mini"
-                v-model="searchform.endTime"
+                v-model="searchform.endDate"
                 value-format="yyyy-MM-dd"
                 type="date"
                 placeholder="请选择结束时间"
@@ -76,21 +76,20 @@
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
       >
-        <el-table-column prop="reqId" label="系统编码" align="center"></el-table-column>
-        <el-table-column label="服务号" align="center"></el-table-column>
-        <el-table-column prop="name" label="产品号" align="center">
-        </el-table-column>
-        <el-table-column prop="reqId" label="外部流水号" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="黑名单类型" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="黑名单描述" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="优先级" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="阶段" align="center"></el-table-column>
-        <el-table-column prop="reqId" label="规则编码" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="规则描述" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="生效时间" align="center"></el-table-column>
-        <el-table-column prop="applyAmount" label="失效时间" align="center"></el-table-column>
-        <el-table-column prop="mobile" label="创建时间" align="center"></el-table-column>
-        <el-table-column label="备注" align="center"></el-table-column>
+        <el-table-column prop="sysCode" label="系统编码" align="center"></el-table-column>
+        <el-table-column prop="serviceId" label="服务号" align="center"></el-table-column>
+        <el-table-column prop="productId" label="产品号" align="center"></el-table-column>
+        <el-table-column prop="outUniqueCode" label="外部流水号" align="center"></el-table-column>
+        <el-table-column prop="blacklistType" label="黑名单类型" align="center"></el-table-column>
+        <el-table-column prop="blacklistDes" label="黑名单描述" align="center"></el-table-column>
+        <el-table-column prop="priority" label="优先级" align="center"></el-table-column>
+        <el-table-column prop="stage" label="阶段" align="center"></el-table-column>
+        <el-table-column prop="ruleCode" label="规则编码" align="center"></el-table-column>
+        <el-table-column prop="ruleDes" label="规则描述" align="center"></el-table-column>
+        <el-table-column prop="beginDate" label="生效时间" align="center"></el-table-column>
+        <el-table-column prop="endDate" label="失效时间" align="center"></el-table-column>
+        <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
+        <el-table-column prop="remark" label="备注" align="center"></el-table-column>
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">
@@ -99,7 +98,7 @@
           style="text-align:center"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page="this.searchform.pageNum"
+          :current-page="this.searchform.pageIndex"
           :page-sizes="[20,50,100]"
           :page-size="this.searchform.pageSize"
           layout="total, sizes, prev, pager, next"
@@ -118,29 +117,15 @@ export default {
   data() {
     return {
       count: 0,
-      options: [
-        {
-          value: "S",
-          label: "成功"
-        },
-        {
-          value: "F",
-          label: "失败"
-        },
-        {
-          value: "N",
-          label: "待处理"
-        }
-      ],
+      options: [],
       searchform: {
-        index: "",
-        name: "",
-        mobile: "",
-        idcard:"",
-        startTime: "", //申请开始时间
-        endTime: "", //至
-        result: "",
-        pageNum: 1, //初始页
+        serviceId: "",
+        productId: "",
+        outUniqueCode: "",
+        blacklistType:"",
+        beginDate: "", //申请开始时间
+        endDate: "", //至
+        pageIndex: 1, //初始页
         pageSize: 50 //显示当前行的条数
       },
       tableData: []
@@ -154,7 +139,7 @@ export default {
   beforeMount() {},
 
   mounted() {
-    // this.load(this.searchform);
+    this.load(this.searchform);
   },
 
   methods: {
@@ -174,46 +159,34 @@ export default {
       // 改变每页显示的条数
       this.searchform.pageSize = psize;
       // 注意：在改变每页显示的条数时，要将页码显示到第一页
-      this.searchform.pageNum = 1;
+      this.searchform.pageIndex = 1;
       this.load(this.searchform);
     },
 
     // 初始页currentPage
-    handleCurrentChange(pindex) {
-      this.searchform.pageNum = pindex;
+    handleCurrentChange(pageIndex) {
+      this.searchform.pageIndex = pageIndex;
       this.load(this.searchform);
     },
-    //表单操作
-    handleClick() {},
-    godetail(id) {
-      this.$router.push({
-        path: "/details/applyDetail",
-        query: {
-          id: id
-        }
-      });
-    },
+
     //初始化数据
     load(data) {
       this.tableData = [];
       this.$axios({
         method: "post",
-        url: this.$store.state.domain + "/loanApply/findByPage",
+        url: this.$store.state.domain + "/blacklist/query",
         data: data
       }).then(
         response => {
           var res = response.data;
-          if (res.code == 200) {
-            res.data.list.forEach(data => {
-              data.ctime = this.formatDate(data.ctime);
-              this.tableData.push(data);
-            });
-            this.count = res.data.total;
-            this.searchform.pageNum = res.data.pageNum;
-            this.searchform.pageSize = res.data.pageSize;
+          if (res.code == 0) {
+            this.tableData = res.detail.pageList;
+            this.count = res.detail.count;
+            this.searchform.pageIndex = res.detail.pageIndex;
+            this.searchform.pageSize = res.detail.pageSize;
           } else {
             this.$message({
-              message: res.message,
+              message: res.msg,
               type: "error"
             });
           }
