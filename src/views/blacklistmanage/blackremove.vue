@@ -1,13 +1,13 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>黑名单管理 / 黑名单批量导入</b>
+      <b>黑名单管理 / 黑名单批量移除</b>
     </div>
     <el-card>
         <div style="margin-right:100px;width:500px">
           <form id="form-article-add" method="post" enctype="multipart/form-data">  
             <input type="file" name="file" @change="pickFile" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-            <el-button size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+            <el-button size="small" type="success" @click="submitUpload">批量移除</el-button>
           </form>
         </div>
     </el-card>
@@ -68,7 +68,7 @@ export default {
               FormDatas.append("file",FormDatas);
               this.$axios({
                   method: "post",
-                  url: this.$store.state.domain + "/blacklist/batchAdd",
+                  url: this.$store.state.domain + "/blacklist/batchDel",
                   data: FormDatas,
                   headers:{'Content-Type':'multipart/form-data'}
                 }).then(
@@ -76,7 +76,7 @@ export default {
                     var res = response.data;
                     if (res.code == 0) {
                         this.$message({
-                          message: '导入成功',
+                          message: '批量删除成功',
                           type: 'success'
                         });
                     } else {

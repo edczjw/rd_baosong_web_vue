@@ -225,6 +225,15 @@ export default new Router({
           }
         },
         {
+          // 黑名单管理->黑名单移除
+          path: '/blacklistmanage/blackremove',
+          name: '黑名单移除',
+          component: require('../views/blacklistmanage/blackremove.vue').default,
+          meta: {
+            auth: true
+          }
+        },
+        {
           // 风险评估报告列表
           path: '/fengxianpinggubaogao/fengxianlist',
           name: '风险评估报告列表',

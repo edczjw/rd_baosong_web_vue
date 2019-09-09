@@ -106,6 +106,9 @@
               <router-link to="/blacklistmanage/blackinput">
                 <el-menu-item index="4-2">黑名单批量导入</el-menu-item>
               </router-link>
+              <router-link to="/blacklistmanage/blackremove">
+                <el-menu-item index="4-3">黑名单批量移除</el-menu-item>
+              </router-link>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
