@@ -105,12 +105,11 @@ body {
 .li-title {
   width: 100%;
   font-size: 16px;
-  border-radius: 10px;
   height: 40px;
   line-height: 40px;
   padding-left: 20px;
   margin-bottom: 10px;
-  background-color: rgb(147, 228, 201);
+  background-color: rgb(197, 218, 243);
 }
 
 </style>

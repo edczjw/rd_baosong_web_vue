@@ -3,13 +3,13 @@
     <div class="li-title">
       <b>黑名单管理 / 黑名单批量导入</b>
     </div>
-    <el-card>
-        <div style="margin-right:100px;width:500px">
+    <el-card style="padding:20px;">
+        <el-card class="lod" style="padding:20px;margin-right:100px;width:500px;border-radius:50px;cursor:pointer;">
           <form id="form-article-add" method="post" enctype="multipart/form-data">  
             <input type="file" name="file" @change="pickFile" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-            <el-button size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+            <el-button size="small" type="primary" @click="submitUpload">批量上传<i class="el-icon-upload el-icon--right"></i></el-button>
           </form>
-        </div>
+        </el-card>
     </el-card>
   </div>
 </template>
@@ -76,24 +76,29 @@ export default {
                     var res = response.data;
                     if (res.code == 0) {
                         this.$message({
-                          message: '导入成功',
+                          message: '导入成功!',
                           type: 'success'
                         });
                     } else {
                       this.$message({
-                        message: res.message,
+                        message: res.msg,
                         type: "error"
                       });
                     }
                   },
                   error => {
                     this.$message({
-                        message: '500错误',
+                        message: '500错误!',
                         type: "error"
                       });
                       }
                 );
-          }
+          }else{
+          this.$message({
+            type: 'danger',
+            message: '请选取文件上传.'
+          }); 
+      }
       }
   },
   watch: {}
@@ -126,10 +131,16 @@ export default {
   padding: 25px 50px;
   // background: rgb(202, 201, 201);
   .human-table {
-    margin-top: 40px;
+    margin-top: 10px;
   }
   .human-pagination {
     margin-top: 30px;
   }
+}
+.lod{
+  border: 1px solid rgba(162, 199, 197, 0.589);
+}
+.lod:hover{
+  border: 1px solid rgba(34, 223, 214, 0.589);
 }
 </style>

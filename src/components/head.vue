@@ -70,6 +70,7 @@ export default {
   methods: {
     gomshome(){
           this.$router.push("/mshome");
+          this.$store.state.isLeftHiden = true;
     },
     //返回上一页
     lastpage() {

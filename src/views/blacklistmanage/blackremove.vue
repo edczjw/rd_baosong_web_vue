@@ -3,14 +3,15 @@
     <div class="li-title">
       <b>黑名单管理 / 黑名单批量移除</b>
     </div>
-    <el-card>
-        <div style="margin-right:100px;width:500px">
+    <el-card style="padding:20px;">
+        <el-card class="lod" style="padding:20px;margin-right:100px;width:500px;border-radius:50px;cursor:pointer;">
           <form id="form-article-add" method="post" enctype="multipart/form-data">  
             <input type="file" name="file" @change="pickFile" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-            <el-button size="small" type="success" @click="submitUpload">批量移除</el-button>
+            <el-button size="small" type="danger" @click="submitUpload">批量移除<i class="el-icon-delete el-icon--right"></i></el-button>
           </form>
-        </div>
+        </el-card>
     </el-card>
+    </div>
   </div>
 </template>
 
@@ -64,36 +65,52 @@ export default {
 //异步上传
       async submitUpload(){
           if(this.canUpload){
+            this.$confirm('此操作将从服务器中删除该文件, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+            }).then(() => {
 			    var FormDatas=new FormData($("#form-article-add")[0]);
-              FormDatas.append("file",FormDatas);
-              this.$axios({
-                  method: "post",
-                  url: this.$store.state.domain + "/blacklist/batchDel",
-                  data: FormDatas,
-                  headers:{'Content-Type':'multipart/form-data'}
-                }).then(
-                  response => {
-                    var res = response.data;
-                    if (res.code == 0) {
+                FormDatas.append("file",FormDatas);
+                this.$axios({
+                    method: "post",
+                    url: this.$store.state.domain + "/blacklist/batchDel",
+                    data: FormDatas,
+                    headers:{'Content-Type':'multipart/form-data'}
+                    }).then(
+                    response => {
+                        var res = response.data;
+                        if (res.code == 0) {
+                            this.$message({
+                            message: '批量删除成功!',
+                            type: 'success'
+                            });
+                        } else {
                         this.$message({
-                          message: '批量删除成功',
-                          type: 'success'
+                            message: res.msg,
+                            type: "error"
                         });
-                    } else {
-                      this.$message({
-                        message: res.message,
-                        type: "error"
-                      });
-                    }
-                  },
-                  error => {
-                    this.$message({
-                        message: '500错误',
-                        type: "error"
-                      });
-                      }
-                );
-          }
+                        }
+                    },
+                    error => {
+                        this.$message({
+                            message: '500错误!',
+                            type: "error"
+                        });
+                        }
+                    );
+          }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消'
+          });       
+        });
+      }else{
+          this.$message({
+            type: 'danger',
+            message: '请选取文件上传.'
+          }); 
+      }
       }
   },
   watch: {}
@@ -126,10 +143,17 @@ export default {
   padding: 25px 50px;
   // background: rgb(202, 201, 201);
   .human-table {
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .human-pagination {
     margin-top: 30px;
   }
+}
+
+.lod{
+  border: 1px solid rgba(162, 199, 197, 0.589);
+}
+.lod:hover{
+  border: 1px solid rgba(34, 223, 214, 0.589);
 }
 </style>
