@@ -75,6 +75,7 @@ export default {
                   response => {
                     var res = response.data;
                     if (res.code == 0) {
+                      this.$store.state.statedec = true;
                         this.$message({
                           message: '导入成功!',
                           type: 'success'

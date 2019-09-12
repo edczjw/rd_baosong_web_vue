@@ -26,7 +26,12 @@
         <el-row>
             <el-col :span="8">
             <el-form-item label="黑名单类型" prop="blacklistType">
-              <el-input size="mini" v-model.trim="searchform.blacklistType"></el-input>
+              <el-select size="mini" v-model="searchform.blacklistType" placeholder="请选择类型" clearable>
+                    <el-option v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"></el-option>
+              </el-select>
             </el-form-item>
             </el-col>
           </el-col>
@@ -75,20 +80,52 @@
         element-loading-spinner="el-icon-loading"
         element-loading-background="rgba(0, 0, 0, 0.8)"
         style="width: 100%; height:100%;"
+        :default-sort = "{prop: 'outUniqueCode', order: 'descending'}"
       >
         <el-table-column prop="sysCode" label="系统编码" align="center"></el-table-column>
         <el-table-column prop="serviceId" label="服务号" align="center"></el-table-column>
         <el-table-column prop="productId" label="产品号" align="center"></el-table-column>
-        <el-table-column prop="outUniqueCode" label="外部流水号" align="center"></el-table-column>
-        <el-table-column prop="blacklistType" label="黑名单类型" align="center"></el-table-column>
-        <el-table-column prop="blacklistDes" label="黑名单描述" align="center"></el-table-column>
+        <el-table-column prop="outUniqueCode" sortable label="外部流水号" width="115" align="center"></el-table-column>
+        <el-table-column prop="blacklistType" label="黑名单类型" align="center">
+          <!-- <template slot-scope="scope">
+            <span v-if="scope.row.blacklistType == 'IdCard'">身份证</span>
+            <span v-else-if="scope.row.blacklistType == 'Phone'">手机号</span>
+            <span v-else-if="scope.row.blacklistType == 'Deviceid'">设备ID</span>
+            <span v-else-if="scope.row.blacklistType == 'HomeTel'">家庭电话</span>
+            <span v-else-if="scope.row.blacklistType == 'EmpName'">单位名称</span>
+            <span v-else-if="scope.row.blacklistType == 'EmpTel'">单位电话</span>
+            <span v-else-if="scope.row.blacklistType == 'RelativeContact'">直系联系人电话</span>
+            <span v-else-if="scope.row.blacklistType == 'OtherContact'">其他联系人电话</span>
+            <span v-else="scope.row.blacklistType == ''">无</span>
+          </template> -->
+        </el-table-column>
+        <el-table-column prop="blacklistDes" label="黑名单类型描述" width="115" align="center"></el-table-column>
+        <el-table-column prop="blacklistValue" label="黑名单值" align="center"></el-table-column>
         <el-table-column prop="priority" label="优先级" align="center"></el-table-column>
         <el-table-column prop="stage" label="阶段" align="center"></el-table-column>
         <el-table-column prop="ruleCode" label="规则编码" align="center"></el-table-column>
         <el-table-column prop="ruleDes" label="规则描述" align="center"></el-table-column>
-        <el-table-column prop="beginDate" label="生效时间" align="center"></el-table-column>
-        <el-table-column prop="endDate" label="失效时间" align="center"></el-table-column>
-        <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
+        <el-table-column prop="beginDate" label="生效时间" align="center">
+          <template slot-scope="scope">
+            <span>
+              {{formatDate(scope.row.beginDate)}}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="endDate" label="失效时间" align="center">
+          <template slot-scope="scope">
+            <span>
+              {{formatDate(scope.row.endDate)}}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="createTime" label="创建时间" align="center">
+          <template slot-scope="scope">
+            <span>
+              {{formatDate(scope.row.createTime)}}
+            </span>
+          </template>
+        </el-table-column>
         <el-table-column prop="remark" label="备注" align="center"></el-table-column>
       </el-table>
       <!-- 分页 -->
@@ -117,7 +154,38 @@ export default {
   data() {
     return {
       count: 0,
-      options: [],
+      options: [{
+          value: "IdCard",
+          label: "身份证"
+        },
+        {
+          value: "Phone",
+          label: "手机号"
+        },
+        {
+          value: "Deviceid",
+          label: "设备ID"
+        },
+        {
+          value: "HomeTel",
+          label: "家庭电话"
+        },
+        {
+          value: "EmpName",
+          label: "单位名称"
+        },
+        {
+          value: "EmpTel",
+          label: "单位电话"
+        },
+        {
+          value: "RelativeContact",
+          label: "直系联系人电话"
+        },
+        {
+          value: "OtherContact",
+          label: "其他联系人电话"
+        }],
       searchform: {
         serviceId: "",
         productId: "",
