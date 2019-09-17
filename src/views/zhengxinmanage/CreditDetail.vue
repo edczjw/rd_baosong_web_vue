@@ -269,6 +269,7 @@ export default {
       var data = {
         originCode: value
       };
+      this.searchform.interfaceName = ''
       this.interfaceList(data);
     },
     //接口名称获取
@@ -380,13 +381,20 @@ export default {
           response => {
             var res = response.data;
             if (res.code == 0) {
+              if(res.detail.result.pageList != null){
               this.tableData = res.detail.result.pageList;
               this.count = res.detail.result.count;
               this.searchform.pageIndex = res.detail.result.pageIndex;
               this.searchform.pageSize = res.detail.result.pageSize;
+              }else{
+                this.$message({
+                message: '此数据源无数据!',
+                type: "error"
+              });
+              }
             } else {
               this.$message({
-                message: res.msg,
+                message: '请选择数据源!',
                 type: "error"
               });
             }

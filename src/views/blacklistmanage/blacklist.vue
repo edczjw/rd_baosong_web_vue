@@ -83,9 +83,9 @@
         :default-sort = "{prop: 'outUniqueCode', order: 'descending'}"
       >
         <el-table-column prop="sysCode" label="系统编码" align="center"></el-table-column>
-        <el-table-column prop="serviceId" label="服务号" align="center"></el-table-column>
+        <el-table-column prop="serviceId" label="服务号" width="125" align="center"></el-table-column>
         <el-table-column prop="productId" label="产品号" align="center"></el-table-column>
-        <el-table-column prop="outUniqueCode" sortable label="外部流水号" width="115" align="center"></el-table-column>
+        <el-table-column prop="outUniqueCode" sortable label="外部流水号" width="125" align="center"></el-table-column>
         <el-table-column prop="blacklistType" label="黑名单类型" align="center">
           <!-- <template slot-scope="scope">
             <span v-if="scope.row.blacklistType == 'IdCard'">身份证</span>
@@ -126,7 +126,7 @@
             </span>
           </template>
         </el-table-column>
-        <el-table-column prop="remark" label="备注" align="center"></el-table-column>
+        <el-table-column prop="remark" label="备注" width="55" align="center"></el-table-column>
       </el-table>
       <!-- 分页 -->
       <div class="human-pagination">

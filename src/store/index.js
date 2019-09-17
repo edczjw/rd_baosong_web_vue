@@ -9,7 +9,6 @@ export default new Vuex.Store({
     domain: 'https://test.ccp.msxiaodai.com', 
     isLeftHiden: true,
     tabname: "hetong", //默认打开的是基本信息
-    statedec:false,
   },
   mutations: {
     Tabname(state, platform) {

@@ -86,7 +86,7 @@
         <el-table-column type="index" label="序号" align="center" width="55"></el-table-column>
         <el-table-column prop="sourceName" label="数据源名称" align="center"></el-table-column>
         <el-table-column prop="sourceCode" label="英文名称" align="center"></el-table-column>
-        <el-table-column prop="interfaceName" label="征信接口" align="center"></el-table-column>
+        <el-table-column prop="interfaceCode" label="征信接口" align="center"></el-table-column>
         <el-table-column prop="status" label="状态" align="center">
           <template slot-scope="scope">
             <span v-if="scope.row.status=='N'">关闭</span>
@@ -95,7 +95,11 @@
         </el-table-column>
         <el-table-column prop="callNumber" label="调用次数" align="center"></el-table-column>
         <el-table-column prop="successCallNumber" label="成功次数" align="center"></el-table-column>
-        <el-table-column prop="successCallRate" label="成功率" align="center"></el-table-column>
+        <el-table-column prop="successCallRate" label="成功率" align="center">
+          <template slot-scope="scope">
+            {{scope.row.successCallRate*100}}%
+          </template>
+        </el-table-column>
         <el-table-column prop="result" label="调用规则" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="edit(scope.row)">编辑</el-button>
@@ -103,7 +107,7 @@
         </el-table-column>
         <el-table-column prop="ctime" label="接口文档" align="center">
           <template slot-scope="scope">
-            <a :href="scope.row.interDocuUrl" target ="_blank">下载</a>
+            <a :href="scope.row.url" target ="_blank">下载</a>
             <!-- <el-button type="text" size="small" @click="download()"></el-button>  -->
           </template>
         </el-table-column>
@@ -315,6 +319,7 @@ export default {
       var data = {
         originCode: value
       };
+      this.searchform.interfaceName = ''
       this.interfaceList(data);
     },
     //接口名称获取

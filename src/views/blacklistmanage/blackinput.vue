@@ -6,7 +6,7 @@
     <el-card style="padding:20px;">
         <el-card class="lod" style="padding:20px;margin-right:100px;width:500px;border-radius:50px;cursor:pointer;">
           <form id="form-article-add" method="post" enctype="multipart/form-data">  
-            <input type="file" name="file" @change="pickFile" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            <input type="file" name="file" @change="pickFile" accept=".xls, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
             <el-button size="small" type="primary" @click="submitUpload">批量上传<i class="el-icon-upload el-icon--right"></i></el-button>
           </form>
         </el-card>
@@ -75,7 +75,6 @@ export default {
                   response => {
                     var res = response.data;
                     if (res.code == 0) {
-                      this.$store.state.statedec = true;
                         this.$message({
                           message: '导入成功!',
                           type: 'success'

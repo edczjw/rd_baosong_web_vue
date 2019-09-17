@@ -193,6 +193,7 @@ export default {
       var data = {
         originCode: value
       };
+      this.searchform.interfaceName = '';
       this.interfaceList(data);
     },
     //接口名称获取

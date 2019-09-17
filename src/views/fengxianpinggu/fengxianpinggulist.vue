@@ -91,13 +91,17 @@
         <el-table-column prop="createTime" label="查询时间" align="center"></el-table-column>
         <el-table-column prop="usrNo" label="流水号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
-            <template slot-scope="scope">
+          <template slot-scope="scope">
             <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="idCard" label="身份证号" align="center"></el-table-column>
         <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
-        <el-table-column prop="productName" label="产品名称" align="center">
+        <el-table-column prop="productCode" label="产品名称" align="center">
+          <template slot-scope="scope">
+            <span v-if="scope.row.productCode=='zyd'">中移动项目</span>
+            <span v-else>民盛易贷</span>
+          </template>
         </el-table-column>
         
       </el-table>

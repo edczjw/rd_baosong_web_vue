@@ -81,18 +81,10 @@ export default {
                     response => {
                         var res = response.data;
                         if (res.code == 0) {
-                          if(this.$store.state.statedec){
-                            this.$store.state.statedec = false;
                             this.$message({
                             message: '批量删除成功!',
                             type: 'success'
                             });
-                          }else{
-                            this.$message({
-                            message: '服务器数据为空,批量删除失败!',
-                            type: 'error'
-                            });
-                          }
                         } else {
                         this.$message({
                             message: res.msg,
