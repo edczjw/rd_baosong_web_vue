@@ -135,7 +135,7 @@
             <el-button
               type="text"
               size="small"
-              @click="download(scope.row.invocationRecordId,scope.row.sourceCode)"
+              @click="download(scope.row.invocationRecordId,scope.row.sourceCode,scope.row.serialNumber)"
             >下载</el-button>
           </template>
         </el-table-column>
@@ -205,7 +205,7 @@ export default {
 
   methods: {
     //下载
-    download(invocationRecordId,sourceCode) {
+    download(invocationRecordId,sourceCode,serialNumber) {
       let data = {
         id:invocationRecordId,
         sourceCode:sourceCode
