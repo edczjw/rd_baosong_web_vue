@@ -129,12 +129,13 @@
         <el-table-column prop="idNumber" label="身份证号码" align="center"></el-table-column>
         <el-table-column prop="queryTime" label="查询时间" align="center"></el-table-column>
         <el-table-column prop="respTime" label="返回时间" align="center"></el-table-column>
+        <!-- <el-table-column prop="response" label="response" align="center"></el-table-column> -->
         <el-table-column label="报文下载" align="center">
           <template slot-scope="scope">
             <el-button
               type="text"
               size="small"
-              @click="download(scope.row.id,scope.row.serialNumber)"
+              @click="download(scope.row.invocationRecordId,scope.row.sourceCode)"
             >下载</el-button>
           </template>
         </el-table-column>
@@ -204,9 +205,10 @@ export default {
 
   methods: {
     //下载
-    download(id, serialNumber) {
+    download(invocationRecordId,sourceCode) {
       let data = {
-        id: id
+        id:invocationRecordId,
+        sourceCode:sourceCode
       };
       const url = this.$store.state.domain + "/crcs/credit/messageDownload";
       this.$http

@@ -107,23 +107,26 @@
         <el-table-column prop="ruleDes" label="规则描述" align="center"></el-table-column>
         <el-table-column prop="beginDate" label="生效时间" align="center">
           <template slot-scope="scope">
-            <span>
+            <span v-if="scope.row.beginDate !=null">
               {{formatDate(scope.row.beginDate)}}
             </span>
+            <span v-else></span>
           </template>
         </el-table-column>
         <el-table-column prop="endDate" label="失效时间" align="center">
           <template slot-scope="scope">
-            <span>
+            <span v-if="scope.row.endDate !=null">
               {{formatDate(scope.row.endDate)}}
             </span>
+            <span v-else></span>
           </template>
         </el-table-column>
         <el-table-column prop="createTime" label="创建时间" align="center">
           <template slot-scope="scope">
-            <span>
+            <span  v-if="scope.row.createTime !=null">
               {{formatDate(scope.row.createTime)}}
             </span>
+            <span v-else></span>
           </template>
         </el-table-column>
         <el-table-column prop="remark" label="备注" width="55" align="center"></el-table-column>
