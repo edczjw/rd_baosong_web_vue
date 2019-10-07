@@ -1,33 +1,22 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>风险评估报告 / 个人详情</b>
+      <b>风险评估报告 / 详情</b>
     </div>
-    <el-card>
-        <div style="padding:0 60px;">
-            <img src="../../assets/1_01.jpg" alt="" width="100%">
-            <img src="../../assets/1_02.jpg" alt="" width="100%">
-            <img src="../../assets/1_03.jpg" alt="" width="100%">
-            <img src="../../assets/1_04.jpg" alt="" width="100%">
-            <img src="../../assets/1_05.jpg" alt="" width="100%">
-            <img src="../../assets/1_06.jpg" alt="" width="100%">
-            <img src="../../assets/1_07.jpg" alt="" width="100%">
-            <img src="../../assets/1_08.jpg" alt="" width="100%">
-            <img src="../../assets/1_09.jpg" alt="" width="100%">
-            <img src="../../assets/1_10.jpg" alt="" width="100%">
-            <img src="../../assets/1_11.jpg" alt="" width="100%">
-            <img src="../../assets/2_01.jpg" alt="" width="100%">
-            <img src="../../assets/2_02.jpg" alt="" width="100%">
-            <img src="../../assets/2_03.jpg" alt="" width="100%">
-            <img src="../../assets/2_04.jpg" alt="" width="100%">
-            <img src="../../assets/2_05.jpg" alt="" width="100%">
-            <img src="../../assets/2_06.jpg" alt="" width="100%">
-            <img src="../../assets/2_07.jpg" alt="" width="100%">
-            <img src="../../assets/2_08.jpg" alt="" width="100%">
-            <img src="../../assets/2_09.jpg" alt="" width="100%">
-            <img src="../../assets/2_10.jpg" alt="" width="100%">
-        </div>
+    <el-card class="detail-card">
+		<div class="detail-left-wapper">
+			
+		</div>
+		<div class="detail-right-wapper">
+			<el-tree
+			:data="data"
+			:props="defaultProps"
+			accordion
+			@node-click="handleNodeClick">
+			</el-tree>
+		</div>
     </el-card>
+
   </div>
 </template>
 
@@ -35,34 +24,102 @@
 export default {
   data() {
     return {
+     data: [{
+          label: '报告结论'
+        }, {
+          label: '风险评估',
+          children: [{
+            label: '2.1-欺诈评估'
+          }, {
+            label: '2.2-信用评估'
+          }, {
+			label: '2.3-风险信息提示',
+			children: [{
+              label: '2.3.1-关联信息'
+			},{
+              label: '2.3.2-公检法信息'
+            },{
+              label: '2.3.3-信贷逾期名单'
+            },{
+              label: '2.3.4-多平台申请信息'
+            },{
+              label: '2.3.5-多平台申请信息'
+            }]
+          }]
+        }, {
+          label: '客户画像',
+          children: [{
+            label: '3.1-头像信息'
+          }, {
+            label: '3.2-基本信息',
+            children: [{
+              label: '3.2.1-基本信息'
+			},
+			{
+              label: '3.2.2-家庭信息'
+            },
+			{
+              label: '3.2.3-工作信息'
+            },
+			{
+              label: '3.2.4-学历信息'
+            }]
+          }, {
+            label: '3.3-消费能力评估',
+            children: [{
+              label: '3.3.1-消费探针'
+			},
+			{
+              label: '3.3.2-话费消费详情'
+            },
+			{
+              label: '3.3.3-多平台申请信息'
+            },
+			{
+              label: '3.3.4-京东消费详情'
+            }]
+          }]
+		}],
+		defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
     };
   },
-
-  components: {},
-
-  computed: {},
-
-  beforeMount() {},
-
   mounted() {
-    // this.load(this.searchform);
+	  
   },
-
   methods: {
-      
-  },
-  watch: {}
+    handleNodeClick(data) {
+        console.log(data);
+      }
+    
+  }
 };
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
 @import "../users/style.css";
+.detail-left-wapper{
+	background: #eee;
+	height: 1200px;
+}
+.detail-right-wapper{
+	background:#fff;
+	width:14%;
+	height: 400px;
+	position: fixed;
+	right:60px;
+	bottom:20px;;
+}
+.detail-card{
+	position: relative;
+}
 /deep/ .el-card {
-  // background: rgba(255, 255, 255, 0.1);
+	width:80%;
   /deep/ .el-table tr,
   .el-table th {
     background: rgba(173, 173, 173, 0.3);
-    // background: rgb(248, 246, 246);
     color: rgb(118, 104, 104);
     font-family: "苹方";
   }
@@ -79,12 +136,5 @@ export default {
 }
 .page-human {
   padding: 25px 50px;
-  // background: rgb(202, 201, 201);
-  .human-table {
-    margin-top: 20px;
-  }
-  .human-pagination {
-    margin-top: 30px;
-  }
 }
 </style>
