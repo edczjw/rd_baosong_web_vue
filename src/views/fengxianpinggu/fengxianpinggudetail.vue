@@ -12,7 +12,7 @@
             alt
           />
         </div>
-        <div id="b" class="tab-box" style="width:100%;border:1px solid black;margin-top:10px;">
+        <div id="b" class="tab-box" style="width:100%;margin-top:10px;">
           <div class="box-title">报告结论</div>
           <div class="ban"></div>
           <div class="en-tit">Report the conclusion</div>
@@ -22,7 +22,7 @@
             <p>评分模型结论</p>
           </div>
         </div>
-        <div id="c" class="tab-box" style="width:100%;border:1px solid black;margin-top:10px;">
+        <div id="c" class="tab-box" style="width:100%;margin-top:10px;">
           <div class="box-title">风险评估</div>
           <div class="ban"></div>
           <div class="en-tit">The risk assessment</div>
@@ -191,21 +191,12 @@
           </div>
           
         </div>
-        <div
-          id="d"
-          class="tab-box"
-          style="width:100%;height:400px;border:1px solid black;margin-top:10px;"
-        >基本信息</div>
-        <div
-          id="e"
-          class="tab-box"
-          style="width:100%;height:400px;border:1px solid black;margin-top:10px;"
-        >消费能力</div>
-        <div
-          id="f"
-          class="tab-box"
-          style="width:100%;height:400px;border:1px solid black;margin-top:10px;"
-        >最终结论</div>
+        <div id="c" class="tab-box" style="width:100%;margin-top:10px;">
+          <div class="box-title">客户画像</div>
+          <div class="ban"></div>
+          <div class="en-tit">Customer portrait</div>
+        
+        </div>
       </div>
       <div class="detail-right-wapper">
         <el-tree :data="data" :props="defaultProps" accordion @node-click="handleNodeClick"></el-tree>
