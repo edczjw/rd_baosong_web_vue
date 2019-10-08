@@ -24,7 +24,13 @@ Vue.http.options.headers = {
 };
 Vue.use(ElementUI);
 Vue.config.productionTip = false
-Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$alert = MessageBox.alert;
+
+// 跳转后返回顶部
+router.afterEach((to,from,next) => {
+  window.scrollTo(0,0);
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
