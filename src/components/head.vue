@@ -158,7 +158,7 @@ export default {
   width: 100%;
   height: 55px;
 
-  background-color: rgb(10, 3, 3);
+  background-color: rgb(42, 48, 56);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.479);
 }
 
