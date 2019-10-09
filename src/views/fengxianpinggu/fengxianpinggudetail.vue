@@ -5,14 +5,14 @@
     </div>
     <el-card class="detail-card">
       <div class="detail-left-wapper">
-        <div id="a" style="width:100%;">
+        <div style="width:100%;">
           <img
             src="../../assets/detailfengxianpinggu/top-img.png"
             style="width:100%;height:90%"
             alt
           />
         </div>
-        <div id="b" class="tab-box" style="width:100%;margin-top:10px;">
+        <div id="a" class="tab-box" style="width:100%;margin-top:10px;">
           <div class="box-title">报告结论</div>
           <div class="ban"></div>
           <div class="en-tit">Report the conclusion</div>
@@ -22,12 +22,12 @@
             <p>评分模型结论</p>
           </div>
         </div>
-        <div id="c" class="tab-box" style="width:100%;margin-top:10px;">
+        <div id="b" class="tab-box" style="width:100%;margin-top:10px;">
           <div class="box-title">风险评估</div>
           <div class="ban"></div>
           <div class="en-tit">The risk assessment</div>
 
-          <div class="num-tit num-bio">
+          <div id="c" class="num-tit num-bio">
             <div class="bit-tit">
               <div class="tubnum">2.1</div>
               <div class="mj">
@@ -76,7 +76,7 @@
           </div>
 
           <div class="num-tit num-bio">
-            <div class="bit-tit">
+            <div  id="d" class="bit-tit">
               <div class="tubnum">2.2</div>
               <div class="mj">
                 <div class="de">信用评估</div>
@@ -100,7 +100,7 @@
           </div>
 
           <div class="num-tit num-bio">
-            <div class="bit-tit">
+            <div id="e" class="bit-tit">
               <div class="tubnum">2.3</div>
               <div class="mj">
                 <div class="de">风险信息提示</div>
@@ -109,8 +109,8 @@
               </div>
             </div>
 
-            <div class="def_report_items" id="basicInfo">
-              <ul class="def_report_th">
+            <div  class="def_report_items" id="basicInfo">
+              <ul id="e1"  class="def_report_th">
                 <li class="items-tip">2.3.1 关联信息</li>
               </ul>
               <ul class="def_report_td">
@@ -126,7 +126,7 @@
             </div>
 
             <div class="def_report_items" id="basicInfo">
-              <ul class="def_report_th">
+              <ul id="e2"  class="def_report_th">
                 <li class="items-tip">2.3.2 公检法信息</li>
               </ul>
               <ul class="def_report_td">
@@ -142,7 +142,7 @@
             </div>
 
             <div class="def_report_items" id="basicInfo">
-              <ul class="def_report_th">
+              <ul id="e3"  class="def_report_th">
                 <li class="items-tip">2.3.3 信贷逾期名单</li>
               </ul>
               <ul class="def_report_td">
@@ -158,7 +158,7 @@
             </div>
 
             <div class="def_report_items" id="basicInfo">
-              <ul class="def_report_th">
+              <ul id="e4"  class="def_report_th">
                 <li class="items-tip">2.3.4 多平头申请信息</li>
               </ul>
               <ul class="def_report_td">
@@ -174,7 +174,7 @@
             </div>
 
             <div class="def_report_items" id="basicInfo">
-              <ul class="def_report_th">
+              <ul id="e5"  class="def_report_th">
                 <li class="items-tip">2.3.5 多平头申请信息</li>
               </ul>
               <ul class="def_report_td">
@@ -191,15 +191,216 @@
           </div>
           
         </div>
-        <div id="c" class="tab-box" style="width:100%;margin-top:10px;">
+
+        <div id="f" class="tab-box" style="width:100%;margin-top:10px;">
           <div class="box-title">客户画像</div>
           <div class="ban"></div>
           <div class="en-tit">Customer portrait</div>
-        
+          <p style="text-align:center;">客户画像：年龄处于青年阶段，大学生，收入能力较低，冲动消型，曾有短期逾期......</p>
+          <div id="f1" class="num-tit num-bio">
+              <div class="bit-tit">
+                <div class="tubnum">3.1</div>
+                <div class="mj">
+                  <div class="de">头像信息</div>
+                  <div class="banw"></div>
+                  <div class="mj-tit">IMAGE INFORMATION</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="img-box">
+            <ul class="img-ul">
+              <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
+              <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
+              <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
+            </ul>
+          </div>
+
+          <div id="f2" class="num-tit num-bio">
+            <div class="bit-tit">
+              <div class="tubnum">3.2</div>
+              <div class="mj">
+                <div class="de">基本信息</div>
+                <div class="banw"></div>
+                <div class="mj-tit">BASIC INFORMATION</div>
+              </div>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul id="f21"  class="def_report_th">
+                <li class="items-tip">3.2.1 基本信息</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul  id="f22" class="def_report_th">
+                <li class="items-tip">3.2.2 家庭信息</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul  id="f23" class="def_report_th">
+                <li class="items-tip">3.2.3 工作信息</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul  id="f24" class="def_report_th">
+                <li class="items-tip">3.2.4 学历信息</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+          </div>
+
+           <div id="f3" class="num-tit num-bio">
+            <div class="bit-tit">
+              <div class="tubnum">3.3</div>
+              <div class="mj">
+                <div class="de">消费能力评估</div>
+                <div class="banw"></div>
+                <div class="mj-tit">CONSUMPTION POWER</div>
+              </div>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul id="f31" class="def_report_th">
+                <li class="items-tip">3.3.1 消费探针</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul class="def_report_th">
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul id="f32" class="def_report_th">
+                <li class="items-tip">3.3.2 话费消费详情</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul id="f33" class="def_report_th">
+                <li class="items-tip">3.3.3 多平台申请情况</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+
+            <div class="def_report_items" id="basicInfo">
+              <ul id="f34" class="def_report_th">
+                <li class="items-tip">3.3.4 京东消费详情</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>身份证</li>
+                <li>命中规则</li>
+                <li>命中分值</li>
+              </ul>
+              <ul class="def_report_td">
+                <li>负面名单检查</li>
+                <li>18589020550</li>
+                <li class="light-color">用户认证通过的手机号码</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
+
       </div>
-      <div class="detail-right-wapper">
-        <el-tree :data="data" :props="defaultProps" accordion @node-click="handleNodeClick"></el-tree>
+      <div class="detail-right-wapper animated fadeInRight">
+        <el-input
+          size="mini"
+          class="flter-input"
+          placeholder="输入关键字进行快捷查询"
+          v-model="filterText">
+        </el-input>
+
+        <el-tree 
+        class="filter-tree"
+        :data="data" 
+        :props="defaultProps" 
+        @node-click="handleNodeClick"
+        default-expand-all
+        :filter-node-method="filterNode"
+        ref="tree2"
+        ></el-tree>
       </div>
     </el-card>
   </div>
@@ -208,8 +409,14 @@
 <script>
 import $ from "jquery";
 export default {
+  watch: {
+      filterText(val) {
+        this.$refs.tree2.filter(val);
+      }
+    },
   data() {
     return {
+      filterText: '',
       data: [
         {
           label: "报告结论",
@@ -220,28 +427,36 @@ export default {
           href: "b",
           children: [
             {
-              label: "2.1-欺诈评估"
+              label: "2.1-欺诈评估",
+              href: "c"
             },
             {
-              label: "2.2-信用评估"
+              label: "2.2-信用评估",
+              href: "d"
             },
             {
               label: "2.3-风险信息提示",
+              href: "e",
               children: [
                 {
-                  label: "2.3.1-关联信息"
+                  label: "2.3.1-关联信息",
+                  href: "e1"
                 },
                 {
-                  label: "2.3.2-公检法信息"
+                  label: "2.3.2-公检法信息",
+                  href: "e2"
                 },
                 {
-                  label: "2.3.3-信贷逾期名单"
+                  label: "2.3.3-信贷逾期名单",
+                  href: "e3"
                 },
                 {
-                  label: "2.3.4-多平台申请信息"
+                  label: "2.3.4-多平台申请信息",
+                  href: "e4"
                 },
                 {
-                  label: "2.3.5-多平台申请信息"
+                  label: "2.3.5-多平台申请信息",
+                  href: "e5"
                 }
               ]
             }
@@ -249,45 +464,53 @@ export default {
         },
         {
           label: "客户画像",
-          href: "c",
+          href: "f",
           children: [
             {
-              label: "3.1-头像信息"
+              label: "3.1-头像信息",
+              href: "f1"
             },
             {
               label: "3.2-基本信息",
+              href: "f2",
               children: [
                 {
                   label: "3.2.1-基本信息",
-                  href: "d"
+                  href: "f21"
                 },
                 {
-                  label: "3.2.2-家庭信息"
+                  label: "3.2.2-家庭信息",
+                  href: "f22"
                 },
                 {
-                  label: "3.2.3-工作信息"
+                  label: "3.2.3-工作信息",
+                  href: "f23"
                 },
                 {
-                  label: "3.2.4-学历信息"
+                  label: "3.2.4-学历信息",
+                  href: "f24"
                 }
               ]
             },
             {
               label: "3.3-消费能力评估",
-              href: "e",
+              href: "f3",
               children: [
                 {
-                  label: "3.3.1-消费探针"
+                  label: "3.3.1-消费探针",
+                  href: "f31"
                 },
                 {
-                  label: "3.3.2-话费消费详情"
+                  label: "3.3.2-话费消费详情",
+                  href: "f32"
                 },
                 {
                   label: "3.3.3-多平台申请信息",
-                  href: "f"
+                  href: "f33"
                 },
                 {
-                  label: "3.3.4-京东消费详情"
+                  label: "3.3.4-京东消费详情",
+                  href: "f34"
                 }
               ]
             }
@@ -302,6 +525,11 @@ export default {
   },
   mounted() {},
   methods: {
+    
+    filterNode(value, data) {
+      if (!value) return true;
+      return data.label.indexOf(value) !== -1;
+    },
     handleNodeClick(data) {
       //滚动条距离
       var top = Math.floor(
@@ -322,6 +550,24 @@ export default {
 <style lang='less' scoped>
 //  导入统一样式less样式
 @import "../users/style.css";
+.img-box{
+    width: 90%;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px black;
+    margin-bottom: 30px;
+    .img-ul{
+      display: flex;
+    }
+    .img-ul li{
+      text-align: center;
+      margin: 20px;
+      img{
+        width: 90%;
+      }
+    }
+}
 .items-tip{
   font-size: 18px;
   font-weight: bolder;
@@ -370,7 +616,7 @@ export default {
   }
   .bit-tit {
     position: relative;
-    width: 200px;
+    width: 230px;
     .tubnum {
       font-size: 44px;
       font-weight: bolder;
@@ -382,7 +628,7 @@ export default {
       font-family: "Times New Roman", Times, serif;
     }
     .banw {
-      width: 130px;
+      width: 140px;
       height: 2px;
       background: rgb(193, 203, 221);
     }
@@ -391,7 +637,7 @@ export default {
       top: 2px;
       padding: 5px;
       margin-left: 80px;
-      right: 2px;
+      right: 14px;
       .mj-tit {
         font-size: 12px;
         width: 100%;
@@ -404,10 +650,14 @@ export default {
   background: #eee;
 }
 .detail-right-wapper {
-  width: 14%;
+  width: 13%;
   position: fixed;
   right: 70px;
   top: 20%;
+  .flter-input{
+    width: 190px !important;
+    margin-bottom: 20px;
+  }
 }
 .page-human {
   position: relative;
