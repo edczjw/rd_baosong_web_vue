@@ -4,7 +4,7 @@
       <b>风险评估报告 / 详情</b>
     </div>
     <el-card class="detail-card">
-      <div class="detail-left-wapper">
+      <div class="detail-left-wapper animated fadeIn">
         <div style="width:100%;">
           <img
             src="../../assets/detailfengxianpinggu/top-img.png"
