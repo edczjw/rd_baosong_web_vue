@@ -1,15 +1,28 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>黑名单管理 / 黑名单批量导入</b>
+      <b>黑名单管理 / 黑名单批量导入 & 移除</b>
     </div>
-    <el-card style="padding:20px;">
-        <el-card class="lod" style="padding:20px;margin-right:100px;width:500px;border-radius:50px;cursor:pointer;">
-          <form id="form-article-add" method="post" enctype="multipart/form-data">  
-            <input type="file" name="file" @change="pickFile" accept=".xls, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-            <el-button size="small" type="primary" @click="submitUpload">批量上传<i class="el-icon-upload el-icon--right"></i></el-button>
-          </form>
-        </el-card>
+    <el-card style="padding:20px; ">
+      <el-row :gutter="24">
+        <el-col :span="12">
+          <el-card class="lod" style="padding:20px;margin:50px auto;width:450px;border-radius:50px;cursor:pointer;text-align:center;">
+            <form id="form-article-add" method="post" enctype="multipart/form-data">  
+              <input type="file" name="file" @change="pickFileADD" accept=".xls, .xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+              <el-button size="small" type="primary" @click="submitUploadADD">批量上传<i class="el-icon-upload el-icon--right"></i></el-button>
+            </form>
+          </el-card>
+        </el-col>
+
+        <el-col :span="12">
+          <el-card class="lod" style="padding:20px;margin:50px auto;width:450px;border-radius:50px;cursor:pointer;text-align:center;">
+            <form id="form-article-add" method="post" enctype="multipart/form-data">  
+              <input type="file" name="file" @change="pickFileDEL" accept=".xlsx, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+              <el-button size="small" type="danger" @click="submitUploadDEL">批量移除<i class="el-icon-delete el-icon--right"></i></el-button>
+            </form>
+          </el-card>
+        </el-col>
+      </el-row>
     </el-card>
   </div>
 </template>
@@ -35,13 +48,13 @@ export default {
 
   methods: {
       //上传按钮
-      pickFile(e){
+      pickFileADD(e){
           var files = e.target.files || e.dataTransfer.files;
           if(!files.length) return;
-          this.excelTobase(files[0]);
+          this.excelTobaseADD(files[0]);
       },
 
-      excelTobase(file){
+      excelTobaseADD(file){
           var that = this;
           var pos = file.name.lastIndexOf('.');
           var type = file.name.substring(pos + 1);
@@ -62,7 +75,7 @@ export default {
       },
 
 //异步上传
-      async submitUpload(){
+      async submitUploadADD(){
           if(this.canUpload){
 			    var FormDatas=new FormData($("#form-article-add")[0]);
               FormDatas.append("file",FormDatas);
@@ -94,6 +107,84 @@ export default {
                       }
                 );
           }else{
+          this.$message({
+            type: 'danger',
+            message: '请选取文件上传.'
+          }); 
+      }
+      },
+
+      //上传按钮
+      pickFileDEL(e){
+          var files = e.target.files || e.dataTransfer.files;
+          if(!files.length) return;
+          this.excelTobaseDEL(files[0]);
+      },
+
+      excelTobaseDEL(file){
+          var that = this;
+          var pos = file.name.lastIndexOf('.');
+          var type = file.name.substring(pos + 1);
+          if(type.toLowerCase() != 'xls' && type.toLowerCase() != 'xlsx' && type.toLowerCase() !='csv'){
+              this.$message.error('请上传xls、xlsx、csv格式的excel文件.');
+              this.canUpload = false;
+          }else{
+              this.fileType = type;
+              this.canUpload = true;
+              this.fileName = file.name.substring(0,pos);
+              this.file = file;
+              var reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = function(e){
+                  that.base64 = e.target.result;
+              };
+           }
+      },
+
+//异步上传
+      async submitUploadDEL(){
+          if(this.canUpload){
+            this.$confirm('此操作将从服务器中删除该文件, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+            }).then(() => {
+			    var FormDatas=new FormData($("#form-article-add")[0]);
+                FormDatas.append("file",FormDatas);
+                this.$axios({
+                    method: "post",
+                    url: this.$store.state.domain + "/blacklist/batchDel",
+                    data: FormDatas,
+                    headers:{'Content-Type':'multipart/form-data'}
+                    }).then(
+                    response => {
+                        var res = response.data;
+                        if (res.code == 0) {
+                            this.$message({
+                            message: '批量删除成功!',
+                            type: 'success'
+                            });
+                        } else {
+                        this.$message({
+                            message: res.msg,
+                            type: "error"
+                        });
+                        }
+                    },
+                    error => {
+                        this.$message({
+                            message: '500错误!',
+                            type: "error"
+                        });
+                        }
+                    );
+          }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消'
+          });       
+        });
+      }else{
           this.$message({
             type: 'danger',
             message: '请选取文件上传.'

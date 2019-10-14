@@ -4,7 +4,7 @@
       <b>征信管理 / 征信接口统计</b>
     </div>
     <el-card>
-      <el-form :model="searchform" ref="searchform" label-width="210px">
+      <el-form :model="searchform" ref="searchform" label-width="160px">
         <el-row type="flex" class="human-form">
           <el-col :span="10">
             <el-form-item label="数据源名称" prop="sourceName">
@@ -413,7 +413,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import "../users/style.css";
+// @import "../users/style.css";
 /deep/ .el-card {
   /deep/ .el-table tr,
   .el-table th {

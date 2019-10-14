@@ -266,9 +266,12 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import "../users/style.css";
+// @import "../users/style.css";
 /deep/ .el-card {
   // background: rgba(255, 255, 255, 0.1);
+  /deep/ .el-input {
+    width: 196px !important;
+  }
   /deep/ .el-table tr,
   .el-table th {
     background: rgba(174, 228, 240, 0.822);

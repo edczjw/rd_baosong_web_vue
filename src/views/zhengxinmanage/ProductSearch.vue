@@ -4,7 +4,7 @@
       <b>征信管理 / 产品查询统计</b>
     </div>
     <el-card>
-      <el-form :model="searchform" ref="searchform" label-width="210px">
+      <el-form :model="searchform" ref="searchform" label-width="120px">
         <el-row>
           <el-col :span="8">
             <el-form-item label="产品名称" prop="productName">
@@ -314,7 +314,7 @@ export default {
 </script>
 <style lang='less' scoped>
 //  导入统一样式less样式
-@import "../users/style.css";
+// @import "../users/style.css";
 /deep/ .el-card {
   // background: rgba(255, 255, 255, 0.1);
   /deep/ .el-table tr,
