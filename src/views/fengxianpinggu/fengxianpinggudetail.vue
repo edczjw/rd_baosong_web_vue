@@ -666,7 +666,7 @@ export default {
   width: 80%;
   .el-table tr,
   .el-table th {
-    background: rgba(173, 173, 173, 0.3);
+    background: rgba(174, 228, 240, 0.822);
     color: rgb(118, 104, 104);
     font-family: "苹方";
   }
