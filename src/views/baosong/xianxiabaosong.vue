@@ -1,7 +1,9 @@
 <template>
     <div class="outpadding">
+      <div class="li-title" style="margin-top:30px">
+      <b>监管报送/线下报送</b>
+    </div>
     <el-card>
-            <div class="biaoti" style="margin-top:8px;">监管报送/线下报送</div>
                 <el-tabs v-model="this.$store.state.tabname" tab-position="left" style="height:1100px;width:8%;float:left" @tab-click="changetab">
                     <!-- 有五大板块，分别来自不同的页面 -->
                     <el-tab-pane label="合同上传" name="hetong"></el-tab-pane>

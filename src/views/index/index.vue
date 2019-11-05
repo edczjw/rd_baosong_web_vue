@@ -75,7 +75,7 @@ export default {
 
 //右边部分整个大页面
 .main-ten {
-  margin-left: 200px;
+  margin-left: 240px;
   padding: 0 5px;
   
   transition: all .5s;

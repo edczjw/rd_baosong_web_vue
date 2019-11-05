@@ -1,5 +1,6 @@
 <template>
   <div class="page-human">
+
     <div class="li-title">
       <b>风险评估报告 / 详情</b>
     </div>
@@ -416,6 +417,7 @@ export default {
     },
   data() {
     return {
+
       filterText: '',
       data: [
         {
@@ -523,9 +525,69 @@ export default {
       }
     };
   },
-  mounted() {},
+  mounted() {
+    this.drawLine();
+  },
   methods: {
-    
+    drawLine(){
+        var option = 
+            {
+            tooltip: {
+                formatter: "{a} <br/>{b} : {c}元",
+                textStyle: {
+                    fontSize: 12
+                }
+            },
+            toolbox: {
+                feature: {
+                    mark: {
+                        show: true
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            series: [
+                {
+                    name: "额度",
+                    type: "gauge",
+                    detail: {
+                        formatter: "{value}"
+                    },
+                    data: [
+                        {
+                            value: 9150,
+                            name: "可用额度"
+                        }
+                    ],
+                    startAngle: 180,
+                    endAngle: -120,
+                    radius: "100%",
+                    axisLine: {
+                        lineStyle: {
+                            color: [[0.2, "#228b22"], [0.6, "rgb(68, 136, 187)"]]
+                        }
+                    },
+                    splitNumber: 10,
+                    min: 0,
+                    max: 10000,
+                    title: {
+                        show: true
+                    }
+                }
+            ]
+        }
+
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+    },
     filterNode(value, data) {
       if (!value) return true;
       return data.label.indexOf(value) !== -1;

@@ -1,10 +1,11 @@
 <template>
   <!-- 样式在app.vue -->
-  <div>
-    
-    <el-card>
+  <div class="page-human">
+    <div class="li-title">
+      <b>监管报送/坏账报送</b>
+    </div>
+    <el-card class="mb">
     <div class="searcharea">
-      <div class="biaoti">监管报送/坏账报送</div>
       <el-form :model="searchform" size="mini" ref="searchform">
         <el-row :gutter="24">
           <el-col :span="6">
@@ -72,12 +73,14 @@
             </el-form-item>
           </el-col>
 
+        <el-row>
           <el-col :span="6">
             <el-form-item>
               <el-button type="primary" @click="search">查询</el-button>
               <el-button type="primary" @click="resetForm('searchform')">重置</el-button>
             </el-form-item>
           </el-col>
+        </el-row>
         </el-row>
       </el-form>
     </div>

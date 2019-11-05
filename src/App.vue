@@ -48,6 +48,9 @@ body {
   height: 100%;
 }
 
+.page-human {
+  padding: 25px 50px;
+  }
 //大盒子样式
 .box {
   height: 100%;
@@ -101,7 +104,9 @@ body {
   margin: 15px 0;
   height: 5px;
 }
-
+.mb{
+  margin-bottom:20px;
+}
 .li-title {
   width: 100%;
   font-size: 16px;

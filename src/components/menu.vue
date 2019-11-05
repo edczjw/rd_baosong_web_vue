@@ -131,11 +131,12 @@ export default {
 .side {
   position: fixed;
 
-  width: 200px;
+  width: 240px;
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
   background-color: rgb(18, 38, 61);
+  overflow: scroll;
 }
 
 .el-menu {
@@ -143,7 +144,7 @@ export default {
 }
 
 .side-menu {
-  width: 64px;
+  width: 84px;
   transition: all 0.5s;
   /* background-color: rgb(41, 85, 110); */
 }

@@ -17,6 +17,7 @@
               <el-input
                 show-password
                 v-model.trim="setform.account"
+                size="mini"
                 autocomplete="off"
                 clearable
               ></el-input>
@@ -25,6 +26,7 @@
             <el-form-item label="旧密码:" prop="oldPwd">
               <el-input
                 type="password"
+                size="mini"
                 show-password
                 v-model.trim="setform.oldPwd"
                 autocomplete="off"
@@ -35,6 +37,7 @@
             <el-form-item label="新密码:" prop="newPwd">
               <el-input
                 type="password"
+                size="mini"
                 show-password
                 v-model.trim="setform.newPwd"
                 autocomplete="off"
@@ -45,6 +48,7 @@
             <el-form-item label="确认密码:" prop="checkPwd">
               <el-input
                 type="password"
+                size="mini"
                 show-password
                 v-model.trim="setform.checkPwd"
                 autocomplete="off"
@@ -52,8 +56,8 @@
               ></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" plain @click="changepwd()" size="small">提交</el-button>
-              <el-button type="primary" plain @click="resetForm('setform')" size="small">重置</el-button>
+              <el-button type="primary" plain @click="changepwd()" round size="small">提交</el-button>
+              <el-button type="primary" plain @click="resetForm('setform')" round size="small">重置</el-button>
             </el-form-item>
           </el-form>
           </el-card>
@@ -186,7 +190,7 @@ export default {
 
 .demo-ruleForm{
   padding: 20px;
-  background-image: url('../../assets/tt.jpeg');
+  background-image: url('http://img.51ztzj.com/upload/image/20130417/201304172007_670x419.jpg');
   background-position:center;
   background-repeat:no-repeat;
   background-size:cover;

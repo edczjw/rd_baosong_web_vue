@@ -10,10 +10,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import animate from 'animate.css'
 import axios from 'axios'
-Vue.prototype.$axios = axios
 //需要引用vue-resource
 import VueResource from 'vue-resource'
-
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+Vue.prototype.$axios = axios
 //引入vuex
 import store from './store'
 

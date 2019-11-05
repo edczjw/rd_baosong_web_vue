@@ -14,6 +14,7 @@
       </svg>
       {{userName}}
     </p>
+
     <p class="right animated fadeIn" @click="screenfull" title="全屏显示">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-quanping4" />

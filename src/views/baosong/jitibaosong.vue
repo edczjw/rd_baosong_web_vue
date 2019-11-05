@@ -1,11 +1,9 @@
 <template>
   <!-- 样式在app.vue -->
-  <div >
-    <el-card>
-    <!-- <div class="searcharea"> -->
-      <div class="biaoti">监管报送/计提报送</div>
-    <!-- </div> -->
-    </el-card>
+  <div class="page-human">
+    <div class="li-title">
+      <b>监管报送/计提报送</b>
+    </div>
 
     <el-card>
       选择时间：
