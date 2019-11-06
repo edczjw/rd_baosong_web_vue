@@ -32,6 +32,7 @@
 // 授信额度+仪表盘外部
 .box3{
     background: #ffffff;
+    padding-bottom: 20px;
     //内部
     .box3-ec{
         position: relative;
@@ -101,7 +102,7 @@
 
 // 第四个外框
 .box4{
-    border: 1px solid black;
+    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
@@ -110,9 +111,30 @@
     .box4-img{
         margin:0 auto;
         text-align: center;
-        padding: 45px 0;
+        padding: 50px 0;
         img{ 
             width: 640px;
+        }
+    }
+    .box4-ec{
+        width: 640px;
+        height: 240px;
+        margin: 0 auto;
+        .tit-pp{
+            width: 200px;
+            height: 40px;
+            position: absolute;
+            top: 132px;
+            // 居中
+            left: calc(~"50% - 100px");
+            text-align: center;
+            line-height: 40px;
+            font-family:PingFangSC;
+            font-weight:600;
+            color:rgba(38,112,243,1);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('../../assets/detailfengxianpinggu/titoi.png');
         }
     }
 }

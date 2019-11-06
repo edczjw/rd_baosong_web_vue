@@ -36,8 +36,9 @@
               <img src="../../assets/detailfengxianpinggu/1.1.png" alt />
             </div>
 
-            <el-card>
-              欺诈分：670分
+            <el-card class="box4-ec">
+              <div class="tit-pp">欺诈分：670分</div>
+              
             </el-card>
         </div>
 
@@ -455,9 +456,9 @@ export default {
   background: #eee;
 }
 .detail-right-wapper {
-  width: 13%;
+  width: 16%;
   position: fixed;
-  right: 116px;
+  right: 76px;
   top: 20%;
   .flter-input {
     width: 190px !important;
