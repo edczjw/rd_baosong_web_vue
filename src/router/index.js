@@ -242,16 +242,24 @@ export default new Router({
             auth: true
           }
         },
+        // {
+        //   // 风险评估报告详情
+        //   path: '/fengxianpinggubaogao/fengxiandetail',
+        //   name: '风险评估报告详情',
+        //   component: require('../views/fengxianpinggu/fengxianpinggudetail.vue').default,
+        //   meta: {
+        //     auth: true
+        //   }
+        // },
         {
           // 风险评估报告详情
           path: '/fengxianpinggubaogao/fengxiandetail',
-          name: '风险评估报告详情',
-          component: require('../views/fengxianpinggu/fengxianpinggudetail.vue').default,
+          name: '风险评估详情',
+          component: require('../views/fengxianpinggu/fengxiandetail.vue').default,
           meta: {
             auth: true
           }
         },
-        
       ]
     }
   ]

@@ -32,7 +32,8 @@ import $ from 'jquery'
 export default {
   data() {
     return {
-        canUpload:false,
+        canUpload1:false,
+        canUpload2:false,
     };
   },
 
@@ -60,10 +61,10 @@ export default {
           var type = file.name.substring(pos + 1);
           if(type.toLowerCase() != 'xls' && type.toLowerCase() != 'xlsx' && type.toLowerCase() !='csv'){
               this.$message.error('请上传xls、xlsx、csv格式的excel文件.');
-              this.canUpload = false;
+              this.canUpload1 = false;
           }else{
               this.fileType = type;
-              this.canUpload = true;
+              this.canUpload1 = true;
               this.fileName = file.name.substring(0,pos);
               this.file = file;
               var reader = new FileReader();
@@ -76,7 +77,7 @@ export default {
 
 //异步上传
       async submitUploadADD(){
-          if(this.canUpload){
+          if(this.canUpload1){
 			    var FormDatas=new FormData($("#form-article-add")[0]);
               FormDatas.append("file",FormDatas);
               this.$axios({
@@ -127,10 +128,10 @@ export default {
           var type = file.name.substring(pos + 1);
           if(type.toLowerCase() != 'xls' && type.toLowerCase() != 'xlsx' && type.toLowerCase() !='csv'){
               this.$message.error('请上传xls、xlsx、csv格式的excel文件.');
-              this.canUpload = false;
+              this.canUpload2 = false;
           }else{
               this.fileType = type;
-              this.canUpload = true;
+              this.canUpload2 = true;
               this.fileName = file.name.substring(0,pos);
               this.file = file;
               var reader = new FileReader();
@@ -143,7 +144,7 @@ export default {
 
 //异步上传
       async submitUploadDEL(){
-          if(this.canUpload){
+          if(this.canUpload2){
             this.$confirm('此操作将从服务器中删除该文件, 是否继续?', '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',

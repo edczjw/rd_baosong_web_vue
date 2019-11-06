@@ -8,15 +8,19 @@
       <div class="detail-left-wapper animated fadeIn">
         <div style="width:100%;">
           <img
-            src="../../assets/detailfengxianpinggu/top-img.png"
+            src="../../assets/detailfengxianpinggu/bg_1.png"
+            style="width:100%;height:90%;margin-bottom:-4px !important"
+          />
+          <img
+            src="../../assets/detailfengxianpinggu/bg_02.png"
             style="width:100%;height:90%"
-            alt
           />
         </div>
         <div id="a" class="tab-box" style="width:100%;margin-top:10px;">
-          <div class="box-title">报告结论</div>
-          <div class="ban"></div>
-          <div class="en-tit">Report the conclusion</div>
+          <img
+            src="../../assets/detailfengxianpinggu/bg_02.png"
+            style="width:100%;height:90%"
+          />
 
           <div class="show-bo">
             <p>授信额度 180000￥</p>
@@ -210,11 +214,11 @@
           </div>
 
           <div class="img-box">
-            <ul class="img-ul">
+            <!-- <ul class="img-ul">
               <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
               <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
               <li><img src="../../assets/detailfengxianpinggu/human-img.png" alt=""></li>
-            </ul>
+            </ul> -->
           </div>
 
           <div id="f2" class="num-tit num-bio">
