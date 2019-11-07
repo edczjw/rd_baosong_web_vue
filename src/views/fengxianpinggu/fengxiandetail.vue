@@ -164,6 +164,18 @@
           </el-card>
         </div>
 
+        <div class="box13">
+          <div class="box13-img">
+            <img src="../../assets/detailfengxianpinggu/2.7.png" alt />
+          </div>
+          
+          <el-card class="box13-ec1">
+            
+          </el-card>
+        </div>
+
+        <div class="box14">
+        </div>
       </div>
 
       <div class="detail-right-wapper animated fadeInRight">

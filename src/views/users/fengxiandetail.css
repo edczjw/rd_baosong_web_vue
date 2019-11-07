@@ -1,5 +1,5 @@
 .detail-card {
-  height: 12000px;
+  height: 100%;
 }
 .tab-box1 {
   width: 100%;
@@ -394,7 +394,7 @@
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-  height: 1600px;
+  height: 800px;
   margin-top: -4px;
 }
 .box12 .box12-img {
@@ -407,6 +407,39 @@
 }
 .box12 .box12-ec1 {
   width: 640px;
-  height: 740px;
+  height: 440px;
   margin: 0 auto;
+}
+.box13 {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+  background-color: #ffffff;
+  background-image: url('../../assets/detailfengxianpinggu/bg_09.png');
+  height: 890px;
+  margin-top: -4px;
+}
+.box13 .box13-img {
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px 0;
+}
+.box13 .box13-img img {
+  width: 640px;
+}
+.box13 .box13-ec1 {
+  width: 640px;
+  height: 640px;
+  margin: 0 auto;
+}
+.box14 {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+  background-color: #ffffff;
+  background-image: url('../../assets/detailfengxianpinggu/footer.png');
+  height: 400px;
+  margin-top: -4px;
 }
