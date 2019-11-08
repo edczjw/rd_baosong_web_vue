@@ -4,7 +4,7 @@
       <b>风险评估报告 / 详情</b>
     </div>
     <el-card class="detail-card">
-      <div class="detail-left-wapper animated fadeIn">
+      <div class="detail-left-wapper animated fadeInLeft" style="background: #ffffff;">
         <div id="a" class="tab-box1">
           <img src="../../assets/detailfengxianpinggu/bg_1.png" alt />
           <img src="../../assets/detailfengxianpinggu/bg_02.png" alt style="margin-top:-4px" />
@@ -41,6 +41,29 @@
 
           <el-card class="box4-ec">
             <div class="tit-pp">欺诈分：670分</div>
+
+            <!-- 表格 -->
+            <table class="jititable" border 
+            style="width:580px;height:100%;margin:0 auto;margin-top:15px">
+              <tr>
+                <th>策略</th>
+                <th>命中规则</th>
+                <th>命中分值</th>
+              </tr>
+              <tr v-for="item in tabledata">
+                <td>{{item.index}}</td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']">
+                        {{it.sd}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td>{{item.f}}</td>
+              </tr>
+            </table>
           </el-card>
         </div>
 
@@ -91,10 +114,26 @@
         <div class="box7">
           <div class="box7-img">
             <img src="../../assets/detailfengxianpinggu/2.1.png" alt />
+            
           </div>
           
           <el-card class="box7-ec1">
             <div class="box7tt">2.1.1身份信息</div>
+
+          <div class="b7-ok">
+            <div class="b7img">
+              <div class="gm">
+                <img src="../../assets/detailfengxianpinggu/head1.png" alt="身份证头像照片">
+              </div>
+              <div class="gm">
+              <img src="../../assets/detailfengxianpinggu/head2.png" alt="活体照片" />
+              </div>
+            </div>
+            <ul>
+              <li>身份证头像照片</li>
+              <li>活体照片</li>
+            </ul>
+          </div>
           </el-card>
         </div>
 
@@ -206,6 +245,33 @@ export default {
   data() {
     return {
       filterText: "",
+      tabledata:[{
+        index:"负面名单检查",
+        de:[{
+          sd:"申请人信息命中低风险"
+        },{
+          sd:"申请人信息命中低风险"
+        },{
+          sd:"身份证命中信贷逾期名单"
+        }],
+        f:"5"
+      },
+      {
+        index:"多头规则",
+        de:[{
+          sd:"7天内申请人借贷申请平台数较多"
+        },{
+          sd:"1个月内申请人借贷申请平台数较多"
+        }],
+        f:"60"
+      },
+      {
+        index:"地理位置核验",
+        de:[{
+          sd:"近1月，凌晨出现的区域数极多"
+        }],
+        f:"500"
+      }],
       data: [
         {
           label: "报告结论",

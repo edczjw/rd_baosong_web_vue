@@ -1,3 +1,45 @@
+.jititable {
+  border-collapse: collapse;
+  width: 80%;
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 30px;
+  font-family: '黑体';
+  border: 1px solid #e6e5e5;
+}
+.jititable th {
+  height: 40px;
+  color: #252e47;
+  font-size: 14px;
+  background-color: #f3e7fc;
+}
+.jititable td {
+  height: 40px;
+}
+td {
+  text-align: center;
+  font-size: 14px;
+}
+.jititables {
+  font-size: 12px;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+}
+.jititables td {
+  height: 40px;
+  border-bottom: 1px solid #f0efef;
+}
+.jititables .dd {
+  padding: 0;
+  height: 40px;
+  border-bottom: none;
+}
+.jititables .dsd {
+  background: #f3ecf2;
+}
 .detail-card {
   height: 100%;
 }
@@ -10,7 +52,6 @@
 .box2 {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: center;
   background-image: url('../../assets/detailfengxianpinggu/bg_03.png');
   height: 100%;
   margin-top: -4px;
@@ -25,7 +66,8 @@
 }
 .box3 {
   background: #ffffff;
-  padding-bottom: 20px;
+  margin-bottom: 90px;
+  height: 100%;
 }
 .box3 .box3-ec {
   position: relative;
@@ -93,9 +135,11 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-  height: 420px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box4 .box4-img {
@@ -108,14 +152,14 @@
 }
 .box4 .box4-ec {
   width: 640px;
-  height: 240px;
-  margin: 0 auto;
+  height: 100%;
+  margin: 20px auto;
 }
 .box4 .box4-ec .tit-pp {
   width: 200px;
   height: 40px;
   position: absolute;
-  top: 72px;
+  top: 92px;
   left: calc(50% - 100px);
   text-align: center;
   line-height: 40px;
@@ -124,21 +168,23 @@
   color: #2670f3;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../../assets/detailfengxianpinggu/titoi.png');
+  background-image: url(../../assets/detailfengxianpinggu/titoi.png);
 }
 .box5 {
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-image: url('../../assets/detailfengxianpinggu/bg_06.png');
-  height: 1050px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box5 .box5-img {
   margin: 0 auto;
   text-align: center;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 .box5 .box5-img img {
   width: 640px;
@@ -146,13 +192,13 @@
 .box5 .box5-ec2 {
   width: 640px;
   height: 440px;
-  margin: 60px auto;
+  margin: 40px auto;
 }
 .box5 .box5-ec2 .tit-pp2 {
   width: 200px;
   height: 40px;
   position: absolute;
-  top: 452px;
+  top: 372px;
   left: calc(50% - 100px);
   text-align: center;
   line-height: 40px;
@@ -198,9 +244,11 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-image: url('../../assets/detailfengxianpinggu/bg_04-07.png');
-  height: 2150px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box6 .box6-img {
@@ -249,8 +297,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
+  background-position-y: center;
+  background-position-y: top;
   background-image: url('../../assets/detailfengxianpinggu/bg_08.png');
-  height: 470px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box7 .box7-img {
@@ -263,7 +314,7 @@
 }
 .box7 .box7-ec1 {
   width: 640px;
-  height: 340px;
+  height: 100%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -276,13 +327,40 @@
   color: #252e47;
   line-height: 22px;
 }
+.box7 .b7-ok {
+  width: 100%;
+  background: #f5f7ff;
+}
+.box7 .b7-ok .b7img {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  height: 240px;
+}
+.box7 .b7-ok .b7img .gm {
+  width: 50%;
+  text-align: center;
+}
+.box7 .b7-ok .b7img .gm img {
+  height: 95%;
+}
+.box7 .b7-ok ul {
+  width: 100%;
+  padding: 0 0 10px 0;
+  display: inline-flex;
+}
+.box7 .b7-ok ul li {
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+  color: #a5afb8;
+}
 .box8 {
   position: relative;
   background-repeat: no-repeat;
-  background-position-x: center;
   background-size: cover;
   background-image: url('../../assets/detailfengxianpinggu/bg_09.png');
-  height: 660px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box8 .box8-img {
@@ -302,10 +380,12 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
-  height: 2180px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box9 .box9-img {
@@ -344,11 +424,11 @@
 .box10 {
   position: relative;
   background-repeat: no-repeat;
-  background-position-x: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
-  height: 1100px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box10 .box10-img {
@@ -367,11 +447,11 @@
 .box11 {
   position: relative;
   background-repeat: no-repeat;
-  background-position-x: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-  height: 1000px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box11 .box11-img {
@@ -391,10 +471,12 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-  height: 800px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box12 .box12-img {
@@ -414,10 +496,12 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_09.png');
-  height: 890px;
+  height: 100%;
+  margin-bottom: 20px;
   margin-top: -4px;
 }
 .box13 .box13-img {
@@ -437,9 +521,10 @@
   position: relative;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: center;
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/footer.png');
-  height: 400px;
+  height: 340px;
   margin-top: -4px;
 }

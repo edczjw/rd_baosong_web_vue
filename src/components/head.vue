@@ -159,7 +159,7 @@ export default {
   width: 100%;
   height: 55px;
 
-  background-color: rgb(42, 48, 56);
+  background-color: rgb(15, 15, 15);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.479);
 }
 
@@ -184,43 +184,43 @@ p {
   font-weight: bolder;
 
   margin-left: 22px;
-  padding: 0 10px;
+  padding: 0 5px 41px 5px;
   position: relative;
   height: 33px;
   line-height: 32px;
-  top:25%;
+  top:20%;
   cursor: pointer;
-  border-radius: 20%;
-  border: 2px solid rgba(238, 238, 238, 0.301);
   color: rgb(255, 255, 255);
 }
 .i-left:hover{
+  transition: all 0.3s;
   color: rgba(116, 216, 194, 0.842);
-  background: rgba(238, 238, 238, 0.068)
+  border-bottom: 3px solid rgba(116, 216, 194, 0.842);
+  /* background: rgba(238, 238, 238, 0.068) */
 }
 
 .right {
   font-size: 12px;
 
+  padding: 0 5px 39px 5px;
   position: relative;
   float: right;
   height: 33px;
-  border-radius: 20%;
   line-height: 32px;
 
   margin-right: 22px;
 
   top:25%;
   cursor: pointer;
-  padding: 0 10px;
 
   color: rgb(255, 255, 255);
-  border: 2px solid rgba(238, 238, 238, 0.301);
 }
 
 .right:hover {
+  transition: all 0.3s;
   color: rgba(116, 216, 194, 0.842);
-  background: rgba(238, 238, 238, 0.068)
+  border-bottom: 3px solid rgba(116, 216, 194, 0.842);
+  /* background: rgba(238, 238, 238, 0.068) */
 }
 
 svg {

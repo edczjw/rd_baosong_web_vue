@@ -1,3 +1,52 @@
+
+.jititable{
+    border-collapse:collapse;
+    width:80%;
+    font-size: 14px;
+    margin: 0 auto;
+    text-align:center;
+    margin-top: 30px;
+    font-family: '黑体';
+    border: 1px solid rgb(230, 229, 229);
+}
+
+.jititable th{
+    height: 40px;
+    color:rgba(37,46,71,1) ;
+    font-size: 14px;
+    background-color: rgb(243, 231, 252);
+}
+
+.jititable td{
+    height: 40px;
+}
+td{
+    text-align: center;
+    font-size: 14px;
+}
+.jititables{
+    font-size: 12px;
+    // border-collapse:collapse;
+    width:100%;
+    margin: 0 auto;
+    border: none;
+    text-align:center;
+    td{
+        height: 40px;
+        border-bottom: 1px solid rgb(240, 239, 239);
+      }
+    .dd{
+        padding: 0;
+        height: 40px;
+        border-bottom: none;
+    }
+    .dsd{
+        background: rgb(243, 236, 242);
+    }
+  }
+  
+
+
 // 整个大盒子
 .detail-card{
     height:100%;
@@ -14,7 +63,6 @@
 .box2{
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-x: center;
     background-image: url('../../assets/detailfengxianpinggu/bg_03.png');
     height: 100%;
     margin-top:-4px;
@@ -33,7 +81,8 @@
 // 授信额度+仪表盘外部
 .box3{
     background: #ffffff;
-    padding-bottom: 20px;
+    margin-bottom: 90px;
+    height: 100%;
     //内部
     .box3-ec{
         position: relative;
@@ -106,9 +155,11 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-    height: 420px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box4-img{
         margin:0 auto;
@@ -120,14 +171,14 @@
     }
     .box4-ec{
         width: 640px;
-        height: 240px;
-        margin: 0 auto;
+        height: 100%;
+        margin: 20px auto;
         //第一个头标
         .tit-pp{
             width: 200px;
             height: 40px;
             position: absolute;
-            top: 72px;
+            top: 92px;
             // 居中
             left: calc(~"50% - 100px");
             text-align: center;
@@ -137,7 +188,7 @@
             color:rgba(38,112,243,1);
             background-repeat: no-repeat;
             background-size: cover;
-            background-image: url('../../assets/detailfengxianpinggu/titoi.png');
+            background-image: url(../../assets/detailfengxianpinggu/titoi.png);
         }
         
     }
@@ -149,14 +200,16 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-image: url('../../assets/detailfengxianpinggu/bg_06.png');
-    height: 1050px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box5-img{
         margin:0 auto;
         text-align: center;
-        padding: 50px 0;
+        padding: 20px 0;
         img{ 
             width: 640px;
         }
@@ -164,13 +217,13 @@
     .box5-ec2{
         width: 640px;
         height: 440px;
-        margin: 60px auto;
+        margin: 40px auto;
         //第一个头标
         .tit-pp2{
             width: 200px;
             height: 40px;
             position: absolute;
-            top: 452px;
+            top: 372px;
             // 居中
             left: calc(~"50% - 100px");
             text-align: center;
@@ -221,9 +274,11 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-image: url('../../assets/detailfengxianpinggu/bg_04-07.png');
-    height: 2150px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box6-img{
         margin:0 auto;
@@ -283,8 +338,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
+    background-position-y: center;
+    background-position-y: top;
     background-image: url('../../assets/detailfengxianpinggu/bg_08.png');
-    height: 470px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box7-img{
         margin:0 auto;
@@ -298,7 +356,7 @@
     //2.1.1
     .box7-ec1{
         width: 640px;
-        height: 340px;
+        height: 100%;
         margin: 0 auto;
         padding: 20px;
     }
@@ -312,16 +370,43 @@
         color:rgba(37,46,71,1);
         line-height:22px;
     }
+    .b7-ok{
+        width: 100%;
+        background:rgba(245,247,255,1);
+    .b7img{
+        padding: 20px 20px 0 20px;
+        display: flex;
+        height: 240px;
+        .gm{
+            width: 50%;
+            text-align: center;
+            img{
+                height: 95%;
+            }
+        }
+        }
+        ul{
+            width: 100%;
+            padding: 0 0 10px 0;
+            display: inline-flex;
+            li{
+                width: 50%;
+                text-align: center;
+                font-size: 12px;
+                color:rgba(165,175,184,1);
+            }
+        }
+    }
 }
 
 //第八个外框
 .box8{
     position: relative;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-size: cover;
     background-image: url('../../assets/detailfengxianpinggu/bg_09.png');
-    height: 660px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box8-img{
         margin:0 auto;
@@ -345,10 +430,12 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
-    height: 2180px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box9-img{
         margin:0 auto;
@@ -395,11 +482,11 @@
 .box10{
     position: relative;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
-    height: 1100px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box10-img{
         margin:0 auto;
@@ -423,11 +510,11 @@
 .box11{
     position: relative;
     background-repeat: no-repeat;
-    background-position-x: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-    height: 1000px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box11-img{
         margin:0 auto;
@@ -452,10 +539,12 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
-    height: 800px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box12-img{
         margin:0 auto;
@@ -479,10 +568,12 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/bg_09.png');
-    height: 890px;
+    height: 100%;
+    margin-bottom: 20px;
     margin-top:-4px;
     .box13-img{
         margin:0 auto;
@@ -506,9 +597,10 @@
     position: relative;
     background-repeat: no-repeat;
     background-position-x: center;
+    background-position-y: center;
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/footer.png');
-    height: 400px;
+    height: 340px;
     margin-top:-4px;
 }

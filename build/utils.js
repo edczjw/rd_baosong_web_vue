@@ -47,6 +47,8 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
+        //加上如下一句代码解决css绝对路径图片不显示
+        publicPath: '../../',
         fallback: 'vue-style-loader'
       })
     } else {
