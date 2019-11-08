@@ -43,8 +43,7 @@
             <div class="tit-pp">欺诈分：670分</div>
 
             <!-- 表格 -->
-            <table class="jititable" border 
-            style="width:580px;height:100%;margin:0 auto;margin-top:15px">
+            <table class="jititable" border >
               <tr>
                 <th>策略</th>
                 <th>命中规则</th>
