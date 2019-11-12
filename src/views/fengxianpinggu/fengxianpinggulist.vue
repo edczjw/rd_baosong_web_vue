@@ -92,7 +92,8 @@
         <el-table-column prop="usrNo" label="流水号" align="center"></el-table-column>
         <el-table-column prop="name" label="姓名" align="center">
           <template slot-scope="scope">
-            <el-button type="text" size="small" @click="godetail(scope.row.id)">{{scope.row.name}}</el-button>
+            <el-button type="text" size="small" 
+            @click="godetail(scope.row.name,scope.row.idCard,scope.row.phone)">{{scope.row.name}}</el-button>
           </template>
         </el-table-column>
         <el-table-column prop="idCard" label="身份证号" align="center"></el-table-column>
@@ -212,16 +213,19 @@ export default {
       this.searchform.pageIndex = pindex;
       this.load(this.searchform);
     },
-    //表单操作
-    handleClick() {},
-    godetail(id) {
+
+    //点击姓名跳转详情
+    godetail(name,idCard,phone) {
       this.$router.push({
         path: "/fengxianpinggubaogao/fengxiandetail",
         query: {
-          id: id
+          name: name,
+          idCard: idCard,
+          phone:phone
         }
       });
     },
+
     //初始化数据
     load(data) {
       this.tableData = [];

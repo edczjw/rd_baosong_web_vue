@@ -72,19 +72,42 @@
 /* 计提表格 */
 .jititable{
   border-collapse:collapse;
-  width:80%;
+  width:70%;
   margin: 0 auto;
+  font-family: 'Times New Roman', Times, serif;
   text-align:center;
-  border: 1px solid rgb(49, 50, 54);
-  margin-top: 30px;
+  border: 1px solid rgb(186, 186, 189);
+  margin: 10% auto;
+  
 }
-
+.hg{
+  background-color: rgb(147, 245, 212);
+  font-weight: bold;
+}
+.df{
+  float: left;
+  width: 40%;
+  text-align: center;
+  padding:20px 80px;
+}
+.gj{
+  width:60%;
+  float: right;
+  height: 100px;
+  margin-top: 10px;
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573467734382&di=75252fc76ba9f89370a23e116da756f2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F25%2F20160225115439_BJU8L.gif');
+}
 .jititable th{
   height: 50px;
+  background-color: rgb(147, 245, 212);
 }
 
 .jititable td{
   height: 40px;
+}
+.jititable td:hover{
+  color: rgb(236, 67, 16);
+  background-color: rgb(241, 250, 250);
 }
 .first{
   background-color: rgb(145, 216, 175);

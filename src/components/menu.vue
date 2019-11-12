@@ -6,7 +6,7 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="rgb(18, 38, 61)"
+          background-color="rgb(42, 47, 53)"
           text-color="#fff"
           :collapse="this.$store.state.isLeftHiden"
           unique-opened
@@ -135,7 +135,7 @@ export default {
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
-  background-color: rgb(18, 38, 61);
+  background-color: rgb(42, 47, 53);
   overflow: scroll;
 }
 
@@ -146,7 +146,6 @@ export default {
 .side-menu {
   width: 84px;
   transition: all 0.5s;
-  /* background-color: rgb(41, 85, 110); */
 }
 
 /* 修边 */

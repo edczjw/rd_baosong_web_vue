@@ -77,16 +77,16 @@ export default {
 .main-ten {
   margin-left: 240px;
   padding: 0 5px;
-  
-  transition: all .5s;
+
+  transition: all 0.5s;
 }
 
 // 右半部分扩张
 .container-width {
   margin-left: 64px;
   padding: 0 8px;
-  
-  transition: all .5s;
+
+  transition: all 0.5s;
 }
 
 // 整个页面

@@ -50,7 +50,7 @@ body {
 
 .page-human {
   padding: 25px 50px;
-  }
+}
 //大盒子样式
 .box {
   height: 100%;
@@ -104,17 +104,18 @@ body {
   margin: 15px 0;
   height: 5px;
 }
-.mb{
-  margin-bottom:20px;
+.mb {
+  margin-bottom: 20px;
 }
 .li-title {
   width: 100%;
-  font-size: 16px;
-  height: 40px;
-  line-height: 40px;
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 32px;
+  line-height: 32px;
   padding-left: 20px;
+  color: rgb(9, 86, 240);
   margin-bottom: 10px;
-  background-color: rgb(197, 218, 243);
+  background-color: rgb(142, 229, 235);
 }
-
 </style>

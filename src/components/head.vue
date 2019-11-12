@@ -151,7 +151,7 @@ export default {
   color: rgba(116, 216, 194, 0.842);
 }
 .topBanner {
-  line-height: 60px;
+  line-height: 55px;
 
   position: fixed;
   z-index: 99;
@@ -159,7 +159,7 @@ export default {
   width: 100%;
   height: 55px;
 
-  background-color: rgb(15, 15, 15);
+  background-color: rgb(33, 34, 34);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.479);
 }
 
@@ -170,11 +170,11 @@ p {
 .left {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
-  font-weight: bold;
+  /* font-weight: bold; */
   float: left;
-  line-height: 55px;
+  line-height: 52px;
 
-  color: rgb(229, 230, 223);
+  color: rgb(243, 243, 241);
   text-shadow: 2px 2px 3px rgb(82, 80, 80);
 }
 .i-left{

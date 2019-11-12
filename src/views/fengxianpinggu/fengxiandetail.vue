@@ -5,12 +5,12 @@
     </div>
     <el-card class="detail-card">
       <div class="detail-left-wapper animated fadeInLeft" style="background: #ffffff;">
-        <div id="a" class="tab-box1">
+        <div class="tab-box1">
           <img src="../../assets/detailfengxianpinggu/bg_1.png" alt />
           <img src="../../assets/detailfengxianpinggu/bg_02.png" alt style="margin-top:-4px" />
         </div>
 
-        <div class="box2">
+        <div id="a" class="box2">
           <div class="conlusion">
             <img src="../../assets/detailfengxianpinggu/conreport.png" alt />
           </div>
@@ -34,7 +34,7 @@
           </el-card>
         </div>
 
-        <div class="box4">
+        <div id="b" class="box4">
           <div class="box4-img">
             <img src="../../assets/detailfengxianpinggu/1.1.png" alt />
           </div>
@@ -43,7 +43,7 @@
             <div class="tit-pp">欺诈分：670分</div>
 
             <!-- 表格 -->
-            <table class="jititable" border >
+            <table class="jititable" border>
               <tr>
                 <th>策略</th>
                 <th>命中规则</th>
@@ -54,9 +54,9 @@
                 <td>
                   <table class="jititables">
                     <tr v-for="(it,index) in item.de">
-                      <td :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']">
-                        {{it.sd}}
-                      </td>
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.sd}}</td>
                     </tr>
                   </table>
                 </td>
@@ -66,7 +66,7 @@
           </el-card>
         </div>
 
-        <div class="box5">
+        <div id="c" class="box5">
           <div class="box5-img">
             <img src="../../assets/detailfengxianpinggu/1.2.png" alt />
           </div>
@@ -84,136 +84,368 @@
 
           <el-card class="box5-ec2">
             <div class="tit-pp2">信用分：89分</div>
+
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr>
+                <th>属性类型</th>
+                <th>评分项</th>
+                <th>数据值</th>
+                <th>评分</th>
+              </tr>
+              <tr v-for="item in tabledatas">
+                <td>{{item.index}}</td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.sd}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.fr}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td style="width:100px">{{item.f}}</td>
+              </tr>
+            </table>
           </el-card>
         </div>
 
-        <div class="box6">
+        <div id="d" class="box6">
           <div class="box6-img">
             <img src="../../assets/detailfengxianpinggu/1.3.png" alt />
           </div>
-          
-          <el-card class="box6-ec1">
+
+          <el-card id="d1" class="box6-ec1">
             <div class="box6tt">1.3.1关联信息</div>
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr>
+                <th>关联个数</th>
+                <th>关联明细</th>
+              </tr>
+              <tr v-for="item in tabledatas">
+                <td>{{item.index}}：{{item.num}}</td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.sd}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </el-card>
 
-          <el-card class="box6-ec2">
+          <el-card id="d2" class="box6-ec2">
             <div class="box6tt">1.3.2公检法信息</div>
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr v-for="item in tabledatas">
+                <td
+                  style="background: rgb(218, 235, 248);border-bottom: 1px solid #efe;"
+                >{{item.index}}</td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.sd}}</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="jititables">
+                    <tr v-for="(it,index) in item.de">
+                      <td
+                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >{{it.ki}}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </el-card>
 
-          <el-card class="box6-ec3">
+          <el-card id="d3" class="box6-ec3">
             <div class="box6tt">1.3.3信贷逾期名单</div>
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr>
+                <th>逾期金额区间</th>
+                <th>逾期笔数</th>
+                <th>逾期时间区间</th>
+                <th>逾期入库时间</th>
+              </tr>
+              <tr v-for="item in tabledatas">
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+              </tr>
+            </table>
           </el-card>
 
-          <el-card class="box6-ec4">
+          <el-card id="d4" class="box6-ec4">
             <div class="box6tt">1.3.4多名单申请信息</div>
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr>
+                <th>检查项目</th>
+                <th>总个数</th>
+                <th>借款人手机详情</th>
+                <th>借款人身份证详情</th>
+              </tr>
+              <tr v-for="item in tabledatas">
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+                <td>{{item.index}}</td>
+              </tr>
+            </table>
           </el-card>
-          
         </div>
 
-        <div class="box7">
+        <div id="e" class="box7">
           <div class="box7-img">
             <img src="../../assets/detailfengxianpinggu/2.1.png" alt />
-            
           </div>
-          
-          <el-card class="box7-ec1">
+
+          <el-card id="e1" class="box7-ec1">
             <div class="box7tt">2.1.1身份信息</div>
 
-          <div class="b7-ok">
-            <div class="b7img">
-              <div class="gm">
-                <img src="../../assets/detailfengxianpinggu/head1.png" alt="身份证头像照片">
+            <div class="b7-ok">
+              <div class="b7img">
+                <div class="gm">
+                  <img src="../../assets/detailfengxianpinggu/head1.png" alt="身份证头像照片" />
+                </div>
+                <div class="gm">
+                  <img src="../../assets/detailfengxianpinggu/head2.png" alt="活体照片" />
+                </div>
               </div>
-              <div class="gm">
-              <img src="../../assets/detailfengxianpinggu/head2.png" alt="活体照片" />
-              </div>
+              <ul>
+                <li>身份证头像照片</li>
+                <li>活体照片</li>
+              </ul>
             </div>
-            <ul>
-              <li>身份证头像照片</li>
-              <li>活体照片</li>
-            </ul>
-          </div>
           </el-card>
         </div>
 
-        <div class="box8">
+        <div id="f" class="box8">
           <div class="box8-img">
             <img src="../../assets/detailfengxianpinggu/2.2.png" alt />
           </div>
-          
+
           <el-card class="box8-ec1">
-            2.2
+            <!-- 表格 -->
+            <table class="jititable" border>
+              <tr></tr>
+              <tr>
+                <td class="bg-co">姓名</td>
+                <td>{{tabledatas.name}}</td>
+                <td class="bg-co">身份证号码</td>
+                <td colspan="3" class="lf">{{tabledatas.idcard}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">年龄</td>
+                <td>{{tabledatas.age}}</td>
+                <td class="bg-co">性别</td>
+                <td>{{tabledatas.sex}}</td>
+                <td class="bg-co">民族</td>
+                <td>{{tabledatas.fr}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">生肖</td>
+                <td>{{tabledatas.sx}}</td>
+                <td class="bg-co">星座</td>
+                <td>{{tabledatas.star}}</td>
+                <td class="bg-co">婚姻状态</td>
+                <td>{{tabledatas.mast}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">电话号码</td>
+                <td colspan="5" class="lf">{{tabledatas.number}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">证件地址</td>
+                <td colspan="5" class="lf">{{tabledatas.idadress}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">签发机构</td>
+                <td colspan="5" class="lf">{{tabledatas.qj}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">家庭地址</td>
+                <td colspan="5" class="lf">{{tabledatas.homeadress}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">常驻城市</td>
+                <td colspan="5" class="lf">{{tabledatas.city}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">直系联系人</td>
+                <td colspan="5" class="lf">{{tabledatas.decon}}</td>
+              </tr>
+              <tr>
+                <td class="bg-co">其他联系人</td>
+                <td colspan="5" class="lf">{{tabledatas.otcon}}</td>
+              </tr>
+            </table>
           </el-card>
         </div>
 
-        <div class="box9">
+        <div id="g" class="box9">
           <div class="box9-img">
             <img src="../../assets/detailfengxianpinggu/2.3.png" alt />
           </div>
-          
-          <el-card class="box9-ec1">
-            2.3.1消费信息
+
+          <el-card id="g1" class="box9-ec1">
+            <div>2.3.1消费信息</div>
+            <!-- 表格 -->
+            <table class="jititable gf" border>
+              <tr v-for="item in tabledatas2.list1">
+                <td style="width:220px" class="bg-co">{{item.fieldName}}</td>
+                <td>
+                  <span v-if="item.content==''">－</span>
+                  <span v-else>{{item.content}}</span>
+                  </td>
+              </tr>
+            </table>
           </el-card>
 
+
           <el-card class="box9-ec2">
-            
+            <table class="jititable gf" border>
+              <tr>
+                <td  class="bg-co"></td>
+                <td  class="bg-co">出行旅游类</td>
+                <td  class="bg-co">教育培训类</td>
+                <td  class="bg-co">金融及实物投资类</td>
+                <td  class="bg-co">其他类</td>
+                <td  class="bg-co">生活购物类</td>   
+                <td  class="bg-co">娱乐服务类</td>   
+              </tr>
+              <tr v-for="item in tabledatas2.list2">
+                <td class="bg-co">{{item.fieldName}}</td>
+                <td v-for="items in item.list">
+                  <span v-if="items==''">－</span>
+                  <span v-else>{{items}}</span>
+                </td>
+              </tr>
+            </table>
           </el-card>
 
           <el-card class="box9-ec3">
-            
+            <table class="jititable gf" border>
+              <tr>
+                <td  class="bg-co">消费档次</td>
+                <td colspan="4">{{tabledatas.consumeGrade}}</td>
+              </tr>
+              <tr>
+                <td  class="bg-co">综合消费活跃度</td>
+                <td colspan="4">{{tabledatas.consumeActive}}</td>
+              </tr>
+              <tr>
+                <td  class="bg-co"></td>
+                <td  class="bg-co">近1月</td>
+                <td  class="bg-co">近3月</td>
+                <td  class="bg-co">近6月</td>
+                <td  class="bg-co">近12月</td>
+              </tr>
+
+              <tr v-for="item in tabledatas.list2">
+                <td class="bg-co">{{item.fieldName}}</td>
+                <td v-for="items in item.content">{{items}}</td>
+              </tr>
+            </table>
           </el-card>
 
-          <el-card class="box9-ec4">
-            2.3.2航空出行信息
-          </el-card>
+          <el-card id="g2" class="box9-ec4">2.3.2航空出行信息</el-card>
 
-          <el-card class="box9-ec5">
-            2.3.3铁路出行信息
-          </el-card>
+          <el-card id="g3" class="box9-ec5">2.3.3铁路出行信息</el-card>
         </div>
 
-        <div class="box10">
+        <div id="h" class="box10">
           <div class="box10-img">
             <img src="../../assets/detailfengxianpinggu/2.4.png" alt />
           </div>
-          
-          <el-card class="box10-ec1">
+
+          <el-card id="h1" class="box10-ec1">
             2.4.1收入信息
+            <!-- 表格 -->
+            <table border class="jititable gf">
+              <tr>
+                <td class="bg-co">信用卡最高等级</td>
+                <td colspan="4">{{tabledatas.cardMaxLevel}}</td>
+               </tr>
+              <tr> 
+                <td class="bg-co" colspan="5">近12个月最近一笔交易距今天</td>
+              </tr>
+              <tr>
+                <td  class="bg-co"></td>
+                <td  class="bg-co">近1月</td>
+                <td  class="bg-co">近3月</td>
+                <td  class="bg-co">近6月</td>
+                <td  class="bg-co">近12月</td>
+              </tr>
+              <tr v-for="item in tabledatas.list1">
+                <td class="bg-co">{{item.fieldName}}</td>
+                <td v-for="items in item.content">{{items}}</td>
+              </tr>
+            </table>
+          </el-card>
+
+          <el-card id="h1" class="box10-ec2">
+            <!-- 表格 -->
+            <table border class="jititable gf">
+              <tr>
+                <td class="bg-co"></td>
+                <td class="bg-co">交易占比</td>
+                <td class="bg-co">交易总金额</td>
+              </tr>
+              <tr v-for="item in tabledatas.list3">
+                <td class="bg-co">{{item.fieldName}}</td>
+                <td v-for="items in item.content">{{items}}</td>
+              </tr>
+            </table>
           </el-card>
         </div>
 
-        <div class="box11">
+        <div id="i" class="box11">
           <div class="box11-img">
             <img src="../../assets/detailfengxianpinggu/2.5.png" alt />
           </div>
-          
-          <el-card class="box11-ec1">
-            2.5.1收入信息
-          </el-card>
+
+          <el-card id="i1" class="box11-ec1">2.5.1履约历史</el-card>
         </div>
 
-        <div class="box12">
+        <div id="j" class="box12">
           <div class="box12-img">
             <img src="../../assets/detailfengxianpinggu/2.6.png" alt />
           </div>
-          
-          <el-card class="box12-ec1">
-            2.6.1通讯行为
-          </el-card>
+
+          <el-card id="j1" class="box12-ec1">2.6.1通讯行为</el-card>
         </div>
 
-        <div class="box13">
+        <div id="k" class="box13">
           <div class="box13-img">
             <img src="../../assets/detailfengxianpinggu/2.7.png" alt />
           </div>
-          
-          <el-card class="box13-ec1">
-            
-          </el-card>
+
+          <el-card class="box13-ec1"></el-card>
         </div>
 
-        <div class="box14">
-        </div>
+        <div class="box14"></div>
       </div>
 
       <div class="detail-right-wapper animated fadeInRight">
@@ -244,131 +476,55 @@ export default {
   data() {
     return {
       filterText: "",
-      tabledata:[{
-        index:"负面名单检查",
-        de:[{
-          sd:"申请人信息命中低风险"
-        },{
-          sd:"申请人信息命中低风险"
-        },{
-          sd:"身份证命中信贷逾期名单"
-        }],
-        f:"5"
-      },
-      {
-        index:"多头规则",
-        de:[{
-          sd:"7天内申请人借贷申请平台数较多"
-        },{
-          sd:"1个月内申请人借贷申请平台数较多"
-        }],
-        f:"60"
-      },
-      {
-        index:"地理位置核验",
-        de:[{
-          sd:"近1月，凌晨出现的区域数极多"
-        }],
-        f:"500"
-      }],
+      //收入信息以及消费能力
+      tabledatas: {},
+
+      //消费能力
+      tabledatas2:{},
       data: [
         {
           label: "报告结论",
           href: "a"
         },
         {
-          label: "风险评估",
-          href: "b",
-          children: [
-            {
-              label: "2.1-欺诈评估",
-              href: "c"
-            },
-            {
-              label: "2.2-信用评估",
-              href: "d"
-            },
-            {
-              label: "2.3-风险信息提示",
-              href: "e",
-              children: [
-                {
-                  label: "2.3.1-关联信息",
-                  href: "e1"
-                },
-                {
-                  label: "2.3.2-公检法信息",
-                  href: "e2"
-                },
-                {
-                  label: "2.3.3-信贷逾期名单",
-                  href: "e3"
-                },
-                {
-                  label: "2.3.4-多平台申请信息",
-                  href: "e4"
-                },
-                {
-                  label: "2.3.5-多平台申请信息",
-                  href: "e5"
-                }
-              ]
-            }
-          ]
+          label: "1.1-欺诈评估",
+          href: "b"
         },
         {
-          label: "客户画像",
-          href: "f",
-          children: [
-            {
-              label: "3.1-头像信息",
-              href: "f1"
-            },
-            {
-              label: "3.2-基本信息",
-              href: "f2",
-              children: [
-                {
-                  label: "3.2.1-基本信息",
-                  href: "f21"
-                },
-                {
-                  label: "3.2.2-家庭信息",
-                  href: "f22"
-                },
-                {
-                  label: "3.2.3-工作信息",
-                  href: "f23"
-                },
-                {
-                  label: "3.2.4-学历信息",
-                  href: "f24"
-                }
-              ]
-            },
-            {
-              label: "3.3-消费能力评估",
-              href: "f3",
-              children: [
-                {
-                  label: "3.3.1-消费探针",
-                  href: "f31"
-                },
-                {
-                  label: "3.3.2-话费消费详情",
-                  href: "f32"
-                },
-                {
-                  label: "3.3.3-多平台申请信息",
-                  href: "f33"
-                },
-                {
-                  label: "3.3.4-京东消费详情",
-                  href: "f34"
-                }
-              ]
-            }
-          ]
+          label: "1.2-信用评估",
+          href: "c"
+        },
+        {
+          label: "1.3-风险提示信息",
+          href: "d"
+        },
+        {
+          label: "2.1-客户画像",
+          href: "e"
+        },
+        {
+          label: "2.2-基本信息",
+          href: "f"
+        },
+        {
+          label: "2.3-消费能力评估",
+          href: "g"
+        },
+        {
+          label: "2.4-收入能力评估",
+          href: "h"
+        },
+        {
+          label: "2.5-信用历史",
+          href: "i"
+        },
+        {
+          label: "2.6-社交行为",
+          href: "j"
+        },
+        {
+          label: "2.7-设备信息",
+          href: "k"
         }
       ],
       defaultProps: {
@@ -378,11 +534,71 @@ export default {
     };
   },
   mounted() {
+    this.all();
     this.drawLine();
     this.drawLine2();
     this.drawLine3();
   },
+  watch: {
+    filterText(val) {
+      this.$refs.tree2.filter(val);
+    }
+  },
   methods: {
+    all(){
+      //收入
+        var data1 = {
+          name: this.$route.query.name,
+          cid: this.$route.query.idCard
+        };
+      //消费
+        var data2 = {
+          name: this.$route.query.name,
+          idNumber: this.$route.query.idCard,
+          phone: this.$route.query.phone,
+        };
+        this.getlist2(data2)//消费
+        this.getlist1(data1)//收入
+    },
+    //获取消费信息
+    getlist2(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/consume/ability/assess",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+              this.tabledatas2 = res;
+          },
+          error => {
+            this.$message({
+              message:'发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+    //收入信息以及消费信息表格数据接口
+    getlist1(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/income/ability/assess",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+              this.tabledatas = res;
+          },
+          error => {
+            this.$message({
+              message:'发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+
     //第一个仪表盘
     drawLine() {
       var option = {
@@ -1109,7 +1325,7 @@ export default {
       var idhight = document.querySelector("#" + data.href).offsetTop;
 
       //平滑滚动
-      $("body,html").animate({ scrollTop: idhight - 10 }, 300);
+      $("body,html").animate({ scrollTop: idhight + 60 }, 800);
     }
   }
 };
@@ -1125,11 +1341,11 @@ export default {
 .detail-right-wapper {
   width: 16%;
   position: fixed;
-  right: 76px;
-  top: 20%;
+  right: 68px;
+  top: 125px;
   .flter-input {
     width: 190px !important;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 }
 .page-human {

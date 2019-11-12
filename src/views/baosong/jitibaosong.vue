@@ -6,21 +6,25 @@
     </div>
 
     <el-card>
+      <div class="df">
       选择时间：
       <el-select v-model="value" placeholder="请选择时间" size="small" @change="overchange($event)">
         <el-option v-for="item in options" :key="item" :label="item" :value="item"></el-option>
       </el-select>
+      </div>
+    <div class="gj">
+     </div>
     <table class="jititable" border>
       <tr>
-        <td>类别项目</td>
-        <td>余额（万元）</td>
-        <td>计提比例（%）</td>
-        <td>计提金额（万元）</td>
-        <td>报送时间</td>
+        <th>类别项目</th>
+        <th>余额（万元）</td>
+        <th>计提比例（%）</td>
+        <th>计提金额（万元）</td>
+        <th>报送时间</th>
       </tr>
 
       <tr>
-        <td>正常类贷款</td>
+        <td class="hg">正常类贷款</td>
         <td>{{this.normalBalance}}</td>
         <td>{{this.normalRate}}</td>
         <td>{{this.normalReal}}</td>
@@ -28,41 +32,41 @@
       </tr>
 
       <tr>
-        <td>关注类贷款</td>
+        <td class="hg">关注类贷款</td>
         <td>{{this.followBalance}}</td>
         <td>{{this.followRate}}</td>
         <td>{{this.followReal}}</td>
       </tr>
 
       <tr>
-        <td>次级类贷款</td>
+        <td class="hg">次级类贷款</td>
         <td>{{this.minorBalance}}</td>
         <td>{{this.minorRate}}</td>
         <td>{{this.minorReal}}</td>
       </tr>
 
       <tr>
-        <td>可疑类贷款</td>
+        <td class="hg">可疑类贷款</td>
         <td>{{this.suspiciousBalance}}</td>
         <td>{{this.suspiciousRate}}</td>
         <td>{{this.suspiciousReal}}</td>
       </tr>
 
       <tr>
-        <td>损失类贷款</td>
+        <td class="hg">损失类贷款</td>
         <td>{{this.lossBalance}}</td>
         <td>{{this.lossRate}}</td>
         <td>{{this.lossReal}}</td>
       </tr>
 
       <tr>
-        <td>合计</td>
+        <td class="hg">合计</td>
         <td>{{ this.yuesum }}</td>
         <td>无</td>
         <td>{{ this.loansum }}</td>
       </tr>
     </table>
-    </el-card>
+ </el-card>
   </div>
 </template>
 
