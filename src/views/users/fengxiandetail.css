@@ -1,10 +1,14 @@
+.el-tree {
+  color: #3bb145;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .sf {
   font-size: 14px;
   width: 232px;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
   background: rgba(66, 73, 129, 0.623);
 }
 .sf ul {
@@ -19,14 +23,14 @@
   color: #fff;
   font-family: 'Ubuntu', sans-serif;
   padding: 9px 2px;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 12px;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
 .sf ul li span {
   border-radius: 40px;
-  padding: 1px 10px;
+  padding: 2px 10px;
   margin-right: 8px;
   text-align: center;
   background-color: #9dc6c7;
@@ -361,9 +365,30 @@ td {
   line-height: 22px;
 }
 .box7 .b7-ok {
+  position: relative;
   width: 100%;
   margin: 20px auto;
   background: #f5f7ff;
+}
+.box7 .b7-ok .lt {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.box7 .b7-ok .lb {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+.box7 .b7-ok .rt {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.box7 .b7-ok .rb {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
 }
 .box7 .b7-ok .b7img {
   padding: 20px 20px 0 20px;
@@ -555,6 +580,6 @@ td {
   background-size: cover;
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/footer.png');
-  height: 340px;
+  height: 240px;
   margin-top: -20px;
 }

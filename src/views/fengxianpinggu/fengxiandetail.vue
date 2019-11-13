@@ -153,6 +153,14 @@
             <div class="box7tt">2.1.1身份信息</div>
 
             <div class="b7-ok">
+              <div class="lt">
+              <img src="../../assets/detailfengxianpinggu/lt.png" alt=""></div>
+              <div class="lb">
+              <img src="../../assets/detailfengxianpinggu/lb.png" alt=""></div>
+              <div  class="rt">
+              <img src="../../assets/detailfengxianpinggu/rt.png" alt=""></div>
+              <div  class="rb">
+              <img src="../../assets/detailfengxianpinggu/rb.png" alt=""></div>
               <div class="b7img">
                 <div class="gm">
                   <img src="../../assets/detailfengxianpinggu/head1.png" alt="身份证头像照片" />

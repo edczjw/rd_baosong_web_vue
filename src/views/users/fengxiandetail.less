@@ -1,11 +1,14 @@
-
+.el-tree{
+    color: rgb(59, 177, 69);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 .sf{
     font-size: 14px;
     width: 232px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-bottom: 90px;
+    margin-bottom: 20px;
     background: rgba(66, 73, 129, 0.623);
     ul{
         list-style: none;
@@ -18,13 +21,13 @@
             color: #fff;
             font-family: 'Ubuntu', sans-serif;
             padding: 9px 2px;
-            border-radius: 5px;
+            border-radius: 15px;
             font-size: 12px;
             -webkit-transition: background .3s;
             transition: background .3s;
             span{
                 border-radius: 40px;
-                padding:1px 10px;
+                padding:2px 10px;
                 margin-right: 8px;
                 text-align: center;
                 background-color: rgb(157, 198, 199);
@@ -402,9 +405,30 @@ td{
         line-height:22px;
     }
     .b7-ok{
+        position: relative;
         width: 100%;
         margin: 20px auto;
         background:rgba(245,247,255,1);
+        .lt{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .lb{
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+        .rt{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .rb{
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+        }
     .b7img{
         padding: 20px 20px 0 20px;
         display: flex;
@@ -633,6 +657,6 @@ td{
     background-size: cover;
     background-color: #ffffff;;
     background-image: url('../../assets/detailfengxianpinggu/footer.png');
-    height: 340px;
+    height: 240px;
     margin-top:-20px;
 }
