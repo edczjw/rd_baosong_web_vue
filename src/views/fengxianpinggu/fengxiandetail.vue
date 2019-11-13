@@ -1,7 +1,9 @@
 <template>
   <div class="page-human">
     <div class="li-title">
-      <b>风险评估报告 / 详情</b>
+      <b>
+        <router-link to="/fengxianpinggubaogao/fengxianlist">返回个人列表</router-link>
+      / 用户详情</b>
     </div>
     <el-card class="detail-card">
       <div class="detail-left-wapper animated fadeInLeft" style="background: #ffffff;">
