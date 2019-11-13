@@ -124,80 +124,8 @@
             <img src="../../assets/detailfengxianpinggu/1.3.png" alt />
           </div>
 
-          <el-card id="d1" class="box6-ec1">
-            <div class="box6tt">1.3.1关联信息</div>
-            <!-- 表格 -->
-            <table class="jititable" border>
-              <tr>
-                <th>关联个数</th>
-                <th>关联明细</th>
-              </tr>
-              <tr v-for="item in tabledatas">
-                <td>{{item.index}}：{{item.num}}</td>
-                <td>
-                  <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
-                      <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.sd}}</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </el-card>
-
-          <el-card id="d2" class="box6-ec2">
-            <div class="box6tt">1.3.2公检法信息</div>
-            <!-- 表格 -->
-            <table class="jititable" border>
-              <tr v-for="item in tabledatas">
-                <td
-                  style="background: rgb(218, 235, 248);border-bottom: 1px solid #efe;"
-                >{{item.index}}</td>
-                <td>
-                  <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
-                      <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.sd}}</td>
-                    </tr>
-                  </table>
-                </td>
-                <td>
-                  <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
-                      <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.ki}}</td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </el-card>
-
-          <el-card id="d3" class="box6-ec3">
-            <div class="box6tt">1.3.3信贷逾期名单</div>
-            <!-- 表格 -->
-            <table class="jititable" border>
-              <tr>
-                <th>逾期金额区间</th>
-                <th>逾期笔数</th>
-                <th>逾期时间区间</th>
-                <th>逾期入库时间</th>
-              </tr>
-              <tr v-for="item in tabledatas">
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
-              </tr>
-            </table>
-          </el-card>
-
           <el-card id="d4" class="box6-ec4">
-            <div class="box6tt">1.3.4多名单申请信息</div>
+            <div class="box6tt">1.3.1多名单申请信息</div>
             <!-- 表格 -->
             <table class="jititable" border>
               <tr>
@@ -369,10 +297,6 @@
               </tr>
             </table>
           </el-card>
-
-          <el-card id="g2" class="box9-ec4">2.3.2航空出行信息</el-card>
-
-          <el-card id="g3" class="box9-ec5">2.3.3铁路出行信息</el-card>
         </div>
 
         <div id="h" class="box10">
@@ -389,7 +313,8 @@
                 <td colspan="4">{{tabledatas.cardMaxLevel}}</td>
                </tr>
               <tr> 
-                <td class="bg-co" colspan="5">近12个月最近一笔交易距今天</td>
+                <td class="bg-co" colspan="2">近12个月最近一笔交易距今天</td>
+                <td colspan="3">{{tabledatas.last12MonthTransDays}}</td>
               </tr>
               <tr>
                 <td  class="bg-co"></td>
@@ -434,7 +359,19 @@
             <img src="../../assets/detailfengxianpinggu/2.6.png" alt />
           </div>
 
-          <el-card id="j1" class="box12-ec1">2.6.1通讯行为</el-card>
+          <el-card id="j1" class="box12-ec1">
+            2.6.1通讯行为
+            <!-- 表格 -->
+            <table class="jititable gf" border>
+              <tr v-for="item in tabledatas3.detail">
+                <td style="width:220px" class="bg-co">{{item.fieldName}}</td>
+                <td>
+                  <span v-if="item.content==''">－</span>
+                  <span v-else>{{item.content}}</span>
+                  </td>
+              </tr>
+            </table>
+          </el-card>
         </div>
 
         <div id="k" class="box13">
@@ -449,6 +386,14 @@
       </div>
 
       <div class="detail-right-wapper animated fadeInRight">
+        
+        <div class="sf">
+          <ul>
+            <li><span>姓名</span>{{name}}</li>
+            <li><span>身份证</span>{{idNumber}}</li>
+            <li><span>电话</span>{{phone}}</li>
+          </ul>
+        </div>
         <el-input size="mini" class="flter-input" placeholder="输入关键字进行快捷查询" v-model="filterText"></el-input>
 
         <el-tree
@@ -460,6 +405,7 @@
           :filter-node-method="filterNode"
           ref="tree2"
         ></el-tree>
+
       </div>
     </el-card>
   </div>
@@ -476,54 +422,60 @@ export default {
   data() {
     return {
       filterText: "",
+      name:"",
+      idNumber:"",
+      phone:"",
       //收入信息以及消费能力
       tabledatas: {},
 
       //消费能力
       tabledatas2:{},
+
+      //通讯行为信息
+      tabledatas3:{},
       data: [
         {
-          label: "报告结论",
+          label: "●-报告结论",
           href: "a"
         },
         {
-          label: "1.1-欺诈评估",
+          label: "●-1.1-欺诈评估",
           href: "b"
         },
         {
-          label: "1.2-信用评估",
+          label: "●-1.2-信用评估",
           href: "c"
         },
         {
-          label: "1.3-风险提示信息",
+          label: "●-1.3-风险提示信息",
           href: "d"
         },
         {
-          label: "2.1-客户画像",
+          label: "●-2.1-客户画像",
           href: "e"
         },
         {
-          label: "2.2-基本信息",
+          label: "●-2.2-基本信息",
           href: "f"
         },
         {
-          label: "2.3-消费能力评估",
+          label: "●-2.3-消费能力评估",
           href: "g"
         },
         {
-          label: "2.4-收入能力评估",
+          label: "●-2.4-收入能力评估",
           href: "h"
         },
         {
-          label: "2.5-信用历史",
+          label: "●-2.5-信用历史",
           href: "i"
         },
         {
-          label: "2.6-社交行为",
+          label: "●-2.6-社交行为",
           href: "j"
         },
         {
-          label: "2.7-设备信息",
+          label: "●-2.7-设备信息",
           href: "k"
         }
       ],
@@ -546,6 +498,9 @@ export default {
   },
   methods: {
     all(){
+      this.name=this.$route.query.name
+      this.idNumber=this.$route.query.idCard
+      this.phone=this.$route.query.phone
       //收入
         var data1 = {
           name: this.$route.query.name,
@@ -557,8 +512,32 @@ export default {
           idNumber: this.$route.query.idCard,
           phone: this.$route.query.phone,
         };
+        this.getlist3(data2)//通讯行为信息
         this.getlist2(data2)//消费
         this.getlist1(data1)//收入
+    },
+    //获取通讯行为信息
+    getlist3(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/communication/behavior",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas3 = res;
+            }else{
+              this.tabledatas3 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'发生错误',
+              type: "error"
+            });
+          }
+        );
     },
     //获取消费信息
     getlist2(data){

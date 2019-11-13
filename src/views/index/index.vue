@@ -1,6 +1,10 @@
 <template>
   <!-- 样式在app.vue中 -->
   <div class="wrapper-inner" id="app">
+    <!-- 返回顶部 -->
+    <el-card id="dtop" class="gotop" title="返回顶部">
+     <div  @click="movetop()"> 顶部</div>
+    </el-card>
     <div class="top">
       <head-banner></head-banner>
     </div>
@@ -19,6 +23,7 @@
 // 格式要特别注意字母大小写
 import meNu from "../../components/menu.vue";
 import headBanner from "../../components/head.vue";
+import $ from "jquery";
 export default {
   data() {
     return {
@@ -29,8 +34,23 @@ export default {
     this.getName();
     //登陆成功提示
     this.openCenter();
+    
+    window.addEventListener("scroll", function(e) {
+      // 监听（绑定）滚轮滚动事件
+      var t = document.documentElement.scrollTop || document.body.scrollTop;
+      if (t > 350) {
+        document.getElementById("dtop").style.display = "block";
+      } else {
+        document.getElementById("dtop").style.display = "none";
+      }
+    });
   },
   methods: {
+    
+    movetop() {
+      console.log('q')
+      $("body,html").animate({ scrollTop: 0 }, 300);
+    },
     openCenter() {
       if (this.userName) {
         this.$message({
@@ -95,5 +115,24 @@ export default {
   height: 100%;
 
   background: #fff;
+}
+/* 返回顶部 */
+.gotop {
+  position: fixed;
+  z-index: 9999;
+  right: 23px;
+  bottom: 30px;
+  display: none;
+  cursor: pointer;
+  width: 64px;
+  height: 66px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  color:rgb(117, 117, 151);
+  border-radius: 100%;
+}
+.gotop2:hover{
+  border: 1px solid rgb(187, 184, 184);
 }
 </style>
