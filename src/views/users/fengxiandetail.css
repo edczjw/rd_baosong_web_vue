@@ -1,5 +1,5 @@
 .el-tree {
-  color: #3bb145;
+  color: #0ca080;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .sf {
@@ -33,7 +33,7 @@
   padding: 2px 10px;
   margin-right: 8px;
   text-align: center;
-  background-color: #9dc6c7;
+  background-color: #beccdd;
 }
 .sf ul li:hover {
   background: rgba(160, 230, 240, 0.623);

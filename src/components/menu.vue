@@ -12,7 +12,7 @@
           unique-opened
         >
           <div class="menu-img">
-            <img style="border-radius:35px" class="animated fadeIn" src="../assets/user.png" alt="欢迎您" width="55px"> 
+            <img style="border-radius:35px" class="animated fadeIn" src="../assets/user.png" alt="欢迎您" width="55px" height="55"> 
           </div>
           <el-submenu index="1">
             <template slot="title">
