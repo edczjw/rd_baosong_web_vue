@@ -133,6 +133,7 @@ export default {
 
   width: 240px;
   height: 100%;
+  margin-top: 5px;
   transition: all 0.5s;
   font-weight: bold;
   background-color: rgb(1, 35, 48);
@@ -154,15 +155,6 @@ export default {
   margin: -0.4px !important;
 }
 
-/* .el-menu-item-group :hover {
-  background-color: black !important;
-}
-.el-submenu :hover {
-  background-color: black !important;
-}
-.el-submenu__title :hover {
-  background-color: black !important;
-} */
 .el-menu-item-group {
   text-align: center;
 }
@@ -174,5 +166,11 @@ export default {
   text-align: center;
   margin: 24px 0;
   cursor: pointer;
+}
+.el-submenu__title:hover{
+  background-color: rgba(14, 221, 240, 0.32) !important;
+}
+.el-menu-item:hover{
+  background-color: rgba(14, 221, 240, 0.32) !important;
 }
 </style>
