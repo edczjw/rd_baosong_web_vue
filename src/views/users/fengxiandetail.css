@@ -1,13 +1,13 @@
 .el-tree {
-  color: #0ca080;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #3a969e;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
 }
 .sf {
   font-size: 14px;
   width: 232px;
   padding: 10px;
   border-radius: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   margin-bottom: 20px;
   background: rgba(66, 73, 129, 0.623);
 }
@@ -21,7 +21,7 @@
   background: rgba(250, 252, 252, 0.253);
   margin-bottom: 2px;
   color: #fff;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   padding: 9px 2px;
   border-radius: 15px;
   font-size: 12px;
@@ -58,7 +58,7 @@
   width: 99%;
   font-size: 14px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   border: 1px solid #e6e5e5;
   margin: 0 auto;
   margin: 20px auto;
@@ -94,6 +94,16 @@ td {
 }
 .jititables .dsd {
   background: #daebf8;
+}
+.jititables1 {
+  font-size: 8px;
+  width: 100%;
+  margin: 0 auto;
+  border: none;
+  text-align: center;
+}
+.jititables1 td {
+  height: 40px;
 }
 .detail-card {
   height: 100%;
@@ -144,7 +154,7 @@ td {
   line-height: 26px;
   text-align: center;
   font-size: 12px;
-  font-family: Adobe Heiti Std;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   font-weight: normal;
   color: #f5fafe;
   text-shadow: 0px 1px 0px #0a74c4;
@@ -163,13 +173,13 @@ td {
 }
 .box3 .box3-right span {
   font-size: 18px;
-  font-family: PingFangSC;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   font-weight: bold;
   color: #252e47;
 }
 .box3 .box3-right b {
   font-size: 24px;
-  font-family: Adobe Heiti Std;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   font-weight: bolder;
   color: #2670f3;
   line-height: 13px;
@@ -180,7 +190,7 @@ td {
   padding: 2px 10px;
   text-align: center;
   font-size: 12px;
-  font-family: 'PingFangSC';
+  font-family: '"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti';
   font-weight: 400;
   color: #ffffff;
   line-height: 14px;
@@ -219,7 +229,7 @@ td {
   left: calc(50% - 100px);
   text-align: center;
   line-height: 40px;
-  font-family: PingFangSC;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   font-weight: 600;
   color: #2670f3;
   background-repeat: no-repeat;
@@ -258,7 +268,7 @@ td {
   left: calc(50% - 100px);
   text-align: center;
   line-height: 40px;
-  font-family: PingFangSC;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   font-weight: 600;
   color: #2670f3;
   background-repeat: no-repeat;
@@ -273,7 +283,7 @@ td {
 .box5 .tit-pw .box5-io {
   width: 100%;
   padding: 0 5px;
-  font-family: 'Adobe Heiti Std';
+  font-family: '"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti';
   font-size: 16px;
   margin-bottom: 16px;
   height: 18px;
@@ -325,7 +335,7 @@ td {
   height: 22px;
   font-size: 14px;
   font-weight: bold;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   color: #252e47;
   line-height: 22px;
 }
@@ -360,7 +370,7 @@ td {
   height: 22px;
   font-size: 14px;
   font-weight: bold;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   color: #252e47;
   line-height: 22px;
 }

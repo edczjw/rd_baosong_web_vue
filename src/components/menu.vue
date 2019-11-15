@@ -1,12 +1,12 @@
 <template>
   <!-- template必须包裹一个div，否则会报错 -->
   <div class="side" :class="{'side-menu' : this.$store.state.isLeftHiden}">
-    <el-row>
-      <el-col>
+    <!-- <el-row>
+      <el-col> -->
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          background-color="rgb(42, 47, 53)"
+          background-color="rgb(1, 35, 48)"
           text-color="#fff"
           :collapse="this.$store.state.isLeftHiden"
           unique-opened
@@ -112,8 +112,8 @@
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
-      </el-col>
-    </el-row>
+      <!-- </el-col>
+    </el-row> -->
   </div>
 </template>
 
@@ -135,7 +135,7 @@ export default {
   height: 100%;
   transition: all 0.5s;
   font-weight: bold;
-  background-color: rgb(42, 47, 53);
+  background-color: rgb(1, 35, 48);
   overflow: scroll;
 }
 

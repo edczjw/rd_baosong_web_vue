@@ -136,11 +136,24 @@
                 <th>借款人手机详情</th>
                 <th>借款人身份证详情</th>
               </tr>
-              <tr v-for="item in tabledatas">
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
-                <td>{{item.index}}</td>
+              <tr v-for="item in tabledatas4.detail">
+                <td>{{item.fieldName}}</td>
+                <td v-if="item.list==''">-</td>
+                <td v-if="item.list==''">-</td>
+                <td v-if="item.list==''">-</td>
+                <td v-else v-for="(it,index) in item.list">
+                  <div v-if="it.count!=''" style="padding-top:15px;color:blue">总个数：{{it.count}}</div>
+                  <div v-else style="padding-top:15px;color:blue">总个数：0</div>
+                   <table class="jititables1">
+                    <tr>
+                      <table class="jititables1">
+                      <tr v-for="its in it.list">
+                        <td>{{its.industry_display_name}}：{{its.count}}</td>
+                      </tr>
+                      </table>
+                    </tr>
+                  </table>
+                </td>
               </tr>
             </table>
           </el-card>
@@ -443,49 +456,53 @@ export default {
 
       //通讯行为信息
       tabledatas3:{},
+      
+      //多名单申请信息
+      tabledatas4:{},
+
       data: [
         {
-          label: "●-报告结论",
+          label: "● 报告结论",
           href: "a"
         },
         {
-          label: "●-1.1-欺诈评估",
+          label: "● 1.1-欺诈评估",
           href: "b"
         },
         {
-          label: "●-1.2-信用评估",
+          label: "● 1.2-信用评估",
           href: "c"
         },
         {
-          label: "●-1.3-风险提示信息",
+          label: "● 1.3-风险提示信息",
           href: "d"
         },
         {
-          label: "●-2.1-客户画像",
+          label: "● 2.1-客户画像",
           href: "e"
         },
         {
-          label: "●-2.2-基本信息",
+          label: "● 2.2-基本信息",
           href: "f"
         },
         {
-          label: "●-2.3-消费能力评估",
+          label: "● 2.3-消费能力评估",
           href: "g"
         },
         {
-          label: "●-2.4-收入能力评估",
+          label: "● 2.4-收入能力评估",
           href: "h"
         },
         {
-          label: "●-2.5-信用历史",
+          label: "● 2.5-信用历史",
           href: "i"
         },
         {
-          label: "●-2.6-社交行为",
+          label: "● 2.6-社交行为",
           href: "j"
         },
         {
-          label: "●-2.7-设备信息",
+          label: "● 2.7-设备信息",
           href: "k"
         }
       ],
@@ -496,7 +513,10 @@ export default {
     };
   },
   mounted() {
+    //数据
     this.all();
+
+    //仪表
     this.drawLine();
     this.drawLine2();
     this.drawLine3();
@@ -522,10 +542,36 @@ export default {
           idNumber: this.$route.query.idCard,
           phone: this.$route.query.phone,
         };
+        this.getlist4(data2)//多名单申请信息
         this.getlist3(data2)//通讯行为信息
         this.getlist2(data2)//消费
         this.getlist1(data1)//收入
     },
+    
+    //多名单申请信息
+    getlist4(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/reminder/plant/apply",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas4 = res;
+            }else{
+              this.tabledatas4 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+
     //获取通讯行为信息
     getlist3(data){
         this.$axios({

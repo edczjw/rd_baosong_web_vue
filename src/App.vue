@@ -114,8 +114,8 @@ body {
   height: 32px;
   line-height: 32px;
   padding-left: 20px;
-  color: rgb(9, 86, 240);
+  color: rgb(88, 94, 107);
   margin-bottom: 10px;
-  background-color: rgb(142, 229, 235);
+  background-color: rgb(227, 230, 231);
 }
 </style>

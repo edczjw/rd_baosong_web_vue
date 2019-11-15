@@ -159,8 +159,8 @@ export default {
   width: 100%;
   height: 55px;
 
-  background-color: rgb(33, 34, 34);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.479);
+  background-color: rgb(25, 27, 27);
+  box-shadow: 1px 1px 1px rgba(10, 1, 1, 0.479);
 }
 
 p {
@@ -170,12 +170,12 @@ p {
 .left {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
-  /* font-weight: bold; */
+  font-weight: bold;
   float: left;
   line-height: 52px;
 
   color: rgb(243, 243, 241);
-  text-shadow: 2px 2px 3px rgb(82, 80, 80);
+  /* text-shadow: 2px 2px 3px rgb(82, 80, 80); */
 }
 .i-left{
   font-size: 12px;
