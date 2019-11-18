@@ -46,10 +46,8 @@ export default {
     });
   },
   methods: {
-    
     movetop() {
-      console.log('q')
-      $("body,html").animate({ scrollTop: 0 }, 300);
+      $("body,html").animate({ scrollTop: 0 }, 2000);
     },
     openCenter() {
       if (this.userName) {

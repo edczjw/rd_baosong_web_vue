@@ -41,7 +41,7 @@
       </svg>
     </p>
 
-    <p class="right animated fadeIn" title="密码修改">
+    <p class="right animated fadeIn" title="修改密码">
       <router-link to="/users/mimaxiugai" class="roulink">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-mimazhongzhi" />
@@ -147,10 +147,10 @@ export default {
 }
 .roulink {
   font-size: 12px;
-  color: #fff;
+  color: white;
 }
 .roulink:hover {
-  color: rgba(116, 216, 194, 0.842);
+  color: white;
 }
 
 p {
@@ -158,19 +158,21 @@ p {
 }
 
 .left {
+  position: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
   font-weight: bold;
   float: left;
+  z-index: 991;
   line-height: 52px;
-  height: 55px;
-  border-right: 1px solid rgb(182, 185, 185);
+  height: 56px;
+  border-right: 2px solid rgba(212, 214, 214, 0.137);
+  border-bottom: 1px solid rgba(206, 207, 207, 0.164);
   padding-right: 20px;
-  background-color: rgb(1, 35, 48);
+  background-color: rgb(10, 10, 10);
   box-shadow: 1px 1px 1px rgba(10, 1, 1, 0.479);
 
   color: rgb(243, 243, 241);
-  /* text-shadow: 2px 2px 3px rgb(82, 80, 80); */
 }
 .i-left{
   font-size: 12px;
@@ -185,13 +187,12 @@ p {
   line-height: 32px;
   top:20%;
   cursor: pointer;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 .i-left:hover{
   transition: all 0.3s;
-  color: rgba(116, 216, 194, 0.842);
-  border-bottom: 3px solid rgba(116, 216, 194, 0.842);
-  /* background: rgba(238, 238, 238, 0.068) */
+  color: white;
+  border-bottom: 3px solid white;
 }
 .fl{
   line-height: 55px;
@@ -200,9 +201,10 @@ p {
   z-index: 99;
   right: 0;
   left: 223px;
+  color: white;
   height: 55px;
-  background-color: rgb(25, 27, 27);
-  box-shadow: 1px 1px 1px rgba(10, 1, 1, 0.479);
+  background-color: rgb(1, 35, 48);
+  box-shadow: 1px 1px 1px rgb(1, 35, 48);
 }
 .right {
   font-size: 12px;
@@ -217,15 +219,12 @@ p {
 
   top:25%;
   cursor: pointer;
-
-  color: rgb(255, 255, 255);
 }
 
 .right:hover {
   transition: all 0.3s;
-  color: rgba(116, 216, 194, 0.842);
-  border-bottom: 3px solid rgba(116, 216, 194, 0.842);
-  /* background: rgba(238, 238, 238, 0.068) */
+  color: white;
+  border-bottom: 3px solid white;
 }
 
 svg {

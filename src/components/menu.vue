@@ -126,18 +126,18 @@ export default {
 };
 </script>
 
-<style scoped  lang=less>
+<style scoped  lang='less'>
 /* 菜单 */
 .side {
   position: fixed;
-
   width: 240px;
   height: 100%;
   margin-top: 5px;
   transition: all 0.5s;
   font-weight: bold;
   background-color: rgb(1, 35, 48);
-  overflow: scroll;
+  overflow-y: scroll;
+  
 }
 
 .el-menu {
@@ -169,6 +169,10 @@ export default {
 }
 .el-submenu__title:hover{
   background-color: rgba(14, 221, 240, 0.32) !important;
+}
+//菜单选中状态
+.el-menu-item.is-active {
+    color: rgb(201, 153, 98) !important;
 }
 .el-menu-item:hover{
   background-color: rgba(14, 221, 240, 0.32) !important;

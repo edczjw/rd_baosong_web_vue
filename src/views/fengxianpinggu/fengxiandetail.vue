@@ -96,13 +96,19 @@
                 <th>评分</th>
               </tr>
               <tr v-for="item in tabledatas">
-                <td>{{item.index}}</td>
+                <td>
+                  <span v-if="item.index==''">－</span>
+                  <span v-else>{{item.index}}</span>
+                </td>
                 <td>
                   <table class="jititables">
                     <tr v-for="(it,index) in item.de">
                       <td
                         :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.sd}}</td>
+                      >
+                      <span v-if="it.sd==''">－</span>
+                      <span v-else>{{it.sd}}</span>
+                      </td>
                     </tr>
                   </table>
                 </td>
@@ -111,11 +117,17 @@
                     <tr v-for="(it,index) in item.de">
                       <td
                         :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.fr}}</td>
+                      >
+                      <span v-if="it.fr==''">－</span>
+                      <span v-else>{{it.fr}}</span>
+                      </td>
                     </tr>
                   </table>
                 </td>
-                <td style="width:100px">{{item.f}}</td>
+                <td style="width:100px">
+                  <span v-if="item.f==''">－</span>
+                  <span v-else>{{item.f}}</span>
+                </td>
               </tr>
             </table>
           </el-card>
@@ -203,53 +215,98 @@
               <tr></tr>
               <tr>
                 <td class="bg-co">姓名</td>
-                <td>{{tabledatas.name}}</td>
+                <td>
+                  <span v-if="tabledatas5.name==''">－</span>
+                  <span v-else>{{tabledatas5.name}}</span>
+                </td>
                 <td class="bg-co">身份证号码</td>
-                <td colspan="3" class="lf">{{tabledatas.idcard}}</td>
+                <td colspan="3" class="lf">
+                  <span v-if="tabledatas5.idCardNum==''">－</span>
+                  <span v-else>{{tabledatas5.idCardNum}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">年龄</td>
-                <td>{{tabledatas.age}}</td>
+                <td>
+                  <span v-if="tabledatas5.age==''">－</span>
+                  <span v-else>{{tabledatas5.age}}</span>
+                </td>
                 <td class="bg-co">性别</td>
-                <td>{{tabledatas.sex}}</td>
+                <td>
+                  <span v-if="tabledatas5.sex==''">－</span>
+                  <span v-else>{{tabledatas5.sex}}</span>
+                </td>
                 <td class="bg-co">民族</td>
-                <td>{{tabledatas.fr}}</td>
+                <td>
+                  <span v-if="tabledatas5.nation==''">－</span>
+                  <span v-else>{{tabledatas5.nation}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">生肖</td>
-                <td>{{tabledatas.sx}}</td>
+                <td>
+                  <span v-if="tabledatas5.zodiac==''">－</span>
+                  <span v-else>{{tabledatas5.zodiac}}</span>
+                </td>
                 <td class="bg-co">星座</td>
-                <td>{{tabledatas.star}}</td>
+                <td>
+                  <span v-if="tabledatas5.constellation==''">－</span>
+                  <span v-else>{{tabledatas5.constellation}}</span>
+                </td>
                 <td class="bg-co">婚姻状态</td>
-                <td>{{tabledatas.mast}}</td>
+                <td>
+                  <span v-if="tabledatas5.maritalStatus==''">－</span>
+                  <span v-else>{{tabledatas5.maritalStatus}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">电话号码</td>
-                <td colspan="5" class="lf">{{tabledatas.number}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.mobile==''">－</span>
+                  <span v-else>{{tabledatas5.mobile}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">证件地址</td>
-                <td colspan="5" class="lf">{{tabledatas.idadress}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.idCardAddress==''">－</span>
+                  <span v-else>{{tabledatas5.idCardAddress}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">签发机构</td>
-                <td colspan="5" class="lf">{{tabledatas.qj}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.issuingAgency==''">－</span>
+                  <span v-else>{{tabledatas5.issuingAgency}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">家庭地址</td>
-                <td colspan="5" class="lf">{{tabledatas.homeadress}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.address==''">－</span>
+                  <span v-else>{{tabledatas5.address}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">常驻城市</td>
-                <td colspan="5" class="lf">{{tabledatas.city}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.residentCity==''">－</span>
+                  <span v-else>{{tabledatas5.residentCity}}</span>
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">直系联系人</td>
-                <td colspan="5" class="lf">{{tabledatas.decon}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.emergencyContactName1==''">－</span>
+                  <span v-else>{{tabledatas5.emergencyContactName1}}</span>({{tabledatas5.emergencyContactRela1}})
+                </td>
               </tr>
               <tr>
                 <td class="bg-co">其他联系人</td>
-                <td colspan="5" class="lf">{{tabledatas.otcon}}</td>
+                <td colspan="5" class="lf">
+                  <span v-if="tabledatas5.emergencyContactName2==''">－</span>
+                  <span v-else>{{tabledatas5.emergencyContactName2}}</span>({{tabledatas5.emergencyContactRela2}})
+                  </td>
               </tr>
             </table>
           </el-card>
@@ -333,11 +390,18 @@
             <table border class="jititable gf">
               <tr>
                 <td class="bg-co">信用卡最高等级</td>
-                <td colspan="4">{{tabledatas.cardMaxLevel}}</td>
+                <td colspan="4">
+                  <span v-if="tabledatas.cardMaxLevel==''">－</span>
+                  <span v-else>{{tabledatas.cardMaxLevel}}</span>
+                </td>
+                
                </tr>
               <tr> 
                 <td class="bg-co" colspan="2">近12个月最近一笔交易距今天</td>
-                <td colspan="3">{{tabledatas.last12MonthTransDays}}</td>
+                <td colspan="3">
+                  <span v-if="tabledatas.last12MonthTransDays==''">－</span>
+                  <span v-else>{{tabledatas.last12MonthTransDays}}</span>
+                </td>
               </tr>
               <tr>
                 <td  class="bg-co"></td>
@@ -347,8 +411,14 @@
                 <td  class="bg-co">近12月</td>
               </tr>
               <tr v-for="item in tabledatas.list1">
-                <td class="bg-co">{{item.fieldName}}</td>
-                <td v-for="items in item.content">{{items}}</td>
+                <td class="bg-co">
+                  <span v-if="item.fieldName==''">－</span>
+                  <span v-else>{{item.fieldName}}</span>
+                </td>
+                <td v-for="items in item.content">
+                  <span v-if="items==''">－</span>
+                  <span v-else>{{items}}</span>
+                </td>
               </tr>
             </table>
           </el-card>
@@ -362,8 +432,14 @@
                 <td class="bg-co">交易总金额</td>
               </tr>
               <tr v-for="item in tabledatas.list3">
-                <td class="bg-co">{{item.fieldName}}</td>
-                <td v-for="items in item.content">{{items}}</td>
+                <td class="bg-co">
+                  <span v-if="item.fieldName==''">－</span>
+                  <span v-else>{{item.fieldName}}</span>
+                </td>
+                <td v-for="items in item.content">
+                  <span v-if="items==''">－</span>
+                  <span v-else>{{items}}</span>
+                </td>
               </tr>
             </table>
           </el-card>
@@ -460,6 +536,8 @@ export default {
       //多名单申请信息
       tabledatas4:{},
 
+      //基本信息
+      tabledatas5:{},
       data: [
         {
           label: "● 报告结论",
@@ -542,12 +620,44 @@ export default {
           idNumber: this.$route.query.idCard,
           phone: this.$route.query.phone,
         };
+      
+      //基本信息
+        var data3 = {
+          name: this.$route.query.name,
+          cid: this.$route.query.idCard,
+          mobile: this.$route.query.phone,
+        };
+        this.getlist5(data3)//基本信息
         this.getlist4(data2)//多名单申请信息
         this.getlist3(data2)//通讯行为信息
         this.getlist2(data2)//消费
         this.getlist1(data1)//收入
     },
     
+    //基本信息
+    getlist5(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/basic/info",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas5 = res.detail;
+            }else{
+              this.tabledatas5 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'基本信息发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+
     //多名单申请信息
     getlist4(data){
         this.$axios({
@@ -565,7 +675,7 @@ export default {
           },
           error => {
             this.$message({
-              message:'发生错误',
+              message:'多名单申请信息发生错误',
               type: "error"
             });
           }
@@ -589,7 +699,7 @@ export default {
           },
           error => {
             this.$message({
-              message:'发生错误',
+              message:'通讯行为发生错误',
               type: "error"
             });
           }
@@ -608,7 +718,7 @@ export default {
           },
           error => {
             this.$message({
-              message:'发生错误',
+              message:'消费信息发生错误',
               type: "error"
             });
           }
@@ -627,7 +737,7 @@ export default {
           },
           error => {
             this.$message({
-              message:'发生错误',
+              message:'收入信息及消费信息发生错误',
               type: "error"
             });
           }
@@ -1360,7 +1470,7 @@ export default {
       var idhight = document.querySelector("#" + data.href).offsetTop;
 
       //平滑滚动
-      $("body,html").animate({ scrollTop: idhight + 60 }, 800);
+      $("body,html").animate({ scrollTop: idhight + 60 }, 1100);
     }
   }
 };
