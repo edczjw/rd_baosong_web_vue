@@ -51,7 +51,7 @@
                 <th>命中规则</th>
                 <th>命中分值</th>
               </tr>
-              <tr v-for="item in tabledata">
+              <tr v-for="item in tabledata6">
                 <td>{{item.index}}</td>
                 <td>
                   <table class="jititables">
@@ -93,40 +93,103 @@
                 <th>属性类型</th>
                 <th>评分项</th>
                 <th>数据值</th>
-                <th>评分</th>
               </tr>
-              <tr v-for="item in tabledatas">
-                <td>
-                  <span v-if="item.index==''">－</span>
-                  <span v-else>{{item.index}}</span>
-                </td>
+              <tr>
+                <td>基本信息</td>
                 <td>
                   <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
-                      <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >
-                      <span v-if="it.sd==''">－</span>
-                      <span v-else>{{it.sd}}</span>
-                      </td>
-                    </tr>
+                    <tr><td>年龄</td></tr>
+                    <tr><td>性别</td></tr>
+                    <tr><td>学历</td></tr>
+                    <tr><td>婚姻状态</td></tr>
                   </table>
                 </td>
                 <td>
                   <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
-                      <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >
-                      <span v-if="it.fr==''">－</span>
-                      <span v-else>{{it.fr}}</span>
-                      </td>
-                    </tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.age == ''">-</span>
+                      <span v-else>{{tabledatas7.age}}</span>
+                    </td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.sex == ''">-</span>
+                      <span v-else>{{tabledatas7.sex}}</span>
+                    </td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.education == ''">-</span>
+                      <span v-else>{{tabledatas7.education}}</span>
+                    </td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.maritalStatus == ''">-</span>
+                      <span v-else>{{tabledatas7.maritalStatus}}</span></td></tr>
                   </table>
                 </td>
-                <td style="width:100px">
-                  <span v-if="item.f==''">－</span>
-                  <span v-else>{{item.f}}</span>
+              </tr>
+
+              <tr>
+                <td>收入状况</td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>收入区间</td></tr>
+                    <tr><td>社会身份</td></tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>
+                      <span v-if="tabledatas7.incomeRange == ''">-</span>
+                      <span v-else>{{tabledatas7.incomeRange}}</span></td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.socialIdentity == ''">-</span>
+                      <span v-else>{{tabledatas7.socialIdentity}}</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td>偿债能力评估</td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>手机消费档次</td></tr>
+                    <tr><td>三个月多头数</td></tr>
+                    <tr><td>金融标签指标（P2P）</td></tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>
+                      <span v-if="tabledatas7.mobileConsumeLevel == ''">-</span>
+                      <span v-else>{{tabledatas7.mobileConsumeLevel}}</span></td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.threeMonthCount == ''">-</span>
+                      <span v-else>{{tabledatas7.threeMonthCount}}</span></td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.finIndicatorLabel == ''">-</span>
+                      <span v-else>{{tabledatas7.finIndicatorLabel}}</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+              
+              <tr>
+                <td>稳定性评估</td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>工作地与家庭地址是否同市</td></tr>
+                    <tr><td>近1个月，出现的省份数量</td></tr>
+                    <tr><td>手机在网时长</td></tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="jititables">
+                    <tr><td>
+                      <span v-if="tabledatas7.addressIsSame == ''">-</span>
+                      <span v-else>{{tabledatas7.addressIsSame}}</span></td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.lastMonthProvinceCount == ''">-</span>
+                      <span v-else>{{tabledatas7.lastMonthProvinceCount}}</span></td></tr>
+                    <tr><td>
+                      <span v-if="tabledatas7.phoneOnlineTime == ''">-</span>
+                      <span v-else>{{tabledatas7.phoneOnlineTime}}</span></td></tr>
+                  </table>
                 </td>
               </tr>
             </table>
@@ -190,10 +253,10 @@
               <img src="../../assets/detailfengxianpinggu/rb.png" alt=""></div>
               <div class="b7img">
                 <div class="gm">
-                  <img src="../../assets/detailfengxianpinggu/head1.png" alt="身份证头像照片" />
+                  <img :src="tabledatas6.idCardHeadPhoto" alt="身份证头像照片" />
                 </div>
                 <div class="gm">
-                  <img src="../../assets/detailfengxianpinggu/head2.png" alt="活体照片" />
+                  <img :src="tabledatas6.activePhoto" alt="活体照片" />
                 </div>
               </div>
               <ul>
@@ -201,6 +264,9 @@
                 <li>活体照片</li>
               </ul>
             </div>
+
+            
+              <div id="myChart4" :style="{width: '100%', height: '340px'}"></div>
           </el-card>
         </div>
 
@@ -538,6 +604,12 @@ export default {
 
       //基本信息
       tabledatas5:{},
+      
+      //图像信息
+      tabledatas6:{},
+      
+      //报告信息
+      tabledatas7:{},
       data: [
         {
           label: "● 报告结论",
@@ -627,13 +699,73 @@ export default {
           cid: this.$route.query.idCard,
           mobile: this.$route.query.phone,
         };
+        
+      
+      //图像信息
+        var data4 = {
+          idcardName: this.$route.query.name,
+          idcardNumber: this.$route.query.idCard,
+          mobile: this.$route.query.phone,
+        };
+        this.getlist7(data2)//报告信息
         this.getlist5(data3)//基本信息
+        this.getlist6(data4)//图像信息
         this.getlist4(data2)//多名单申请信息
         this.getlist3(data2)//通讯行为信息
         this.getlist2(data2)//消费
         this.getlist1(data1)//收入
     },
     
+    
+    //图像信息
+    getlist7(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/report/result",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas7 = res.detail;
+            }else{
+              this.tabledatas7 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'报告信息发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+    
+    //图像信息
+    getlist6(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/head/portrait/info",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas6 = res.detail;
+              this.drawLine4();  //图像信息柱状图
+            }else{
+              this.tabledatas6 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'图像信息发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
+
     //基本信息
     getlist5(data){
         this.$axios({
@@ -743,7 +875,80 @@ export default {
           }
         );
     },
+    
+    //图像信息柱状图
+    drawLine4() {
+      var identityVsCenter = parseFloat(this.tabledatas6.identityVsCenter)
+      var activeVsCenter = parseFloat(this.tabledatas6.activeVsCenter)
+      var identityVsActive = parseFloat(this.tabledatas6.identityVsActive)
 
+      var echartData = [identityVsCenter, activeVsCenter, identityVsActive];
+      
+      var option = {
+        tooltip: {
+              trigger: 'item',
+              formatter: "{b}{c}%",
+          },
+          grid: {
+              top: '10%',
+              left: '10%',
+              right: '10%',
+              bottom: '3%',
+              containLabel: true
+          },
+          xAxis: [{
+              type: 'category',
+              data: ['身份证vs公安库', '活体vs公安库', '身份证vs活体'],
+          }],
+          yAxis: [{
+              type: 'value',
+              max:'100',//最大值
+              min:'0',//最小值
+          }],
+
+          series: [{
+              name: '人数统计',
+              barMaxWidth: '30%',
+              type: 'bar',
+              label: {
+                  normal: {
+                      show: true,
+                      position: 'top'
+                  }
+              },
+              itemStyle: {
+                  normal: {
+                      color: function(params) {
+                          var colorList = [
+                              '#C1232B', '#B5C334', '#E87C25'
+                          ];
+                          return colorList[params.dataIndex]
+                      },
+                      label: {
+                          show: true,
+                          position: 'top',
+                          formatter: function(params) {
+                              var total = 0;
+                              var percent = 0;
+                              percent = (params.value * 100).toFixed(2);
+                              return '' + params.name+ '' + percent + '%';
+                          },
+                      }
+                  }
+              },
+              data: echartData,
+          }]
+      };
+
+      
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart4"));
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+      
+      console.log('ww')
+    },
     //第一个仪表盘
     drawLine() {
       var option = {
