@@ -1,5 +1,5 @@
 .el-tree {
-  color: #3a969e;
+  color: #0aa4b3;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
 }
 .sf {
@@ -9,7 +9,7 @@
   border-radius: 20px;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   margin-bottom: 20px;
-  background: rgba(66, 73, 129, 0.623);
+  background: rgba(117, 127, 204, 0.623);
 }
 .sf ul {
   list-style: none;
@@ -33,7 +33,7 @@
   padding: 2px 10px;
   margin-right: 8px;
   text-align: center;
-  background-color: #beccdd;
+  background-color: #a4aebb;
 }
 .sf ul li:hover {
   background: rgba(160, 230, 240, 0.623);
@@ -42,7 +42,7 @@
   background-color: #e0a558;
 }
 .bg-co {
-  background-color: #c8e8fc;
+  background-color: #d6ecfa;
 }
 .lf {
   text-align: left;
@@ -59,7 +59,7 @@
   font-size: 14px;
   text-align: center;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
-  border: 1px solid #e6e5e5;
+  border: 1px solid rgba(209, 206, 206, 0.883);
   margin: 0 auto;
   margin: 20px auto;
 }
@@ -86,6 +86,9 @@ td {
 .jititables td {
   height: 30px;
   border-bottom: 1px solid #eff0f0;
+}
+.jititables td:hover {
+  background: #d4fdf6;
 }
 .jititables .dd {
   padding: 0;
@@ -117,7 +120,7 @@ td {
 }
 .box2 {
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   background-image: url('../../assets/detailfengxianpinggu/bg_03.png');
   height: 100%;
 }
@@ -205,6 +208,7 @@ td {
   background-size: cover;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
   height: 100%;
+  min-height: 400px;
   margin-bottom: 90px;
 }
 .box4 .box4-img {
@@ -410,8 +414,10 @@ td {
   text-align: center;
 }
 .box7 .b7-ok .b7img .gm img {
-  height: 95%;
-  width: 95%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   vertical-align: top;
 }
 .box7 .b7-ok ul {
@@ -456,6 +462,7 @@ td {
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
   height: 100%;
+  min-height: 1400px;
   margin-bottom: 90px;
 }
 .box9 .box9-img {
@@ -489,6 +496,7 @@ td {
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_10.png');
   height: 100%;
+  min-height: 1100px;
   margin-bottom: 90px;
 }
 .box10 .box10-img {
@@ -517,6 +525,7 @@ td {
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
   height: 100%;
+  min-height: 500px;
   margin-bottom: 90px;
 }
 .box11 .box11-img {
@@ -530,7 +539,7 @@ td {
 }
 .box11 .box11-ec1 {
   width: 690px;
-  height: 740px;
+  height: 100%;
   margin: 0 auto;
 }
 .box12 {
@@ -542,6 +551,7 @@ td {
   background-color: #ffffff;
   background-image: url('../../assets/detailfengxianpinggu/bg_05.png');
   height: 100%;
+  min-height: 400px;
   margin-bottom: 90px;
 }
 .box12 .box12-img {

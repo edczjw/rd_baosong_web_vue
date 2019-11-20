@@ -25,14 +25,16 @@
             </div>
             <div class="box3-right">
               <span>授信额度：</span>
-              <b>18000元</b>
+              <b v-if="tabledatas7.creditLimit == null">0 元</b>
+              <b v-else>{{tabledatas7.creditLimit}}元</b>
               <br />
               <br />
               <span>评分模型结论：</span>
-              <span class="ji">已通过</span>
+              <span v-if="tabledatas7.scoreModelResult == 'PASS'" class="ji">审核通过</span>
+              <span v-else class="ji">审核不通过</span>
             </div>
 
-            <div class="box3-bd-rt">审核通过</div>
+            <div class="box3-bd-rt">审核{{tabledatas7.proposalFixed}}</div>
           </el-card>
         </div>
 
@@ -42,7 +44,10 @@
           </div>
 
           <el-card class="box4-ec">
-            <div class="tit-pp">欺诈分：670分</div>
+            <div class="tit-pp">欺诈分：
+              <span v-if="tabledatas7.cheatScore !=null">{{tabledatas7.cheatScore}}</span>
+              <span v-else>0</span>
+              分</div>
 
             <!-- 表格 -->
             <table class="jititable" border>
@@ -51,18 +56,27 @@
                 <th>命中规则</th>
                 <th>命中分值</th>
               </tr>
-              <tr v-for="item in tabledata6">
-                <td>{{item.index}}</td>
+              <tr v-for="item in tabledatas7.ruleList">
+                <td>
+                  <span v-if="item.ruleName !=null">{{item.ruleName}}</span>
+                  <span v-else>-</span>
+                </td>
                 <td>
                   <table class="jititables">
-                    <tr v-for="(it,index) in item.de">
+                    <tr v-for="(it,index) in item.ruleDetails">
                       <td
-                        :class="[index == (item.de.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
-                      >{{it.sd}}</td>
+                        :class="[index == (item.ruleDetails.length-1)? 'dd':'',index%2 !=0? 'dsd':'']"
+                      >
+                      <span v-if="it !=null">{{it}}</span>
+                      <span v-else>-</span>
+                      </td>
                     </tr>
                   </table>
                 </td>
-                <td>{{item.f}}</td>
+                <td>
+                  <span v-if="item.score !=null">{{item.score}}</span>
+                  <span v-else>-</span>
+                </td>
               </tr>
             </table>
           </el-card>
@@ -85,7 +99,12 @@
           </el-card>
 
           <el-card class="box5-ec2">
-            <div class="tit-pp2">信用分：89分</div>
+            <div class="tit-pp2">
+              信用分：
+              <span v-if="tabledatas7.sumScore !=null">{{tabledatas7.sumScore}}</span>
+              <span v-else>0</span>
+              分
+            </div>
 
             <!-- 表格 -->
             <table class="jititable" border>
@@ -99,27 +118,27 @@
                 <td>
                   <table class="jititables">
                     <tr><td>年龄</td></tr>
-                    <tr><td>性别</td></tr>
+                    <tr><td class="dsd">性别</td></tr>
                     <tr><td>学历</td></tr>
-                    <tr><td>婚姻状态</td></tr>
+                    <tr><td class="dsd" style="border-bottom:none">婚姻状态</td></tr>
                   </table>
                 </td>
                 <td>
                   <table class="jititables">
                     <tr><td>
-                      <span v-if="tabledatas7.age == ''">-</span>
+                      <span v-if="tabledatas7.age == null">-</span>
                       <span v-else>{{tabledatas7.age}}</span>
                     </td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.sex == ''">-</span>
+                    <tr><td class="dsd">
+                      <span v-if="tabledatas7.sex == null">-</span>
                       <span v-else>{{tabledatas7.sex}}</span>
                     </td></tr>
                     <tr><td>
-                      <span v-if="tabledatas7.education == ''">-</span>
+                      <span v-if="tabledatas7.education == null">-</span>
                       <span v-else>{{tabledatas7.education}}</span>
                     </td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.maritalStatus == ''">-</span>
+                    <tr><td class="dsd" style="border-bottom:none">
+                      <span v-if="tabledatas7.maritalStatus == null">-</span>
                       <span v-else>{{tabledatas7.maritalStatus}}</span></td></tr>
                   </table>
                 </td>
@@ -130,16 +149,16 @@
                 <td>
                   <table class="jititables">
                     <tr><td>收入区间</td></tr>
-                    <tr><td>社会身份</td></tr>
+                    <tr><td class="dsd" style="border-bottom:none">社会身份</td></tr>
                   </table>
                 </td>
                 <td>
                   <table class="jititables">
                     <tr><td>
-                      <span v-if="tabledatas7.incomeRange == ''">-</span>
+                      <span v-if="tabledatas7.incomeRange == null">-</span>
                       <span v-else>{{tabledatas7.incomeRange}}</span></td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.socialIdentity == ''">-</span>
+                    <tr><td class="dsd" style="border-bottom:none">
+                      <span v-if="tabledatas7.socialIdentity == null">-</span>
                       <span v-else>{{tabledatas7.socialIdentity}}</span></td></tr>
                   </table>
                 </td>
@@ -150,20 +169,20 @@
                 <td>
                   <table class="jititables">
                     <tr><td>手机消费档次</td></tr>
-                    <tr><td>三个月多头数</td></tr>
-                    <tr><td>金融标签指标（P2P）</td></tr>
+                    <tr><td class="dsd">三个月多头数</td></tr>
+                    <tr><td style="border-bottom:none">金融标签指标（P2P）</td></tr>
                   </table>
                 </td>
                 <td>
                   <table class="jititables">
                     <tr><td>
-                      <span v-if="tabledatas7.mobileConsumeLevel == ''">-</span>
+                      <span v-if="tabledatas7.mobileConsumeLevel == null">-</span>
                       <span v-else>{{tabledatas7.mobileConsumeLevel}}</span></td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.threeMonthCount == ''">-</span>
+                    <tr><td class="dsd">
+                      <span v-if="tabledatas7.threeMonthCount == null">-</span>
                       <span v-else>{{tabledatas7.threeMonthCount}}</span></td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.finIndicatorLabel == ''">-</span>
+                    <tr><td style="border-bottom:none">
+                      <span v-if="tabledatas7.finIndicatorLabel == null">-</span>
                       <span v-else>{{tabledatas7.finIndicatorLabel}}</span></td></tr>
                   </table>
                 </td>
@@ -174,20 +193,20 @@
                 <td>
                   <table class="jititables">
                     <tr><td>工作地与家庭地址是否同市</td></tr>
-                    <tr><td>近1个月，出现的省份数量</td></tr>
-                    <tr><td>手机在网时长</td></tr>
+                    <tr><td class="dsd">近1个月，出现的省份数量</td></tr>
+                    <tr><td style="border-bottom:none">手机在网时长</td></tr>
                   </table>
                 </td>
                 <td>
                   <table class="jititables">
                     <tr><td>
-                      <span v-if="tabledatas7.addressIsSame == ''">-</span>
+                      <span v-if="tabledatas7.addressIsSame == null">-</span>
                       <span v-else>{{tabledatas7.addressIsSame}}</span></td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.lastMonthProvinceCount == ''">-</span>
+                    <tr><td class="dsd">
+                      <span v-if="tabledatas7.lastMonthProvinceCount == null">-</span>
                       <span v-else>{{tabledatas7.lastMonthProvinceCount}}</span></td></tr>
-                    <tr><td>
-                      <span v-if="tabledatas7.phoneOnlineTime == ''">-</span>
+                    <tr><td style="border-bottom:none">
+                      <span v-if="tabledatas7.phoneOnlineTime == null">-</span>
                       <span v-else>{{tabledatas7.phoneOnlineTime}}</span></td></tr>
                   </table>
                 </td>
@@ -253,10 +272,20 @@
               <img src="../../assets/detailfengxianpinggu/rb.png" alt=""></div>
               <div class="b7img">
                 <div class="gm">
-                  <img :src="tabledatas6.idCardHeadPhoto" alt="身份证头像照片" />
+                  <span v-if="tabledatas6.idCardHeadPhoto == null">
+                    <img src="../../assets/detailfengxianpinggu/realloading.gif" alt="loading" />
+                  </span>
+                  <span v-else>
+                    <img :src="tabledatas6.idCardHeadPhoto" alt="身份证头像照片" />
+                  </span>
                 </div>
                 <div class="gm">
-                  <img :src="tabledatas6.activePhoto" alt="活体照片" />
+                  <span v-if="tabledatas6.activePhoto == null">
+                    <img src="../../assets/detailfengxianpinggu/realloading.gif" alt="loading" />
+                  </span>
+                  <span v-else>
+                    <img :src="tabledatas6.activePhoto" alt="活体照片" />
+                  </span>
                 </div>
               </div>
               <ul>
@@ -282,96 +311,96 @@
               <tr>
                 <td class="bg-co">姓名</td>
                 <td>
-                  <span v-if="tabledatas5.name==''">－</span>
+                  <span v-if="tabledatas5.name==null || tabledatas5.name==''">－</span>
                   <span v-else>{{tabledatas5.name}}</span>
                 </td>
                 <td class="bg-co">身份证号码</td>
-                <td colspan="3" class="lf">
-                  <span v-if="tabledatas5.idCardNum==''">－</span>
+                <td colspan="3">
+                  <span v-if="tabledatas5.idCardNum==null || tabledatas5.idCardNum==''">－</span>
                   <span v-else>{{tabledatas5.idCardNum}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">年龄</td>
                 <td>
-                  <span v-if="tabledatas5.age==''">－</span>
+                  <span v-if="tabledatas5.age==null || tabledatas5.age==''">－</span>
                   <span v-else>{{tabledatas5.age}}</span>
                 </td>
                 <td class="bg-co">性别</td>
                 <td>
-                  <span v-if="tabledatas5.sex==''">－</span>
+                  <span v-if="tabledatas5.sex==null || tabledatas5.sex==''">－</span>
                   <span v-else>{{tabledatas5.sex}}</span>
                 </td>
                 <td class="bg-co">民族</td>
                 <td>
-                  <span v-if="tabledatas5.nation==''">－</span>
+                  <span v-if="tabledatas5.nation==null || tabledatas5.nation==''">－</span>
                   <span v-else>{{tabledatas5.nation}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">生肖</td>
                 <td>
-                  <span v-if="tabledatas5.zodiac==''">－</span>
+                  <span v-if="tabledatas5.zodiac==null || tabledatas5.zodiac==''">－</span>
                   <span v-else>{{tabledatas5.zodiac}}</span>
                 </td>
                 <td class="bg-co">星座</td>
                 <td>
-                  <span v-if="tabledatas5.constellation==''">－</span>
+                  <span v-if="tabledatas5.constellation==null || tabledatas5.constellation==''">－</span>
                   <span v-else>{{tabledatas5.constellation}}</span>
                 </td>
                 <td class="bg-co">婚姻状态</td>
                 <td>
-                  <span v-if="tabledatas5.maritalStatus==''">－</span>
+                  <span v-if="tabledatas5.maritalStatus==null || tabledatas5.maritalStatus==''">－</span>
                   <span v-else>{{tabledatas5.maritalStatus}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">电话号码</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.mobile==''">－</span>
+                  <span v-if="tabledatas5.mobile==null || tabledatas5.mobile==''">－</span>
                   <span v-else>{{tabledatas5.mobile}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">证件地址</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.idCardAddress==''">－</span>
+                  <span v-if="tabledatas5.idCardAddress==null || tabledatas5.idCardAddress==''">－</span>
                   <span v-else>{{tabledatas5.idCardAddress}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">签发机构</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.issuingAgency==''">－</span>
+                  <span v-if="tabledatas5.issuingAgency==null || tabledatas5.issuingAgency==''">－</span>
                   <span v-else>{{tabledatas5.issuingAgency}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">家庭地址</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.address==''">－</span>
+                  <span v-if="tabledatas5.address==null || tabledatas5.address==''">－</span>
                   <span v-else>{{tabledatas5.address}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">常驻城市</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.residentCity==''">－</span>
+                  <span v-if="tabledatas5.residentCity==null || tabledatas5.residentCity==''">－</span>
                   <span v-else>{{tabledatas5.residentCity}}</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">直系联系人</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.emergencyContactName1==''">－</span>
-                  <span v-else>{{tabledatas5.emergencyContactName1}}</span>({{tabledatas5.emergencyContactRela1}})
+                  <span v-if="tabledatas5.emergencyContactName1==null || tabledatas5.emergencyContactName1==''">－</span>
+                  <span v-else>{{tabledatas5.emergencyContactName1}}({{tabledatas5.emergencyContactRela1}})</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">其他联系人</td>
                 <td colspan="5" class="lf">
-                  <span v-if="tabledatas5.emergencyContactName2==''">－</span>
-                  <span v-else>{{tabledatas5.emergencyContactName2}}</span>({{tabledatas5.emergencyContactRela2}})
+                  <span v-if="tabledatas5.emergencyContactName2==null || tabledatas5.emergencyContactName2==''">－</span>
+                  <span v-else>{{tabledatas5.emergencyContactName2}}({{tabledatas5.emergencyContactRela2}})</span>
                   </td>
               </tr>
             </table>
@@ -388,9 +417,12 @@
             <!-- 表格 -->
             <table class="jititable gf" border>
               <tr v-for="item in tabledatas2.list1">
-                <td style="width:220px" class="bg-co">{{item.fieldName}}</td>
+                <td style="width:220px" class="bg-co">
+                  <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
+                  <span v-else>{{item.fieldName}}</span>
+                </td>
                 <td>
-                  <span v-if="item.content==''">－</span>
+                  <span v-if="item.content=='' || item.content==null">-</span>
                   <span v-else>{{item.content}}</span>
                   </td>
               </tr>
@@ -410,9 +442,12 @@
                 <td  class="bg-co">娱乐服务类</td>   
               </tr>
               <tr v-for="item in tabledatas2.list2">
-                <td class="bg-co">{{item.fieldName}}</td>
+                <td class="bg-co">
+                  <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
+                  <span v-else>{{item.fieldName}}</span>
+                </td>
                 <td v-for="items in item.list">
-                  <span v-if="items==''">－</span>
+                  <span v-if="items=='' || items==null">－</span>
                   <span v-else>{{items}}</span>
                 </td>
               </tr>
@@ -423,11 +458,17 @@
             <table class="jititable gf" border>
               <tr>
                 <td  class="bg-co">消费档次</td>
-                <td colspan="4">{{tabledatas.consumeGrade}}</td>
+                <td colspan="4">
+                  <span v-if="tabledatas.consumeGrade=='' || tabledatas.consumeGrade==null">-</span>
+                  <span v-else>{{tabledatas.consumeGrade}}</span>
+                  </td>
               </tr>
               <tr>
                 <td  class="bg-co">综合消费活跃度</td>
-                <td colspan="4">{{tabledatas.consumeActive}}</td>
+                <td colspan="4">
+                  <span v-if="tabledatas.consumeActive==null || tabledatas.consumeActive==''">-</span>
+                  <span v-else>{{tabledatas.consumeActive}}</span>
+                </td>
               </tr>
               <tr>
                 <td  class="bg-co"></td>
@@ -438,8 +479,12 @@
               </tr>
 
               <tr v-for="item in tabledatas.list2">
-                <td class="bg-co">{{item.fieldName}}</td>
-                <td v-for="items in item.content">{{items}}</td>
+                <td class="bg-co">
+                  <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
+                  <span v-else>{{item.fieldName}}</span></td>
+                <td v-for="items in item.content">
+                  <span v-if="items==null || items==''">-</span>
+                  <span v-else>{{items}}</span></td>
               </tr>
             </table>
           </el-card>
@@ -463,8 +508,8 @@
                 
                </tr>
               <tr> 
-                <td class="bg-co" colspan="2">近12个月最近一笔交易距今天</td>
-                <td colspan="3">
+                <td class="bg-co" colspan="1">近12个月最近一笔交易距今天</td>
+                <td colspan="4">
                   <span v-if="tabledatas.last12MonthTransDays==''">－</span>
                   <span v-else>{{tabledatas.last12MonthTransDays}}</span>
                 </td>
@@ -516,7 +561,23 @@
             <img src="../../assets/detailfengxianpinggu/2.5.png" alt />
           </div>
 
-          <el-card id="i1" class="box11-ec1">2.5.1履约历史</el-card>
+          <el-card id="i1" class="box11-ec1">
+            <div>2.5.1履约历史</div>
+
+            <!-- 表格 -->
+            <table class="jititable gf" border>
+              <tr v-for="item in tabledatas8">
+                <td style="width:220px" class="bg-co">
+                  <span v-if="item.fieldName == null || item.fieldName==''">-</span>
+                  <span v-else>{{item.fieldName}}</span>
+                </td>
+                <td>
+                  <span v-if="item.value=='' || item.value==null">－</span>
+                  <span v-else>{{item.value}}</span>
+                  </td>
+              </tr>
+            </table>
+          </el-card>
         </div>
 
         <div id="j" class="box12">
@@ -539,13 +600,13 @@
           </el-card>
         </div>
 
-        <div id="k" class="box13">
+        <!-- <div id="k" class="box13">
           <div class="box13-img">
             <img src="../../assets/detailfengxianpinggu/2.7.png" alt />
           </div>
 
           <el-card class="box13-ec1"></el-card>
-        </div>
+        </div> -->
 
         <div class="box14"></div>
       </div>
@@ -610,6 +671,9 @@ export default {
       
       //报告信息
       tabledatas7:{},
+
+      //履约历史
+      tabledatas8:{},
       data: [
         {
           label: "● 报告结论",
@@ -650,10 +714,6 @@ export default {
         {
           label: "● 2.6-社交行为",
           href: "j"
-        },
-        {
-          label: "● 2.7-设备信息",
-          href: "k"
         }
       ],
       defaultProps: {
@@ -667,7 +727,6 @@ export default {
     this.all();
 
     //仪表
-    this.drawLine();
     this.drawLine2();
     this.drawLine3();
   },
@@ -712,10 +771,34 @@ export default {
         this.getlist6(data4)//图像信息
         this.getlist4(data2)//多名单申请信息
         this.getlist3(data2)//通讯行为信息
+        this.getlist8(data2)//履约历史
         this.getlist2(data2)//消费
         this.getlist1(data1)//收入
     },
     
+    //履约历史
+    getlist8(data){
+        this.$axios({
+          method: "post",
+          url: this.$store.state.domain + "/risk/report/credit/history",
+          data: data
+        }).then(
+          response => {
+            var res = response.data;
+            if(res.code == 0){
+              this.tabledatas8 = res.detail;
+            }else{
+              this.tabledatas8 = ''
+            }
+          },
+          error => {
+            this.$message({
+              message:'履约历史信息发生错误',
+              type: "error"
+            });
+          }
+        );
+    },
     
     //图像信息
     getlist7(data){
@@ -728,6 +811,10 @@ export default {
             var res = response.data;
             if(res.code == 0){
               this.tabledatas7 = res.detail;
+              //第一个仪表盘
+              this.drawLine();
+              this.drawLine2();
+
             }else{
               this.tabledatas7 = ''
             }
@@ -878,16 +965,21 @@ export default {
     
     //图像信息柱状图
     drawLine4() {
-      var identityVsCenter = parseFloat(this.tabledatas6.identityVsCenter)
-      var activeVsCenter = parseFloat(this.tabledatas6.activeVsCenter)
-      var identityVsActive = parseFloat(this.tabledatas6.identityVsActive)
+      if(this.tabledatas6.identityVsCenter == '' || this.tabledatas6.activeVsCenter == null 
+      || this.tabledatas6.identityVsActive ==null){
+          var echartData = [0, 0, 0];
+      }else{
+        var identityVsCenter = parseFloat(this.tabledatas6.identityVsCenter)
+        var activeVsCenter = parseFloat(this.tabledatas6.activeVsCenter)
+        var identityVsActive = parseFloat(this.tabledatas6.identityVsActive)
 
-      var echartData = [identityVsCenter, activeVsCenter, identityVsActive];
+        var echartData = [identityVsCenter, activeVsCenter, identityVsActive];
+      }
       
       var option = {
         tooltip: {
               trigger: 'item',
-              formatter: "{b}{c}%",
+              formatter: "{b}：{c}%",
           },
           grid: {
               top: '10%',
@@ -920,7 +1012,7 @@ export default {
                   normal: {
                       color: function(params) {
                           var colorList = [
-                              '#C1232B', '#B5C334', '#E87C25'
+                              'rgb(10, 164, 179)','#C1232B',  'rgba(38,112,243,1)'
                           ];
                           return colorList[params.dataIndex]
                       },
@@ -930,8 +1022,8 @@ export default {
                           formatter: function(params) {
                               var total = 0;
                               var percent = 0;
-                              percent = (params.value * 100).toFixed(2);
-                              return '' + params.name+ '' + percent + '%';
+                              percent = (params.value).toFixed(2);
+                              return '' + params.name+'：'+'' + percent + '%';
                           },
                       }
                   }
@@ -947,9 +1039,8 @@ export default {
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
       
-      console.log('ww')
     },
-    //第一个仪表盘
+    //仪表盘
     drawLine() {
       var option = {
         //鼠标悬浮提示
@@ -1074,7 +1165,7 @@ export default {
             },
             pointer: {
               //指针样式
-              length: "10%"
+              length: "10%" //指针长度，按照半圆半径的百分比
             },
             //  外框显示当前值
             detail: {
@@ -1122,8 +1213,8 @@ export default {
             axisLabel: {
               //文字样式（及“10”、“20”等文字样式）
               color: "black",
-              distance: 10, //文字离表盘的距离
-              fontSize: 16, //字母大小
+              distance: 8, //文字离表盘的距离
+              fontSize: 12, //字母大小
               //转换内框的值为字母
               formatter: function(e) {
                 switch (e + "") {
@@ -1153,8 +1244,8 @@ export default {
 
             pointer: {
               //指针样式
-              width: 6,
-              length: "80%"
+              width: 3, //指针宽度
+              length: "90%" //指针长度，按照半圆半径的百分比
             },
             detail: {
               //  分数格式化值
@@ -1174,10 +1265,10 @@ export default {
             //  数据
             data: [
               {
-                value: 86,
+                value: parseInt(this.tabledatas7.sumScore),
                 label: {
                   textStyle: {
-                    fontSize: 14
+                    fontSize: 12
                   }
                 }
               }
@@ -1192,7 +1283,8 @@ export default {
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
     },
-    //第二个仪表盘
+    
+    //小的仪表盘
     drawLine2() {
       var option = {
         //鼠标悬浮提示
@@ -1417,7 +1509,7 @@ export default {
             //  数据
             data: [
               {
-                value: 86,
+                value: parseInt(this.tabledatas7.sumScore),
                 label: {
                   textStyle: {
                     fontSize: 12
@@ -1441,19 +1533,19 @@ export default {
       var data = [
         {
           name: "基本信息",
-          value: 0.83
+          value: 0.89
         },
         {
           name: "信用履约历史",
-          value: 0.38
+          value: 0.88
         },
         {
           name: "偿债能力评估",
-          value: 0.46
+          value: 0.86
         },
         {
           name: "经营状况评估",
-          value: 0.363
+          value: 0.863
         }
       ];
 
@@ -1502,9 +1594,9 @@ export default {
         // 每一行间隔
         grid: {
           top: "1%",
-          bottom: "10%",
+          bottom: "8%",
           left: "4%",
-          right: "1%",
+          right: "2%",
           containLabel: true
         },
         // 显示x轴的线
@@ -1541,7 +1633,7 @@ export default {
               //左边后列数字值样式
               a: {
                 color: "#fff",
-                backgroundColor: "red",
+                // backgroundColor: "red",
                 width: 13,
                 height: 13,
                 fontSize: 8,
@@ -1551,7 +1643,7 @@ export default {
               //左边前列数字值样式
               b: {
                 color: "#fff",
-                backgroundColor: "#4197FD",
+                // backgroundColor: "#4197FD",
                 width: 13,
                 height: 13,
                 fontSize: 8,
@@ -1586,7 +1678,7 @@ export default {
             roam: false,
             visualMap: false,
             zlevel: 1,
-            barMaxWidth: 6, //线条粗细
+            barMaxWidth: 7, //线条粗细
             barGap: 0,
             itemStyle: {
               normal: {
@@ -1629,7 +1721,7 @@ export default {
                   }
                 },
                 // 边角圆滑度
-                barBorderRadius: 15
+                barBorderRadius: 0
               }
             },
             data: barData,
@@ -1644,7 +1736,7 @@ export default {
                 // 百分比的距离线条
                 offset: [5, 0],
                 formatter: function(params) {
-                  var value = parseFloat(params.data["value"]) * 100;
+                  var value = parseFloat(params.data["value"])*100;
                   return value + "%";
                 }
               }
