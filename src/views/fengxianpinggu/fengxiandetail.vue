@@ -97,7 +97,7 @@
             </div>
 
             <div class="box5-rt">
-              <div id="myChart3" :style="{width: '360px', height: '220px'}"></div>
+              <div id="myChart3" :style="{width: '360px', height: '210px'}"></div>
             </div>
           </el-card>
 
@@ -298,7 +298,7 @@
             </div>
 
             <div class="b7-chart">
-              <div id="myChart4" :style="{width: '100%', height: '320px'}"></div>
+              <div id="myChart4" :style="{width: '100%', height: '290px'}"></div>
             </div>
           </el-card>
         </div>
@@ -1010,7 +1010,7 @@ export default {
           },
           grid: {
               top: '15%',
-              left: '5%',
+              left: '10%',
               right: '1%',
               bottom: '10%',
               containLabel: true
@@ -1886,221 +1886,156 @@ export default {
     },
     //第三个百分柱状图
     drawLine3() {
-      //数据纯属虚构
-      var data = [
-        {
-          name: "基本信息",
-          value: 0.89
-        },
-        {
-          name: "信用履约历史",
-          value: 0.88
-        },
-        {
-          name: "偿债能力评估",
-          value: 0.86
-        },
-        {
-          name: "经营状况评估",
-          value: 0.863
-        }
-      ];
-
-      //平均值界限，通过这个值来区分颜色
-      var average = 0.3;
-
-      data = data.sort(function(a, b) {
-        return b.value - a.value;
-      });
-
-      //两个盒子
-      var yData = [];
-      var barData = [];
-
-      //循环data中的值
-      for (var i = 0; i < data.length; i++) {
-        barData.push(data[i]);
-        if (data[i].value < average) {
-          yData.push(i + "," + data[i].name + "," + "lower");
-        } else {
-          yData.push(i + "," + data[i].name);
-        }
-      }
-
-      var option = {
-        //标题
-        title: [
-          {
-            text: "",
-            textStyle: {
-              color: "#2D3E53",
-              fontSize: 8
+        var myColor = ['#2670f3']
+        var colord = ['#f1f4ff']
+        var dataLine = [50, 66, 33, 25]
+        let positionLeft = 0.1,
+            max = 100 + 2*positionLeft
+        var option = {
+            tooltip: {
+              formatter: "分值：" + '{c}%',
             },
-            x: "center",
-            top: 30
-          }
-        ],
-        // 悬浮提示
-        tooltip: {
-          show: true,
-          formatter: function(params) {
-            var value = parseFloat(params.data["value"]) * 100;
-            return params.name + "：" + value + "%";
-          }
-        },
-        // 每一行间隔
-        grid: {
-          top: "1%",
-          bottom: "8%",
-          left: "4%",
-          right: "2%",
-          containLabel: true
-        },
-        // 显示x轴的线
-        xAxis: {
-          show: false
-        },
-        // 显示y轴的线以及样式
-        yAxis: {
-          type: "category",
-          inverse: true,
-          nameGap: 16,
-          axisLine: {
-            show: false,
-            lineStyle: {
-              color: "#ddd"
-            }
-          },
-          axisTick: {
-            show: false,
-            lineStyle: {
-              color: "#ddd"
-            }
-          },
-          // y轴值样式
-          axisLabel: {
-            interval: 0,
-            margin: 10,
-            textStyle: {
-              color: "#455A74",
-              align: "right",
-              fontSize: 12
+            backgroundColor: '#ffffff',
+            grid: [
+                {
+                left: '4%',
+                top: '12%',
+                right: '13%',
+                bottom: '8%',
+                containLabel: true
             },
-            rich: {
-              //左边后列数字值样式
-              a: {
-                color: "#fff",
-                // backgroundColor: "red",
-                width: 13,
-                height: 13,
-                fontSize: 8,
-                align: "center",
-                borderRadius: 20
-              },
-              //左边前列数字值样式
-              b: {
-                color: "#fff",
-                // backgroundColor: "#4197FD",
-                width: 13,
-                height: 13,
-                fontSize: 8,
-                align: "center",
-                borderRadius: 20
-              }
-            },
-            // 格式化
-            formatter: function(params) {
-              var paramsArr = params.split(",");
-              var index = paramsArr[0];
-              var name = paramsArr[1];
-              if (paramsArr[2]) {
-                return ["{a|" + (parseInt(index) + 1) + "}" + "  " + name].join(
-                  "\n"
-                );
-              } else {
-                return ["{b|" + (parseInt(index) + 1) + "}" + "  " + name].join(
-                  "\n"
-                );
-              }
+            {
+                left: '5%',
+                top: '12%',
+                right: '13%',
+                bottom: '8%',
+                containLabel: true
             }
-          },
-          data: yData
-        },
-
-        // 系列值
-        series: [
-          {
-            name: "barSer",
-            type: "bar",
-            roam: false,
-            visualMap: false,
-            zlevel: 1,
-            barMaxWidth: 7, //线条粗细
-            barGap: 0,
-            itemStyle: {
-              normal: {
-                color: function(params) {
-                  var value = parseFloat(params.data["value"]);
-                  // build a color map as your need.
-                  var colorList = [
-                    {
-                      //红色线条
-                      colorStops: [
-                        {
-                          offset: 0,
-                          color: "#f69aaa" // 0% 处的颜色
-                        },
-                        {
-                          offset: 1,
-                          color: "#f36a5a" // 100% 处的颜色
-                        }
-                      ]
-                    },
-                    {
-                      //蓝色线条
-                      colorStops: [
-                        {
-                          offset: 0,
-                          color: "#00C0FA" // 0% 处的颜色
-                        },
-                        {
-                          offset: 1,
-                          color: "#2F95FA" // 100% 处的颜色
-                        }
-                      ]
+                ],
+            xAxis: [{
+                max:max,
+                show: false
+            }],
+            yAxis: [{
+                axisTick: 'none',
+                axisLine: 'none',
+                offset: '5',
+                axisLabel: {
+                    textStyle: {
+                        color: '#000000',
+                        fontSize: '12'
                     }
-                  ];
-                  //判断小于平均值选择不同的颜色
-                  if (value < average) {
-                    return colorList[0];
-                  } else {
-                    return colorList[1];
-                  }
                 },
-                // 边角圆滑度
-                barBorderRadius: 0
-              }
+                data: ['基本信息评估', '信用履约历史', '偿债能力评估', '经营状况评估']
+            }, {
+                axisTick: 'none',
+                axisLine: 'none',
+                show: false,
+                axisLabel: {
+                    textStyle: {
+                        color: '#000000',
+                        fontSize: '12'
+                    }
+                },
+                data: [1, 1, 1, 1]
+            }, {
+
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(0,0,0,0)'
+                    }
+                },
+                data: []
+            }],
+            series: [
+                
+                { //间距
+                    type: 'bar',
+                    barWidth: 12,
+                    stack: 'b',
+                    legendHoverLink: false,
+                    data: [positionLeft,positionLeft,positionLeft,positionLeft]
+                },{
+                name: '条',
+                type: 'bar',
+                stack: 'b',
+                yAxisIndex: 0,
+                data: dataLine,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'right',
+                        distance: 10,
+                        formatter: function(param) {
+                            return (param.value).toFixed(2) + '%'
+                        },
+                        textStyle: {
+                            color: '#000000',
+                            fontSize: '12'
+                        }
+                    }
+                },
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var num = myColor.length
+                            return myColor[params.dataIndex % num]
+                        }
+                    }
+                },
+                z: 2
+            }, {
+                name: '白框',
+                type: 'bar',
+                yAxisIndex: 1,
+                barGap: '-100%',
+                data: [99.9, 99.9, 99.9, 99.9],
+                barWidth: 14,
+                itemStyle: {
+                    normal: {
+                        color: colord,
+                        barBorderRadius: 2
+                    }
+                },
+                z: 1
             },
-            data: barData,
-            label: {
-              normal: {
-                show: true,
-                textStyle: {
-                  color: "#455A74",
-                  fontSize: 10
+            {
+                name: '外框',
+                type: 'bar',
+                yAxisIndex: 2,
+                barGap: '-100%',
+                data: [100, 100, 100, 100],
+                barWidth: 12,
+
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        distance: 10,
+                        formatter: function(data) {
+                            return dataLine[data.dataIndex].toFixed(2) +"%";
+                        },
+                        textStyle: {
+                            color: '#000000',
+                            fontSize: '12'
+                        }
+                    }
                 },
-                position: "right",
-                // 百分比的距离线条
-                offset: [5, 0],
-                formatter: function(params) {
-                  var value = parseFloat(params.data["value"])*100;
-                  return value + "%";
-                }
-              }
-            }
-          }
-        ]
-      };
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var num = colord.length
+                            return colord[params.dataIndex % num]
+                        },
+                        barBorderRadius: 0,
+                    }
+                },
+                z: 0
+            },
+            
+            ]
+        }
 
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart3"));
