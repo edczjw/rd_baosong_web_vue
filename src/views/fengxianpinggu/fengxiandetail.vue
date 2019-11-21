@@ -21,7 +21,9 @@
         <div class="box3">
           <el-card class="box3-ec">
             <div class="box3-charts">
-              <div id="myChart" :style="{width: '270px', height: '280px'}"></div>
+              <div class="vau">{{this.vau}}</div>
+              <div class="core">信用分：{{this.core}}分</div>
+              <div id="myChart" :style="{width: '360px', height: '540px'}"></div>
             </div>
             <div class="box3-right">
               <span>授信额度：</span>
@@ -90,7 +92,8 @@
           <el-card class="tit-pw">
             <div class="box5-io">评分模型结论</div>
             <div class="box5-lf">
-              <div id="myChart2" :style="{width: '210px', height: '220px',margin:'0 auto'}"></div>
+              <div class="vau">{{this.vau}}</div>
+              <div id="myChart2" :style="{width: '230px', height: '300px',margin:'0 auto'}"></div>
             </div>
 
             <div class="box5-rt">
@@ -107,7 +110,7 @@
             </div>
 
             <!-- 表格 -->
-            <table class="jititable" border>
+            <table class="jititable11" border>
               <tr>
                 <th>属性类型</th>
                 <th>评分项</th>
@@ -502,7 +505,7 @@
               <tr>
                 <td class="bg-co">信用卡最高等级</td>
                 <td colspan="4">
-                  <span v-if="tabledatas.cardMaxLevel==''">－</span>
+                  <span v-if="tabledatas.cardMaxLevel=='' ||tabledatas.cardMaxLevel==null ">－</span>
                   <span v-else>{{tabledatas.cardMaxLevel}}</span>
                 </td>
                 
@@ -510,7 +513,7 @@
               <tr> 
                 <td class="bg-co" colspan="1">近12个月最近一笔交易距今天</td>
                 <td colspan="4">
-                  <span v-if="tabledatas.last12MonthTransDays==''">－</span>
+                  <span v-if="tabledatas.last12MonthTransDays=='' || tabledatas.last12MonthTransDays==null">－</span>
                   <span v-else>{{tabledatas.last12MonthTransDays}}</span>
                 </td>
               </tr>
@@ -523,11 +526,11 @@
               </tr>
               <tr v-for="item in tabledatas.list1">
                 <td class="bg-co">
-                  <span v-if="item.fieldName==''">－</span>
+                  <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
                 <td v-for="items in item.content">
-                  <span v-if="items==''">－</span>
+                  <span v-if="items=='' || items==null">－</span>
                   <span v-else>{{items}}</span>
                 </td>
               </tr>
@@ -544,11 +547,11 @@
               </tr>
               <tr v-for="item in tabledatas.list3">
                 <td class="bg-co">
-                  <span v-if="item.fieldName==''">－</span>
+                  <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
                 <td v-for="items in item.content">
-                  <span v-if="items==''">－</span>
+                  <span v-if="items=='' || items==null">－</span>
                   <span v-else>{{items}}</span>
                 </td>
               </tr>
@@ -592,7 +595,7 @@
               <tr v-for="item in tabledatas3.detail">
                 <td style="width:220px" class="bg-co">{{item.fieldName}}</td>
                 <td>
-                  <span v-if="item.content==''">－</span>
+                  <span v-if="item.content=='' || item.content==null">－</span>
                   <span v-else>{{item.content}}</span>
                   </td>
               </tr>
@@ -615,9 +618,9 @@
         
         <div class="sf">
           <ul>
-            <li><span>姓名</span>{{name}}</li>
-            <li><span>身份证</span>{{idNumber}}</li>
-            <li><span>电话</span>{{phone}}</li>
+            <li><span>姓名:</span>{{name}}</li>
+            <li><span>身份证:</span>{{idNumber}}</li>
+            <li><span>电话:</span>{{phone}}</li>
           </ul>
         </div>
         <el-input size="mini" class="flter-input" placeholder="输入关键字进行快捷查询" v-model="filterText"></el-input>
@@ -719,7 +722,10 @@ export default {
       defaultProps: {
         children: "children",
         label: "label"
-      }
+      },
+
+      vau:'',//仪表盘值
+      core:'',//信用分
     };
   },
   mounted() {
@@ -727,6 +733,7 @@ export default {
     this.all();
 
     //仪表
+    this.drawLine();
     this.drawLine2();
     this.drawLine3();
   },
@@ -788,7 +795,7 @@ export default {
             if(res.code == 0){
               this.tabledatas8 = res.detail;
             }else{
-              this.tabledatas8 = ''
+              this.tabledatas8 = res.detail
             }
           },
           error => {
@@ -800,7 +807,7 @@ export default {
         );
     },
     
-    //图像信息
+    //报告信息
     getlist7(data){
         this.$axios({
           method: "post",
@@ -811,6 +818,25 @@ export default {
             var res = response.data;
             if(res.code == 0){
               this.tabledatas7 = res.detail;
+              this.core = res.detail.sumScore;
+              console.log(parseInt(res.detail.sumScore))
+              if(0 <=parseInt(res.detail.sumScore) && parseInt(res.detail.sumScore) < 500){
+                this.vau = 'G'
+              }else if(500<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<550){
+                this.vau = 'F'
+              }else if(550<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<600){
+                this.vau = 'E'
+              }else if(600<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<650){
+                this.vau = 'D'
+              }else if(650<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<700){
+                this.vau = 'C'
+              }else if(700<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<750){
+                this.vau = 'B'
+              }else if(750<=parseInt(res.detail.sumScore)  && parseInt(res.detail.sumScore)<1000){
+                this.vau = 'A'
+              }else{
+                this.vau = "A"
+              }
               //第一个仪表盘
               this.drawLine();
               this.drawLine2();
@@ -913,7 +939,7 @@ export default {
             if(res.code == 0){
               this.tabledatas3 = res;
             }else{
-              this.tabledatas3 = ''
+              this.tabledatas3 = res
             }
           },
           error => {
@@ -1042,239 +1068,389 @@ export default {
     },
     //仪表盘
     drawLine() {
+      var bgColor = "#ffffff",
+      highlight = '#03b7c9';
+    
+      var sumScore = parseInt(this.tabledatas7.sumScore);
+
+      if(0<=sumScore && sumScore<500){
+        sumScore = 333
+      }else if(500<=sumScore  && sumScore<550){
+        sumScore = sumScore-150
+      }else if(550<=sumScore  && sumScore<600){
+        sumScore = sumScore-200
+      }else if(600<=sumScore  && sumScore<650){
+        sumScore = sumScore-150
+      }else if(650<=sumScore  && sumScore<700){
+        sumScore = sumScore-100
+      }else if(700<=sumScore  && sumScore<750){
+        sumScore = sumScore-50
+      }else if(750<=sumScore  && sumScore<1000){
+        sumScore = sumScore-200
+      }else if(sumScore>1000){
+        sumScore = 1100
+      }
       var option = {
-        //鼠标悬浮提示
-        tooltip: {
-          show: true
-        },
-        series: [
-          {
-            type: "gauge",
-            center: ["50%", "45%"], // 仪表位置
-            radius: "90%", //仪表大小
-            startAngle: 180, //开始角度
-            endAngle: 0, //结束角度
-            axisLine: {
-              show: true,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                color: [
-                  [
-                    0.2,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      1,
-                      0,
-                      [
-                        {
-                          offset: 1,
-                          color: "#E75F25" // 50% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#D9452C" // 40% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ], // 100% 处的颜色
-                  [
-                    0.4,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      1,
-                      0,
-                      [
-                        {
-                          offset: 1,
-                          color: "#FFC539" // 70% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#FE951E" // 66% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#E75F25" // 50% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ],
-                  [
-                    0.6,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      0,
-                      1,
-                      [
-                        {
-                          offset: 1,
-                          color: "#C7DD6B" // 90% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#FEEC49" // 86% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#FFC539" // 70% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ],
-                  [
-                    1,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      0,
-                      1,
-                      [
-                        {
-                          offset: 0.2,
-                          color: "#1CAD52" // 92% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#C7DD6B" // 90% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ]
-                ],
-                width: 6 //外线条线宽
-              }
-            },
-            //  外框显示大刻度
-            splitLine: {
-              show: false
-            },
-            //外框显示小刻度
-            axisTick: {
-              show: false
-            },
-            //外框显示大刻度值
-            axisLabel: {
-              show: false
-            },
-            pointer: {
-              //指针样式
-              length: "10%" //指针长度，按照半圆半径的百分比
-            },
-            //  外框显示当前值
-            detail: {
-              show: false
-            }
+          backgroundColor: bgColor,
+          tooltip:{
+              show:true,
+              formatter: "分值：" + '{c}' + '分',
           },
-          //  内框
-          {
-            type: "gauge",
-            splitNumber: 5, //刻度数量
-            center: ["50%", "45%"], // 默认全局居中
-            radius: "75%",
-            startAngle: 180,
-            endAngle: 0,
-            //  内框最小值和最大值
-            min: 0,
-            max: 1000,
-            axisLine: {
-              show: true,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                color: [
-                  //表盘颜色
-                  [0.2, "#DA462C"], //0-50%处的颜色
-                  [0.4, "#FF9618"], //51%-70%处的颜色
-                  [0.6, "#FFED44"], //70%-90%处的颜色
-                  [0.8, "#20AE51"], //90%-100%处的颜色
-                  [1, "#22A101"] //90%-100%处的颜色
-                ],
-                width: 12 //表盘宽度
-              }
-            },
-            splitLine: {
-              //分割线样式（及10、20等长线样式）
-              length: 20,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                width: 2
-              }
-            },
-            axisTick: {
-              //刻度线样式（及短线样式）
-              length: 5
-            },
-            axisLabel: {
-              //文字样式（及“10”、“20”等文字样式）
-              color: "black",
-              distance: 8, //文字离表盘的距离
-              fontSize: 12, //字母大小
-              //转换内框的值为字母
-              formatter: function(e) {
-                switch (e + "") {
-                  case "0":
-                    return "";
-
-                  case "200":
-                    return "E";
-
-                  case "400":
-                    return "D";
-
-                  case "600":
-                    return "C";
-
-                  case "800":
-                    return "B";
-
-                  case "1000":
-                    return "A";
-
-                  default:
-                    return e;
-                }
-              }
-            },
-
-            pointer: {
-              //指针样式
-              width: 3, //指针宽度
-              length: "90%" //指针长度，按照半圆半径的百分比
-            },
-            detail: {
-              //  分数格式化值
-              formatter: "{score|{value}}",
-              //  分数高度
-              offsetCenter: [0, "25%"],
-              height: 10,
-              rich: {
-                //分数
-                score: {
-                  color: "red", //分数颜色
-                  fontFamily: "微软雅黑",
-                  fontSize: 16
-                }
-              }
-            },
-            //  数据
-            data: [
+          series: [
               {
-                value: parseInt(this.tabledatas7.sumScore),
-                label: {
-                  textStyle: {
-                    fontSize: 12
+                  name: '刻度',
+                  type: 'gauge',
+                  center: ['50%', '40%'], // 默认全局居中  
+                  splitNumber:10, //刻度数量
+                  min: 0,
+                  max: 1000,
+                  radius: '87%',
+                  startAngle: 180,
+                  endAngle: 0,
+                  clockwise: true,
+                  axisLine: {
+                      show: true,
+                      lineStyle: {
+                          width: 1,
+                          shadowBlur: 0,
+                          color: [
+                              [1, highlight]
+                          ]
+                      }
+                  },
+                  axisTick: {
+                      show: true,
+                      lineStyle: {
+                          color: highlight,
+                          width: 1
+                      },
+                      length: -2,
+                      splitNumber: 5//分隔线
+                  },
+                  splitLine: {
+                      show: true,
+                      length: -5, 
+                      lineStyle: {
+                          color: highlight,//刻度颜色
+                      }
+                  },
+                  axisLabel: {
+                      distance: -18,//刻度距离
+                      textStyle: {
+                          color: highlight,
+                          fontSize: "12",
+                      },
+                      
+                          formatter: function(e) {
+                          if(e<200 && e>0){
+                              return ""
+                          }else{
+                          switch (e) {
+                            case 0:
+                              return "0";
+                            case 200:
+                              return "500";
+                            case 300:
+                              return "550";
+                            case 400:
+                              return "600";
+                            case 500:
+                              return "650";
+                            case 600:
+                              return "700";
+                            case 700:
+                              return "750";
+                            case 800:
+                              return "1000";
+                            case 900:
+                              return "";
+                            case 1000:
+                              return "1000+";
+                            default:
+                              return e;
+                          }
+                      }
+                          
+                      }
+                  },
+                  pointer: { //仪表盘指针
+                    show: true,
+                    width: '8%',
+                    length: '88%',
+                  },
+                  detail: {
+                      show: false,
+                      offsetCenter: ['0', '56%'],
+                      formatter: "分值：{value}分",
+                      fontSize: 24,
+                      fontWeight: 'bolder',
+                      fontFamily: '黑体'
+                  },
+                  data: [{
+                      name: "",
+                      value: sumScore, //值
+                      
+                      label: {
+                        textStyle: {
+                          fontSize: 12
+                        }
+                      }
+                  }]
+              },
+              //内框1
+              {
+                  name: '渐变标尺',
+                  center: ['50%', '40%'], // 默认全局居中 
+                  min: 0,
+                  max: 10,
+                  type: 'gauge',
+                  radius: '79%',
+                  splitNumber: 10, //刻度数量
+                  startAngle: 180,
+                  endAngle: 0,
+                  axisLine: {
+                      lineStyle: {
+                          width: 18, //表盘宽度
+                          shadowColor: 'rgba(0, 0, 0.6, 0.8)',
+                          shadowBlur: 15,
+                          color: [
+                              [0.2, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#EE1111'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#E66B1A'
+                                          }
+                                      ]
+                                  )],
+                              [
+                                  0.3, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#E6941A'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#EEC211'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.4, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#C7F709'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#48DD22'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.5, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#2BD591'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#2BD591'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.6, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#1AE6BD'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#22DDDD'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.7, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#09C7F7'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#1ABDE6'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.8, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#09C7F7'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#1ABDE6'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  1, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#2B91D5'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#2B91D5'
+                                          }
+                                      ]
+                                  )
+                              ]
+                          ]
+                      }
+                  },
+                  axisLabel: {
+                    show: true,
+                      //文字样式（及“10”、“20”等文字样式）
+                    color: '#2B91D5',
+                    fontFamily:'黑体',
+                    fontWeight: 'bold',
+                    distance: -5, //文字离表盘的距离
+                    fontSize: 24, //字母大小
+                      formatter: function(e) {
+                          if(e<2){
+                              return ""
+                          }else{
+                          switch (e) {
+                            case 2:
+                              return "G";
+                            case 3:
+                              return "F";
+                            case 4:
+                              return "E";
+                            case 5:
+                              return "D";
+                            case 6:
+                              return "C";
+                            case 7:
+                              return "B";
+                            case 8:
+                              return "A";
+                            case 9:
+                              return "";
+                            case 10:
+                              return "";
+                            default:
+                              return e;
+                          }
+                      }
+                          
+                      }
+                  },
+                  axisTick: {
+                      show: false
+                  },
+                  splitLine: {
+                      show: false
+                  },
+                  detail: {
+                      show: false
+                  },
+                  pointer: {
+                      show: false
                   }
-                }
+              },
+              {
+                  name: '数值',
+                  type: 'gauge',
+                  startAngle: 180,
+                  endAngle: 0,
+                  radius: '44%',
+                  center: ['50%', '40%'], // 默认全局居中  
+                  min: 0,
+                  max: 1000,
+                  splitNumber: 0,
+                  axisLine: { // 坐标轴线  
+                      lineStyle: {
+                          color: [
+                              [1, highlight]
+                          ], // 属性lineStyle控制线条样式  
+                          width: '1%'
+                      }
+                  },
+
+                  axisLabel: { // 坐标轴小标记  
+                      show: false
+                  },
+                  splitLine: { // 分隔线  
+                      lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式  
+                          width: 0
+                      }
+                  },
+                  pointer: { // 分隔线 指针  
+                  show:false,
+                      width: '55%',
+                      length: '128%',
+                  },
+                  detail: {
+                      show: false,
+                  },
+                  data: [{
+                      name: "",
+                      value: sumScore, //值
+                      label: {
+                        textStyle: {
+                          fontSize: 12
+                        }
+                      }
+                  }]
+              },
+              //饼图
+              {
+                  name: '遮罩',
+                  tooltip:{
+                      show:false
+                  },
+                  type: 'pie',
+                  radius: '40%',
+                  center: ['50%', '40%'], // 默认全局居中
+                  hoverAnimation:false,
+                  itemStyle:{
+                      normal:{
+                          color: bgColor
+                      },
+                      emphasis:{
+                          color: bgColor
+                      }
+                  },
+                  labelLine:{
+                      normal:{
+                          show:false
+                      }
+                  },
+                  animation:false,
+                  data: [{
+                      value:750,
+                      label: {
+                        textStyle: {
+                          fontSize: 14,
+                          fontWeight: 'bolder',
+                          fontFamily: '黑体'
+                        }
+                      }
+                  }]
               }
-            ]
-          }
-        ]
+          ]
       };
 
       // 基于准备好的dom，初始化echarts实例
@@ -1286,239 +1462,399 @@ export default {
     
     //小的仪表盘
     drawLine2() {
+      var bgColor = "#ffffff",
+      highlight = '#03b7c9';
+      
+      var sumScore = parseInt(this.tabledatas7.sumScore);
+
+      if(0<=sumScore && sumScore<500){
+        sumScore = 333
+        console.log(sumScore)
+      }else if(500<=sumScore  && sumScore<550){
+        sumScore = sumScore-150
+        console.log(sumScore)
+      }else if(550<=sumScore  && sumScore<600){
+        sumScore = sumScore-200
+        console.log(sumScore)
+      }else if(600<=sumScore  && sumScore<650){
+        sumScore = sumScore-150
+        console.log(sumScore)
+      }else if(650<=sumScore  && sumScore<700){
+        sumScore = sumScore-100
+        console.log(sumScore)
+      }else if(700<=sumScore  && sumScore<750){
+        sumScore = sumScore-50
+        console.log(sumScore)
+      }else if(750<=sumScore  && sumScore<1000){
+        sumScore = sumScore-200
+        console.log(sumScore)
+      }else if(sumScore>1000){
+        sumScore = 1100
+        console.log(sumScore)
+      }
       var option = {
-        //鼠标悬浮提示
-        tooltip: {
-          show: true
-        },
-        series: [
-          {
-            type: "gauge",
-            center: ["50%", "45%"], // 仪表位置
-            radius: "90%", //仪表大小
-            startAngle: 180, //开始角度
-            endAngle: 0, //结束角度
-            axisLine: {
-              show: true,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                color: [
-                  [
-                    0.2,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      1,
-                      0,
-                      [
-                        {
-                          offset: 1,
-                          color: "#E75F25" // 50% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#D9452C" // 40% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ], // 100% 处的颜色
-                  [
-                    0.4,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      1,
-                      0,
-                      [
-                        {
-                          offset: 1,
-                          color: "#FFC539" // 70% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#FE951E" // 66% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#E75F25" // 50% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ],
-                  [
-                    0.6,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      0,
-                      1,
-                      [
-                        {
-                          offset: 1,
-                          color: "#C7DD6B" // 90% 处的颜色
-                        },
-                        {
-                          offset: 0.8,
-                          color: "#FEEC49" // 86% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#FFC539" // 70% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ],
-                  [
-                    1,
-                    new this.$echarts.graphic.LinearGradient(
-                      0,
-                      0,
-                      0,
-                      1,
-                      [
-                        {
-                          offset: 0.2,
-                          color: "#1CAD52" // 92% 处的颜色
-                        },
-                        {
-                          offset: 0,
-                          color: "#C7DD6B" // 90% 处的颜色
-                        }
-                      ],
-                      false
-                    )
-                  ]
-                ],
-                width: 6 //外线条线宽
-              }
-            },
-            //  外框显示大刻度
-            splitLine: {
-              show: false
-            },
-            //外框显示小刻度
-            axisTick: {
-              show: false
-            },
-            //外框显示大刻度值
-            axisLabel: {
-              show: false
-            },
-            pointer: {
-              //指针样式
-              length: "10%" //指针长度，按照半圆半径的百分比
-            },
-            //  外框显示当前值
-            detail: {
-              show: false
-            }
+          backgroundColor: bgColor,
+          tooltip:{
+              show:true,
+
+              formatter: "分值：" + '{c}' + '分',
           },
-          //  内框
-          {
-            type: "gauge",
-            splitNumber: 5, //刻度数量
-            center: ["50%", "45%"], // 默认全局居中
-            radius: "75%",
-            startAngle: 180,
-            endAngle: 0,
-            //  内框最小值和最大值
-            min: 0,
-            max: 1000,
-            axisLine: {
-              show: true,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                color: [
-                  //表盘颜色
-                  [0.2, "#DA462C"], //0-50%处的颜色
-                  [0.4, "#FF9618"], //51%-70%处的颜色
-                  [0.6, "#FFED44"], //70%-90%处的颜色
-                  [0.8, "#20AE51"], //90%-100%处的颜色
-                  [1, "#22A101"] //90%-100%处的颜色
-                ],
-                width: 12 //表盘宽度
-              }
-            },
-            splitLine: {
-              //分割线样式（及10、20等长线样式）
-              length: 20,
-              lineStyle: {
-                // 属性lineStyle控制线条样式
-                width: 2
-              }
-            },
-            axisTick: {
-              //刻度线样式（及短线样式）
-              length: 5
-            },
-            axisLabel: {
-              //文字样式（及“10”、“20”等文字样式）
-              color: "black",
-              distance: 8, //文字离表盘的距离
-              fontSize: 12, //字母大小
-              //转换内框的值为字母
-              formatter: function(e) {
-                switch (e + "") {
-                  case "0":
-                    return "";
-
-                  case "200":
-                    return "E";
-
-                  case "400":
-                    return "D";
-
-                  case "600":
-                    return "C";
-
-                  case "800":
-                    return "B";
-
-                  case "1000":
-                    return "A";
-
-                  default:
-                    return e;
-                }
-              }
-            },
-
-            pointer: {
-              //指针样式
-              width: 3, //指针宽度
-              length: "90%" //指针长度，按照半圆半径的百分比
-            },
-            detail: {
-              //  分数格式化值
-              formatter: "{score|{value}}",
-              //  分数高度
-              offsetCenter: [0, "25%"],
-              height: 10,
-              rich: {
-                //分数
-                score: {
-                  color: "red", //分数颜色
-                  fontFamily: "微软雅黑",
-                  fontSize: 16
-                }
-              }
-            },
-            //  数据
-            data: [
+          series: [
               {
-                value: parseInt(this.tabledatas7.sumScore),
-                label: {
-                  textStyle: {
-                    fontSize: 12
+                  name: '刻度',
+                  type: 'gauge',
+                  center: ['50%', '40%'], // 默认全局居中  
+                  splitNumber: 10, //刻度数量
+                  min: 0,
+                  max: 1000,
+                  radius: '81%',
+                  startAngle: 180,
+                  endAngle: 0,
+                  clockwise: true,
+                  axisLine: {
+                      show: true,
+                      lineStyle: {
+                          width: 1,
+                          shadowBlur: 0,
+                          color: [
+                              [1, highlight]
+                          ]
+                      }
+                  },
+                  axisTick: {
+                      show: true,
+                      lineStyle: {
+                          color: highlight,
+                          width: 1
+                      },
+                      length: -2,
+                      splitNumber: 5//分隔线
+                  },
+                  splitLine: {
+                      show: true,
+                      length: -5, 
+                      lineStyle: {
+                          color: highlight,//刻度颜色
+                      }
+                  },
+                  axisLabel: {
+                      distance: -18,//刻度距离
+                      textStyle: {
+                          color: highlight,
+                          fontSize: "8",
+                      },
+                      
+                          formatter: function(e) {
+                          if(e<200 && e>0){
+                              return ""
+                          }else{
+                          switch (e) {
+                            case 0:
+                              return "0";
+                            case 200:
+                              return "500";
+                            case 300:
+                              return "550";
+                            case 400:
+                              return "600";
+                            case 500:
+                              return "650";
+                            case 600:
+                              return "700";
+                            case 700:
+                              return "750";
+                            case 800:
+                              return "1000";
+                            case 900:
+                              return "";
+                            case 1000:
+                              return "1000+";
+                            default:
+                              return e;
+                          }
+                      }
+                          
+                      }
+                  },
+                  pointer: {  //仪表盘指针
+                    show: true,
+                    width: '8%',
+                    length: '88%',
+                  },
+                  detail: {
+                      show: false,
+                      offsetCenter: ['0', '56%'],
+                      formatter: "分值：{value}分",
+                      fontSize: 18,
+                      fontFamily: '黑体',
+                  },
+                  data: [{
+                      name: "",
+                      value: sumScore, //值
+                      
+                      label: {
+                        textStyle: {
+                          fontSize:8
+                        }
+                      }
+                  }]
+              },
+              //内框1
+              {
+                  name: '渐变标尺',
+                  center: ['50%', '40%'], // 默认全局居中 
+                  min: 0,
+                  max: 10,
+                  type: 'gauge',
+                  radius: '76%',
+                  splitNumber: 10, //刻度数量
+                  startAngle: 180,
+                  endAngle: 0,
+                  axisLine: {
+                      lineStyle: {
+                          width: 12, //表盘宽度
+                          shadowColor: 'rgba(0, 0, 0.6, 0.8)',
+                          shadowBlur: 15,
+                          color: [
+                              [0.2, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#EE1111'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#E66B1A'
+                                          }
+                                      ]
+                                  )],
+                              [
+                                  0.3, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#E6941A'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#EEC211'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.4, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#C7F709'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#48DD22'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.5, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#2BD591'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#2BD591'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.6, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#1AE6BD'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#22DDDD'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.7, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#09C7F7'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#1ABDE6'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  0.8, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#09C7F7'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#1ABDE6'
+                                          }
+                                      ]
+                                  )
+                              ],
+                              [
+                                  1, new this.$echarts.graphic.LinearGradient(
+                                      0, 0, 1, 0, [{
+                                              offset: 0,
+                                              color: '#2B91D5'
+                                          },
+                                          {
+                                              offset: 1,
+                                              color: '#2B91D5'
+                                          }
+                                      ]
+                                  )
+                              ]
+                          ]
+                      }
+                  },
+                  axisLabel: {
+                    show: true,
+                      //文字样式（及“10”、“20”等文字样式）
+                    color: '#2B91D5',
+                    fontFamily:'黑体',
+                    fontWeight: 'bold',
+                    distance: -10, //文字离表盘的距离
+                    fontSize: 12, //字母大小
+                      formatter: function(e) {
+                          if(e<2){
+                              return ""
+                          }else{
+                          switch (e) {
+                            case 2:
+                              return "G";
+                            case 3:
+                              return "F";
+                            case 4:
+                              return "E";
+                            case 5:
+                              return "D";
+                            case 6:
+                              return "C";
+                            case 7:
+                              return "B";
+                            case 8:
+                              return "A";
+                            case 9:
+                              return "";
+                            case 10:
+                              return "";
+                            default:
+                              return e;
+                          }
+                      }
+                          
+                      }
+                  },
+                  axisTick: {
+                      show: false
+                  },
+                  splitLine: {
+                      show: false
+                  },
+                  detail: {
+                      show: false
+                  },
+                  pointer: {
+                      show: false
                   }
-                }
+              },
+              {
+                  name: '数值',
+                  type: 'gauge',
+                  startAngle: 180,
+                  endAngle: 0,
+                  radius: '34%',
+                  center: ['50%', '40%'], // 默认全局居中  
+                  min: 0,
+                  max: 1000,
+                  splitNumber: 0,
+                  axisLine: { // 坐标轴线  
+                      lineStyle: {
+                          color: [
+                              [1, highlight]
+                          ], // 属性lineStyle控制线条样式  
+                          width: '1%'
+                      }
+                  },
+
+                  axisLabel: { // 坐标轴小标记  
+                      show: false
+                  },
+                  splitLine: { // 分隔线  
+                      lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式  
+                          width: 0
+                      }
+                  },
+                  pointer: { 
+                    // 分隔线 指针 
+                      show: false, 
+                      // width: '55%',
+                      // length: '128%',
+                  },
+                  detail: {
+                      show: false,
+                  },
+                  data: [{
+                      name: "",
+                      value: sumScore, //值
+                      
+                      label: {
+                        textStyle: {
+                          fontSize: 8
+                        }
+                      }
+                  }]
+              },
+              //饼图
+              {
+                  name: '遮罩',
+                  tooltip:{
+                      show:false
+                  },
+                  type: 'pie',
+                  radius: '29%',
+                  center: ['50%', '40%'], // 默认全局居中
+                  hoverAnimation:false,
+                  itemStyle:{
+                      normal:{
+                          color: bgColor
+                      },
+                      emphasis:{
+                          color: bgColor
+                      }
+                  },
+                  labelLine:{
+                      normal:{
+                          show:false
+                      }
+                  },
+                  animation:false,
+                  data: [{
+                      value:this.tabledatas7.sumScore,
+                      label: {
+                        textStyle: {
+                          fontSize: 8,
+                          fontWeight: 'bolder',
+                          fontFamily: '黑体'
+                        }
+                      }
+                  }]
               }
-            ]
-          }
-        ]
+          ]
       };
 
       // 基于准备好的dom，初始化echarts实例

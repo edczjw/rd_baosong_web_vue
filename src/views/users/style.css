@@ -105,10 +105,6 @@
 .jititable td{
   height: 40px;
 }
-.jititable td:hover{
-  color: rgb(16, 86, 236);
-  background-color: rgb(233, 250, 250);
-}
 .first{
   background-color: rgb(145, 216, 175);
 }
