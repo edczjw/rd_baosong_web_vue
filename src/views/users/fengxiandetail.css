@@ -441,10 +441,15 @@ td {
   color: #252e47;
   line-height: 22px;
 }
+.box7 .b7-chart {
+  float: right;
+  width: 55%;
+  height: 360px;
+}
 .box7 .b7-ok {
   position: relative;
-  width: 50%;
-  height: 314px;
+  width: 45%;
+  height: 284px;
   margin: 20px auto;
   float: left;
   background: #f5f7ff;
@@ -472,7 +477,7 @@ td {
 .box7 .b7-ok .b7img {
   padding: 20px 20px 0 20px;
   display: flex;
-  height: 240px;
+  height: 210px;
 }
 .box7 .b7-ok .b7img .gm {
   width: 50%;

@@ -297,8 +297,9 @@
               </ul>
             </div>
 
-            
-              <div id="myChart4" :style="{width: '100%', height: '340px'}"></div>
+            <div class="b7-chart">
+              <div id="myChart4" :style="{width: '100%', height: '320px'}"></div>
+            </div>
           </el-card>
         </div>
 
@@ -733,10 +734,10 @@ export default {
     this.all();
 
     //仪表
+    this.drawLine4();
     this.drawLine();
     this.drawLine2();
     this.drawLine3();
-    this.drawLine4();
   },
   watch: {
     filterText(val) {
@@ -1002,24 +1003,43 @@ export default {
 
         var echartData = [identityVsCenter, activeVsCenter, identityVsActive];
       }
-      
       var option = {
         tooltip: {
               trigger: 'item',
               formatter: "{b}：{c}%",
           },
           grid: {
-              top: '10%',
-              left: '10%',
-              right: '10%',
-              bottom: '3%',
+              top: '15%',
+              left: '5%',
+              right: '1%',
+              bottom: '10%',
               containLabel: true
           },
           xAxis: [{
               type: 'category',
-              data: ['身份证vs公安库', '活体vs公安库', '身份证vs活体'],
+              axisTick: {
+                      alignWithLabel: true
+              },
+              axisLabel:{
+                interval:0  //x轴字间隔
+              },
+              data: ['身份证vs公安库','活体vs公安库','身份证vs活体'],
           }],
           yAxis: [{
+              splitLine: {
+                  show: true,
+                  lineStyle:{
+                      type:'dashed'
+                  }
+              },
+             axisLine:{                 //坐标 轴线
+                  show:false,             //是否显示坐标轴轴线
+                  },
+             axisLabel:{
+                  formatter: function (value) {
+                  return value.toFixed(2);
+                 }
+              },
               type: 'value',
               max:'100',//最大值
               min:'0',//最小值
@@ -1027,7 +1047,7 @@ export default {
 
           series: [{
               name: '人数统计',
-              barMaxWidth: '30%',
+              barMaxWidth: '35',
               type: 'bar',
               label: {
                   normal: {
@@ -1039,7 +1059,7 @@ export default {
                   normal: {
                       color: function(params) {
                           var colorList = [
-                              'rgb(10, 164, 179)','#C1232B',  'rgba(38,112,243,1)'
+                              '#0064fa','#ff7734',  '#00baf8'
                           ];
                           return colorList[params.dataIndex]
                       },
@@ -1049,8 +1069,8 @@ export default {
                           formatter: function(params) {
                               var total = 0;
                               var percent = 0;
-                              percent = (params.value).toFixed(2);
-                              return '' + params.name+'：'+'' + percent + '%';
+                              percent = params.value;
+                              return percent + '%';
                           },
                       }
                   }
