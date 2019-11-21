@@ -35,7 +35,10 @@
   background: rgba(220, 247, 252, 0.623);
 }
 .bg-co {
-  background-color: #f3f5ff;
+  background-color: #eaf7fe;
+}
+.bg-hu {
+  background-color: #f8f8f9;
 }
 .lf {
   text-align: left;
@@ -52,7 +55,7 @@
   font-size: 14px;
   text-align: center;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
-  border: 1px solid rgba(230, 228, 228, 0.883);
+  border: 1px solid #dde2e6;
   margin: 0 auto;
   margin: 20px auto;
 }
@@ -60,7 +63,7 @@
   height: 40px;
   color: #252e47;
   font-size: 14px;
-  background-color: #f3f5ff;
+  background-color: #f1f4ff;
 }
 .jititable td {
   height: 40px;
@@ -71,7 +74,7 @@
   font-size: 14px;
   text-align: center;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
-  border: 1px solid rgba(230, 228, 228, 0.883);
+  border: 1px solid #dde2e6;
   margin: 0 auto;
   margin: 20px auto;
 }
@@ -79,7 +82,7 @@
   height: 40px;
   color: #252e47;
   font-size: 14px;
-  background-color: #f3f5ff;
+  background-color: #f1f4ff;
 }
 .jititable11 td {
   height: 40px;
@@ -100,7 +103,7 @@ td {
 }
 .jititables td {
   height: 30px;
-  border-bottom: 1px solid #eff0f0;
+  border-bottom: 1px solid #dde2e6;
   font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
 }
 .jititables .dd {
@@ -109,7 +112,7 @@ td {
   border-bottom: none;
 }
 .jititables .dsd {
-  background-color: #f4f4f5;
+  background-color: #f8f8f9;
 }
 .jititables1 {
   font-size: 8px;
@@ -144,7 +147,7 @@ td {
   padding: 30px 0;
 }
 .box2 .conlusion img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box3 {
@@ -154,27 +157,30 @@ td {
 }
 .box3 .box3-ec {
   position: relative;
-  width: 690px;
+  width: 710px;
   height: 380px;
   margin: 0 auto;
 }
 .box3 .box3-ec .box3-bd-rt {
   position: absolute;
   top: 0;
-  right: -2px;
+  right: -4px;
   z-index: 999;
-  width: 72px;
-  height: 26px;
-  background: linear-gradient(225deg, #0074d0, #009af9);
-  box-shadow: 0px 66px 125px 0px rgba(0, 195, 246, 0.2), 0px -1px 0px 0px #cafbff;
-  border-radius: 0px 4px 0px 21px;
-  line-height: 26px;
+  width: 141px;
+  height: 42px;
+  line-height: 42px;
   text-align: center;
-  font-size: 12px;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-size: 24px;
   font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;
   color: #f5fafe;
-  text-shadow: 0px 1px 0px #0a74c4;
+  box-shadow: 0px 1px 0px 0px #0a74c4;
+  background-image: linear-gradient(225deg, #0074d0 0%, #0087e5 62%, #009af9 100%), linear-gradient(#4257c9, #4257c9);
+  background-blend-mode: normal, 
+                normal;
+  box-shadow: 0px 132px 250px 0px rgba(0, 195, 246, 0.2), inset 0px -1px 0px 0px #cafbfe;
+  border-radius: 0px 8px 0px 42px;
 }
 .box3 .box3-charts {
   position: relative;
@@ -218,13 +224,13 @@ td {
 }
 .box3 .box3-right span {
   font-size: 20px;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-family: 'PingFangSC-Regular';
   font-weight: bold;
   color: #252e47;
 }
 .box3 .box3-right b {
   font-size: 26px;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-family: 'PingFangSC-Regular';
   font-weight: bolder;
   color: #2670f3;
   line-height: 13px;
@@ -259,11 +265,11 @@ td {
   padding: 20px 0;
 }
 .box4 .box4-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box4 .box4-ec {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 20px auto;
 }
@@ -298,11 +304,11 @@ td {
   padding: 20px 0;
 }
 .box5 .box5-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box5 .box5-ec2 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 90px auto;
 }
@@ -322,7 +328,7 @@ td {
   background-image: url('../../assets/detailfengxianpinggu/titoi.png');
 }
 .box5 .tit-pw {
-  width: 690px;
+  width: 710px;
   height: 300px;
   margin: 20px auto;
 }
@@ -382,11 +388,11 @@ td {
   padding: 20px 0;
 }
 .box6 .box6-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box6 .box6-ec4 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 20px auto;
   padding: 20px;
@@ -417,11 +423,11 @@ td {
   padding: 20px 0;
 }
 .box7 .box7-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box7 .box7-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -438,7 +444,7 @@ td {
 .box7 .b7-ok {
   position: relative;
   width: 50%;
-  border: 1px solid black;
+  height: 314px;
   margin: 20px auto;
   float: left;
   background: #f5f7ff;
@@ -467,7 +473,6 @@ td {
   padding: 20px 20px 0 20px;
   display: flex;
   height: 240px;
-  border: 1px solid black;
 }
 .box7 .b7-ok .b7img .gm {
   width: 50%;
@@ -505,11 +510,11 @@ td {
   padding: 50px 0;
 }
 .box8 .box8-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box8 .box8-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }
@@ -531,21 +536,21 @@ td {
   padding: 50px 0;
 }
 .box9 .box9-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box9 .box9-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }
 .box9 .box9-ec2 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 60px auto;
 }
 .box9 .box9-ec3 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 60px auto;
 }
@@ -565,16 +570,16 @@ td {
   padding: 50px 0;
 }
 .box10 .box10-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box10 .box10-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }
 .box10 .box10-ec2 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 60px auto;
 }
@@ -594,11 +599,11 @@ td {
   padding: 50px 0;
 }
 .box11 .box11-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box11 .box11-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }
@@ -620,11 +625,11 @@ td {
   padding: 50px 0;
 }
 .box12 .box12-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box12 .box12-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }
@@ -645,11 +650,11 @@ td {
   padding: 50px 0;
 }
 .box13 .box13-img img {
-  width: 690px;
+  width: 710px;
   vertical-align: top;
 }
 .box13 .box13-ec1 {
-  width: 690px;
+  width: 710px;
   height: 100%;
   margin: 0 auto;
 }

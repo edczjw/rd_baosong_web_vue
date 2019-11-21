@@ -239,8 +239,8 @@
                 <td v-if="item.list==''">-</td>
                 <td v-if="item.list==''">-</td>
                 <td v-else v-for="(it,index) in item.list">
-                  <div v-if="it.count!=''" style="padding-top:15px;color:blue">总个数：{{it.count}}</div>
-                  <div v-else style="padding-top:15px;color:blue">总个数：0</div>
+                  <div v-if="it.count!=''" style="padding-top:15px;font-weight:bolder;">总个数：{{it.count}}</div>
+                  <div v-else style="padding-top:15px;font-weight:bolder;">总个数：0</div>
                    <table class="jititables1">
                     <tr>
                       <table class="jititables1">
@@ -518,14 +518,14 @@
                 </td>
               </tr>
               <tr>
-                <td  class="bg-co"></td>
-                <td  class="bg-co">近1月</td>
-                <td  class="bg-co">近3月</td>
-                <td  class="bg-co">近6月</td>
-                <td  class="bg-co">近12月</td>
+                <td  class="bg-hu"></td>
+                <td  class="bg-hu">近1月</td>
+                <td  class="bg-hu">近3月</td>
+                <td  class="bg-hu">近6月</td>
+                <td  class="bg-hu">近12月</td>
               </tr>
               <tr v-for="item in tabledatas.list1">
-                <td class="bg-co">
+                <td class="bg-hu">
                   <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
@@ -546,7 +546,7 @@
                 <td class="bg-co">交易总金额</td>
               </tr>
               <tr v-for="item in tabledatas.list3">
-                <td class="bg-co">
+                <td class="bg-hu">
                   <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
@@ -570,7 +570,7 @@
             <!-- 表格 -->
             <table class="jititable gf" border>
               <tr v-for="item in tabledatas8">
-                <td style="width:220px" class="bg-co">
+                <td style="width:220px" class="bg-hu">
                   <span v-if="item.fieldName == null || item.fieldName==''">-</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
@@ -593,7 +593,7 @@
             <!-- 表格 -->
             <table class="jititable gf" border>
               <tr v-for="item in tabledatas3.detail">
-                <td style="width:220px" class="bg-co">{{item.fieldName}}</td>
+                <td style="width:220px" class="bg-hu">{{item.fieldName}}</td>
                 <td>
                   <span v-if="item.content=='' || item.content==null">－</span>
                   <span v-else>{{item.content}}</span>
@@ -736,6 +736,7 @@ export default {
     this.drawLine();
     this.drawLine2();
     this.drawLine3();
+    this.drawLine4();
   },
   watch: {
     filterText(val) {
