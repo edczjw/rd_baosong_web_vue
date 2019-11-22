@@ -97,7 +97,7 @@
             </div>
 
             <div class="box5-rt">
-              <div id="myChart3" :style="{width: '360px', height: '210px'}"></div>
+              <div id="myChart3" :style="{width: '430px', height: '220px'}"></div>
             </div>
           </el-card>
 
@@ -298,7 +298,7 @@
             </div>
 
             <div class="b7-chart">
-              <div id="myChart4" :style="{width: '100%', height: '290px'}"></div>
+              <div id="myChart4" :style="{width: '100%', height: '300px'}"></div>
             </div>
           </el-card>
         </div>
@@ -616,8 +616,8 @@
 
       </div>
     </el-card>
-    
-      <div class="detail-right-wapper animated fadeInRight">
+    <div id="dtops">
+      <div class="detail-right-wapper">
         <!-- <div class="sf">
           <ul>
             <li><span>姓名:</span>{{name}}</li>
@@ -637,7 +637,7 @@
           ref="tree2"
         ></el-tree>
 
-      </div>
+      </div></div>
   </div>
 </template>
 
@@ -738,6 +738,15 @@ export default {
     this.drawLine();
     this.drawLine2();
     this.drawLine3();
+    window.addEventListener("scroll", function(e) {
+      // 监听（绑定）滚轮滚动事件
+      var t = document.documentElement.scrollTop || document.body.scrollTop;
+      if (t > 850) {
+        document.getElementById("dtops").style.display = "block";
+      } else {
+        document.getElementById("dtops").style.display = "none";
+      }
+    })
   },
   watch: {
     filterText(val) {
@@ -1009,10 +1018,10 @@ export default {
               formatter: "{b}：{c}%",
           },
           grid: {
-              top: '15%',
-              left: '10%',
-              right: '1%',
-              bottom: '10%',
+              top: '20%',
+              left: '20%',
+              right: '20%',
+              bottom: '0',
               containLabel: true
           },
           xAxis: [{
@@ -1021,7 +1030,8 @@ export default {
                       alignWithLabel: true
               },
               axisLabel:{
-                interval:0  //x轴字间隔
+                interval:0,  //x轴字间隔
+                fontsize: '16',
               },
               data: ['身份证vs公安库','活体vs公安库','身份证vs活体'],
           }],
@@ -1038,7 +1048,7 @@ export default {
              axisLabel:{
                   formatter: function (value) {
                   return value.toFixed(2);
-                 }
+                 },
               },
               type: 'value',
               max:'100',//最大值
@@ -1893,7 +1903,7 @@ export default {
             max = 100 + 2*positionLeft
         var option = {
             tooltip: {
-              formatter: "分值：" + '{c}%',
+              formatter: "占比：" + '{c}%',
             },
             backgroundColor: '#ffffff',
             grid: [
@@ -1901,14 +1911,14 @@ export default {
                 left: '4%',
                 top: '12%',
                 right: '13%',
-                bottom: '8%',
+                bottom: '6%',
                 containLabel: true
             },
             {
                 left: '5%',
                 top: '12%',
                 right: '13%',
-                bottom: '8%',
+                bottom: '6%',
                 containLabel: true
             }
                 ],
@@ -1923,7 +1933,8 @@ export default {
                 axisLabel: {
                     textStyle: {
                         color: '#5E5E5E',
-                        fontSize: '12'
+                        fontSize: '16',
+                        opacity: 0.6
                     }
                 },
                 data: ['基本信息评估', '信用履约历史', '偿债能力评估', '经营状况评估']
@@ -1934,7 +1945,7 @@ export default {
                 axisLabel: {
                     textStyle: {
                         color: '#5E5E5E',
-                        fontSize: '12'
+                        fontSize: '16'
                     }
                 },
                 data: [1, 1, 1, 1]
@@ -2018,7 +2029,7 @@ export default {
                         },
                         textStyle: {
                             color: '#000000',
-                            fontSize: '12'
+                            fontSize: '18'
                         }
                     }
                 },
@@ -2075,6 +2086,8 @@ export default {
 .detail-right-wapper {
   width: 165px;
   position: fixed;
+  z-index: 999;
+  transition: all 1.5s;
   right: 2px;
   top: 138px;
   text-align: left;

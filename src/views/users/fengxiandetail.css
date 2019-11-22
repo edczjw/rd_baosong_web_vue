@@ -384,10 +384,9 @@ td {
 }
 .box5 .tit-pw .box5-rt {
   float: right;
-  width: 58%;
+  width: 51%;
   height: 100%;
   padding-left: 6px ;
-  border: 1px solid black;
 }
 .box6 {
   position: relative;
@@ -468,14 +467,14 @@ td {
 }
 .box7 .b7-chart {
   float: right;
-  width: 55%;
-  height: 310px;
+  width: 47%;
+  height: 340px;
 }
 .box7 .b7-ok {
   position: relative;
-  width: 45%;
-  height: 244px;
-  margin: 74px auto;
+  width: 52%;
+  height: 274px;
+  margin: 44px auto;
   float: left;
   background: #f5f7ff;
 }
@@ -526,7 +525,7 @@ td {
 .box7 .b7-ok ul li {
   width: 50%;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #a5afb8;
 }
 .box8 {
