@@ -163,7 +163,7 @@ td {
 .box3 .box3-ec {
   position: relative;
   width: 80%;
-  height: 380px;
+  height: 340px;
   margin: 0 auto;
 }
 .box3 .box3-ec .box3-bd-rt {
@@ -189,17 +189,17 @@ td {
 }
 .box3 .box3-charts {
   position: relative;
-  width: 360px;
+  width: 12rem;
+  height: 320px;
   float: left;
-  padding: 20px;
 }
 .box3 .box3-charts .vau {
   width: 50px;
   height: 50px;
   line-height: 50px;
   position: absolute;
-  top: 34%;
-  left: 48%;
+  top: 80%;
+  left: 115%;
   z-index: 9999;
   font-weight: bolder;
   color: #1e65e9;
@@ -208,48 +208,49 @@ td {
   font-size: 42px;
 }
 .box3 .box3-charts .core {
-  width: 250px;
+  width: 50px;
   height: 50px;
   line-height: 50px;
   position: absolute;
-  top: 40%;
-  left: 45%;
+  top: 50%;
+  left: 108%;
   z-index: 9999;
   font-weight: bolder;
-  color: #1e65e9;
+  color: #9398a1;
   text-align: center;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 42px;
 }
 .box3 .box3-right {
   position: absolute;
-  width: 298px;
-  right: 20px;
+  width: 19.96rem;
+  right: 1rem;
   top: 30%;
-  height: 115px;
-  padding: 10px;
+  left: 63%;
+  height: 2.3rem;
+  padding: 0.2rem;
 }
 .box3 .box3-right span {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-family: 'PingFangSC-Regular';
   font-weight: bold;
   color: #252e47;
 }
 .box3 .box3-right b {
   font-family: 'PingFangSC-Regular';
-  font-size: 40px;
+  font-size: 1.8rem;
   font-weight: bold;
   font-stretch: normal;
-  line-height: 24px;
-  letter-spacing: 3px;
+  line-height: 0.48rem;
+  letter-spacing: 0.06rem;
   color: #2670f3;
 }
 .box3 .box3-right .ji {
-  width: 82px;
-  height: 24px;
-  padding: 2px 10px;
+  width: 1.64rem;
+  height: 0.48rem;
+  padding: 0.04rem 10px;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.24rem;
   font-family: '"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti';
   font-weight: 400;
   color: #ffffff;
@@ -373,20 +374,33 @@ td {
   height: 50px;
   line-height: 50px;
   position: absolute;
-  top: 56%;
-  left: 40%;
+  top: 80%;
+  left: 45%;
   z-index: 9999;
   font-weight: bolder;
   color: #1e65e9;
   text-align: center;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 22px;
+}
+.box5 .tit-pw .box5-lf .core {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  top: 54%;
+  left: 45%;
+  z-index: 9999;
+  font-weight: bolder;
+  color: #9398a1;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 22px;
 }
 .box5 .tit-pw .box5-rt {
   float: right;
-  width: 51%;
+  width: 55%;
   height: 100%;
-  padding-left: 6px ;
 }
 .box6 {
   position: relative;
@@ -467,13 +481,13 @@ td {
 }
 .box7 .b7-chart {
   float: right;
-  width: 47%;
+  width: 48%;
   height: 340px;
 }
 .box7 .b7-ok {
   position: relative;
-  width: 52%;
-  height: 274px;
+  width: 51%;
+  height: 248px;
   margin: 44px auto;
   float: left;
   background: #f5f7ff;
