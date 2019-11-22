@@ -224,7 +224,7 @@
           </div>
 
           <el-card id="d4" class="box6-ec4">
-            <div class="box6tt">1.3.1多名单申请信息</div>
+            <div class="box6tt">1.3.1<span>多名单申请信息</span></div>
             <!-- 表格 -->
             <table class="jititable" border>
               <tr>
@@ -262,7 +262,7 @@
           </div>
 
           <el-card id="e1" class="box7-ec1">
-            <div class="box7tt">2.1.1身份信息</div>
+            <div class="box6tt">2.1.1<span>身份信息</span></div>
 
             <div class="b7-ok">
               <div class="lt">
@@ -417,7 +417,7 @@
           </div>
 
           <el-card id="g1" class="box9-ec1">
-            <div>2.3.1消费信息</div>
+            <div class="box6tt">2.3.1<span>消费信息</span></div>
             <!-- 表格 -->
             <table class="jititable gf" border>
               <tr v-for="item in tabledatas2.list1">
@@ -500,7 +500,7 @@
           </div>
 
           <el-card id="h1" class="box10-ec1">
-            2.4.1收入信息
+            <div class="box6tt">2.4.1<span>收入信息</span></div>
             <!-- 表格 -->
             <table border class="jititable gf">
               <tr>
@@ -566,7 +566,7 @@
           </div>
 
           <el-card id="i1" class="box11-ec1">
-            <div>2.5.1履约历史</div>
+            <div class="box6tt">2.5.1<span>履约历史</span></div>
 
             <!-- 表格 -->
             <table class="jititable gf" border>
@@ -590,7 +590,7 @@
           </div>
 
           <el-card id="j1" class="box12-ec1">
-            2.6.1通讯行为
+            <div class="box6tt">2.6.1<span>通讯行为</span></div>
             <!-- 表格 -->
             <table class="jititable gf" border>
               <tr v-for="item in tabledatas3.detail">
@@ -613,18 +613,19 @@
         </div> -->
 
         <div class="box14"></div>
-      </div>
 
+      </div>
+    </el-card>
+    
       <div class="detail-right-wapper animated fadeInRight">
-        
-        <div class="sf">
+        <!-- <div class="sf">
           <ul>
             <li><span>姓名:</span>{{name}}</li>
             <li><span>身份证:</span>{{idNumber}}</li>
             <li><span>电话:</span>{{phone}}</li>
           </ul>
         </div>
-        <el-input size="mini" class="flter-input" placeholder="输入关键字进行快捷查询" v-model="filterText"></el-input>
+        <el-input size="mini" class="flter-input" placeholder="输入关键字进行快捷查询" v-model="filterText"></el-input> -->
 
         <el-tree
           class="filter-tree"
@@ -637,7 +638,6 @@
         ></el-tree>
 
       </div>
-    </el-card>
   </div>
 </template>
 
@@ -1922,7 +1922,7 @@ export default {
                 offset: '5',
                 axisLabel: {
                     textStyle: {
-                        color: '#000000',
+                        color: '#5E5E5E',
                         fontSize: '12'
                     }
                 },
@@ -1933,7 +1933,7 @@ export default {
                 show: false,
                 axisLabel: {
                     textStyle: {
-                        color: '#000000',
+                        color: '#5E5E5E',
                         fontSize: '12'
                     }
                 },
@@ -2073,20 +2073,21 @@ export default {
   background: #eee;
 }
 .detail-right-wapper {
-  width: 16%;
+  width: 165px;
   position: fixed;
-  right: 68px;
-  top: 125px;
+  right: 2px;
+  top: 138px;
+  text-align: left;
   .flter-input {
-    width: 190px !important;
-    margin-bottom: 10px;
+    width: 120px !important;
+    margin: 0px auto 20px;
   }
 }
 .page-human {
   position: relative;
 }
 .el-card {
-  width: 75%;
+  width: 100%;
   .el-table tr,
   .el-table th {
     background: rgba(174, 228, 240, 0.822);
