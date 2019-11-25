@@ -101,6 +101,7 @@
         <el-table-column prop="productCode" label="产品名称" align="center">
           <template slot-scope="scope">
             <span v-if="scope.row.productCode=='zyd'">中移动项目</span>
+            <span v-else-if="scope.row.productCode=='riskreport'">风险评估报告</span>
             <span v-else>民盛易贷</span>
           </template>
         </el-table-column>

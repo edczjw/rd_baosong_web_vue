@@ -24,7 +24,7 @@
               <div class="vau">{{this.vau}}</div>
               <div class="core">{{this.core}}</div>
 
-              <div id="myChart" :style="{width: '560px', height: '300px'}"></div>
+              <div id="myChart" :style="{width: '100%', height: '300px'}"></div>
             </div>
             <div class="box3-right">
               <span>授信额度：</span>
@@ -34,7 +34,7 @@
               <br />
               <span>评分模型结论：</span>
               <span v-if="tabledatas7.scoreModelResult == 'PASS'" class="ji">审核通过</span>
-              <span v-else class="ji">审核不通过</span>
+              <span v-else class="jif">审核不通过</span>
             </div>
 
             <div class="box3-bd-rt">审核{{tabledatas7.proposalFixed}}</div>
@@ -46,6 +46,7 @@
             <img src="../../assets/detailfengxianpinggu/1.1.png" alt />
           </div>
 
+          <div class="kl">
           <el-card class="box4-ec">
             <div class="tit-pp">欺诈分：
               <span v-if="tabledatas7.cheatScore !=null">{{tabledatas7.cheatScore}}</span>
@@ -55,9 +56,9 @@
             <!-- 表格 -->
             <table class="jititable" border>
               <tr>
-                <th>策略</th>
-                <th>命中规则</th>
-                <th>命中分值</th>
+                <th  style="width:260px">策略</th>
+                <th style="width:260px">命中规则</th>
+                <th style="width:260px">命中分值</th>
               </tr>
               <tr v-for="item in tabledatas7.ruleList">
                 <td>
@@ -83,6 +84,7 @@
               </tr>
             </table>
           </el-card>
+          </div>
         </div>
 
         <div id="c" class="box5">
@@ -95,14 +97,15 @@
             <div class="box5-lf">
               <div class="vau">{{this.vau}}</div>
               <div class="core">{{this.core}}</div>
-              <div id="myChart2" :style="{width: '260px', height: '300px',margin:'0 auto'}"></div>
+              <div id="myChart2" :style="{width: '80%', height: '300px',margin:'0 auto'}"></div>
             </div>
 
             <div class="box5-rt">
-              <div id="myChart3" :style="{width: '430px', height: '220px'}"></div>
+              <div id="myChart3" :style="{width: '100%', height: '220px'}"></div>
             </div>
           </el-card>
 
+          <div class="lps">
           <el-card class="box5-ec2">
             <div class="tit-pp2">
               信用分：
@@ -114,9 +117,9 @@
             <!-- 表格 -->
             <table class="jititable11" border>
               <tr>
-                <th>属性类型</th>
-                <th>评分项</th>
-                <th>数据值</th>
+                <th style="width:260px">属性类型</th>
+                <th style="width:260px">评分项</th>
+                <th style="width:260px">数据值</th>
               </tr>
               <tr>
                 <td>基本信息</td>
@@ -178,7 +181,7 @@
                     <tr><td style="border-bottom:none">金融标签指标（P2P）</td></tr>
                   </table>
                 </td>
-                <td>
+                <td style="width:240px">
                   <table class="jititables">
                     <tr><td>
                       <span v-if="tabledatas7.mobileConsumeLevel == null">-</span>
@@ -202,7 +205,7 @@
                     <tr><td style="border-bottom:none">手机在网时长</td></tr>
                   </table>
                 </td>
-                <td>
+                <td style="width:240px">
                   <table class="jititables">
                     <tr><td>
                       <span v-if="tabledatas7.addressIsSame == null">-</span>
@@ -217,7 +220,7 @@
                 </td>
               </tr>
             </table>
-          </el-card>
+          </el-card></div>
         </div>
 
         <div id="d" class="box6">
@@ -226,16 +229,16 @@
           </div>
 
           <el-card id="d4" class="box6-ec4">
-            <div class="box6tt">1.3.1<span>多名单申请信息</span></div>
+            <div class="box6tt">1.3.1<span>多平台申请信息</span></div>
             <!-- 表格 -->
             <table class="jititable" border>
               <tr>
-                <th>检查项目</th>
-                <th>总个数</th>
-                <th>借款人手机详情</th>
-                <th>借款人身份证详情</th>
+                <th style="width:260px">检查项目</th>
+                <th style="width:260px">总个数</th>
+                <th style="width:260px">借款人手机详情</th>
+                <th style="width:260px">借款人身份证详情</th>
               </tr>
-              <tr v-for="item in tabledatas4.detail">
+              <tr v-for="(item,index) in tabledatas4.detail" :class="{'bg-hu':index%2!=0}">
                 <td>{{item.fieldName}}</td>
                 <td v-if="item.list==''">-</td>
                 <td v-if="item.list==''">-</td>
@@ -300,7 +303,7 @@
             </div>
 
             <div class="b7-chart">
-              <div id="myChart4" :style="{width: '390px', height: '290px'}"></div>
+              <div id="myChart4" :style="{width: '100%', height: '90%'}"></div>
             </div>
           </el-card>
         </div>
@@ -315,12 +318,12 @@
             <table class="jititable" border>
               <tr></tr>
               <tr>
-                <td class="bg-co">姓名</td>
+                <td class="bg-co" style="width:180px">姓名</td>
                 <td>
                   <span v-if="tabledatas5.name==null || tabledatas5.name==''">－</span>
                   <span v-else>{{tabledatas5.name}}</span>
                 </td>
-                <td class="bg-co">身份证号码</td>
+                <td class="bg-co" style="width:180px">身份证号码</td>
                 <td colspan="3">
                   <span v-if="tabledatas5.idCardNum==null || tabledatas5.idCardNum==''">－</span>
                   <span v-else>{{tabledatas5.idCardNum}}</span>
@@ -337,7 +340,7 @@
                   <span v-if="tabledatas5.sex==null || tabledatas5.sex==''">－</span>
                   <span v-else>{{tabledatas5.sex}}</span>
                 </td>
-                <td class="bg-co">民族</td>
+                <td class="bg-co" style="width:180px">民族</td>
                 <td>
                   <span v-if="tabledatas5.nation==null || tabledatas5.nation==''">－</span>
                   <span v-else>{{tabledatas5.nation}}</span>
@@ -399,14 +402,14 @@
                 <td class="bg-co">直系联系人</td>
                 <td colspan="5" class="lf">
                   <span v-if="tabledatas5.emergencyContactName1==null || tabledatas5.emergencyContactName1==''">－</span>
-                  <span v-else>{{tabledatas5.emergencyContactName1}}({{tabledatas5.emergencyContactRela1}})</span>
+                  <span v-else>{{tabledatas5.emergencyContactName1}}  ({{tabledatas5.emergencyContactRela1}})</span>
                 </td>
               </tr>
               <tr>
                 <td class="bg-co">其他联系人</td>
                 <td colspan="5" class="lf">
                   <span v-if="tabledatas5.emergencyContactName2==null || tabledatas5.emergencyContactName2==''">－</span>
-                  <span v-else>{{tabledatas5.emergencyContactName2}}({{tabledatas5.emergencyContactRela2}})</span>
+                  <span v-else>{{tabledatas5.emergencyContactName2}}  ({{tabledatas5.emergencyContactRela2}})</span>
                   </td>
               </tr>
             </table>
@@ -422,12 +425,12 @@
             <div class="box6tt">2.3.1<span>消费信息</span></div>
             <!-- 表格 -->
             <table class="jititable gf" border>
-              <tr v-for="item in tabledatas2.list1">
-                <td style="width:220px" class="bg-co">
+              <tr v-for="(item,index) in tabledatas2.list1"  :class="{'bg-hu':index%2!=0}">
+                <td style="width:220px">
                   <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
-                <td>
+                <td style="width:220px">
                   <span v-if="item.content=='' || item.content==null">-</span>
                   <span v-else>{{item.content}}</span>
                   </td>
@@ -438,17 +441,17 @@
 
           <el-card class="box9-ec2">
             <table class="jititable gf" border>
-              <tr>
-                <td  class="bg-co"></td>
-                <td  class="bg-co">出行旅游类</td>
-                <td  class="bg-co">教育培训类</td>
-                <td  class="bg-co">金融及实物投资类</td>
-                <td  class="bg-co">其他类</td>
-                <td  class="bg-co">生活购物类</td>   
-                <td  class="bg-co">娱乐服务类</td>   
+              <tr class="bg-do">
+                <td style="width:140px"></td>
+                <td style="width:140px">出行旅游类</td>
+                <td style="width:140px">教育培训类</td>
+                <td style="width:140px">金融及实物投资类</td>
+                <td style="width:140px">其他类</td>
+                <td style="width:140px">生活购物类</td>   
+                <td style="width:140px">娱乐服务类</td>   
               </tr>
-              <tr v-for="item in tabledatas2.list2">
-                <td class="bg-co">
+              <tr v-for="(item,index) in tabledatas2.list2"   :class="{'bg-hu':index%2!=1}">
+                <td>
                   <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
@@ -463,29 +466,29 @@
           <el-card class="box9-ec3">
             <table class="jititable gf" border>
               <tr>
-                <td  class="bg-co">消费档次</td>
-                <td colspan="4">
+                <td class="bg-co" style="width:320px">消费档次</td>
+                <td colspan="4" style="width:320px">
                   <span v-if="tabledatas.consumeGrade=='' || tabledatas.consumeGrade==null">-</span>
                   <span v-else>{{tabledatas.consumeGrade}}</span>
                   </td>
               </tr>
               <tr>
-                <td  class="bg-co">综合消费活跃度</td>
+                <td colspan="1" class="bg-co">综合消费活跃度</td>
                 <td colspan="4">
                   <span v-if="tabledatas.consumeActive==null || tabledatas.consumeActive==''">-</span>
                   <span v-else>{{tabledatas.consumeActive}}</span>
                 </td>
               </tr>
               <tr>
-                <td  class="bg-co"></td>
-                <td  class="bg-co">近1月</td>
-                <td  class="bg-co">近3月</td>
-                <td  class="bg-co">近6月</td>
-                <td  class="bg-co">近12月</td>
+                <td></td>
+                <td>近1月</td>
+                <td>近3月</td>
+                <td>近6月</td>
+                <td>近12月</td>
               </tr>
 
-              <tr v-for="item in tabledatas.list2">
-                <td class="bg-co">
+              <tr v-for="(item,index) in tabledatas.list2"   :class="{'bg-hu':index%2!=1}">
+                <td>
                   <span v-if="item.fieldName=='' || item.fieldName==null">-</span>
                   <span v-else>{{item.fieldName}}</span></td>
                 <td v-for="items in item.content">
@@ -506,8 +509,8 @@
             <!-- 表格 -->
             <table border class="jititable gf">
               <tr>
-                <td class="bg-co">信用卡最高等级</td>
-                <td colspan="4">
+                <td class="bg-co" style="width:320px">信用卡最高等级</td>
+                <td colspan="4" style="width:320px">
                   <span v-if="tabledatas.cardMaxLevel=='' ||tabledatas.cardMaxLevel==null ">－</span>
                   <span v-else>{{tabledatas.cardMaxLevel}}</span>
                 </td>
@@ -521,18 +524,18 @@
                 </td>
               </tr>
               <tr>
-                <td  class="bg-hu"></td>
-                <td  class="bg-hu">近1月</td>
-                <td  class="bg-hu">近3月</td>
-                <td  class="bg-hu">近6月</td>
-                <td  class="bg-hu">近12月</td>
+                <td></td>
+                <td>近1月</td>
+                <td>近3月</td>
+                <td>近6月</td>
+                <td>近12月</td>
               </tr>
-              <tr v-for="item in tabledatas.list1">
-                <td class="bg-hu">
+              <tr v-for="(item,index) in tabledatas.list1"   :class="{'bg-hu':index%2!=1}">
+                <td>
                   <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
-                <td v-for="items in item.content">
+                <td v-for="(items,index) in item.content" >
                   <span v-if="items=='' || items==null">－</span>
                   <span v-else>{{items}}</span>
                 </td>
@@ -544,12 +547,12 @@
             <!-- 表格 -->
             <table border class="jititable gf">
               <tr>
-                <td class="bg-co"></td>
-                <td class="bg-co">交易占比</td>
-                <td class="bg-co">交易总金额</td>
+                <td class="bg-co" style="width:260px"></td>
+                <td class="bg-co" style="width:260px">交易占比</td>
+                <td class="bg-co" style="width:260px">交易总金额</td>
               </tr>
-              <tr v-for="item in tabledatas.list3">
-                <td class="bg-hu">
+              <tr v-for="(item,index) in tabledatas.list3" :class="{'bg-hu':index%2!=0}">
+                <td>
                   <span v-if="item.fieldName=='' || item.fieldName==null">－</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
@@ -572,13 +575,13 @@
 
             <!-- 表格 -->
             <table class="jititable gf" border>
-              <tr v-for="item in tabledatas8">
-                <td style="width:220px" class="bg-hu">
+              <tr v-for="(item,index) in tabledatas8" :class="{'bg-hu':index%2!=1}">
+                <td style="width:220px">
                   <span v-if="item.fieldName == null || item.fieldName==''">-</span>
                   <span v-else>{{item.fieldName}}</span>
                 </td>
-                <td>
-                  <span v-if="item.value=='' || item.value==null">－</span>
+                <td  style="width:220px">
+                  <span v-if="item.value==null">－</span>
                   <span v-else>{{item.value}}</span>
                   </td>
               </tr>
@@ -595,9 +598,9 @@
             <div class="box6tt">2.6.1<span>通讯行为</span></div>
             <!-- 表格 -->
             <table class="jititable gf" border>
-              <tr v-for="item in tabledatas3.detail">
-                <td style="width:220px" class="bg-hu">{{item.fieldName}}</td>
-                <td>
+              <tr v-for="(item,index) in tabledatas3.detail"  :class="{'bg-hu':index%2!=1}">
+                <td style="width:220px">{{item.fieldName}}</td>
+                <td  style="width:220px">
                   <span v-if="item.content=='' || item.content==null">－</span>
                   <span v-else>{{item.content}}</span>
                   </td>
@@ -618,17 +621,7 @@
 
       </div>
     </el-card>
-    <div id="dtops">
-      <div class="detail-right-wapper">
-        <!-- <div class="sf">
-          <ul>
-            <li><span>姓名:</span>{{name}}</li>
-            <li><span>身份证:</span>{{idNumber}}</li>
-            <li><span>电话:</span>{{phone}}</li>
-          </ul>
-        </div>
-        <el-input size="mini" class="flter-input" placeholder="输入关键字进行快捷查询" v-model="filterText"></el-input> -->
-
+      <div id="dtops" class="detail-right-wapper">
         <el-tree
           class="filter-tree"
           :data="data"
@@ -639,7 +632,7 @@
           ref="tree2"
         ></el-tree>
 
-      </div></div>
+      </div>
   </div>
 </template>
 
@@ -653,6 +646,7 @@ export default {
   },
   data() {
     return {
+      fr:false,
       filterText: "",
       name:"",
       idNumber:"",
@@ -682,43 +676,43 @@ export default {
       tabledatas8:{},
       data: [
         {
-          label: "● 报告结论",
+          label: "报告结论",
           href: "a"
         },
         {
-          label: "● 1.1-欺诈评估",
+          label: "1.1-欺诈评估",
           href: "b"
         },
         {
-          label: "● 1.2-信用评估",
+          label: "1.2-信用评估",
           href: "c"
         },
         {
-          label: "● 1.3-风险提示信息",
+          label: "1.3-风险提示信息",
           href: "d"
         },
         {
-          label: "● 2.1-客户画像",
+          label: "2.1-客户画像",
           href: "e"
         },
         {
-          label: "● 2.2-基本信息",
+          label: "2.2-基本信息",
           href: "f"
         },
         {
-          label: "● 2.3-消费能力评估",
+          label: "2.3-消费能力评估",
           href: "g"
         },
         {
-          label: "● 2.4-收入能力评估",
+          label: "2.4-收入能力评估",
           href: "h"
         },
         {
-          label: "● 2.5-信用历史",
+          label: "2.5-信用历史",
           href: "i"
         },
         {
-          label: "● 2.6-社交行为",
+          label: "2.6-社交行为",
           href: "j"
         }
       ],
@@ -737,8 +731,8 @@ export default {
 
     //仪表
     this.drawLine4();
-    // this.drawLine();
-    // this.drawLine2();
+    this.drawLine();
+    this.drawLine2();
     this.drawLine3();
     window.addEventListener("scroll", function(e) {
       // 监听（绑定）滚轮滚动事件
@@ -763,7 +757,8 @@ export default {
       //收入
         var data1 = {
           name: this.$route.query.name,
-          cid: this.$route.query.idCard
+          cid: this.$route.query.idCard,
+          mobile: this.$route.query.phone,
         };
       //消费
         var data2 = {
@@ -1103,7 +1098,7 @@ export default {
     drawLine() {
     this.core = this.tabledatas7.sumScore;
     var score = parseInt(this.tabledatas7.sumScore);
-
+    var ss = score;
     if(0<=score && score<500){
         if(0<score && score<250){
             score = 1
@@ -1174,6 +1169,8 @@ export default {
         }else{
             score = 67
         }
+    }else{
+      score = 0
     }
     var  option = {
     backgroundColor:'#ffffff',
@@ -1182,17 +1179,17 @@ export default {
         },
         tooltip : {
             show: true,
-            formatter: "{b}{c}%",
+            formatter: '信用分等级：'+this.vau+'级',
         },
         series: [{
-            name: '彩虹仪表盘',
+            name: '信用分',
             type: "gauge",
             startAngle: 180,
             endAngle: 0,
             min: 0,//最小值
             max: 70,//最大值
-            radius: "140%",//半径
-            center: ["44%", "80%"],//位置
+            radius: "100%",//半径
+            center: ["50%", "70%"],//位置
             splitNumber: 7, //刻度数量
             //刻度
             axisLine: {
@@ -1266,25 +1263,25 @@ export default {
                 show: true,
                 textStyle: {
                     color:'#000000',
-                      fontSize: "28",
+                      fontSize: "24",
                 },
                   distance: 10 ,//刻度距离
                   formatter: function(e) {
                   switch (e) {
                     case 0:
-                      return "G";
+                      return "0";
                     case 10:
-                      return "F";
+                      return "G";
                     case 20:
-                      return "E";
+                      return "F";
                     case 30:
-                      return "D";
+                      return "E";
                     case 40:
-                      return "C";
+                      return "D";
                     case 50:
-                      return "B";
+                      return "C";
                     case 60:
-                      return "";
+                      return "B";
                     case 70:
                       return "A";
                     default:
@@ -1310,7 +1307,7 @@ export default {
                 },
             detail: {
               show:false,
-                formatter: '{value}',
+                formatter: score,
                 offsetCenter: ['0', '-20%'],
                 textStyle: {
                 fontSize: 48,
@@ -1325,7 +1322,7 @@ export default {
       let myChart = this.$echarts.init(document.getElementById("myChart"));
 
       // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
+      myChart.setOption(option,window.onresize = myChart.resize);
     },
     
     //小的仪表盘
@@ -1402,6 +1399,8 @@ export default {
         }else{
             score = 67
         }
+    }else{
+      score= 0 
     }
     var  option = {
     backgroundColor:'#ffffff',
@@ -1410,23 +1409,23 @@ export default {
         },
         tooltip : {
             show: true,
-            formatter: "{b}{c}%",
+            formatter: '信用分等级：'+this.vau+'级',
         },
         series: [{
-            name: '彩虹仪表盘',
+            name: '信用分',
             type: "gauge",
             startAngle: 180,
             endAngle: 0,
             min: 0,//最小值
             max: 70,//最大值
-            radius: "90%",//半径
-            center: ["50%", "47%"],//位置
+            radius: "100%",//半径
+            center: ["50%", "53%"],//位置
             splitNumber: 7, //刻度数量
             //刻度
             axisLine: {
                 show: true,
                 lineStyle: {
-                    width: 20,
+                    width: 23,
                     shadowBlur: 0,
                     color: [
                       [0.1428, new this.$echarts.graphic.LinearGradient(
@@ -1496,23 +1495,23 @@ export default {
                     color:'#000000',
                       fontSize: "14",
                 },
-                  distance: 10 ,//刻度距离
+                  distance: 8 ,//刻度距离
                   formatter: function(e) {
                   switch (e) {
                     case 0:
-                      return "G";
+                      return "0";
                     case 10:
-                      return "F";
+                      return "G";
                     case 20:
-                      return "E";
+                      return "F";
                     case 30:
-                      return "D";
+                      return "E";
                     case 40:
-                      return "C";
+                      return "D";
                     case 50:
-                      return "B";
+                      return "C";
                     case 60:
-                      return "";
+                      return "B";
                     case 70:
                       return "A";
                     default:
@@ -1538,10 +1537,10 @@ export default {
                 },
             detail: {
               show:false,
-                formatter: '{value}',
+                formatter: score,
                 offsetCenter: ['0', '-20%'],
                 textStyle: {
-                fontSize: 18,
+                fontSize: 22,
                 color:'#cccccc'
                 }
             },
@@ -1662,7 +1661,7 @@ export default {
                 type: 'bar',
                 yAxisIndex: 1,
                 barGap: '-100%',
-                data: [99.9, 99.9, 99.9, 99.9],
+                data: [100, 100, 100, 100],
                 barWidth: 14,
                 itemStyle: {
                     normal: {
@@ -1733,7 +1732,7 @@ export default {
       //平滑滚动
       $("body,html").animate({ scrollTop: idhight + 60 }, 1100);
     }
-  }
+  },
 };
 </script>
 <style lang='less' scoped>
