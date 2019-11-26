@@ -319,7 +319,7 @@
               <tr></tr>
               <tr>
                 <td class="bg-co" style="width:180px">姓名</td>
-                <td>
+                <td  style="width:180px">
                   <span v-if="tabledatas5.name==null || tabledatas5.name==''">－</span>
                   <span v-else>{{tabledatas5.name}}</span>
                 </td>
@@ -336,12 +336,12 @@
                   <span v-else>{{tabledatas5.age}}</span>
                 </td>
                 <td class="bg-co">性别</td>
-                <td>
+                <td style="width:180px">
                   <span v-if="tabledatas5.sex==null || tabledatas5.sex==''">－</span>
                   <span v-else>{{tabledatas5.sex}}</span>
                 </td>
                 <td class="bg-co" style="width:180px">民族</td>
-                <td>
+                <td style="width:180px">
                   <span v-if="tabledatas5.nation==null || tabledatas5.nation==''">－</span>
                   <span v-else>{{tabledatas5.nation}}</span>
                 </td>
@@ -1766,7 +1766,7 @@ export default {
   .el-table th {
     background: rgba(174, 228, 240, 0.822);
     color: rgb(118, 104, 104);
-    font-family: "苹方";
+    font-family:PingFangSC-Regular, sans-serif;
   }
   /deep/ .el-table--border td,
   .el-table--border th,

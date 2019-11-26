@@ -62,40 +62,43 @@
   width: 99%;
   font-size: 14px;
   text-align: center;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
   border: 1px solid #dde2e6;
   margin: 30px auto;
 }
 .jititable th {
-  height: 46px;
+  height: 49px;
   color: #252e47;
   font-size: 16px;
+  font-family: SourceHanSansCN-Normal;
   background-color: #f1f4ff;
 }
 .jititable td {
-  height: 46px;
+  height: 49px;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 .jititable11 {
   border-collapse: collapse;
   width: 99%;
   font-size: 14px;
   text-align: center;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-family: SourceHanSansCN-Normal;
   border: 1px solid #dde2e6;
   margin: 30px auto;
 }
 .jititable11 th {
-  height: 46px;
+  height: 49px;
   color: #252e47;
   font-size: 16px;
   background-color: #f1f4ff;
 }
 .jititable11 td {
-  height: 46px;
+  height: 49px;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 td {
   text-align: center;
   font-size: 14px;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 .jititables {
   font-size: 14px;
@@ -108,9 +111,9 @@ td {
   -webkit-border-vertical-spacing: 0;
 }
 .jititables td {
-  height: 46px;
+  height: 49px;
   border-bottom: 1px solid #dde2e6;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 .jititables .dd {
   padding: 0;
@@ -128,11 +131,11 @@ td {
   text-align: center;
 }
 .jititables1 td {
-  height: 46px;
+  height: 28px;
 }
 .detail-card {
   height: 100%;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 .tab-box1 {
   width: 100%;
@@ -234,12 +237,12 @@ td {
 }
 .box3 .box3-right span {
   font-size: 1.4rem;
-  font-family: '苹方';
+  font-family: PingFangSC-Regular, sans-serif !important;
   font-weight: bold;
   color: #252e47;
 }
 .box3 .box3-right b {
-  font-family: '苹方';
+  font-family: AdobeHeitiStd-Regular;
   font-size: 1.8rem;
   font-weight: bold;
   font-stretch: normal;
@@ -313,8 +316,8 @@ td {
   z-index: 99999 !important;
   left: calc(50% - 164px);
   text-align: center;
-  font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
-  font-weight: 600;
+  font-family: PingFangSC-Regular, sans-serif !important;
+  font-weight: normal;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(../../assets/detailfengxianpinggu/titoi.png);
@@ -455,7 +458,8 @@ td {
   line-height: 22px;
   letter-spacing: 2px;
   color: #252e47;
-  font-family: '苹方';
+  padding-left: 6px;
+  font-family: PingFangSC-Regular, sans-serif !important;
 }
 .box6tt span {
   padding-left: 6px;
@@ -499,13 +503,13 @@ td {
 }
 .box7 .b7-chart {
   float: right;
-  width: 48%;
-  height: 340px;
+  width: 52%;
+  height: 360px;
 }
 .box7 .b7-ok {
   position: relative;
-  width: 51%;
-  height: 248px;
+  width: 42%;
+  height: 278px;
   margin: 34px auto;
   float: left;
   background: #f5f7ff;
@@ -544,13 +548,13 @@ td {
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  vertical-align: top;
+  vertical-align: bottom;
   bottom: 0;
   object-fit: fill;
 }
 .box7 .b7-ok ul {
   width: 100%;
-  padding: 5px 20px 10px 20px;
+  padding: 25px 20px 10px 20px;
   display: inline-flex;
 }
 .box7 .b7-ok ul li {
