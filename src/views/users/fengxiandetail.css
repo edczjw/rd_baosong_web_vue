@@ -167,7 +167,6 @@ td {
 .box3 .box3-ec {
   position: relative;
   width: 77%;
-  height: 340px;
   margin: 0 auto;
 }
 .box3 .box3-ec .box3-bd-rt {
@@ -191,12 +190,15 @@ td {
   box-shadow: 0px 132px 250px 0px rgba(0, 195, 246, 0.2), inset 0px -1px 0px 0px #cafbfe;
   border-radius: 0px 8px 0px 42px;
 }
+.box3 .b3-box {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 .box3 .box3-charts {
   position: relative;
-  width: 49%;
-  height: 320px;
-  float: left;
-  margin: 0 30px;
+  flex: 1;
+  margin: 0 0 0 90px;
 }
 .box3 .box3-charts .vau {
   width: 50px;
@@ -227,13 +229,9 @@ td {
   font-size: 1.84rem;
 }
 .box3 .box3-right {
-  position: absolute;
-  width: 400px;
-  right: 2rem;
-  top: 30%;
-  left: 57%;
-  height: 150px;
-  padding: 20px 50px 0 0 ;
+  flex: 1;
+  margin: auto 70px auto 10px;
+  padding: 10px 10px 0 0 ;
 }
 .box3 .box3-right span {
   font-size: 1.4rem;
@@ -385,12 +383,15 @@ td {
   font-weight: bolder;
   border-left: 4px solid #2670f3;
 }
+.box5 .tit-pw .bg5-box {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 .box5 .tit-pw .box5-lf {
   position: relative;
-  height: 210px;
-  float: left;
-  width: 39%;
-  margin: 0 30px;
+  flex: 0.6;
+  margin: 0 40px;
 }
 .box5 .tit-pw .box5-lf .vau {
   width: 50px;
@@ -419,8 +420,7 @@ td {
   font-size: 1.2rem;
 }
 .box5 .tit-pw .box5-rt {
-  float: right;
-  width: 52%;
+  flex: 1;
   height: 100%;
 }
 .box6 {
@@ -491,6 +491,8 @@ td {
   height: 100%;
   margin: 0 auto;
   padding: 0 20px;
+  justify-content: space-between;
+  align-content: center;
 }
 .box7 .box7tt {
   width: 148px;
@@ -501,17 +503,27 @@ td {
   color: #252e47;
   line-height: 22px;
 }
+.box7 .b7-box {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 .box7 .b7-chart {
-  float: right;
-  width: 52%;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 0.5;
+  margin: 0 6%;
   height: 360px;
 }
 .box7 .b7-ok {
   position: relative;
-  width: 42%;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 0.5;
   height: 278px;
-  margin: 34px auto;
-  float: left;
+  margin: 34px 6%;
   background: #f5f7ff;
 }
 .box7 .b7-ok .lt {

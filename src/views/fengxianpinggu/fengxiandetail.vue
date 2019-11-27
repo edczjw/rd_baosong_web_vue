@@ -20,11 +20,12 @@
 
         <div class="box3">
           <el-card class="box3-ec">
+            <div class="b3-box">
             <div class="box3-charts">
               <div class="vau">{{this.vau}}</div>
               <div class="core">{{this.core}}</div>
 
-              <div id="myChart" :style="{width: '100%', height: '300px'}"></div>
+              <div id="myChart" :style="{width: '100%', height: '280px'}"></div>
             </div>
             <div class="box3-right">
               <span>授信额度：</span>
@@ -38,6 +39,7 @@
             </div>
 
             <div class="box3-bd-rt">审核{{tabledatas7.proposalFixed}}</div>
+            </div>
           </el-card>
         </div>
 
@@ -94,14 +96,16 @@
 
           <el-card class="tit-pw">
             <div class="box5-io">评分模型结论</div>
+            <div class="bg5-box">
             <div class="box5-lf">
               <div class="vau">{{this.vau}}</div>
               <div class="core">{{this.core}}</div>
-              <div id="myChart2" :style="{width: '80%', height: '300px',margin:'0 auto'}"></div>
+              <div id="myChart2" :style="{width: '80%', height: '100%',margin:'0 auto'}"></div>
             </div>
 
             <div class="box5-rt">
               <div id="myChart3" :style="{width: '100%', height: '220px'}"></div>
+            </div>
             </div>
           </el-card>
 
@@ -269,6 +273,7 @@
           <el-card id="e1" class="box7-ec1">
             <div class="box6tt">2.1.1<span>身份信息</span></div>
 
+            <div class="b7-box">
             <div class="b7-ok">
               <div class="lt">
               <img src="../../assets/detailfengxianpinggu/lt.png" alt=""></div>
@@ -304,6 +309,7 @@
 
             <div class="b7-chart">
               <div id="myChart4" :style="{width: '100%', height: '90%'}"></div>
+            </div>
             </div>
           </el-card>
         </div>
@@ -1028,8 +1034,9 @@ export default {
               },
               axisLabel:{
                 interval:0,  //x轴字间隔
-                fontsize: '16',
+                fontsize: '8',
               },
+              fontsize: '8',
               data: ['身份证vs公安库','活体vs公安库','身份证vs活体'],
           }],
           yAxis: [{
@@ -1189,13 +1196,13 @@ export default {
             min: 0,//最小值
             max: 70,//最大值
             radius: "100%",//半径
-            center: ["50%", "70%"],//位置
+            center: ["50%", "66%"],//位置
             splitNumber: 7, //刻度数量
             //刻度
             axisLine: {
                 show: true,
                 lineStyle: {
-                    width: 30,
+                    width: 28,
                     shadowBlur: 0,
                     color: [
                       [0.1428, new this.$echarts.graphic.LinearGradient(
@@ -1261,11 +1268,12 @@ export default {
             },
             axisLabel: {
                 show: true,
+                fontfamily:'苹方',
                 textStyle: {
                     color:'#000000',
-                      fontSize: "24",
+                      fontSize: "22",
                 },
-                  distance: 10 ,//刻度距离
+                  distance: 8 ,//刻度距离
                   formatter: function(e) {
                   switch (e) {
                     case 0:
@@ -1419,13 +1427,13 @@ export default {
             min: 0,//最小值
             max: 70,//最大值
             radius: "100%",//半径
-            center: ["50%", "53%"],//位置
+            center: ["50%", "70%"],//位置
             splitNumber: 7, //刻度数量
             //刻度
             axisLine: {
                 show: true,
                 lineStyle: {
-                    width: 23,
+                    width: 20,
                     shadowBlur: 0,
                     color: [
                       [0.1428, new this.$echarts.graphic.LinearGradient(
@@ -1495,7 +1503,7 @@ export default {
                     color:'#000000',
                       fontSize: "14",
                 },
-                  distance: 8 ,//刻度距离
+                  distance: 6 ,//刻度距离
                   formatter: function(e) {
                   switch (e) {
                     case 0:
@@ -1570,14 +1578,14 @@ export default {
                 {
                 left: '2%',
                 top: '12%',
-                right: '25%',
+                right: '15%',
                 bottom: '6%',
                 containLabel: true
             },
             {
                 left: '2%',
                 top: '12%',
-                right: '25%',
+                right: '15%',
                 bottom: '6%',
                 containLabel: true
             }

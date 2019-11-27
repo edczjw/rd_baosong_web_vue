@@ -187,7 +187,7 @@ td{
     .box3-ec{
         position: relative;
         width: 77%;
-        height: 340px;
+        // height: 340px;
         margin: 0 auto;
         //右上角审核通过
         .box3-bd-rt{
@@ -222,14 +222,19 @@ td{
             border-radius: 0px 8px 0px 42px;
            }
     }
-    
+    .b3-box{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
     // 仪表盘
     .box3-charts{
         position: relative;
-        width: 49%;
-        height: 320px;
-        float: left;
-        margin: 0 30px;
+        // width: 49%;
+        // height: 320px;
+        // float: left;
+        flex: 1;
+        margin: 0 0 0 90px;
         .vau{
             width: 50px;
             height: 50px;
@@ -263,13 +268,15 @@ td{
 
     }
     .box3-right{
-        position: absolute;
-        width: 400px;
-        right: 2rem;
-        top: 30%;
-        left: 57%;
-        height: 150px;
-        padding: 20px 50px 0 0 ;
+        // position: absolute;
+        // width: 400px;
+        flex: 1;
+        // right: 2rem;
+        // margin: auto;
+        margin: auto 70px auto 10px;
+        // left: 57%;
+        // height: 150px;
+        padding: 10px 10px 0 0 ;
 
         span{
             font-size:1.4rem;
@@ -437,12 +444,18 @@ td{
             font-weight: bolder;
             border-left: 4px solid #2670f3;
         }
+        .bg5-box{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+        }
         .box5-lf{
             position: relative;
-            height: 210px;
-            float: left;
-            width: 39%;
-            margin: 0 30px;
+            // height: 210px;
+            // float: left;
+            flex: 0.6;
+            // width: 39%;
+            margin: 0 40px;
             
         .vau{
             width: 50px;
@@ -474,8 +487,9 @@ td{
         }
         }
         .box5-rt{
-            float: right;
-            width: 52%;
+            // float: right;
+            flex: 1;
+            // width: 52%;
             height: 100%;
         }
     }
@@ -558,6 +572,8 @@ td{
         height: 100%;
         margin: 0 auto;
         padding: 0 20px;
+        justify-content: space-between;
+        align-content: center;
     }
 
     .box7tt{
@@ -569,17 +585,32 @@ td{
         color:rgba(37,46,71,1);
         line-height:22px;
     }
+
+    .b7-box{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
     .b7-chart{
-        float: right;
-        width: 52%;
+        // float: right;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 0.5;
+        // width: 52%;
+        margin: 0 6%;
         height: 360px;
     }
     .b7-ok{
         position: relative;
-        width: 42%;
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 0.5;
+        // width: 42%;
         height: 278px;
-        margin: 34px auto;
-        float: left;
+        margin: 34px 6%;
+        // float: left;
         background:#f5f7ff;
         .lt{
             position: absolute;
